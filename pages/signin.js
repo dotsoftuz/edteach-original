@@ -5,8 +5,8 @@ const SignIn = () => {
   return (
     <section className="container mx-auto grid grid-cols-1 gap-5 lg:grid-cols-12 h-screen">
       <div className="w-full col-span-1 mx-auto mt-6 lg:col-span-4 py-20">
-        <Link href="/" title="Kutty Home Page">
-          <a className="flex items-center justify-start">
+        <Link href="/">
+          <p className="flex items-center justify-start">
             <svg
               className="w-auto h-6"
               width="86"
@@ -28,7 +28,7 @@ const SignIn = () => {
                 fill="#7629C8"
               />
             </svg>
-          </a>
+          </p>
 
           <span className="sr-only">Kutty</span>
         </Link>
@@ -72,10 +72,10 @@ const SignIn = () => {
         <div className="my-6 space-y-2">
           <p className="text-xs text-gray-600">
             Don&apos;t have an account?
-            <Link href="#">
-              <a className="text-purple-700 hover:text-black">
+            <Link href="/signin">
+              <p className="text-purple-700 hover:text-black">
                 Create an account
-              </a>
+              </p>
             </Link>
           </p>
         </div>
