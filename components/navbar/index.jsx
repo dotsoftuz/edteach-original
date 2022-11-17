@@ -57,8 +57,8 @@ const Header = () => {
                 fill="none"
                 stroke="currentColor"
                 stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeLinecap="round"
+                strokeLinejoin="round"
                 aria-hidden="true"
                 className="w-5 h-5"
               >
@@ -78,8 +78,8 @@ const Header = () => {
                   fill="none"
                   stroke="currentColor"
                   stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                   aria-hidden="true"
                 >
                   <line x1="18" y1="6" x2="6" y2="18"></line>

@@ -36,12 +36,8 @@ const SignUp = () => {
               <span className="sr-only">Continue with</span> Apple
             </a>
           </div>
-          <div
-            className="text-center border-b border-gray-200"
-          >
-            <span
-              className="p-2 text-xs font-semibold tracking-wide text-gray-600 uppercase bg-white"
-            >
+          <div className="text-center border-b border-gray-200">
+            <span className="p-2 text-xs font-semibold tracking-wide text-gray-600 uppercase bg-white">
               Or
             </span>
           </div>
@@ -55,7 +51,7 @@ const SignUp = () => {
               className="form-input"
               type="email"
               placeholder="Ex. james@bond.com"
-              inputmode="email"
+              inputMode="email"
               required
             />
           </label>
@@ -116,13 +112,15 @@ const SignUp = () => {
             className="flex-none w-6 h-6 mt-1 text-purple-700"
           >
             <path
-              fill-rule="evenodd"
+              fillRule="evenodd"
               d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-              clip-rule="evenodd"
+              clipRule="evenodd"
             />
           </svg>
           <div>
-            <h2 className="text-xl font-medium text-purple-700">Free account</h2>
+            <h2 className="text-xl font-medium text-purple-700">
+              Free account
+            </h2>
             <p className="mt-1 text-gray-700">
               Create apps, connect databases and add-on services, and
               collaborate on your apps, for free.
@@ -137,9 +135,9 @@ const SignUp = () => {
             className="flex-none w-6 h-6 mt-1 text-purple-700"
           >
             <path
-              fill-rule="evenodd"
+              fillRule="evenodd"
               d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-              clip-rule="evenodd"
+              clipRule="evenodd"
             />
           </svg>
           <div>
@@ -160,9 +158,9 @@ const SignUp = () => {
             className="flex-none w-6 h-6 mt-1 text-purple-700"
           >
             <path
-              fill-rule="evenodd"
+              fillRule="evenodd"
               d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-              clip-rule="evenodd"
+              clipRule="evenodd"
             />
           </svg>
           <div>
@@ -181,13 +179,15 @@ const SignUp = () => {
             className="flex-none w-6 h-6 mt-1 text-purple-700"
           >
             <path
-              fill-rule="evenodd"
+              fillRule="evenodd"
               d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-              clip-rule="evenodd"
+              clipRule="evenodd"
             />
           </svg>
           <div>
-            <h2 className="text-xl font-medium text-purple-700">Free account</h2>
+            <h2 className="text-xl font-medium text-purple-700">
+              Free account
+            </h2>
             <p className="mt-1 text-gray-700">
               Create apps, connect databases and add-on services, and
               collaborate on your apps, for free.

@@ -2,12 +2,12 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <footer class="container mx-auto mt-10">
-      <div class="grid grid-cols-2 gap-10 mb-3 md:grid-cols-3 lg:grid-cols-11 lg:gap-20">
-        <div class="col-span-3">
-          <a href="#" title="Hellonext Home Page" class="flex items-center">
+    <footer className="container mx-auto mt-10">
+      <div className="grid grid-cols-2 gap-10 mb-3 md:grid-cols-3 lg:grid-cols-11 lg:gap-20">
+        <div className="col-span-3">
+          <a href="#" title="Hellonext Home Page" className="flex items-center">
             <svg
-              class="w-auto h-6"
+              className="w-auto h-6"
               width="86"
               height="24"
               fill="none"
@@ -27,142 +27,142 @@ const Footer = () => {
                 fill="#7629C8"
               />
             </svg>
-            <span class="sr-only">Kutty Home Page</span>
+            <span className="sr-only">Kutty Home Page</span>
           </a>
-          <p class="my-4 text-xs leading-normal text-gray-600">
+          <p className="my-4 text-xs leading-normal text-gray-600">
             Hosted in the EU 🇪🇺, with <strong>no user tracking</strong> scripts.
             Made all over the world by{" "}
-            <a href="#" class="underline" target="_blank">
+            <a href="#" className="underline" target="_blank">
               17 amazing people
             </a>
             .
           </p>
         </div>
-        <nav class="col-span-1 md:col-span-1 lg:col-span-2">
-          <p class="mb-3 text-xs font-semibold tracking-wider text-gray-400 uppercase">
+        <nav className="col-span-1 md:col-span-1 lg:col-span-2">
+          <p className="mb-3 text-xs font-semibold tracking-wider text-gray-400 uppercase">
             Product
           </p>
           <a
-            class="flex mb-3 text-sm font-medium text-gray-800 transition md:mb-2 hover:text-purple-800"
+            className="flex mb-3 text-sm font-medium text-gray-800 transition md:mb-2 hover:text-purple-800"
             href="#"
           >
             Features
           </a>
           <a
-            class="flex mb-3 text-sm font-medium text-gray-800 transition md:mb-2 hover:text-purple-800"
+            className="flex mb-3 text-sm font-medium text-gray-800 transition md:mb-2 hover:text-purple-800"
             href="#"
           >
             Pricing
           </a>
           <a
-            class="flex mb-3 text-sm font-medium text-gray-800 transition md:mb-2 hover:text-purple-800"
+            className="flex mb-3 text-sm font-medium text-gray-800 transition md:mb-2 hover:text-purple-800"
             href="#"
           >
             Feedback
           </a>
           <a
-            class="flex mb-3 text-sm font-medium text-gray-800 transition md:mb-2 hover:text-purple-800"
+            className="flex mb-3 text-sm font-medium text-gray-800 transition md:mb-2 hover:text-purple-800"
             href="#"
           >
             FAQs
           </a>
         </nav>
-        <nav class="col-span-2 md:col-span-1 lg:col-span-2">
-          <p class="mb-3 text-xs font-semibold tracking-wider text-gray-400 uppercase">
+        <nav className="col-span-2 md:col-span-1 lg:col-span-2">
+          <p className="mb-3 text-xs font-semibold tracking-wider text-gray-400 uppercase">
             Support
           </p>
           <a
-            class="flex mb-3 text-sm font-medium text-gray-800 transition md:mb-2 hover:text-purple-800"
+            className="flex mb-3 text-sm font-medium text-gray-800 transition md:mb-2 hover:text-purple-800"
             href="#"
           >
             Chat
           </a>
           <a
-            class="flex mb-3 text-sm font-medium text-gray-800 transition md:mb-2 hover:text-purple-800"
+            className="flex mb-3 text-sm font-medium text-gray-800 transition md:mb-2 hover:text-purple-800"
             href="#"
           >
             {" "}
             Email Support{" "}
           </a>
           <a
-            class="flex mb-3 text-sm font-medium text-gray-800 transition md:mb-2 hover:text-purple-800"
+            className="flex mb-3 text-sm font-medium text-gray-800 transition md:mb-2 hover:text-purple-800"
             href="#"
           >
             GDPR
           </a>
           <a
-            class="flex mb-3 text-sm font-medium text-gray-800 transition md:mb-2 hover:text-purple-800"
+            className="flex mb-3 text-sm font-medium text-gray-800 transition md:mb-2 hover:text-purple-800"
             href="#"
           >
             {" "}
             Help{" "}
           </a>
         </nav>
-        <nav class="col-span-1 md:col-span-1 lg:col-span-2">
-          <p class="mb-3 text-xs font-semibold tracking-wider text-gray-400 uppercase">
+        <nav className="col-span-1 md:col-span-1 lg:col-span-2">
+          <p className="mb-3 text-xs font-semibold tracking-wider text-gray-400 uppercase">
             Resources
           </p>
           <a
-            class="flex mb-3 text-sm font-medium text-gray-800 transition md:mb-2 hover:text-purple-800"
+            className="flex mb-3 text-sm font-medium text-gray-800 transition md:mb-2 hover:text-purple-800"
             href="#"
           >
             Blog
           </a>
           <a
-            class="flex mb-3 text-sm font-medium text-gray-800 transition md:mb-2 hover:text-purple-800"
+            className="flex mb-3 text-sm font-medium text-gray-800 transition md:mb-2 hover:text-purple-800"
             href="#"
           >
             {" "}
             Twitter{" "}
           </a>
           <a
-            class="flex mb-3 text-sm font-medium text-gray-800 transition md:mb-2 hover:text-purple-800"
+            className="flex mb-3 text-sm font-medium text-gray-800 transition md:mb-2 hover:text-purple-800"
             href="#"
           >
             Alternatives
           </a>
           <a
-            class="flex mb-3 text-sm font-medium text-gray-800 transition md:mb-2 hover:text-purple-800"
+            className="flex mb-3 text-sm font-medium text-gray-800 transition md:mb-2 hover:text-purple-800"
             href="#"
           >
             Why feature vote?
           </a>
         </nav>
-        <nav class="col-span-1 md:col-span-1 lg:col-span-2">
-          <p class="mb-3 text-xs font-semibold tracking-wider text-gray-400 uppercase">
+        <nav className="col-span-1 md:col-span-1 lg:col-span-2">
+          <p className="mb-3 text-xs font-semibold tracking-wider text-gray-400 uppercase">
             Company
           </p>
           <a
-            class="flex mb-3 text-sm font-medium text-gray-800 transition md:mb-2 hover:text-purple-800"
+            className="flex mb-3 text-sm font-medium text-gray-800 transition md:mb-2 hover:text-purple-800"
             href="#"
           >
             About Us
           </a>
           <a
-            class="flex mb-3 text-sm font-medium text-gray-800 transition md:mb-2 hover:text-purple-800"
+            className="flex mb-3 text-sm font-medium text-gray-800 transition md:mb-2 hover:text-purple-800"
             href="#"
           >
             Privacy
           </a>
           <a
-            class="flex mb-3 text-sm font-medium text-gray-800 transition md:mb-2 hover:text-purple-800"
+            className="flex mb-3 text-sm font-medium text-gray-800 transition md:mb-2 hover:text-purple-800"
             href="#"
           >
             Terms
           </a>
           <a
-            class="flex mb-3 text-sm font-medium text-gray-800 transition md:mb-2 hover:text-purple-800"
+            className="flex mb-3 text-sm font-medium text-gray-800 transition md:mb-2 hover:text-purple-800"
             href="#"
           >
             Status
           </a>
         </nav>
       </div>
-      <div class="flex flex-col items-start justify-between pt-10 mt-10 border-t border-gray-100 md:flex-row md:items-center">
-        <p class="mb-2 text-xs text-left text-gray-600 md:mb-0">
+      <div className="flex flex-col items-start justify-between pt-10 mt-10 border-t border-gray-100 md:flex-row md:items-center">
+        <p className="mb-2 text-xs text-left text-gray-600 md:mb-0">
           Built by Product Managers, for Product Managers.
         </p>
-        <p class="mb-0 text-xs text-left text-gray-600 md:mb-0">
+        <p className="mb-0 text-xs text-left text-gray-600 md:mb-0">
           Copyright &copy; 2020 Hellonext
         </p>
       </div>
