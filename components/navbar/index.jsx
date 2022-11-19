@@ -32,19 +32,17 @@ const Header = () => {
           </nav>
 
           <div className="hidden flex-1 items-center justify-end gap-4 sm:flex">
-            <a
-              className="rounded-lg bg-gray-100 px-5 py-2 text-sm font-medium text-gray-500"
-              href=""
-            >
-              Log in
-            </a>
+            <Link href="/signin">
+              <a className="rounded-lg bg-gray-100 px-5 py-2 text-sm font-medium text-gray-500">
+                Log in
+              </a>
+            </Link>
 
-            <a
-              className="rounded-lg bg-blue-600 px-5 py-2 text-sm font-medium text-white"
-              href=""
-            >
-              Sign up
-            </a>
+            <Link href="/signup">
+              <a className="rounded-lg bg-blue-600 px-5 py-2 text-sm font-medium text-white">
+                Sign up
+              </a>
+            </Link>
           </div>
 
           <div className="lg:hidden">
