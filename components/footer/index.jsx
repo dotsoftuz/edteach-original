@@ -160,7 +160,7 @@ const Footer = () => {
       </div>
       <div className="flex flex-col items-start justify-between pt-10 mt-10 border-t border-gray-100 md:flex-row md:items-center">
         <p className="mb-2 text-xs text-left text-gray-600 md:mb-0">
-          Built by Product Managers, for Product Managers.
+          Built by Product Managers, htmlFor Product Managers.
         </p>
         <p className="mb-0 text-xs text-left text-gray-600 md:mb-0">
           Copyright &copy; 2020 Hellonext
