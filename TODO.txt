@@ -19,6 +19,7 @@ Versetka:
   - 
 
 Aziz: 
+ - Sign In va Sign Up ❌
  - Firebase va Socket.io ni qo'shib chiqish (*Backend*) ❌
 
 Muhammad:

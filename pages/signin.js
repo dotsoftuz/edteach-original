@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 
 const SignIn = () => {
+  const [showPassword, setShowPassword] = useState(false);
   return (
     <div className="flex items-center justify-center h-screen">
       <div className="mx-auto max-w-lg">
@@ -59,13 +60,16 @@ const SignIn = () => {
 
             <div className="relative mt-1">
               <input
-                type="password"
+                type={showPassword ? "text" : "password"}
                 id="password"
                 className="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm"
                 placeholder="Enter password"
               />
 
-              <span className="absolute inset-y-0 right-4 inline-flex items-center">
+              <span
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute inset-y-0 right-4 inline-flex items-center cursor-pointer"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-5 w-5 text-gray-400"
