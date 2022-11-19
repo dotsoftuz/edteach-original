@@ -45,11 +45,11 @@ const Header = () => {
             <Link href="#">
               <a className="btn btn-sm btn-link">Company</a>
             </Link>
-            <Link href="#">
+            <Link href="/signin">
               <a className="btn btn-sm btn-link">Sign in</a>
             </Link>
           </div>
-          <Link href="#">
+          <Link href="/signup">
             <a className="btn btn-sm btn-primary">Get Started</a>
           </Link>
           <div className="inline-flex md:hidden" x-data="{ open: false }">
