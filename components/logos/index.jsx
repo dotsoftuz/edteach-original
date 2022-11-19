@@ -26,8 +26,8 @@ const Logos = () => {
         </div>
         <div className="flex items-center justify-center">
           <img
-            src="https://kutty.netlify.app/logos/typeform.svg"
-            alt="Typeform Logo"
+            src="https://kutty.netlify.app/logos/typehtmlForm.svg"
+            alt="TypehtmlForm Logo"
             className="block object-contain h-16"
           />
         </div>
