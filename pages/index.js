@@ -3,7 +3,8 @@ import Head from "next/head";
 import { useTheme } from "next-themes";
 import { useRouter } from "next/router";
 
-import { Header, About, Logos } from '../components'
+import { Header, About, Logos, Navbar, Footer } from "../components";
+import Dashboard from "./dashboard";
 
 export default function Home() {
   const [mounted, setMounted] = useState(false);
@@ -23,9 +24,11 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
+        <Navbar />
         <Header />
         <About />
         <Logos />
+        <Footer />
       </main>
     </div>
   );

@@ -1,7 +1,10 @@
 import React from "react";
 import Link from "next/link";
+import { useUserContext } from "../../context/userContext";
 
 const SignUp = () => {
+  const { setRegistry } = useUserContext();
+
   return (
     <div className="flex items-center justify-center h-screen">
       <div className="mx-auto max-w-lg">
@@ -21,7 +24,7 @@ const SignUp = () => {
           <p className="text-lg font-medium">Sign up</p>
 
           <div>
-            <label for="fullname" className="text-sm font-medium">
+            <label htmlFor="fullname" className="text-sm font-medium">
               Full name
             </label>
 
@@ -42,9 +45,9 @@ const SignUp = () => {
                   stroke="currentColor"
                 >
                   <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
                     d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"
                   />
                 </svg>
@@ -53,7 +56,7 @@ const SignUp = () => {
           </div>
 
           <div>
-            <label for="usertype" className="text-sm font-medium">
+            <label htmlFor="usertype" className="text-sm font-medium">
               User type
             </label>
 
@@ -74,9 +77,9 @@ const SignUp = () => {
                   stroke="currentColor"
                 >
                   <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
                     d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"
                   />
                 </svg>
@@ -85,7 +88,7 @@ const SignUp = () => {
           </div>
 
           <div>
-            <label for="email" className="text-sm font-medium">
+            <label htmlFor="email" className="text-sm font-medium">
               Email
             </label>
 
@@ -106,9 +109,9 @@ const SignUp = () => {
                   stroke="currentColor"
                 >
                   <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
                     d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"
                   />
                 </svg>
@@ -117,7 +120,7 @@ const SignUp = () => {
           </div>
 
           <div>
-            <label for="password" className="text-sm font-medium">
+            <label htmlFor="password" className="text-sm font-medium">
               Password
             </label>
 
@@ -138,15 +141,15 @@ const SignUp = () => {
                   stroke="currentColor"
                 >
                   <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
                     d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
                   />
                   <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
                     d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
                   />
                 </svg>
@@ -163,9 +166,8 @@ const SignUp = () => {
 
           <p className="text-center text-sm text-gray-500">
             Already have a account?
-            <Link href="/signin">
-              <a className="underline">Sign In</a>
-            </Link>
+            <br />
+            <span className="cursor-pointer" onClick={() => setRegistry(false)}>Sign In</span>
           </p>
         </form>
       </div>
