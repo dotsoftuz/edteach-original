@@ -11,6 +11,7 @@ const Header = () => {
               <span >Logo</span>
               {/* <span className="h-10 w-20 rounded-lg bg-gray-200"></span> */}
             </Link>
+
           </div>
 
           <nav
@@ -36,8 +37,9 @@ const Header = () => {
               className="rounded-lg bg-blue-600 px-5 py-2 text-sm font-medium text-white"
               href="/dashboard"
             >
-                Kirish
+              Kirish
             </Link>
+
 
           </div>
 

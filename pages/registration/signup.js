@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import { useUserContext } from "../../context/userContext";
 
 const SignUp = () => {
   const { setRegistry } = useUserContext();
 
+  const [showPassword, setShowPassword] = useState(false);
   return (
     <div className="flex items-center justify-center h-screen">
       <div className="mx-auto max-w-lg">
@@ -17,7 +18,7 @@ const SignUp = () => {
           sunt dolores deleniti inventore quaerat mollitia?
         </p>
 
-        <form
+        <htmlForm
           action=""
           className="mt-6 mb-0 space-y-4 rounded-lg p-8 shadow-2xl"
         >
@@ -126,13 +127,16 @@ const SignUp = () => {
 
             <div className="relative mt-1">
               <input
-                type="password"
+                type={showPassword ? "text" : "password"}
                 id="password"
                 className="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm"
                 placeholder="Enter password"
               />
 
-              <span className="absolute inset-y-0 right-4 inline-flex items-center">
+              <span
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute inset-y-0 right-4 inline-flex items-center"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-5 w-5 text-gray-400"
@@ -167,9 +171,11 @@ const SignUp = () => {
           <p className="text-center text-sm text-gray-500">
             Already have a account?
             <br />
-            <span className="cursor-pointer" onClick={() => setRegistry(false)}>Sign In</span>
+            <span className="cursor-pointer" onClick={() => setRegistry(false)}>
+              Sign In
+            </span>
           </p>
-        </form>
+        </htmlForm>
       </div>
     </div>
   );

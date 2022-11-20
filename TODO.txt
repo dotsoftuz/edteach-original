@@ -1,4 +1,4 @@
-For copy and paste: Check - ✔️, Not done - ❌;
+htmlFor copy and paste: Check - ✔️, Not done - ❌;
 
 ⚠️ <a> tegini o'rniga <Link> ishlatila | <img> tagi o'rniga <Image> ishlatila  ⚠️
 
@@ -19,6 +19,7 @@ Versetka:
   - 
 
 Aziz: 
+ - Sign In va Sign Up ❌
  - Firebase va Socket.io ni qo'shib chiqish (*Backend*) ❌
 
 Muhammad:

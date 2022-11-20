@@ -9,7 +9,7 @@ import { ThemeDarkProvider } from "./App/components/ThemeContext";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <ThemeProvider defaultTheme="system" enableSystem={true} attribute="class">
+    <ThemeProvider defaultTheme="light" enableSystem={true} attribute="class">
       <ThemeDarkProvider>
         <UserContextProvider>
           <Component {...pageProps} />
