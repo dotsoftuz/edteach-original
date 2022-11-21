@@ -8,14 +8,11 @@ import { GrTest } from "react-icons/gr";
 
 import { useState } from "react";
 import { BiSearch } from "react-icons/bi";
-import {
-  BsFillStarFill,
-  BsPlusCircleFill,
-} from "react-icons/bs";
+import { BsFillStarFill, BsPlusCircleFill } from "react-icons/bs";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
 const Sidebar = () => {
-  const [sidebarShow, setSidebarShow] = useState(true);
+  const [sidebarShow, setSidebarShow] = useState(false);
 
   const toggleSidebar = () => {
     setSidebarShow(!sidebarShow);
@@ -101,12 +98,15 @@ const Sidebar = () => {
             />
           </div>
           <div className="px-1">
-            <small className="text-xs font-medium text-[#161925] dark:text-gray-500 uppercase py-2">
+            <small className="text-xs font-medium text-[#161925] dark:text-gray-500 uppercase py-2 mb-2">
               Overview
             </small>
             <div>
               {Menus.map((item) => (
-                <div key={item.title} className="flex items-center dark:text-white p-3 rounded-lg cursor-default hover:bg-gray-300 group">
+                <div
+                  key={item.title}
+                  className="flex items-center dark:text-white p-3 rounded-lg cursor-default hover:bg-gray-300 group"
+                >
                   <span className="text-2xl">{item.icon}</span>
                   <h1 className={sidebarShow ? listTextDefaultClass : "hidden"}>
                     {item.title}
@@ -120,7 +120,6 @@ const Sidebar = () => {
               Add new
             </small>
           </div>
-          <div></div>
           <div className="flex flex-col items-center justify-center cursor-pointer border hover:border-gray-500 hover:dark:border-white py-4 rounded-lg bg-[#f2f3f7] dark:bg-[#323435]">
             <BsPlusCircleFill className="text-[#3f8dfd] text-3xl bg-white rounded-full shadow-xl" />
             <small
