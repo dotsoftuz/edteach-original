@@ -1,9 +1,8 @@
 import React from 'react';
-import { Footer, Navbar } from '../../components';
-import Loader from '../../components/Loader/Loader';
+import { Footer, Navbar, Loader } from '../../components';
 import { useUserContext } from '../../context/userContext';
-import App from '../App';
-import Registration from '../registration';
+import App from '../../app';
+import Registration from '../../app/layout/index';
 
 
 function Dashboard(props) {

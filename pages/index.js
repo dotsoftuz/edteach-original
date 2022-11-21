@@ -1,16 +1,10 @@
 import { useState, useEffect } from "react";
 import Head from "next/head";
-import { useTheme } from "next-themes";
-import { useRouter } from "next/router";
 
 import { Header, About, Logos, Navbar, Footer } from "../components";
-import Dashboard from "./dashboard";
 
 export default function Home() {
   const [mounted, setMounted] = useState(false);
-  const { theme, setTheme } = useTheme();
-  const router = useRouter();
-  const { locale } = router;
 
   // When mounted on client, now we can show the UI
   useEffect(() => setMounted(true), []);

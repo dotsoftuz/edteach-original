@@ -6,7 +6,7 @@ import { AiFillPieChart } from "react-icons/ai";
 import { SiFuturelearn } from "react-icons/si";
 import { SiOpenaccess } from "react-icons/si";
 import { CgProfile } from "react-icons/cg";
-import Logo from "../assets/images/logo.svg";
+import Logo from "../../public/images/logo.svg";
 import Image from "next/image";
 
 const Sidebar = () => {

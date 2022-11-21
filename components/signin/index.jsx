@@ -1,5 +1,4 @@
 import React, { useState, useRef } from "react";
-import Link from "next/link";
 import { useUserContext } from "../../context/userContext";
 const SignIn = () => {
   const emailRef = useRef();
