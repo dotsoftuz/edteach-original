@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import React from 'react';
 
 function tests(props) {
@@ -12,11 +13,26 @@ function tests(props) {
 export default tests;
 =======
 import React from "react";
+=======
+import React, { useEffect, useState } from "react";
+>>>>>>> 66b241f97ab6369f9855c3675918b832b243f66b
 import Head from "next/head";
 
 import { Sidebar } from "../../components";
+import { collection, onSnapshot } from "firebase/firestore";
+import { db } from "../../firebase";
 
 const Tests = () => {
+  const [questions, setQuestions] = useState([]);
+
+  const questColl = collection(db, `question`);
+
+  useEffect(() => {
+    onSnapshot(questColl, (snapshot) =>
+      setQuestions(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
+    );
+  }, []);
+
   return (
     <div>
       <Head>
@@ -25,11 +41,22 @@ const Tests = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Sidebar>
-        <div className="p-5">This is a Tests page</div>
+        <div className="p-5">
+          {questions.map((item) => {
+            return (
+              <div key={item.id}>
+                <h1>{item.title}</h1>
+              </div>
+            )
+          })}
+        </div>
       </Sidebar>
     </div>
   );
 };
 
 export default Tests;
+<<<<<<< HEAD
 >>>>>>> a111fa781ad9150c7b94b1b4178528e350163136
+=======
+>>>>>>> 66b241f97ab6369f9855c3675918b832b243f66b

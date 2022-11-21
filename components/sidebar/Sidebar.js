@@ -6,8 +6,7 @@ import { SiConcourse } from "react-icons/si";
 import { FiUser, FiLink } from "react-icons/fi";
 import { GrTest } from "react-icons/gr";
 import { useState } from "react";
-import { BiSearch } from "react-icons/bi";
-import { BsFillStarFill, BsPlusCircleFill } from "react-icons/bs";
+import { BsPlusCircleFill } from "react-icons/bs";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
 const Sidebar = ({ children }) => {
@@ -28,6 +27,7 @@ const Sidebar = ({ children }) => {
     { title: "Foydali", path: "/dashboard/useful", icon: <FiLink /> },
     { title: "Profil", path: "/dashboard/profile", icon: <FiUser /> },
     { title: "Chiqish", path: "", icon: <IoExitOutline />, red: true },
+    { title: "Create test", path: "/dashboard/createtest", icon: <IoExitOutline />, red: true },
   ];
 
   const closeAndOpenDefaultClass =
@@ -75,22 +75,22 @@ const Sidebar = ({ children }) => {
             <small className="text-xs font-medium text-[#161925] dark:text-gray-500 uppercase py-2 mb-2">
               Overview
             </small>
-
             <div>
               {Menus.map((item) => (
-                <Link href={item.path}>
-                  <div
-                    key={item.title}
-                    className="flex items-center dark:text-white p-3 rounded-lg cursor-default hover:bg-gray-300 group"
-                  >
-                    <span className="text-2xl">{item.icon}</span>
-                    <h1
-                      className={sidebarShow ? listTextDefaultClass : "hidden"}
-                    >
-                      {item.title}
-                    </h1>
-                  </div>
-                </Link>
+                <div key={item.title}>
+                  <Link href={item.path}>
+                    <div className="flex items-center dark:text-white p-3 rounded-lg cursor-pointer hover:bg-gray-300 group">
+                      <span className="text-2xl">{item.icon}</span>
+                      <h1
+                        className={
+                          sidebarShow ? listTextDefaultClass : "hidden"
+                        }
+                      >
+                        {item.title}
+                      </h1>
+                    </div>
+                  </Link>
+                </div>
               ))}
             </div>
           </div>
@@ -112,9 +112,8 @@ const Sidebar = ({ children }) => {
             </small>
           </div>
           <div
-            className={`${
-              sidebarShow ? "block" : "hidden"
-            } absolute bottom-2 leading-snug`}
+            className={`${sidebarShow ? "block" : "hidden"
+              } absolute bottom-2 leading-snug`}
           >
             <h3 className="text-sm font-medium truncate">EdTeach - quiz app</h3>
             <Link href="https://dotsoft.uz">
