@@ -6,8 +6,7 @@ import { SiConcourse } from "react-icons/si";
 import { FiUser, FiLink } from "react-icons/fi";
 import { GrTest } from "react-icons/gr";
 import { useState } from "react";
-import { BiSearch } from "react-icons/bi";
-import { BsFillStarFill, BsPlusCircleFill } from "react-icons/bs";
+import { BsPlusCircleFill } from "react-icons/bs";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
 const Sidebar = ({ children }) => {
@@ -78,19 +77,20 @@ const Sidebar = ({ children }) => {
             </small>
             <div>
               {Menus.map((item) => (
-                <Link href={item.path}>
-                  <div
-                    key={item.title}
-                    className="flex items-center dark:text-white p-3 rounded-lg cursor-default hover:bg-gray-300 group"
-                  >
-                    <span className="text-2xl">{item.icon}</span>
-                    <h1
-                      className={sidebarShow ? listTextDefaultClass : "hidden"}
-                    >
-                      {item.title}
-                    </h1>
-                  </div>
-                </Link>
+                <div key={item.title}>
+                  <Link href={item.path}>
+                    <div className="flex items-center dark:text-white p-3 rounded-lg cursor-pointer hover:bg-gray-300 group">
+                      <span className="text-2xl">{item.icon}</span>
+                      <h1
+                        className={
+                          sidebarShow ? listTextDefaultClass : "hidden"
+                        }
+                      >
+                        {item.title}
+                      </h1>
+                    </div>
+                  </Link>
+                </div>
               ))}
             </div>
           </div>
