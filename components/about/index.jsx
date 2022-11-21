@@ -1,11 +1,11 @@
 import React from "react";
 import Link from "next/link";
 import Image from 'next/image';
-import aboutImg1 from "../../public/example/about-img1.jpg"
-import aboutImg2 from "../../public/example/about-img2.jpg"
-import aboutImg3 from "../../public/example/about-img3.jpg"
-import aboutImg4 from "../../public/example/about-img4.jpg"
-import aboutImg5 from "../../public/example/about-img5.jpg"
+import aboutImg1 from "../../public/images/about-img1.jpg"
+import aboutImg2 from "../../public/images/about-img2.jpg"
+import aboutImg3 from "../../public/images/about-img3.jpg"
+import aboutImg4 from "../../public/images/about-img4.jpg"
+import aboutImg5 from "../../public/images/about-img5.jpg"
 
 const About = () => {
 

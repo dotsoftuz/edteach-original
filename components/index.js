@@ -12,3 +12,7 @@ export { default as SignUp } from "./signup/index";
 // Sections
 export { default as Header } from "./header/index";
 export { default as About } from "./about/index";
+
+
+// Contact
+export { default as Contact } from "./contact/index";
