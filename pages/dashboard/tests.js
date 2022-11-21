@@ -3,7 +3,7 @@ import Head from "next/head";
 
 import { Sidebar } from "../../components";
 
-const Course = () => {
+const Tests = () => {
   return (
     <div>
       <Head>
@@ -12,10 +12,10 @@ const Course = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Sidebar>
-        <div className="p-5">This is a course page</div>
+        <div className="p-5">This is a Tests page</div>
       </Sidebar>
     </div>
   );
 };
 
-export default Course;
+export default Tests;

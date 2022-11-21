@@ -11,7 +11,7 @@ import { BiSearch } from "react-icons/bi";
 import { BsFillStarFill, BsPlusCircleFill } from "react-icons/bs";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
-const Sidebar = () => {
+const Sidebar = ({ children }) => {
   const [sidebarShow, setSidebarShow] = useState(false);
 
   const toggleSidebar = () => {
@@ -24,10 +24,10 @@ const Sidebar = () => {
       path: "/dashboard",
       icon: <MdOutlineSpaceDashboard />,
     },
-    { title: "Kurslar", path: "/course", icon: <SiConcourse /> },
-    { title: "Profil", path: "/profile", icon: <FiUser /> },
-    { title: "Testlar", path: "/tests", icon: <GrTest /> },
-    { title: "Chiqish", path: "/login", icon: <IoExitOutline />, red: true },
+    { title: "Kurslar", path: "/dashboard/course", icon: <SiConcourse /> },
+    { title: "Testlar", path: "/dashboard/tests", icon: <GrTest /> },
+    { title: "Profil", path: "/dashboard/profile", icon: <FiUser /> },
+    { title: "Chiqish", path: "", icon: <IoExitOutline />, red: true },
   ];
 
   const closeAndOpenDefaultClass =
@@ -37,8 +37,8 @@ const Sidebar = () => {
     "text-gray-700 dark:text-white font-semibold ml-4 cursor-pointer";
 
   return (
-    <>
-      <div
+    <div className="flex">
+      <aside
         className={
           sidebarShow
             ? "w-[20rem] h-screen bg-gray-200 dark:bg-[#161819] shadow-xl duration-200"
@@ -103,15 +103,19 @@ const Sidebar = () => {
             </small>
             <div>
               {Menus.map((item) => (
-                <div
-                  key={item.title}
-                  className="flex items-center dark:text-white p-3 rounded-lg cursor-default hover:bg-gray-300 group"
-                >
-                  <span className="text-2xl">{item.icon}</span>
-                  <h1 className={sidebarShow ? listTextDefaultClass : "hidden"}>
-                    {item.title}
-                  </h1>
-                </div>
+                <Link href={item.path}>
+                  <div
+                    key={item.title}
+                    className="flex items-center dark:text-white p-3 rounded-lg cursor-default hover:bg-gray-300 group"
+                  >
+                    <span className="text-2xl">{item.icon}</span>
+                    <h1
+                      className={sidebarShow ? listTextDefaultClass : "hidden"}
+                    >
+                      {item.title}
+                    </h1>
+                  </div>
+                </Link>
               ))}
             </div>
           </div>
@@ -145,8 +149,10 @@ const Sidebar = () => {
             </Link>
           </div>
         </div>
-      </div>
-    </>
+      </aside>
+
+      <main>{children}</main>
+    </div>
   );
 };
 
