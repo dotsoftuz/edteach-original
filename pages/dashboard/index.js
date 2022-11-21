@@ -5,6 +5,7 @@ import { Loader } from "../../components";
 import App from "../../app";
 import Registration from "../../app/layout/index";
 import { useUserContext } from "../../context/userContext";
+import { Sidebar } from "../../components";
 
 function Dashboard(props) {
   const { user, loading } = useUserContext();
