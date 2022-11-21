@@ -9,15 +9,10 @@ import { GrTest } from "react-icons/gr";
 import { useState } from "react";
 import { BiSearch } from "react-icons/bi";
 import {
-  BsBasket2Fill,
-  BsCompassFill,
   BsFillStarFill,
-  BsFolderFill,
-  BsInboxesFill,
   BsPlusCircleFill,
 } from "react-icons/bs";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
-import { MdDashboardCustomize, MdSavings } from "react-icons/md";
 
 const Sidebar = () => {
   const [sidebarShow, setSidebarShow] = useState(true);
