@@ -106,7 +106,7 @@ const Sidebar = () => {
             </small>
             <div>
               {Menus.map((item) => (
-                <div className="flex items-center dark:text-white p-3 rounded-lg cursor-default hover:bg-gray-300 group">
+                <div key={item.title} className="flex items-center dark:text-white p-3 rounded-lg cursor-default hover:bg-gray-300 group">
                   <span className="text-2xl">{item.icon}</span>
                   <h1 className={sidebarShow ? listTextDefaultClass : "hidden"}>
                     {item.title}
