@@ -27,6 +27,15 @@ const Sidebar = ({ children }) => {
     { title: "Foydali", path: "/dashboard/useful", icon: <FiLink /> },
     { title: "Profil", path: "/dashboard/profile", icon: <FiUser /> },
     { title: "Chiqish", path: "", icon: <IoExitOutline />, red: true },
+<<<<<<< HEAD
+=======
+    {
+      title: "Create test",
+      path: "/dashboard/createtest",
+      icon: <IoExitOutline />,
+      red: true,
+    },
+>>>>>>> 91bf1e34f1400048182c2bee0a49847ff06e154b
   ];
 
   const closeAndOpenDefaultClass =
@@ -76,6 +85,7 @@ const Sidebar = ({ children }) => {
             <small className="text-xs font-medium text-[#161925] dark:text-gray-500 uppercase py-2 mb-2">
               Overview
             </small>
+
             <div>
               {Menus.map((item) => (
                 <div key={item.title}>
@@ -115,9 +125,8 @@ const Sidebar = ({ children }) => {
             </div>
           </Link>
           <div
-            className={`${
-              sidebarShow ? "block" : "hidden"
-            } absolute bottom-2 leading-snug`}
+            className={`${sidebarShow ? "block" : "hidden"
+              } absolute bottom-2 leading-snug`}
           >
             <h3 className="text-sm font-medium truncate">EdTeach - quiz app</h3>
             <Link href="https://dotsoft.uz">
