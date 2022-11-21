@@ -73,7 +73,7 @@ const Sidebar = () => {
             </small>
             <ul>
               {Menus.map((menu, index) => (
-                <Link href={menu.path} key={index}>
+                <Link href={"dashboard" + menu.path} key={index}>
                   <li
                     className={`flex items-center gap-x-6 p-3 text-base font-normal rounded-lg cursor-pointer dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700
                         ${menu.gap ? "mt-9" : "mt-2"} ${
