@@ -8,12 +8,17 @@
     "start": "next start",
     "lint": "next lint"
   },
+  "engines": {
+    "node": ">=14.0.0",
+    "yarn": ">=1.22.0",
+    "npm": "please-use-yarn"
+  },
   "dependencies": {
     "firebase": "^9.14.0",
     "kutty": "^0.6.0",
     "next": "12.1.6",
     "next-i18next": "^11.0.0",
-    "ne xt-themes": "^0.2.0",
+    "next-themes": "^0.2.0",
     "react": "18.1.0",
     "react-dom": "18.1.0",
     "react-icons": "^4.4.0",

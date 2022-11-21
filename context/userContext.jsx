@@ -7,7 +7,7 @@ import {
   createUserWithEmailAndPassword,
   sendEmailVerification,
 } from "firebase/auth";
-import { auth, db } from "../api/firebase";
+import { auth, db } from "../firebase";
 import { toast } from "react-toastify";
 import { doc, setDoc } from "firebase/firestore";
 
