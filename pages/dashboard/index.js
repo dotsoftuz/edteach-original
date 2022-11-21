@@ -7,6 +7,7 @@ import App from "../../app";
 import { Layout } from "../../app/layout/index";
 
 import { useUserContext } from "../../context/userContext";
+import { Sidebar } from "../../components";
 
 function Dashboard() {
   const { user, loading } = useUserContext();

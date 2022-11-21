@@ -5,10 +5,9 @@ const Layout = ({ children }) => {
   return (
     <>
       <div className="flex flex-auto">
-        <Sidebar />
-        <div className="grow">
-          <div className="m-5">{children}</div>
-        </div>
+        <Sidebar>
+          <div>this is dashboard home page</div>
+        </Sidebar>
       </div>
     </>
   );
