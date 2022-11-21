@@ -27,7 +27,12 @@ const Sidebar = ({ children }) => {
     { title: "Foydali", path: "/dashboard/useful", icon: <FiLink /> },
     { title: "Profil", path: "/dashboard/profile", icon: <FiUser /> },
     { title: "Chiqish", path: "", icon: <IoExitOutline />, red: true },
-    { title: "Create test", path: "/dashboard/createtest", icon: <IoExitOutline />, red: true },
+    {
+      title: "Create test",
+      path: "/dashboard/createtest",
+      icon: <IoExitOutline />,
+      red: true,
+    },
   ];
 
   const closeAndOpenDefaultClass =
@@ -75,6 +80,7 @@ const Sidebar = ({ children }) => {
             <small className="text-xs font-medium text-[#161925] dark:text-gray-500 uppercase py-2 mb-2">
               Overview
             </small>
+
             <div>
               {Menus.map((item) => (
                 <div key={item.title}>

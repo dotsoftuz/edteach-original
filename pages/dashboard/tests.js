@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import React from 'react';
 
 function tests(props) {
@@ -14,6 +15,9 @@ export default tests;
 =======
 import React from "react";
 =======
+=======
+
+>>>>>>> e01bbe5fdbc44f06bd50f2a932d69b58c179e069
 import React, { useEffect, useState } from "react";
 >>>>>>> 66b241f97ab6369f9855c3675918b832b243f66b
 import Head from "next/head";
