@@ -10,9 +10,9 @@ Versetka:
   - How does work?
   - Footer ✔️
 
- 2. Login vs Signup page: 
+ 2. Login and Signup page: 
   - UI ✔️
-  - Login ❌
+  - Login ✔️
   - Signup and Google ❌
 
 3. Create test: ❌

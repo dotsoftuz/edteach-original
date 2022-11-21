@@ -12,6 +12,7 @@ const Footer = () => {
             title="Company"
 
           >
+           
             <a className="inline-flex items-center">
 
               {/* logo qo&apos;yilishi mumkin */}
