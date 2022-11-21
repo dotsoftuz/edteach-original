@@ -1,6 +1,5 @@
 import React from "react";
 import Link from "next/link";
-import Image from 'next/image';
 
 const About = () => {
 
@@ -113,7 +112,7 @@ const About = () => {
                 O`zaro hamkorlik
               </h5>
               <p className="text-sm font-medium text-primary">
-                An'anaviy hamda masofaviy ta'lim shakllarida interaktiv ta'lim
+                An&apos;anaviy hamda masofaviy ta&apos;lim shakllarida interaktiv ta&apos;lim
                 metodini taklif etamiz
               </p>
             </div>
@@ -136,8 +135,8 @@ const About = () => {
                 Qiziqarli talim
               </h5>
               <p className="text-sm font-medium text-primary">
-                Virtual ta'limda ta'lim beruvchi hamda ta'lim oluvchilar uchun
-                o'ziga xos, interaktiv web-platforma
+                Virtual ta&apos;limda ta&apos;lim beruvchi hamda ta&apos;lim oluvchilar uchun
+                o&apos;ziga xos, interaktiv web-platforma
               </p>
             </div>
           </div>
@@ -159,7 +158,7 @@ const About = () => {
                 Kreativ baholash
               </h5>
               <p className="text-sm font-medium text-primary leading-1">
-                Baholashning innovatsion usullaridan foydalanish orqali to'liq
+                Baholashning innovatsion usullaridan foydalanish orqali to&apos;liq
                 avtomatlashtirilgan web-platforma{" "}
               </p>
             </div>
@@ -169,19 +168,19 @@ const About = () => {
           <Link href="/auth">
             <a
               href="#_"
-              class="inline-flex items-center justify-center w-full px-6 py-3 mb-2 text-lg text-white bg-green-400 rounded-2xl sm:w-auto sm:mb-0"
+              className="inline-flex items-center justify-center w-full px-6 py-3 mb-2 text-lg text-white bg-green-400 rounded-2xl sm:w-auto sm:mb-0"
             >
               Hoziroq boshlang
               <svg
-                class="w-4 h-4 ml-1"
+                className="w-4 h-4 ml-1"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 20"
                 fill="currentColor"
               >
                 <path
-                  fill-rule="evenodd"
+                  fillRule="evenodd"
                   d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                  clip-rule="evenodd"
+                  clipRule="evenodd"
                 ></path>
               </svg>
             </a>

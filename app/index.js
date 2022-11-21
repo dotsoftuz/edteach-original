@@ -1,7 +1,7 @@
 import React from "react";
-import Layout from "./components/Layout";
+import Layout from "../components/sidebar/Layout";
 
-function App(props) {
+function App() {
   return (
     <div>
       <Layout />
