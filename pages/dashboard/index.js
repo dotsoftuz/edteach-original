@@ -2,17 +2,15 @@ import React from "react";
 import { Loader } from "../../components";
 import { useUserContext } from "../../context/userContext";
 import App from "../../app";
-import Registration from "../../app/layout/index";
+import {Layout} from "../../app/layout/index";
 
-function Dashboard(props) {
+function Dashboard() {
   const { user, loading } = useUserContext();
   if (loading) {
     return <Loader />;
   }
   return (
-    <div>
-      {loading ? <Loader /> : <> {user ? <App /> : <Registration />}</>}
-    </div>
+    <div>{loading ? <Loader /> : <> {user ? <App /> : <Layout />}</>}</div>
   );
 }
 

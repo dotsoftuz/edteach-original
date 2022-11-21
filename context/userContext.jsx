@@ -48,13 +48,12 @@ export const UserContextProvider = ({ children }) => {
       .finally(() => setLoading(false));
   };
 
-  const registerUser = async (email, password, name, surname, coName) => {
+  const registerUser = async (email, password, fullName, coName) => {
     setLoading(true);
 
     createUserWithEmailAndPassword(auth, email, password)
       .then(() => {
-        sendEmailVerification(auth.currentUser);
-        createCategory(email, name, surname, coName);
+        createCategory(email, fullName, coName);
       })
       .catch(() => {
         toast.error("Foydalanuvchi topilmadi yoki noto`g`ri password");
@@ -63,7 +62,7 @@ export const UserContextProvider = ({ children }) => {
     setLoading(false);
   };
 
-  const createCategory = async (email, name, surname, coName) => {
+  const createCategory = async (email, fullName, coName) => {
     setLoading(true);
     try {
       const docRef = doc(db, ` users/${auth.currentUser.uid}/category`, "all");
@@ -75,13 +74,13 @@ export const UserContextProvider = ({ children }) => {
       const docUser = doc(db, users, auth.currentUser.uid);
 
       await setDoc(docUser, {
-        name: name,
-        surname: surname,
+        fullName: fullName,
+
         email: email,
         coName: coName,
         address: "",
         phone: "",
-        curr: "USD",
+   
         timestamp: new Date(),
         prefixtime: new Date().getTime(),
         payment: true,

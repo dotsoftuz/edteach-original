@@ -9,7 +9,6 @@ const Header = () => {
           <div className="flex lg:w-0 lg:flex-1">
             <Link href="/">
               <span >Logo</span>
-              {/* <span className="h-10 w-20 rounded-lg bg-gray-200"></span> */}
             </Link>
 
           </div>

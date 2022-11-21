@@ -1,10 +1,9 @@
 import React from "react";
 import { Footer, Navbar } from "../../components";
 import { useUserContext } from "../../context/userContext";
-import SignIn from "../../components";
-import SignUp from "../../components";
+import {SignIn, SignUp} from "../../components";
 
-function Registration(props) {
+export function Layout() {
   const { registry } = useUserContext();
   return (
     <div>
@@ -15,4 +14,3 @@ function Registration(props) {
   );
 }
 
-export default Registration;
