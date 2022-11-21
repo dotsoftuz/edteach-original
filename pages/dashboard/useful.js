@@ -1,22 +1,9 @@
-<<<<<<< HEAD
-import React from 'react';
-
-function tests(props) {
-    return (
-        <div>
-            tests
-        </div>
-    );
-}
-
-export default tests;
-=======
 import React from "react";
 import Head from "next/head";
 
 import { Sidebar } from "../../components";
 
-const Tests = () => {
+const Useful = () => {
   return (
     <div>
       <Head>
@@ -25,11 +12,10 @@ const Tests = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Sidebar>
-        <div className="p-5">This is a Tests page</div>
+        <div className="p-5">This is a Useful page</div>
       </Sidebar>
     </div>
   );
 };
 
-export default Tests;
->>>>>>> a111fa781ad9150c7b94b1b4178528e350163136
+export default Useful;
