@@ -1,5 +1,11 @@
 import React from "react";
 import Link from "next/link";
+import Image from 'next/image';
+import aboutImg1 from "../../public/example/about-img1.jpg"
+import aboutImg2 from "../../public/example/about-img2.jpg"
+import aboutImg3 from "../../public/example/about-img3.jpg"
+import aboutImg4 from "../../public/example/about-img4.jpg"
+import aboutImg5 from "../../public/example/about-img5.jpg"
 
 const About = () => {
 
@@ -9,17 +15,18 @@ const About = () => {
         <ul className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-10 justify-items-center w-fit px-5 md:px-0">
           <li className="snap-center w-full md:w-[40vw] lg:w-[35vw] rounded-3xl">
             <div className="relative flex-shrink-0 w-full">
-              <img
-                src="https://blog.cambridgecoaching.com/hs-fs/hubfs/studying-1.jpg?width=1365&name=studying-1.jpg"
-                className="absolute rounded-3xl inset-0 w-full h-full object-cover object-center"
-                alt="project images"
-              />
+              <div className="about-img absolute  w-full h-full">
+                <Image
+                  src={aboutImg1}
+                  alt="project images"
+                />
+              </div>
               <div className="absolute inset-0 h-full w-full bg-gradient-to-br from-black/30  rounded-3xl" />
               <div className="relative h-64 md:h-96 w-full py-8 px-5 md:p-8 lg:p-12 flex flex-col justify-between items-start">
                 <div>
                   <p className="text-lg md:text-2xl font-medium text-white"></p>
                   <h2 className="mt-3 w-2/3 text-2xl md:text-3xl font-semibold tracking-tight text-white">
-                   Biz bilan oson o`rganing!
+                    Biz bilan oson o`rganing!
                   </h2>
                 </div>
                 <Link href="/auth">
@@ -32,17 +39,18 @@ const About = () => {
           </li>
           <li className="snap-center w-full md:w-[40vw] lg:w-[35vw] rounded-3xl">
             <div className="relative flex-shrink-0 w-full">
-              <img
-                src="https://www.edgeip.com/images/FCK/Image/201812/Applying-to-university-college.jpg"
-                className="absolute rounded-3xl inset-0 w-full h-full object-cover object-center"
-                alt="project images"
-              />
+              <div className="about-img absolute  w-full h-full ">
+                <Image
+                  src={aboutImg2}
+                  alt="project images"
+                />
+              </div>
               <div className="absolute inset-0 h-full w-full bg-gradient-to-br from-black/30  rounded-3xl" />
               <div className="relative h-64 md:h-96 w-full py-8 px-5 md:p-8 lg:p-12 flex flex-col justify-between items-start">
                 <div>
                   <p className="text-lg md:text-2xl font-medium text-white"></p>
                   <h2 className="mt-3 w-2/3 text-2xl md:text-3xl font-semibold tracking-tight text-white">
-                  Ommaviy bo`lgan barcha testlarga ega bo`ling.
+                    Ommaviy bo`lgan barcha testlarga ega bo`ling.
                   </h2>
                 </div>
                 <Link href="/quizes">
@@ -96,11 +104,12 @@ const About = () => {
         <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 md:gap-10 justify-items-center w-fit px-20 md:px-0">
           <div className="relative w-[90vw] md:w-[26rem] lg:w-[27rem]  bg-white dark:bg-[#18191c] shadow-xl rounded-xl group">
             <div className="relative w-full rounded-xl">
-              <img
-                className="rounded-xl object-cover object-top h-auto"
-                src="https://media.baamboozle.com/uploads/images/227903/1609388408_235498"
-                alt="card image"
-              />
+              <div className="about-img   w-full h-auto">
+                <Image
+                  src={aboutImg3}
+                  alt="card image"
+                />
+              </div>
               <div className="absolute top-3 left-4 flex items-center space-x-2 cursor-pointer">
                 <span className="w-8 h-8 rounded-lg bg-white flex items-center justify-center  duration-200 space-x-1 hover:-translate-y-1">
                   <p className="text-blue-500">1</p>
@@ -119,11 +128,12 @@ const About = () => {
           </div>
           <div className="relative w-[90vw] md:w-[26rem] lg:w-[27rem]  bg-white dark:bg-[#18191c] shadow-xl rounded-xl group">
             <div className="relative w-full rounded-xl">
-              <img
-                className="rounded-xl object-cover object-top h-auto"
-                src="https://static.foxnews.com/foxnews.com/content/uploads/2018/09/istock_000019850227_medium.jpg"
-                alt="card image"
-              />
+            <div className="about-img   w-full h-auto">
+                <Image
+                  src={aboutImg4}
+                  alt="card image"
+                />
+              </div>
               <div className="absolute top-3 left-4 flex items-center space-x-2 cursor-pointer">
                 <span className="w-8 h-8 rounded-lg bg-white flex items-center justify-center  duration-200 space-x-1 hover:-translate-y-1">
                   <p className="text-blue-500">2</p>
@@ -142,11 +152,12 @@ const About = () => {
           </div>
           <div className="relative w-[90vw] md:w-[26rem] lg:w-[27rem]  bg-white dark:bg-[#18191c] shadow-xl rounded-xl group">
             <div className="relative w-full rounded-xl">
-              <img
-                className="rounded-xl object-cover object-top h-auto"
-                src="https://vapingdaily.com/wp-content/uploads/2017/05/Quit-Smoking-E-mails-2.jpg"
-                alt="card image"
-              />
+            <div className="about-img   w-full h-auto">
+                <Image
+                  src={aboutImg5}
+                  alt="card image"
+                />
+              </div>
               <div className="absolute top-3 left-4 flex items-center space-x-2 cursor-pointer">
                 <span className="w-8 h-8 rounded-lg bg-white flex items-center justify-center  duration-200 space-x-1 hover:-translate-y-1">
                   <p className="text-blue-500">3</p>
