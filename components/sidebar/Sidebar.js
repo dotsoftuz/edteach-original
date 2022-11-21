@@ -3,9 +3,8 @@ import { useRouter } from "next/router";
 import { MdOutlineSpaceDashboard } from "react-icons/md";
 import { IoExitOutline } from "react-icons/io5";
 import { SiConcourse } from "react-icons/si";
-import { FiUser } from "react-icons/fi";
+import { FiUser, FiLink } from "react-icons/fi";
 import { GrTest } from "react-icons/gr";
-
 import { useState } from "react";
 import { BiSearch } from "react-icons/bi";
 import { BsFillStarFill, BsPlusCircleFill } from "react-icons/bs";
@@ -26,6 +25,7 @@ const Sidebar = ({ children }) => {
     },
     { title: "Kurslar", path: "/dashboard/course", icon: <SiConcourse /> },
     { title: "Testlar", path: "/dashboard/tests", icon: <GrTest /> },
+    { title: "Foydali", path: "/dashboard/useful", icon: <FiLink /> },
     { title: "Profil", path: "/dashboard/profile", icon: <FiUser /> },
     { title: "Chiqish", path: "", icon: <IoExitOutline />, red: true },
     { title: "Create test", path: "/dashboard/createtest", icon: <IoExitOutline />, red: true },
@@ -46,11 +46,6 @@ const Sidebar = ({ children }) => {
             : "w-24 h-screen bg-gray-200 dark:bg-[#161819] shadow-xl duration-200"
         }
       >
-        <div className="flex items-center space-x-2 p-2">
-          <span className="w-2 h-2 rounded-full bg-[#ee6a5e]" />
-          <span className="w-2 h-2 rounded-full bg-[#f4bd4f]" />
-          <span className="w-2 h-2 rounded-full bg-[#60c455]" />
-        </div>
         <div className="space-y-6 p-5">
           <div className="relative flex items-center">
             <div className="flex items-center justify-center rounded-2xl border-2 border-gray-300 dark:border-transparent bg-transparent dark:bg-[#242627] w-fit p-1">
@@ -76,27 +71,6 @@ const Sidebar = ({ children }) => {
             >
               {sidebarShow ? <IoIosArrowBack /> : <IoIosArrowForward />}
             </div>
-          </div>
-          <div className="flex items-center rounded-lg bg-[#f2f3f7] dark:bg-[#252728] px-4 py-2 md:py-3">
-            <BiSearch
-              className={
-                sidebarShow
-                  ? "text-xl text-[#252728] dark:text-gray-200"
-                  : "mx-auto"
-              }
-            />
-            <input
-              className={
-                sidebarShow
-                  ? "flex flex-grow bg-transparent outline-none px-2 text-sm"
-                  : "hidden"
-              }
-              type="text"
-              placeholder="Keyword"
-            />
-            <BsFillStarFill
-              className={sidebarShow ? "text-yellow-300" : "hidden"}
-            />
           </div>
           <div className="px-1">
             <small className="text-xs font-medium text-[#161925] dark:text-gray-500 uppercase py-2 mb-2">
@@ -125,8 +99,8 @@ const Sidebar = ({ children }) => {
               Add new
             </small>
           </div>
-          <div className="flex flex-col items-center justify-center cursor-pointer border hover:border-gray-500 hover:dark:border-white py-4 rounded-lg bg-[#f2f3f7] dark:bg-[#323435]">
-            <BsPlusCircleFill className="text-[#3f8dfd] text-3xl bg-white rounded-full shadow-xl" />
+          <div className="flex flex-col items-center justify-center cursor-pointer border hover:border-green-500 hover:dark:border-white py-4 rounded-lg bg-[#f2f3f7] dark:bg-[#323435]">
+            <BsPlusCircleFill className="text-green-500 text-3xl bg-white rounded-full shadow-xl" />
             <small
               className={
                 sidebarShow
