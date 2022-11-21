@@ -1,5 +1,6 @@
 import { addDoc, collection } from "firebase/firestore";
 import React, { useState, useEffect } from "react";
+import { Sidebar } from "../../components";
 import { db } from "../../firebase";
 
 function createtest() {
@@ -35,8 +36,6 @@ function createtest() {
 
     setInput(input);
   };
-
-  console.log(input);
 
   let addFormFields = () => {
     setInput([
@@ -80,18 +79,17 @@ function createtest() {
   };
 
   const createQuest = async (e) => {
-    setLoading(true)
+    e.preventDefault();
     try {
       await addDoc(questColl, data);
     } catch (error) {
       console.log(error);
     }
-    setLoading(false)
   };
 
   return (
-    <>
-      <div>
+    <Sidebar>
+      <div className="p-5">
         <div className="flex flex-col">
           <form>
             <label>
@@ -119,7 +117,7 @@ function createtest() {
 
         <div></div>
       </div>
-      <div className="form-box">
+      <div className="form-box p-5">
         <form>
           {input.map((element, index) => (
             <div className="form" key={index}>
@@ -170,7 +168,7 @@ function createtest() {
           </button>
         </form>
       </div>
-    </>
+    </Sidebar>
   );
 }
 
