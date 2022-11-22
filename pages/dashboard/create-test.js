@@ -1,13 +1,10 @@
 import { addDoc, collection } from "firebase/firestore";
 import React, { useState } from "react";
+
 import { Sidebar } from "../../components";
 import { db } from "../../firebase";
 
-<<<<<<< HEAD:pages/dashboard/create-test.js
-function CreateTest() {
-=======
-function Createtest() {
->>>>>>> 91bf1e34f1400048182c2bee0a49847ff06e154b:pages/dashboard/createtest.js
+const CreateTest = () => {
   const [input, setInput] = useState([
     {
       question: "",
@@ -174,10 +171,6 @@ function Createtest() {
       </div>
     </Sidebar>
   );
-}
+};
 
-<<<<<<< HEAD:pages/dashboard/create-test.js
 export default CreateTest;
-=======
-export default Createtest;
->>>>>>> 91bf1e34f1400048182c2bee0a49847ff06e154b:pages/dashboard/createtest.js

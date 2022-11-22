@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-
 import Head from "next/head";
 
 import { Sidebar } from "../../components";
@@ -16,6 +15,10 @@ const Tests = () => {
       setQuestions(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
     );
   }, []);
+
+
+  console.log(questions);
+
 
   return (
     <div>

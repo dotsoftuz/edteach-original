@@ -4,6 +4,7 @@ import { useUserContext } from "../../context/userContext";
 import { SignIn, SignUp } from "../../components";
 
 
+
 export function Layout() {
   const { registry } = useUserContext();
   return (

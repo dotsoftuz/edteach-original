@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { useRouter } from "next/router";
 import { MdOutlineSpaceDashboard } from "react-icons/md";
 import { IoExitOutline } from "react-icons/io5";
 import { SiConcourse } from "react-icons/si";
@@ -10,7 +9,7 @@ import { BsPlusCircleFill } from "react-icons/bs";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
 const Sidebar = ({ children }) => {
-  const [sidebarShow, setSidebarShow] = useState(false);
+  const [sidebarShow, setSidebarShow] = useState(true);
 
   const toggleSidebar = () => {
     setSidebarShow(!sidebarShow);
@@ -117,8 +116,9 @@ const Sidebar = ({ children }) => {
             </div>
           </Link>
           <div
-            className={`${sidebarShow ? "block" : "hidden"
-              } absolute bottom-2 leading-snug`}
+            className={`${
+              sidebarShow ? "block" : "hidden"
+            } absolute bottom-2 leading-snug`}
           >
             <h3 className="text-sm font-medium truncate">EdTeach - quiz app</h3>
             <Link href="https://dotsoft.uz">
