@@ -10,7 +10,7 @@ import { BsPlusCircleFill } from "react-icons/bs";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
 const Sidebar = ({ children }) => {
-  const [sidebarShow, setSidebarShow] = useState(false);
+  const [sidebarShow, setSidebarShow] = useState(true);
 
   const toggleSidebar = () => {
     setSidebarShow(!sidebarShow);
@@ -27,13 +27,6 @@ const Sidebar = ({ children }) => {
     { title: "Foydali", path: "/dashboard/useful", icon: <FiLink /> },
     { title: "Profil", path: "/dashboard/profile", icon: <FiUser /> },
     { title: "Chiqish", path: "", icon: <IoExitOutline />, red: true },
-
-    {
-      title: "Create test",
-      path: "/dashboard/createtest",
-      icon: <IoExitOutline />,
-      red: true,
-    },
   ];
 
   const closeAndOpenDefaultClass =
