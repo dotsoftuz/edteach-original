@@ -27,15 +27,6 @@ const Sidebar = ({ children }) => {
     { title: "Foydali", path: "/dashboard/useful", icon: <FiLink /> },
     { title: "Profil", path: "/dashboard/profile", icon: <FiUser /> },
     { title: "Chiqish", path: "", icon: <IoExitOutline />, red: true },
-<<<<<<< HEAD
-=======
-    {
-      title: "Create test",
-      path: "/dashboard/createtest",
-      icon: <IoExitOutline />,
-      red: true,
-    },
->>>>>>> 91bf1e34f1400048182c2bee0a49847ff06e154b
   ];
 
   const closeAndOpenDefaultClass =
