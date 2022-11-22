@@ -5,7 +5,6 @@ import {
   signOut,
   sendPasswordResetEmail,
   createUserWithEmailAndPassword,
-  sendEmailVerification,
 } from "firebase/auth";
 import { auth, db } from "../firebase";
 import { toast } from "react-toastify";
@@ -48,12 +47,12 @@ export const UserContextProvider = ({ children }) => {
       .finally(() => setLoading(false));
   };
 
-  const registerUser = async (email, password, fullName, coName) => {
+  const registerUser = async (email, password, fullName) => {
     setLoading(true);
 
     createUserWithEmailAndPassword(auth, email, password)
       .then(() => {
-        createCategory(email, fullName, coName);
+        createCategory(email, fullName);
       })
       .catch(() => {
         toast.error("Foydalanuvchi topilmadi yoki noto`g`ri password");
@@ -62,36 +61,17 @@ export const UserContextProvider = ({ children }) => {
     setLoading(false);
   };
 
-  const createCategory = async (email, fullName, coName) => {
+  const createCategory = async (email, fullName) => {
     setLoading(true);
     try {
-      const docRef = doc(db, ` users/${auth.currentUser.uid}/category`, "all");
-      const docRefStorage = doc(
-        db,
-        `users/${auth.currentUser.uid}/storage`,
-        "main"
-      );
-      const docUser = doc(db, users, auth.currentUser.uid);
+      
+      const docUser = doc(db, `users`, auth.currentUser.uid);
 
       await setDoc(docUser, {
         fullName: fullName,
-
         email: email,
-        coName: coName,
-        address: "",
-        phone: "",
-   
         timestamp: new Date(),
         prefixtime: new Date().getTime(),
-        payment: true,
-      });
-      await setDoc(docRef, {
-        category: "Umumiy",
-        timestamp: new Date(),
-      });
-      await setDoc(docRefStorage, {
-        category: "Asosiy",
-        timestamp: new Date(),
       });
 
       const delay = (ms) => new Promise((res) => setTimeout(res, ms));
