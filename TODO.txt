@@ -25,7 +25,7 @@ Aziz:
 Muhammad:
 - Profile ( Edit )
 - Testlar ( Edit )
-- Sidebar mobile version 
+- Sidebar mobile version sidebar som issue 
 
 Muzaffar: 
  - Foydali qismi (eski edteachdan copy paste) ❌
@@ -36,4 +36,4 @@ Muzaffar:
 Komil: 
  - Textlarni haqiqiy textga o'girib chiq (eski edteachda olasan) [O'zbekcha faqat] ❌
  - Linklarni to'girlab chiq home pagedagi ❌
- - Test yaratish qismi (public/example/test-variantlari.png) ❌
+ - Test yaratish qismi mobile qismiga ko'pro etibor ber! (public/example/test-variantlari.png) ❌
