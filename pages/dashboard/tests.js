@@ -4,13 +4,22 @@ import Head from "next/head";
 import { Sidebar } from "../../components";
 import { collection, onSnapshot } from "firebase/firestore";
 import { db } from "../../firebase";
+import { useUserContext } from "../../context/userContext";
+import { useRouter } from "next/router";
 
 const Tests = () => {
   const [questions, setQuestions] = useState([]);
+  const { user } = useUserContext()
+
+  const router = useRouter()
 
   const questColl = collection(db, `question`);
 
   useEffect(() => {
+    if(!user) {
+      router.push('/dashboard')
+    }
+
     onSnapshot(questColl, (snapshot) =>
       setQuestions(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
     );
