@@ -1,9 +1,9 @@
 import { addDoc, collection } from "firebase/firestore";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Sidebar } from "../../components";
 import { db } from "../../firebase";
 
-function createtest() {
+function Createtest() {
   const [input, setInput] = useState([
     {
       question: "",
@@ -16,7 +16,7 @@ function createtest() {
     },
   ]);
   const questColl = collection(db, `question`);
-  const [ loading, setLoading ] = useState(false)
+  const [loading, setLoading] = useState(false);
 
   let getValue = (i, e) => {
     let newInput = [...input];
@@ -172,4 +172,4 @@ function createtest() {
   );
 }
 
-export default createtest;
+export default Createtest;

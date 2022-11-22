@@ -25,6 +25,7 @@ Aziz:
 Muhammad:
 - Profile ( Edit )
 - Testlar ( Edit )
+- Sidebar mobile version 
 
 Muzaffar: 
  - Foydali qismi (eski edteachdan copy paste) ❌

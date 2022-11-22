@@ -23,11 +23,17 @@ const Sidebar = ({ children }) => {
       icon: <MdOutlineSpaceDashboard />,
     },
     { title: "Kurslar", path: "/dashboard/course", icon: <SiConcourse /> },
-    { title: "Testlar", path: "/dashboard/tests", icon: <GrTest /> },
+    { title: "Testlar", path: "/dashboard/question", icon: <GrTest /> },
     { title: "Foydali", path: "/dashboard/useful", icon: <FiLink /> },
     { title: "Profil", path: "/dashboard/profile", icon: <FiUser /> },
     { title: "Chiqish", path: "", icon: <IoExitOutline />, red: true },
-    { title: "Create test", path: "/dashboard/createtest", icon: <IoExitOutline />, red: true },
+
+    {
+      title: "Create test",
+      path: "/dashboard/createtest",
+      icon: <IoExitOutline />,
+      red: true,
+    },
   ];
 
   const closeAndOpenDefaultClass =
@@ -47,13 +53,15 @@ const Sidebar = ({ children }) => {
       >
         <div className="space-y-6 p-5">
           <div className="relative flex items-center">
-            <div className="flex items-center justify-center rounded-2xl border-2 border-gray-300 dark:border-transparent bg-transparent dark:bg-[#242627] w-fit p-1">
-              <img
-                className="rounded-full w-10 h-10 object-contain"
-                src="https://www.lazydev.uz/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fperson01.2102dbe6.png&w=64&q=75"
-                alt="avatar img"
-              />
-            </div>
+            <Link href="/dashboard/profile">
+              <div className="flex items-center justify-center rounded-2xl border-2 border-gray-300 dark:border-transparent bg-transparent dark:bg-[#242627] w-fit p-1 cursor-pointer">
+                <img
+                  className="rounded-full w-10 h-10 object-contain"
+                  src="https://www.lazydev.uz/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fperson01.2102dbe6.png&w=64&q=75"
+                  alt="avatar img"
+                />
+              </div>
+            </Link>
             <div className={sidebarShow ? "relative ml-4" : "hidden"}>
               <h2 className="text-[#242627] dark:text-white font-semibold text-lg">
                 Andy Panda
@@ -75,6 +83,7 @@ const Sidebar = ({ children }) => {
             <small className="text-xs font-medium text-[#161925] dark:text-gray-500 uppercase py-2 mb-2">
               Overview
             </small>
+
             <div>
               {Menus.map((item) => (
                 <div key={item.title}>
@@ -99,18 +108,20 @@ const Sidebar = ({ children }) => {
               Add new
             </small>
           </div>
-          <div className="flex flex-col items-center justify-center cursor-pointer border hover:border-green-500 hover:dark:border-white py-4 rounded-lg bg-[#f2f3f7] dark:bg-[#323435]">
-            <BsPlusCircleFill className="text-green-500 text-3xl bg-white rounded-full shadow-xl" />
-            <small
-              className={
-                sidebarShow
-                  ? "font-semibold text-gray-500 dark:text-white py-2"
-                  : "hidden"
-              }
-            >
-              Add new Project
-            </small>
-          </div>
+          <Link href="/dashboard/create-test">
+            <div className="flex flex-col items-center justify-center cursor-pointer border hover:border-green-500 hover:dark:border-white py-4 rounded-lg bg-[#f2f3f7] dark:bg-[#323435]">
+              <BsPlusCircleFill className="text-green-500 text-3xl bg-white rounded-full shadow-xl" />
+              <small
+                className={
+                  sidebarShow
+                    ? "font-semibold text-gray-500 dark:text-white py-2"
+                    : "hidden"
+                }
+              >
+                Add new Project
+              </small>
+            </div>
+          </Link>
           <div
             className={`${
               sidebarShow ? "block" : "hidden"
