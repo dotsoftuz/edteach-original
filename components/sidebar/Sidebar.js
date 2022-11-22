@@ -130,7 +130,7 @@ const Sidebar = ({ children }) => {
         </div>
       </aside>
 
-      <main>{children}</main>
+      <main className="w-full">{children}</main>
     </div>
   );
 };

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import Head from 'next/head';
 
-import { Sidebar } from '../../../components';
+import { Sidebar } from '../../components';
 import { collection, onSnapshot } from 'firebase/firestore';
-import { db } from '../../../firebase';
+import { db } from '../../firebase';
 
 const Tests = () => {
   const [questions, setQuestions] = useState([]);
@@ -26,17 +26,15 @@ const Tests = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Sidebar>
-        <div className="container mx-auto">
-          <div className="w-full flex justify-center mt-20">
-            <input
-              type="text"
-              placeholder="enter search term ....."
-              className="w-96 py-2 px-5 border border-gray-500  outline-gray-700 "
-              onChange={(event) => {
-                setSearchTerm(event.target.value);
-              }}
-            />
-          </div>
+        <div className='w-full'>
+          <input
+            type="text"
+            placeholder="enter search term ....."
+            className="px-10 py-5"
+            onChange={(event) => {
+              setSearchTerm(event.target.value);
+            }}
+          />
 
           {questions
             .filter((val) => {
@@ -51,17 +49,10 @@ const Tests = () => {
               }
             })
             .map((val, key) => {
-              console.log(val);
               return (
-                <>
-                  <div
-                    key={key}
-                    className="w-full rounded-2xl bg-gray-700 text-white p-5 my-3 flex justify-around"
-                  >
-                    <p>{val.title}</p>
-                    <p>{val.description} </p>
-                  </div>
-                </>
+                <div key={key}>
+                  <p>{val.title}</p>
+                </div>
               );
             })}
         </div>
