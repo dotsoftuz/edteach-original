@@ -1,7 +1,7 @@
 import React from "react";
 import Head from "next/head";
 
-import { Sidebar } from "../../components";
+import { Sidebar, Breadcrumb } from "../../components";
 
 const Profile = () => {
   return (
@@ -12,7 +12,9 @@ const Profile = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Sidebar>
-        <div className="p-5">This is a Profile page</div>
+        <div className="p-5">
+        <Breadcrumb page="Profil" link="/profile" />
+        </div>
       </Sidebar>
     </div>
   );

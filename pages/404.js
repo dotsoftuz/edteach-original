@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 const NotFound = () => {
   return (
@@ -18,7 +18,7 @@ const NotFound = () => {
             href="#"
             className="w-full mb-2 btn btn-lg btn-light sm:w-auto sm:mb-0"
           >
-            Back to homepage
+            Back to Bosh sahifapage
           </a>
           <a
             href="#"

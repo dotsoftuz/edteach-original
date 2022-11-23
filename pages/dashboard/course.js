@@ -1,7 +1,7 @@
 import React from "react";
 import Head from "next/head";
 
-import { Sidebar } from "../../components";
+import { Sidebar, Breadcrumb } from "../../components";
 
 const Course = () => {
   return (
@@ -12,7 +12,9 @@ const Course = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Sidebar>
-        <div className="p-5">This is a course page</div>
+        <div className="p-5">
+          <Breadcrumb page="Kurslar" link="/course" />
+        </div>
       </Sidebar>
     </div>
   );

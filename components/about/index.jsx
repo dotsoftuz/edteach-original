@@ -107,10 +107,10 @@ const About = () => {
               </div>
             </div>
             <div className="absolute bottom-0 left-0 right-0 rounded-b-xl w-full h-24 bg-white p-4 px-6 group-hover:h-28 duration-300">
-              <h5 className="text-primary font-medium lg:font-semibold text-lg lg:text-left">
+              <h5 className="text-black font-medium lg:font-semibold text-lg lg:text-left">
                 O`zaro hamkorlik
               </h5>
-              <p className="text-sm font-medium text-primary">
+              <p className="text-sm font-medium text-black">
                 An&apos;anaviy hamda masofaviy ta&apos;lim shakllarida
                 interaktiv ta&apos;lim metodini taklif etamiz
               </p>
@@ -128,10 +128,10 @@ const About = () => {
               </div>
             </div>
             <div className="absolute bottom-0 left-0 right-0 rounded-b-xl w-full h-24 bg-white p-4 px-6 group-hover:h-28 duration-300">
-              <h5 className="text-primary font-medium lg:font-semibold text-lg lg:text-left">
+              <h5 className="text-black font-medium lg:font-semibold text-lg lg:text-left">
                 Qiziqarli talim
               </h5>
-              <p className="text-sm font-medium text-primary">
+              <p className="text-sm font-medium text-black">
                 Virtual ta&apos;limda ta&apos;lim beruvchi hamda ta&apos;lim
                 oluvchilar uchun o&apos;ziga xos, interaktiv web-platforma
               </p>
@@ -149,10 +149,10 @@ const About = () => {
               </div>
             </div>
             <div className="absolute bottom-0 left-0 right-0 rounded-b-xl w-full h-24 bg-white p-4 px-6 group-hover:h-28 duration-300">
-              <h5 className="text-primary font-medium lg:font-semibold text-lg lg:text-left">
+              <h5 className="text-black font-medium lg:font-semibold text-lg lg:text-left">
                 Kreativ baholash
               </h5>
-              <p className="text-sm font-medium text-primary leading-1">
+              <p className="text-sm font-medium text-black leading-1">
                 Baholashning innovatsion usullaridan foydalanish orqali
                 to&apos;liq avtomatlashtirilgan web-platforma{' '}
               </p>

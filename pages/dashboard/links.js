@@ -1,9 +1,10 @@
-import Link from "next/link";
-import React from "react";
-import { Sidebar } from "../../components";
+import Link from 'next/link';
+import React from 'react';
+import { Sidebar } from '../../components';
 function Links(props) {
   return (
     <Sidebar>
+      <Breadcrumb page="Foydali linklar" link="/links" />
       <div className="flex flex-wrap justify-center">
         <ul className="w-[50%] divide-y divide-gray-200 mt-28 dark:divide-gray-700">
           <li className="pb-3 sm:pb-4">
@@ -296,7 +297,7 @@ function Links(props) {
             <div className="flex items-center space-x-4 mt-3">
               <div className="flex-1 min-w-0">
                 <Link
-                  href="https://home.liebertpub.com/company/company-home/153 "
+                  href="https://Bosh sahifa.liebertpub.com/company/company-Bosh sahifa/153 "
                   target="_blank"
                 >
                   <p className="text-2xl flex items-center hover:underline font-bold text-black truncate ">
@@ -512,7 +513,10 @@ function Links(props) {
           <li className="pb-3 sm:pb-4">
             <div className="flex items-center space-x-4 mt-3">
               <div className="flex-1 min-w-0">
-                <Link href="https://ethos.bl.uk/Home.do " target="_blank">
+                <Link
+                  href="https://ethos.bl.uk/Bosh sahifa.do "
+                  target="_blank"
+                >
                   <p className="text-2xl flex items-center hover:underline font-bold text-black ">
                     <font>
                       <font>EthOS (Britaniya kutubxonasidan)</font>

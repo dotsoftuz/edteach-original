@@ -28,11 +28,13 @@ const Sidebar = ({ children }) => {
       path: '/dashboard',
       icon: <MdOutlineSpaceDashboard />,
     },
+
     { title: "Kurslar", path: "/dashboard/course", icon: <SiConcourse /> },
     { title: "Testlar", path: "/dashboard/question", icon: <GrTest /> },
     { title: "Foydali", path: "/dashboard/useful", icon: <FiLink /> },
     { title: "Profil", path: "/dashboard/profile", icon: <FiUser /> },
     { title: "Chiqish", path: "", icon: <IoExitOutline />, red: true },
+
 
 
   ];

@@ -3,7 +3,7 @@ htmlFor copy and paste: Check - ✔️, Not done - ❌;
 ⚠️ <a> tegini o'rniga <Link> ishlatila | <img> tagi o'rniga <Image> ishlatila  ⚠️
 
 Versetka:
- 1. Home page: ❌
+ 1. Bosh sahifa page: ❌
   - Navbar ✔️
   - Header ✔️
   - About
@@ -35,5 +35,5 @@ Muzaffar:
 
 Komil: 
  - Textlarni haqiqiy textga o'girib chiq (eski edteachda olasan) [O'zbekcha faqat] ❌
- - Linklarni to'girlab chiq home pagedagi ❌
+ - Linklarni to'girlab chiq Bosh sahifa pagedagi ❌
  - Test yaratish qismi mobile qismiga ko'pro etibor ber! (public/example/test-variantlari.png) ❌
