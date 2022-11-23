@@ -1,9 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import Head from 'next/head';
+<<<<<<< HEAD:pages/dashboard/question/index.js
 
 import { Sidebar, Breadcrumb } from '../../../components';
+=======
+import Link from 'next/link';
+import { Sidebar } from '../../../../components';
+>>>>>>> b1c662d2063b365a2dcf31898459bf0384c5976a:pages/dashboard/question/[id]/index.js
 import { collection, onSnapshot } from 'firebase/firestore';
-import { db } from '../../../firebase';
+import { db } from '../../../../firebase';
+import { useRouter } from 'next/router';
 
 const Tests = () => {
   const [questions, setQuestions] = useState([]);
@@ -11,7 +17,10 @@ const Tests = () => {
   const questColl = collection(db, `question`);
 
   const [searchTerm, setSearchTerm] = useState('');
-  console.log(questions);
+
+  const router = useRouter();
+  const { id } = router.query;
+
   useEffect(() => {
     onSnapshot(questColl, (snapshot) =>
       setQuestions(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
@@ -52,16 +61,21 @@ const Tests = () => {
               }
             })
             .map((val, key) => {
-              console.log(val);
+              console.log(id);
               return (
                 <>
-                  <div
-                    key={key}
-                    className="w-full rounded-2xl bg-gray-700 text-white p-5 my-3 flex justify-around"
+                  <Link
+                    href="/dashboard/question/[id]/[tests]"
+                    as={`/dashboard/question/${id}/${val.id}`}
                   >
-                    <p>{val.title}</p>
-                    <p>{val.description} </p>
-                  </div>
+                    <div
+                      key={key}
+                      className="w-full rounded-2xl bg-gray-700 text-white p-5 my-3 flex justify-around"
+                    >
+                      <p>{val.title}</p>
+                      <p>{val.description} </p>
+                    </div>
+                  </Link>
                 </>
               );
             })}

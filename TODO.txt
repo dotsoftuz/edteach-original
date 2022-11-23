@@ -30,7 +30,7 @@ Muhammad:
 Muzaffar: 
  - Foydali qismi (eski edteachdan copy paste) ✔️
  - Kurslar  ❌
- - Test yaratish qismi: Misol - (public/example/test-yaratish.png) ❌
+ - Test yaratish qismi: Misol - (public/example/test-yaratish.png) ✔️
  - Pin orqali kirish (Input va button) ❌
 
 Komil: 
