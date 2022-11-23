@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { collection, onSnapshot } from 'firebase/firestore';
+import { collection, doc, onSnapshot, updateDoc } from 'firebase/firestore';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 import Link from 'next/link';
@@ -24,6 +24,15 @@ const Tests = () => {
       setQuestions(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
     );
   }, []);
+
+  const sendData = async (id) => {
+    const collectionRef = doc(db, `question`, id);
+    const payload = {
+      status: "started",
+      pin: String(Math.floor(Math.random() * 9000) + 1000),
+    };
+    await updateDoc(collectionRef, payload);
+  };
 
   return (
     <div>
@@ -104,33 +113,25 @@ const Tests = () => {
             </div>
           </div>
 
-          <div
-            className={`${
-              testCard ? 'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4' : 'flex flex-col space-y-2'
-            } my-5`}
-          >
-            {questions
-              .filter((val) => {
-                if (searchTerm === '') {
-                  return val;
-                } else if (
-                  val.title
-                    .toLocaleLowerCase()
-                    .includes(searchTerm.toLocaleLowerCase())
-                ) {
-                  return val;
-                }
-              })
-              .map((val, key) => {
-                console.log(val);
-                return (
-                  <>
+          {questions
+            .filter((val) => {
+              if (searchTerm === '') {
+                return val;
+              } else if (
+                val.title
+                  .toLocaleLowerCase()
+                  .includes(searchTerm.toLocaleLowerCase())
+              ) {
+                return val;
+              }
+            })
+            .map((val, key) => {
+              return (
+                <>
+                  <Link href={`/dashboard/question/${val.id}`}>
                     <div
-                      className={`${
-                        testCard
-                          ? 'flex flex-col space-y-2'
-                          : 'flex flex-row space-x-2 md:space-x-4'
-                      } relative  p-4 rounded-lg bg-gray-200`}
+                      key={key}
+                      className="w-full rounded-2xl bg-gray-700 text-white p-5 my-3 flex justify-around"
                     >
                       <Link href={`/dashboard/question/${val.id}`}>
                         <img
