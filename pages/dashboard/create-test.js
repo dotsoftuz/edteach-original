@@ -1,18 +1,18 @@
-import { addDoc, collection } from "firebase/firestore";
-import React, { useState } from "react";
+import { addDoc, collection } from 'firebase/firestore';
+import React, { useState } from 'react';
 
-import { Sidebar } from "../../components";
-import { db } from "../../firebase";
+import { Sidebar } from '../../components';
+import { db } from '../../firebase';
 
 const CreateTest = () => {
   const [input, setInput] = useState([
     {
-      question: "",
+      question: '',
       answerList: [
-        { name: "a", body: "", isCorrect: false },
-        { name: "b", body: "", isCorrect: false },
-        { name: "c", body: "", isCorrect: false },
-        { name: "d", body: "", isCorrect: false },
+        { name: 'a', body: '', isCorrect: false },
+        { name: 'b', body: '', isCorrect: false },
+        { name: 'c', body: '', isCorrect: false },
+        { name: 'd', body: '', isCorrect: false },
       ],
     },
   ]);
@@ -42,12 +42,12 @@ const CreateTest = () => {
     setInput([
       ...input,
       {
-        question: "",
+        question: '',
         answerList: [
-          { name: "a", body: "", isCorrect: false },
-          { name: "b", body: "", isCorrect: false },
-          { name: "c", body: "", isCorrect: false },
-          { name: "d", body: "", isCorrect: false },
+          { name: 'a', body: '', isCorrect: false },
+          { name: 'b', body: '', isCorrect: false },
+          { name: 'c', body: '', isCorrect: false },
+          { name: 'd', body: '', isCorrect: false },
         ],
       },
     ]);
@@ -60,8 +60,8 @@ const CreateTest = () => {
   };
 
   const [quizData, setQuizData] = useState({
-    title: "",
-    description: "",
+    title: '',
+    description: '',
     questionList: [],
   });
 
@@ -90,33 +90,32 @@ const CreateTest = () => {
 
   return (
     <Sidebar>
-      <div className="p-5">
-        <div className="flex flex-col">
-          <form>
-            <label>
-              Mavzu:
-              <input
-                type="text"
-                placeholder="title"
-                onChange={handleChange}
-                value={quizData.title}
-                name="title"
-              />
-            </label>
-            <label>
-              Description:
-              <input
-                type="text"
-                placeholder="description"
-                onChange={handleChange}
-                value={quizData.description}
-                name="description"
-              />
-            </label>
-          </form>
+      <div className="container mx-auto px-5">
+        <div className="px-2 py-3 md:p-5 mx-auto w-full md:max-w-7xl shadow-lg my-10 md:my-16 rounded-xl bg-gray-100">
+          <h2 className="text-xl font-bold uppercase mx-1 md:mx-3 text-center">
+            Test yaratish
+          </h2>
+          <div>
+            <div className="mt-4 mb-2 ml-2">
+              <label className="font-bold">Sarlovha</label>
+            </div>
+            <input
+              className="rounded-xl w-full  bg-gray-200 outline-none py-4 px-4 text-sm focus:px-6 duration-200 placeholder-gray-800"
+              type="text"
+              name="name"
+              placeholder="Misol: Geografiya"
+            />
+            <div className="mt-4 mb-2 ml-2">
+              <label className="font-bold">Tavsif</label>
+            </div>
+            <input
+              className="rounded-xl w-full bg-gray-200 outline-none py-4 px-4 text-sm focus:px-6 duration-200 placeholder-gray-800 mb-5"
+              type="text"
+              name="description"
+              placeholder="Misol: Dunyo aholisi haqida "
+            />
+          </div>
         </div>
-
-        <div></div>
       </div>
       <div className="form-box p-5">
         <form>
@@ -126,7 +125,7 @@ const CreateTest = () => {
               <input
                 type="text"
                 name="question"
-                value={element.question || ""}
+                value={element.question || ''}
                 onChange={(e) => getValue(index, e)}
               />
               {element.answerList.map((item, i) => (
@@ -137,8 +136,8 @@ const CreateTest = () => {
                   />
                   <input
                     type="text"
-                    value={item.body || ""}
-                    name={"body"}
+                    value={item.body || ''}
+                    name={'body'}
                     onChange={(e) => getValue2(index, i, e)}
                     placeholder={item.name}
                   />
@@ -161,11 +160,16 @@ const CreateTest = () => {
             type="button"
             onClick={() => addFormFields()}
           >
-            {" "}
+            {' '}
             Add
           </button>
-          <button className="btn btn-success m-2" onClick={createQuest}>
-            Submit
+          <button
+            className="w-fit rounded-lg py-3 px-8 mx-2 cursor-pointer active:scale-95
+            shadow-md text-sm duration-300 border bg-[#1a5cff] active:bg-opacity-80
+            ease-in-out md:text-sm text-white mt-4"
+            onClick={createQuest}
+          >
+            Testni yaratiash
           </button>
         </form>
       </div>
