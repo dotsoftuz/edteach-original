@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Head from 'next/head';
 
-import { Sidebar } from '../../../components';
+import { Sidebar, Breadcrumb } from '../../../components';
 import { collection, onSnapshot } from 'firebase/firestore';
 import { db } from '../../../firebase';
 
@@ -26,6 +26,7 @@ const Tests = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Sidebar>
+      <Breadcrumb page="Ommaviy testlar" link="/" />
         <div className="container mx-auto">
           <div className="w-full flex justify-center mt-20">
             <input

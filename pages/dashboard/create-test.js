@@ -1,7 +1,7 @@
 import { addDoc, collection } from "firebase/firestore";
 import React, { useState } from "react";
 
-import { Sidebar } from "../../components";
+import { Sidebar, Breadcrumb } from "../../components";
 import { db } from "../../firebase";
 
 const CreateTest = () => {
@@ -91,6 +91,7 @@ const CreateTest = () => {
   return (
     <Sidebar>
       <div className="p-5">
+      <Breadcrumb page="Test yaratish" link="/create-test" />
         <div className="flex flex-col">
           <form>
             <label>

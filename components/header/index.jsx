@@ -14,8 +14,8 @@ const Header = () => {
             <span>bilan sinashni istaysizmi?</span>
           </h1>
           <p className="px-0 mb-8 text-lg text-gray-600 md:text-xl lg:px-24">
-            Agar javobingiz ha bo`lsa hoziroq bepul ro`yhatdan o`ting va
-            bilimingizni sinab ko`ring. Barchasi bepul!
+            Agar javobingiz ha bo&apos;lsa hoziroq bepul ro&apos;yhatdan o&apos;ting va
+            bilimingizni sinab ko&apos;ring. Barchasi bepul!
           </p>
             <div className="mb-4 space-x-0 md:space-x-2 md:mb-8">
               <Link href="/auth">
@@ -24,7 +24,7 @@ const Header = () => {
                   className="inline-flex items-center justify-center w-full px-6 py-3 mb-2 text-lg text-white bg-purple-500 rounded-lg sm:w-auto sm:mb-0 shadow-lg duration-300
                   active:bg-opacity-80 cursor-pointer ease-in-out active:scale-95"
                 >
-                 Bepul ro`yhatdan o`ting
+                 Ro&apos;yhatdan o&apos;ting
                   <svg
                     className="w-4 h-4 ml-1"
                     xmlns="http://www.w3.org/2000/svg"
@@ -45,7 +45,7 @@ const Header = () => {
                   className="inline-flex items-center justify-center w-full px-6 py-3 mb-2 text-lg text-black bg-gray-100 rounded-lg sm:w-auto sm:mb-0 shadow-lg duration-300
                   active:bg-opacity-80 cursor-pointer ease-in-out active:scale-95"
                 >
-                  Ko`proq ma`lumot
+                  Ko&apos;proq ma&apos;lumot
                   <svg
                     className="w-4 h-4 ml-1"
                     fill="none"

@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react';
 import Head from 'next/head';
 
-import { Header, About, Navbar, Price, Contact, Footer } from "../components";
-
+import { Header, About, Navbar, Price, Contact, Footer } from '../components';
 
 export default function Home() {
   const [mounted, setMounted] = useState(false);
