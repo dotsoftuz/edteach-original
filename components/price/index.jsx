@@ -37,7 +37,7 @@ const PriceCard = props  => {
                     <p className="text-[16px]"> {text5}</p>
                 </div>
                 <a href={link}>
-                <button className="text-[18px] font-[500] mt-10 rounded-md text-[white] duration-400 text-center bg-green-400 hover:bg-green-500  py-[10px] px-[90px] sm:absolute sm:bottom-0 left-0 sm:left-16 lg:left-0 xl:left-16 ">Tanlash</button>
+                <button className="text-[18px] font-[500] mt-10 rounded-md text-[white] duration-400 text-center bg-green-400 hover:bg-green-500  py-[10px] px-[90px] sm:absolute sm:bottom-0 sm:left-[19%] lg:left-0  xl:left-[19%] ">Tanlash</button>
                 </a>
             </div>
         </div>
