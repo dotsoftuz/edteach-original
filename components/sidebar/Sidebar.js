@@ -29,7 +29,7 @@ const Sidebar = ({ children }) => {
       icon: <MdOutlineSpaceDashboard />,
     },
     { title: 'Kurslar', path: '/dashboard/course', icon: <SiConcourse /> },
-    { title: 'Testlar', path: '/dashboard/question/tests', icon: <GrTest /> },
+    { title: 'Testlarim', path: '/dashboard/question/tests', icon: <GrTest /> },
     { title: 'Foydali', path: '/dashboard/useful', icon: <FiLink /> },
     { title: 'Profil', path: '/dashboard/profile', icon: <FiUser /> },
     { title: 'Chiqish', path: '', icon: <IoExitOutline />, red: true },
@@ -150,16 +150,16 @@ const Sidebar = ({ children }) => {
       <main
         className={`${
           sidebarShowDesktop ? 'md:ml-72 lg:ml-64' : 'md:ml-20 lg:ml-10'
-        } container mx-auto -ml-4`}
+        } container mx-auto md:-ml-4`}
       >
         <div>
           {children}
-          <button
+          <div
             className="absolute top-5 right-4 block md:hidden"
             onClick={toggleSidebarMobile}
           >
             <MdMenu className="text-2xl" />
-          </button>
+          </div>
         </div>
       </main>
     </div>
