@@ -1,50 +1,61 @@
-import Link from "next/link";
-import { useRouter } from "next/router";
-import { MdOutlineSpaceDashboard } from "react-icons/md";
-import { IoExitOutline } from "react-icons/io5";
-import { SiConcourse } from "react-icons/si";
-import { FiUser, FiLink } from "react-icons/fi";
-import { GrTest } from "react-icons/gr";
-import { useState } from "react";
-import { BsPlusCircleFill } from "react-icons/bs";
-import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { MdOutlineSpaceDashboard, MdMenu } from 'react-icons/md';
+import { IoExitOutline } from 'react-icons/io5';
+import { SiConcourse } from 'react-icons/si';
+import { FiUser, FiLink } from 'react-icons/fi';
+import { GrTest } from 'react-icons/gr';
+import { useState } from 'react';
+import { BsPlusCircleFill } from 'react-icons/bs';
+import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 
 const Sidebar = ({ children }) => {
-  const [sidebarShow, setSidebarShow] = useState(true);
+  const [sidebarShowDesktop, setSidebarShowDesktop] = useState(true);
+  const [sidebarShowMobile, setSidebarShowMobile] = useState(true);
+  const router = useRouter();
 
-  const toggleSidebar = () => {
-    setSidebarShow(!sidebarShow);
+  const toggleSidebarDesktop = () => {
+    setSidebarShowDesktop(!sidebarShowDesktop);
+  };
+
+  const toggleSidebarMobile = () => {
+    setSidebarShowMobile(!sidebarShowMobile);
   };
 
   const Menus = [
     {
-      title: "Asosiy Sahifa",
-      path: "/dashboard",
+      title: 'Asosiy Sahifa',
+      path: '/dashboard',
       icon: <MdOutlineSpaceDashboard />,
     },
-    { title: "Kurslar", path: "/dashboard/course", icon: <SiConcourse /> },
-    { title: "Testlar", path: "/dashboard/tests", icon: <GrTest /> },
-    { title: "Foydali", path: "/dashboard/useful", icon: <FiLink /> },
-    { title: "Profil", path: "/dashboard/profile", icon: <FiUser /> },
-    { title: "Chiqish", path: "", icon: <IoExitOutline />, red: true },
+    { title: 'Kurslar', path: '/dashboard/course', icon: <SiConcourse /> },
+    { title: 'Testlar', path: '/dashboard/tests', icon: <GrTest /> },
+    { title: 'Foydali', path: '/dashboard/useful', icon: <FiLink /> },
+    { title: 'Profil', path: '/dashboard/profile', icon: <FiUser /> },
+    { title: 'Chiqish', path: '', icon: <IoExitOutline />, red: true },
   ];
 
   const closeAndOpenDefaultClass =
-    "absolute px-0.5 py-3 bg-[#C5C4C0] dark:bg-[#323435] text-[#161925] dark:text-white cursor-pointer ";
+    'absolute px-0.5 py-3 bg-[#C5C4C0] text-[#161925] cursor-pointer ';
 
   const listTextDefaultClass =
-    "text-gray-700 dark:text-white font-semibold ml-4 cursor-pointer";
+    'text-gray-700 font-semibold ml-4 cursor-pointer';
 
   return (
     <div className="flex">
       <aside
-        className={
-          sidebarShow
-            ? "w-[20rem] h-screen bg-gray-200 dark:bg-[#161819] shadow-xl duration-200"
-            : "w-24 h-screen bg-gray-200 dark:bg-[#161819] shadow-xl duration-200"
-        }
+        className={`
+          ${
+            sidebarShowMobile
+              ? 'transform -translate-x-[100%] md:translate-x-0'
+              : 'transform translate-x-0'
+          } fixed top-0 left-0 z-50 transition duration-300`}
       >
-        <div className="space-y-6 p-5">
+        <div
+          className={`${
+            sidebarShowDesktop ? 'w-[15rem] md:w-[20rem]' : 'w-24'
+          } h-screen bg-gray-200 shadow-xl duration-200 space-y-6 p-2 md:p-5`}
+        >
           <div className="relative flex items-center">
             <Link href="/dashboard/profile">
               <div className="flex items-center justify-center rounded-2xl border-2 border-gray-300 dark:border-transparent bg-transparent dark:bg-[#242627] w-fit p-1 cursor-pointer">
@@ -55,21 +66,27 @@ const Sidebar = ({ children }) => {
                 />
               </div>
             </Link>
-            <div className={sidebarShow ? "relative ml-4" : "hidden"}>
-              <h2 className="text-[#242627] dark:text-white font-semibold text-lg">
-                Andy Panda
-              </h2>
-              <span className="absolute -top-0.5 -right-2 w-2 h-2 rounded-full bg-[#6fce97]" />
-            </div>
             <div
-              onClick={toggleSidebar}
               className={
-                sidebarShow
-                  ? closeAndOpenDefaultClass + "-right-5  rounded-l-lg"
-                  : closeAndOpenDefaultClass + "-right-10  rounded-r-lg"
+                sidebarShowDesktop ? 'relative ml-2 md:ml-4' : 'hidden'
               }
             >
-              {sidebarShow ? <IoIosArrowBack /> : <IoIosArrowForward />}
+              <h2 className="text-[#242627] font-semibold text-base md:text-lg truncate">
+                Andy Panda
+              </h2>
+              <span className="absolute -top-0.5 -right-2 w-1 h-1 md:w-2 md:h-2 rounded-full bg-[#6fce97]" />
+            </div>
+            <div
+              onClick={toggleSidebarDesktop}
+              className={`
+                ${
+                  !sidebarShowDesktop
+                    ? '-right-10 rounded-r-lg'
+                    : '-right-5 rounded-l-lg'
+                }
+                  absolute px-0.5 py-3 bg-gray-300 hidden md:block text-[#161925] cursor-pointer`}
+            >
+              {sidebarShowDesktop ? <IoIosArrowBack /> : <IoIosArrowForward />}
             </div>
           </div>
           <div className="px-1">
@@ -77,15 +94,19 @@ const Sidebar = ({ children }) => {
               Overview
             </small>
 
-            <div>
+            <div className="md:mt-4">
               {Menus.map((item) => (
                 <div key={item.title}>
                   <Link href={item.path}>
-                    <div className="flex items-center dark:text-white p-3 rounded-lg cursor-pointer hover:bg-gray-300 group">
+                    <div
+                      className={`${
+                        router.pathname == item.path ? 'bg-gray-300' : ''
+                      } flex items-center px-3 py-2 my-1 rounded-lg cursor-pointer hover:bg-gray-300 group`}
+                    >
                       <span className="text-2xl">{item.icon}</span>
                       <h1
                         className={
-                          sidebarShow ? listTextDefaultClass : "hidden"
+                          sidebarShowDesktop ? listTextDefaultClass : 'hidden'
                         }
                       >
                         {item.title}
@@ -102,13 +123,13 @@ const Sidebar = ({ children }) => {
             </small>
           </div>
           <Link href="/dashboard/create-test">
-            <div className="flex flex-col items-center justify-center cursor-pointer border hover:border-green-500 hover:dark:border-white py-4 rounded-lg bg-[#f2f3f7] dark:bg-[#323435]">
+            <div className="flex flex-col items-center justify-center cursor-pointer border hover:border-green-500 hover:dark:border-white py-4 rounded-lg bg-[#f2f3f7]">
               <BsPlusCircleFill className="text-green-500 text-3xl bg-white rounded-full shadow-xl" />
               <small
                 className={
-                  sidebarShow
-                    ? "font-semibold text-gray-500 dark:text-white py-2"
-                    : "hidden"
+                  sidebarShowDesktop
+                    ? 'font-semibold text-gray-500 py-2'
+                    : 'hidden'
                 }
               >
                 Add new Project
@@ -117,7 +138,7 @@ const Sidebar = ({ children }) => {
           </Link>
           <div
             className={`${
-              sidebarShow ? "block" : "hidden"
+              sidebarShowDesktop ? 'block' : 'hidden'
             } absolute bottom-2 leading-snug`}
           >
             <h3 className="text-sm font-medium truncate">EdTeach - quiz app</h3>
@@ -130,7 +151,19 @@ const Sidebar = ({ children }) => {
         </div>
       </aside>
 
-      <main>{children}</main>
+      <main
+        className={`${
+          sidebarShowDesktop ? 'md:ml-72 lg:ml-64' : 'md:ml-20 lg:ml-10'
+        } container mx-auto -ml-4`}
+      >
+        {children}
+      </main>
+      <button
+        className="absolute top-5 right-4 block md:hidden"
+        onClick={toggleSidebarMobile}
+      >
+        <MdMenu className="text-2xl" />
+      </button>
     </div>
   );
 };
