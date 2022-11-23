@@ -1,14 +1,13 @@
-import React from "react";
-import Link from "next/link";
+import React from 'react';
+import Link from 'next/link';
 import Image from 'next/image';
-import aboutImg1 from "../../public/images/about-img1.jpg"
-import aboutImg2 from "../../public/images/about-img2.jpg"
-import aboutImg3 from "../../public/images/about-img3.jpg"
-import aboutImg4 from "../../public/images/about-img4.jpg"
-import aboutImg5 from "../../public/images/about-img5.jpg"
+import aboutImg1 from '../../public/images/about-img1.jpg';
+import aboutImg2 from '../../public/images/about-img2.jpg';
+import aboutImg3 from '../../public/images/about-img3.jpg';
+import aboutImg4 from '../../public/images/about-img4.jpg';
+import aboutImg5 from '../../public/images/about-img5.jpg';
 
 const About = () => {
-
   return (
     <section className="page-section">
       <section className="my-10 md:my-16 lg:my-20">
@@ -16,10 +15,7 @@ const About = () => {
           <li className="snap-center w-full md:w-[40vw] lg:w-[35vw] rounded-3xl">
             <div className="relative flex-shrink-0 w-full">
               <div className="about-img absolute  w-full h-full">
-                <Image
-                  src={aboutImg1}
-                  alt="project images"
-                />
+                <Image src={aboutImg1} alt="project images" />
               </div>
               <div className="absolute inset-0 h-full w-full bg-gradient-to-br from-black/30  rounded-3xl" />
               <div className="relative h-64 md:h-96 w-full py-8 px-5 md:p-8 lg:p-12 flex flex-col justify-between items-start">
@@ -40,10 +36,7 @@ const About = () => {
           <li className="snap-center w-full md:w-[40vw] lg:w-[35vw] rounded-3xl">
             <div className="relative flex-shrink-0 w-full">
               <div className="about-img absolute  w-full h-full ">
-                <Image
-                  src={aboutImg2}
-                  alt="project images"
-                />
+                <Image src={aboutImg2} alt="project images" />
               </div>
               <div className="absolute inset-0 h-full w-full bg-gradient-to-br from-black/30  rounded-3xl" />
               <div className="relative h-64 md:h-96 w-full py-8 px-5 md:p-8 lg:p-12 flex flex-col justify-between items-start">
@@ -105,10 +98,7 @@ const About = () => {
           <div className="relative w-[90vw] md:w-[26rem] lg:w-[27rem]  bg-white dark:bg-[#18191c] shadow-xl rounded-xl group">
             <div className="relative w-full rounded-xl">
               <div className="about-img   w-full h-auto">
-                <Image
-                  src={aboutImg3}
-                  alt="card image"
-                />
+                <Image src={aboutImg3} alt="card image" />
               </div>
               <div className="absolute top-3 left-4 flex items-center space-x-2 cursor-pointer">
                 <span className="w-8 h-8 rounded-lg bg-white flex items-center justify-center  duration-200 space-x-1 hover:-translate-y-1">
@@ -121,18 +111,15 @@ const About = () => {
                 O`zaro hamkorlik
               </h5>
               <p className="text-sm font-medium text-primary">
-                An&apos;anaviy hamda masofaviy ta&apos;lim shakllarida interaktiv ta&apos;lim
-                metodini taklif etamiz
+                An&apos;anaviy hamda masofaviy ta&apos;lim shakllarida
+                interaktiv ta&apos;lim metodini taklif etamiz
               </p>
             </div>
           </div>
           <div className="relative w-[90vw] md:w-[26rem] lg:w-[27rem]  bg-white dark:bg-[#18191c] shadow-xl rounded-xl group">
             <div className="relative w-full rounded-xl">
-            <div className="about-img   w-full h-auto">
-                <Image
-                  src={aboutImg4}
-                  alt="card image"
-                />
+              <div className="about-img   w-full h-auto">
+                <Image src={aboutImg4} alt="card image" />
               </div>
               <div className="absolute top-3 left-4 flex items-center space-x-2 cursor-pointer">
                 <span className="w-8 h-8 rounded-lg bg-white flex items-center justify-center  duration-200 space-x-1 hover:-translate-y-1">
@@ -145,18 +132,15 @@ const About = () => {
                 Qiziqarli talim
               </h5>
               <p className="text-sm font-medium text-primary">
-                Virtual ta&apos;limda ta&apos;lim beruvchi hamda ta&apos;lim oluvchilar uchun
-                o&apos;ziga xos, interaktiv web-platforma
+                Virtual ta&apos;limda ta&apos;lim beruvchi hamda ta&apos;lim
+                oluvchilar uchun o&apos;ziga xos, interaktiv web-platforma
               </p>
             </div>
           </div>
           <div className="relative w-[90vw] md:w-[26rem] lg:w-[27rem]  bg-white dark:bg-[#18191c] shadow-xl rounded-xl group">
             <div className="relative w-full rounded-xl">
-            <div className="about-img   w-full h-auto">
-                <Image
-                  src={aboutImg5}
-                  alt="card image"
-                />
+              <div className="about-img   w-full h-auto">
+                <Image src={aboutImg5} alt="card image" />
               </div>
               <div className="absolute top-3 left-4 flex items-center space-x-2 cursor-pointer">
                 <span className="w-8 h-8 rounded-lg bg-white flex items-center justify-center  duration-200 space-x-1 hover:-translate-y-1">
@@ -169,8 +153,8 @@ const About = () => {
                 Kreativ baholash
               </h5>
               <p className="text-sm font-medium text-primary leading-1">
-                Baholashning innovatsion usullaridan foydalanish orqali to&apos;liq
-                avtomatlashtirilgan web-platforma{" "}
+                Baholashning innovatsion usullaridan foydalanish orqali
+                to&apos;liq avtomatlashtirilgan web-platforma{' '}
               </p>
             </div>
           </div>
@@ -179,7 +163,9 @@ const About = () => {
           <Link href="/auth">
             <a
               href="#_"
-              className="inline-flex items-center justify-center w-full px-6 py-3 mb-2 text-lg text-white bg-green-400 rounded-2xl sm:w-auto sm:mb-0"
+              className="w-fit flex items-center rounded-lg py-3 px-8 font-medium shadow-md text-sm md:text-base duration-300
+              active:bg-opacity-80 cursor-pointer ease-in-out active:scale-95 bg-purple-500 
+              dark:bg-[#1a5cff] text-white hover:shadow-md"
             >
               Hoziroq boshlang
               <svg
@@ -200,7 +186,6 @@ const About = () => {
       </section>
     </section>
   );
-
 };
 
 export default About;

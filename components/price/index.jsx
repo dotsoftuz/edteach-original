@@ -1,11 +1,10 @@
 import React from 'react';
-// import Link from "next/link";
 
 const PriceCard = (props) => {
   let { degree, price, description, text1, text2, text3, text4, text5, link } =
     props;
   return (
-    <div className="w-full sm:min-h-[500px] duration-500 xl:hover:scale-[1.04]  sm:w-3/4 md:w-1/2 lg:w-1/3 sm:relative py-5">
+    <div className="sm:min-h-[500px] sm:relative rounded-lg shadow-lg p-5">
       <div className="flex flex-col items-center">
         <h3 className="text-2xl  lg:text-3xl font-semibold text-[#333333]">
           {degree}
@@ -173,7 +172,7 @@ const PriceCard = (props) => {
           <p className="text-[16px]"> {text5}</p>
         </div>
         <a href={link}>
-          <button className="text-[18px] font-[500] mt-10 rounded-md text-[white] duration-400 text-center bg-green-400 hover:bg-green-500  py-[10px] px-[90px] sm:absolute sm:bottom-0 sm:left-[19%] lg:left-0  xl:left-[19%] ">
+          <button className="text-[18px] font-[500] mt-10 rounded-md text-[white] duration-400 text-center bg-purple-500 hover:bg-purple-400  py-[10px] px-[90px] sm:absolute sm:bottom-5 sm:left-[19%] lg:left-0  xl:left-[19%] ">
             Tanlash
           </button>
         </a>
@@ -191,7 +190,7 @@ const Price = () => {
       <p className="text-center text-xl  sm:text-2xl pt-2 md:pt-4 lg:pt-5 text-[#333333]">
         Biz sizga maqbul keladigan eng qulay narxdagi xizmatlarni taklif qilamiz
       </p>
-      <div className="flex pt-10 flex-wrap justify-center md:justify-start  w-full ">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 mt-10">
         <PriceCard
           degree="Oddiy"
           price="1"

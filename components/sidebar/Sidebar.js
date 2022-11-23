@@ -71,7 +71,6 @@ const Sidebar = ({ children }) => {
               <h2 className="text-[#242627] font-semibold text-base md:text-lg truncate">
                 Andy Panda
               </h2>
-              <span className="absolute -top-0.5 -right-2 w-1 h-1 md:w-2 md:h-2 rounded-full bg-[#6fce97]" />
             </div>
             <div
               onClick={toggleSidebarDesktop}
@@ -120,8 +119,8 @@ const Sidebar = ({ children }) => {
             </small>
           </div>
           <Link href="/dashboard/create-test">
-            <div className="flex flex-col items-center justify-center cursor-pointer border hover:border-green-500 hover:dark:border-white py-4 rounded-lg bg-[#f2f3f7]">
-              <BsPlusCircleFill className="text-green-500 text-3xl bg-white rounded-full shadow-xl" />
+            <div className="flex flex-col items-center justify-center cursor-pointer border hover:border-purple-500 hover:dark:border-white py-4 rounded-lg bg-[#f2f3f7]">
+              <BsPlusCircleFill className="text-purple-500 text-3xl bg-white rounded-full shadow-xl" />
               <small
                 className={
                   sidebarShowDesktop
