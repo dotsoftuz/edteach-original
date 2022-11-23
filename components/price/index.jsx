@@ -183,7 +183,7 @@ const PriceCard = (props) => {
 
 const Price = () => {
   return (
-    <div className="container mx-auto py-10">
+    <div className="container mx-auto py-10" id='price'>
       <h2 className="text-center text-xl md:text-2xl lg:text-3xl font-semibold uppercase  text-[#333333]">
         Obuna va Narxlar
       </h2>
