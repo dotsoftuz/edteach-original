@@ -1,5 +1,5 @@
-import React from "react";
-import Link from "next/link";
+import React from 'react';
+import Link from 'next/link';
 
 const Header = () => {
   return (
@@ -8,9 +8,8 @@ const Header = () => {
         <div className="flex items-center justify-between gap-4 lg:gap-10">
           <div className="flex lg:w-0 lg:flex-1">
             <Link href="/">
-              <span >Logo</span>
+              <span>Logo</span>
             </Link>
-
           </div>
 
           <nav
@@ -33,13 +32,12 @@ const Header = () => {
 
           <div className="hidden flex-1 items-center justify-end gap-4 sm:flex">
             <Link
-              className="rounded-lg bg-blue-600 px-5 py-2 text-sm font-medium text-white"
               href="/dashboard"
             >
-              Kirish
+              <a className='w-fit rounded-lg py-2 px-8 font-medium shadow-md text-sm duration-300
+          active:bg-opacity-80 cursor-pointer ease-in-out active:scale-95 bg-purple-500 
+          dark:bg-[#1a5cff] md:text-sm text-white hover:shadow-md'>Kirish</a>
             </Link>
-
-
           </div>
 
           <div className="lg:hidden">

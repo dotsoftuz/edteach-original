@@ -8,7 +8,7 @@ const Header = () => {
         <div className="w-full mx-auto text-left md:w-11/12 xl:w-9/12 md:text-center">
           <h1 className="mb-8 text-4xl font-extrabold leading-none tracking-normal text-gray-900 md:text-6xl md:tracking-tight">
             <span>Bilimingizni</span>{" "}
-            <span className="block w-full py-2 text-transparent bg-clip-text leading-12 bg-gradient-to-r from-green-400 to-purple-500 lg:inline">
+            <span className="block w-full py-2 text-transparent bg-clip-text leading-12 bg-purple-500 lg:inline">
               EdTeach
             </span>{" "}
             <span>bilan sinashni istaysizmi?</span>
@@ -21,7 +21,8 @@ const Header = () => {
               <Link href="/auth">
                 <a
                   href="#_"
-                  className="inline-flex items-center justify-center w-full px-6 py-3 mb-2 text-lg text-white bg-green-400 rounded-2xl sm:w-auto sm:mb-0"
+                  className="inline-flex items-center justify-center w-full px-6 py-3 mb-2 text-lg text-white bg-purple-500 rounded-lg sm:w-auto sm:mb-0 shadow-lg duration-300
+                  active:bg-opacity-80 cursor-pointer ease-in-out active:scale-95"
                 >
                  Bepul ro`yhatdan o`ting
                   <svg
@@ -41,7 +42,8 @@ const Header = () => {
               <Link href="#!">
                 <a
                   href="#_"
-                  className="inline-flex items-center justify-center w-full px-6 py-3 mb-2 text-lg bg-gray-100 rounded-2xl sm:w-auto sm:mb-0"
+                  className="inline-flex items-center justify-center w-full px-6 py-3 mb-2 text-lg text-black bg-gray-100 rounded-lg sm:w-auto sm:mb-0 shadow-lg duration-300
+                  active:bg-opacity-80 cursor-pointer ease-in-out active:scale-95"
                 >
                   Ko`proq ma`lumot
                   <svg

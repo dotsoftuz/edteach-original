@@ -1,6 +1,6 @@
-import React, { useRef, useState } from "react";
-import emailjs from "@emailjs/browser";
-import toast, { Toaster } from "react-hot-toast";
+import React, { useRef, useState } from 'react';
+import emailjs from '@emailjs/browser';
+import toast, { Toaster } from 'react-hot-toast';
 
 const Contact = () => {
   const [inputs, setInputs] = useState({});
@@ -16,25 +16,25 @@ const Contact = () => {
 
     emailjs
       .sendForm(
-        "service_ehwyfsf",
-        "template_4fnw3cw",
+        'service_ehwyfsf',
+        'template_4fnw3cw',
         form.current,
-        "dqmWfjKjx0kj0b5np"
+        'dqmWfjKjx0kj0b5np'
       )
       .then(
         (result) => {
           console.log(result.text);
-          toast.success("Habaringiz muvaffaqiyatli jo`natildi.");
+          toast.success('Habaringiz muvaffaqiyatli jo`natildi.');
           setInputs(() => ({}));
         },
         (error) => {
           console.log(error.text);
-          toast.error("Serverda xato yuz berdi.");
+          toast.error('Serverda xato yuz berdi.');
         }
       );
   };
   return (
-    <div className="container mx-auto px-5   sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
+    <div className="container mx-auto px-5 pt-10  sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
       {/* Message send */}
       <div className="">
         <form
@@ -57,7 +57,7 @@ const Contact = () => {
                 id="first_name"
                 className="bg-neutral-20 outline-none border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                 placeholder="Ismingiz"
-                value={inputs.first_name || ""}
+                value={inputs.first_name || ''}
                 onChange={handleChange}
                 required
               />
@@ -75,7 +75,7 @@ const Contact = () => {
                 id="last_name"
                 className="bg-neutral-20 border outline-none  border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                 placeholder="Familyangiz"
-                value={inputs.last_name || ""}
+                value={inputs.last_name || ''}
                 onChange={handleChange}
                 required
               />
@@ -93,7 +93,7 @@ const Contact = () => {
                 id="email"
                 className="bg-neutral-20 border outline-none  border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                 placeholder="email@mail.com"
-                value={inputs.email || ""}
+                value={inputs.email || ''}
                 onChange={handleChange}
                 required
               />
@@ -111,7 +111,7 @@ const Contact = () => {
                 id="phone"
                 className="bg-neutral-20 border outline-none  border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                 placeholder="91-654-42-35"
-                value={inputs.phone_number || ""}
+                value={inputs.phone_number || ''}
                 onChange={handleChange}
                 required
               />
@@ -130,7 +130,7 @@ const Contact = () => {
               rows={4}
               className="block p-2.5 w-full text-sm outline-none  text-gray-900 bg-neutral-20 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
               placeholder="Xabaringiz"
-              value={inputs.message || ""}
+              value={inputs.message || ''}
               onChange={handleChange}
               required
             />
@@ -138,9 +138,9 @@ const Contact = () => {
 
           <button
             type="submit"
-            className="mx-auto mt-4 cursor-pointer rounded-lg  py-3 px-8
-                         text-xs md:text-sm font-medium bg-green-400 hover:bg-green-500 text-[white]  shadow-md  shadow-cyan-500/50
-                         duration-500 ease-in-out active:scale-95 active:bg-opacity-80"
+            className="w-fit flex mt-4 items-center rounded-lg py-2 px-8 font-medium shadow-md text-sm md:text-base duration-300
+            active:bg-opacity-80 cursor-pointer ease-in-out active:scale-95 bg-purple-500 
+            dark:bg-[#1a5cff] text-white hover:shadow-md"
           >
             Yuborish
           </button>
