@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
-import { Sidebar } from '../../../../components';
+import { Sidebar } from '../../../components';
 import { collection, onSnapshot } from 'firebase/firestore';
-import { db } from '../../../../firebase';
+import { db } from '../../../firebase';
 import { useRouter } from 'next/router';
 
 const Tests = () => {
@@ -55,13 +55,9 @@ const Tests = () => {
               }
             })
             .map((val, key) => {
-              console.log(id);
               return (
                 <>
-                  <Link
-                    href="/dashboard/question/[id]/[tests]"
-                    as={`/dashboard/question/${id}/${val.id}`}
-                  >
+                  <Link href={`/dashboard/question/${val.id}`}>
                     <div
                       key={key}
                       className="w-full rounded-2xl bg-gray-700 text-white p-5 my-3 flex justify-around"
