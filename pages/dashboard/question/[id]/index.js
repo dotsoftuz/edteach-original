@@ -1,15 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { collection, onSnapshot } from 'firebase/firestore';
+import { useRouter } from 'next/router';
 import Head from 'next/head';
-<<<<<<< HEAD:pages/dashboard/question/index.js
+import Link from 'next/link';
 
 import { Sidebar, Breadcrumb } from '../../../components';
-=======
-import Link from 'next/link';
-import { Sidebar } from '../../../../components';
->>>>>>> b1c662d2063b365a2dcf31898459bf0384c5976a:pages/dashboard/question/[id]/index.js
-import { collection, onSnapshot } from 'firebase/firestore';
 import { db } from '../../../../firebase';
-import { useRouter } from 'next/router';
 
 const Tests = () => {
   const [questions, setQuestions] = useState([]);
@@ -35,7 +31,7 @@ const Tests = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Sidebar>
-      <Breadcrumb page="Ommaviy testlar" link="/" />
+        <Breadcrumb page="Ommaviy testlar" link="/" />
         <div className="container mx-auto">
           <div className="w-full flex justify-center mt-20">
             <input
