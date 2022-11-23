@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { MdOutlineSpaceDashboard, MdMenu } from 'react-icons/md';
@@ -9,17 +8,6 @@ import { GrTest } from 'react-icons/gr';
 import { useState } from 'react';
 import { BsPlusCircleFill } from 'react-icons/bs';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
-=======
-import Link from "next/link";
-import { MdOutlineSpaceDashboard } from "react-icons/md";
-import { IoExitOutline } from "react-icons/io5";
-import { SiConcourse } from "react-icons/si";
-import { FiUser, FiLink } from "react-icons/fi";
-import { GrTest } from "react-icons/gr";
-import { useState } from "react";
-import { BsPlusCircleFill } from "react-icons/bs";
-import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
->>>>>>> 7c3cf58bd6018371b52fbb1d2a7d9356a264610f
 
 const Sidebar = ({ children }) => {
   const [sidebarShowDesktop, setSidebarShowDesktop] = useState(true);
@@ -40,24 +28,12 @@ const Sidebar = ({ children }) => {
       path: '/dashboard',
       icon: <MdOutlineSpaceDashboard />,
     },
-<<<<<<< HEAD
     { title: 'Kurslar', path: '/dashboard/course', icon: <SiConcourse /> },
-    { title: 'Testlar', path: '/dashboard/tests', icon: <GrTest /> },
+    { title: 'Testlar', path: '/dashboard/question', icon: <GrTest /> },
     { title: 'Foydali', path: '/dashboard/useful', icon: <FiLink /> },
     { title: 'Profil', path: '/dashboard/profile', icon: <FiUser /> },
     { title: 'Chiqish', path: '', icon: <IoExitOutline />, red: true },
-=======
-    { title: "Kurslar", path: "/dashboard/course", icon: <SiConcourse /> },
-    { title: "Testlar", path: "/dashboard/question", icon: <GrTest /> },
-    { title: "Foydali", path: "/dashboard/useful", icon: <FiLink /> },
-    { title: "Profil", path: "/dashboard/profile", icon: <FiUser /> },
-    { title: "Chiqish", path: "", icon: <IoExitOutline />, red: true },
-
->>>>>>> 7c3cf58bd6018371b52fbb1d2a7d9356a264610f
   ];
-
-  const closeAndOpenDefaultClass =
-    'absolute px-0.5 py-3 bg-[#C5C4C0] text-[#161925] cursor-pointer ';
 
   const listTextDefaultClass =
     'text-gray-700 font-semibold ml-4 cursor-pointer';
@@ -172,23 +148,21 @@ const Sidebar = ({ children }) => {
         </div>
       </aside>
 
-<<<<<<< HEAD
       <main
         className={`${
           sidebarShowDesktop ? 'md:ml-72 lg:ml-64' : 'md:ml-20 lg:ml-10'
         } container mx-auto -ml-4`}
       >
-        {children}
+        <div>
+          {children}
+          <button
+            className="absolute top-5 right-4 block md:hidden"
+            onClick={toggleSidebarMobile}
+          >
+            <MdMenu className="text-2xl" />
+          </button>
+        </div>
       </main>
-      <button
-        className="absolute top-5 right-4 block md:hidden"
-        onClick={toggleSidebarMobile}
-      >
-        <MdMenu className="text-2xl" />
-      </button>
-=======
-      <main className="w-full">{children}</main>
->>>>>>> 7c3cf58bd6018371b52fbb1d2a7d9356a264610f
     </div>
   );
 };
