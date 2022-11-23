@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { collection, onSnapshot } from 'firebase/firestore';
+import { collection, doc, onSnapshot, updateDoc } from 'firebase/firestore';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 import Link from 'next/link';
@@ -22,6 +22,15 @@ const Tests = () => {
       setQuestions(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
     );
   }, []);
+
+  const sendData = async (id) => {
+    const collectionRef = doc(db, `question`, id);
+    const payload = {
+      status: "started",
+      pin: String(Math.floor(Math.random() * 9000) + 1000),
+    };
+    await updateDoc(collectionRef, payload);
+  };
 
   return (
     <div>
@@ -59,9 +68,10 @@ const Tests = () => {
             .map((val, key) => {
               return (
                 <>
-                  <Link href={`/dashboard/question/${val.id}`}>
+                  <Link href={`/dashboard/question/${val.id}`} >
                     <div
                       key={key}
+                      onClick={() => sendData(val.id)}
                       className="w-full rounded-2xl bg-gray-700 text-white p-5 my-3 flex justify-around"
                     >
                       <p>{val.title}</p>

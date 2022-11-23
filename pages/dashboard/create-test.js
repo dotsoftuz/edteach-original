@@ -1,13 +1,7 @@
 import { addDoc, collection } from 'firebase/firestore';
 import React, { useState } from 'react';
-
-<<<<<<< HEAD
-import { Sidebar, Breadcrumb } from "../../components";
-import { db } from "../../firebase";
-=======
 import { Sidebar } from '../../components';
 import { db } from '../../firebase';
->>>>>>> b1c662d2063b365a2dcf31898459bf0384c5976a
 
 const CreateTest = () => {
   const [input, setInput] = useState([
@@ -95,33 +89,6 @@ const CreateTest = () => {
 
   return (
     <Sidebar>
-<<<<<<< HEAD
-      <div className="p-5">
-      <Breadcrumb page="Test yaratish" link="/create-test" />
-        <div className="flex flex-col">
-          <form>
-            <label>
-              Mavzu:
-              <input
-                type="text"
-                placeholder="title"
-                onChange={handleChange}
-                value={quizData.title}
-                name="title"
-              />
-            </label>
-            <label>
-              Description:
-              <input
-                type="text"
-                placeholder="description"
-                onChange={handleChange}
-                value={quizData.description}
-                name="description"
-              />
-            </label>
-          </form>
-=======
       <div className="container mx-auto px-5">
         <div className="px-2 py-3 md:p-5 mx-auto w-full md:max-w-7xl shadow-lg my-10 md:my-16 rounded-xl bg-gray-100">
           <h2 className="text-xl font-bold uppercase mx-1 md:mx-3 text-center">
@@ -134,7 +101,9 @@ const CreateTest = () => {
             <input
               className="rounded-xl w-full  bg-gray-200 outline-none py-4 px-4 text-sm focus:px-6 duration-200 placeholder-gray-800"
               type="text"
-              name="name"
+              onChange={handleChange}
+              value={quizData.title}
+              name="title"
               placeholder="Misol: Geografiya"
             />
             <div className="mt-4 mb-2 ml-2">
@@ -143,11 +112,12 @@ const CreateTest = () => {
             <input
               className="rounded-xl w-full bg-gray-200 outline-none py-4 px-4 text-sm focus:px-6 duration-200 placeholder-gray-800 mb-5"
               type="text"
-              name="description"
+              onChange={handleChange}
+                value={quizData.description}
+                name="description"
               placeholder="Misol: Dunyo aholisi haqida "
             />
           </div>
->>>>>>> b1c662d2063b365a2dcf31898459bf0384c5976a
         </div>
       </div>
       <div className="form-box p-5">
