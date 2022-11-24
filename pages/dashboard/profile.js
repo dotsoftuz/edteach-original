@@ -16,7 +16,7 @@ const Profile = () => {
       </Head>
       <Sidebar>
         <div className="p-5">
-          <Breadcrumb page="Profil" link="/profile" />
+        <Breadcrumb page="Asosiy sahifa" page2="Profil" link="/dashboard" active />
           <div>
             <div className="relative flex flex-col md:flex-row bg-gray-200 rounded-lg p-4 md:p-6 my-5">
               <div className="flex items-center">
@@ -32,13 +32,13 @@ const Profile = () => {
                 </div>
                 <div className="ml-5">
                   <div className="flex items-center space-x-2">
-                    <h2 className=" text-lg font-semibold">Andy Panda</h2>
+                    <h2 className=" text-lg font-semibold">Zebiniso</h2>
                     <span className="bg-purple-500 text-white text-xs font-semibold px-1 rounded-full">
                       Teacher
                     </span>
                   </div>
                   <p className="text-purple-500 font-medium">
-                    andypanda@gmail.com
+                    zebi@gmail.com
                   </p>
                 </div>
               </div>
@@ -153,7 +153,7 @@ const Profile = () => {
                         </span>
                       </div>
                       <h2 className="text-xs font-semibold">
-                        Yaratuvchi: Andy Panda
+                        Yaratuvchi: Zebiniso
                       </h2>
                     </div>
                   </div>
@@ -217,7 +217,7 @@ const Profile = () => {
                         </span>
                       </div>
                       <h2 className="text-xs font-semibold">
-                        Yaratuvchi: Andy Panda
+                        Yaratuvchi: Zebiniso
                       </h2>
                     </div>
                   </div>

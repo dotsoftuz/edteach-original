@@ -1,10 +1,11 @@
+// import Breadcrumb from 'kutty/src/breadcrumb';
 import Link from 'next/link';
 import React from 'react';
-import { Sidebar, Breadcrumb } from '../../components';
+import { Sidebar } from '../../components';
 function Links(props) {
   return (
     <Sidebar>
-      <Breadcrumb page="Foydali linklar" link="/links" />
+      <Breadcrumb page="Asosiy sahifa" page2="Havolalar" link="/dashboard" active />
       <div className="flex flex-wrap justify-center">
         <ul className="w-[50%] divide-y divide-gray-200 mt-28 dark:divide-gray-700">
           <li className="pb-3 sm:pb-4">

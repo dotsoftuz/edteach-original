@@ -9,6 +9,7 @@ import img6 from "../../public/images/zoom.webp";
 import Image from "next/image";
 import { Sidebar } from "../../components";
 import Head from "next/head";
+import {Breadcrumb} from "../../components";
 
 function UseFul() {
   const [activeDialog, setActiveDialog] = useState(false);
@@ -29,6 +30,7 @@ function UseFul() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Sidebar>
+      <Breadcrumb page="Asosiy sahifa" page2="Foydali Havolalar" link="/dashboard" active />
         <div className="container mx-auto">
           <ul className="container my-10 mx-auto grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-10 justify-items-center w-fit px-5 md:px-0">
             <li

@@ -8,11 +8,13 @@ import { GrTest } from 'react-icons/gr';
 import { useState } from 'react';
 import { BsPlusCircleFill } from 'react-icons/bs';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
+import { useUserContext } from '../../context/userContext';
 
 const Sidebar = ({ children }) => {
   const [sidebarShowDesktop, setSidebarShowDesktop] = useState(true);
   const [sidebarShowMobile, setSidebarShowMobile] = useState(true);
   const router = useRouter();
+  const { logoutUser } = useUserContext();
 
   const toggleSidebarDesktop = () => {
     setSidebarShowDesktop(!sidebarShowDesktop);
@@ -38,6 +40,12 @@ const Sidebar = ({ children }) => {
 
   const listTextDefaultClass =
     'text-gray-700 font-semibold ml-4 cursor-pointer';
+
+  const handleClick = () => {
+    // e.preventDefault()
+    logoutUser();
+    router.push('/');
+  };
 
   return (
     <div className="flex">
@@ -70,7 +78,7 @@ const Sidebar = ({ children }) => {
               }
             >
               <h2 className="text-[#242627] font-semibold text-base md:text-lg truncate">
-                Andy Panda
+                Zebiniso
               </h2>
             </div>
             <div
@@ -88,7 +96,7 @@ const Sidebar = ({ children }) => {
           </div>
           <div className="px-1">
             <small className="text-xs font-medium text-[#161925] dark:text-gray-500 uppercase py-2 mb-2">
-              Overview
+              Sahifalar
             </small>
 
             <div className="md:mt-4">
@@ -99,6 +107,7 @@ const Sidebar = ({ children }) => {
                       className={`${
                         router.pathname == item.path ? 'bg-gray-300' : ''
                       } flex items-center px-3 py-2 my-1 rounded-lg cursor-pointer hover:bg-gray-300 group`}
+                      onClick={item.red ? handleClick : ''}
                     >
                       <span className="text-2xl">{item.icon}</span>
                       <h1
@@ -116,11 +125,11 @@ const Sidebar = ({ children }) => {
           </div>
           <div className="px-1">
             <small className="text-xs font-medium text-[#161925] dark:text-gray-500 uppercase py-2 truncate">
-              Add new
+              Test yaratish
             </small>
           </div>
           <Link href="/dashboard/create-test">
-            <div className="flex flex-col items-center justify-center cursor-pointer border hover:border-purple-500 hover:dark:border-white py-4 rounded-lg bg-[#f2f3f7]">
+            <div className="flex flex-col items-center justify-center capitalize cursor-pointer border hover:border-purple-500 hover:dark:border-white py-4 rounded-lg bg-[#f2f3f7]">
               <BsPlusCircleFill className="text-purple-500 text-3xl bg-white rounded-full shadow-xl" />
               <small
                 className={
@@ -129,7 +138,7 @@ const Sidebar = ({ children }) => {
                     : 'hidden'
                 }
               >
-                Add new Project
+                Yangi test yaratish
               </small>
             </div>
           </Link>
