@@ -1,7 +1,7 @@
 // import Breadcrumb from 'kutty/src/breadcrumb';
 import Link from 'next/link';
 import React from 'react';
-import { Sidebar } from '../../components';
+import { Sidebar, Breadcrumb } from '../../components';
 function Links(props) {
   return (
     <Sidebar>
