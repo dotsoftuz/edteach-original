@@ -170,7 +170,7 @@ const CreateTest = () => {
                 <label>Vaqt</label>
                 <select onChange={handleChangetime}>
                   {time.map((item) => {
-                    return <option value={item.value} >{item.name}</option>
+                    return <option key={item.id} value={item.value} >{item.name}</option>
                   })}
                 </select>
               </div>
@@ -178,7 +178,7 @@ const CreateTest = () => {
                 <label>Sayt ko`rinishi</label>
                 <select onChange={handleChangeVisibilty}>
                   {visibility.map((item) => {
-                    return <option value={item.value}>{item.name}</option>
+                    return <option key={item.id} value={item.value}>{item.name}</option>
                   })}
                 </select>
               </div>

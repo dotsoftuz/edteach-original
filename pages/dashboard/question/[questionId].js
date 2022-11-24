@@ -20,6 +20,12 @@ function QuestionId() {
 
   return (
     <Sidebar>
+       <Breadcrumb
+          page="Asosiy sahifa"
+          page2="Umumiy Testlar"
+          link="/dashboard"
+          active
+        />
       <div>
         {questions.map((item, key) => {
           const answers = item.questionList.map((item2) => item2.question);
