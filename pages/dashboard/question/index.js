@@ -14,12 +14,12 @@ const Tests = () => {
 
   const { uid } = useUserContext()
 
-  useEffect(() => {
+  useEffect( () => {
     const questColl = collection(db, `users/${uid}/question`);
     onSnapshot(questColl, (snapshot) =>
       setQuestions(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
     );
-  }, []);
+  }, [uid]);
 
   const sendData = async (id) => {
     const collectionRef = doc(db, `question`, id);
