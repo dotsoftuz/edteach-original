@@ -1,7 +1,9 @@
 import { addDoc, collection } from 'firebase/firestore';
 import React, { useState } from 'react';
 import { Sidebar } from '../../components';
-import { auth, db } from '../../firebase';
+import { db } from '../../firebase';
+
+import { useUserContext } from '../../context/userContext';
 
 const CreateTest = () => {
   const [input, setInput] = useState([
@@ -15,7 +17,9 @@ const CreateTest = () => {
       ],
     },
   ]);
-  const questColl = collection(db, `users/${auth.currentUser.uid}/question`);
+
+  const { uid } = useUserContext()
+  const questColl = collection(db, `users/${uid}/question`);
   const [loading, setLoading] = useState(false);
   const [ questionTime, setQuestionTime ] = useState()
   const [ questionVisibility, setQuestionVisibility ] = useState()
@@ -111,14 +115,14 @@ const CreateTest = () => {
     setQuestionVisibility(e.target.value)
   }
 
-  console.log(questionVisibility);
-
   let data = {
     title: quizData.title,
     description: quizData.description,
     questionList: input,
     timestamp: new Date(),
-    prefixTime: new Date().getTime
+    prefixTime: new Date().getTime,
+    questionTime,
+    questionVisibility
   };
 
   const createQuest = async (e) => {

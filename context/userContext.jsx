@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import {
   signInWithEmailAndPassword,
   onAuthStateChanged,
@@ -22,8 +22,9 @@ export const UserContextProvider = ({ children }) => {
   const [error, setError] = useState("");
   const [registry, setRegistry] = useState(false);
   const [passwordReset, setPasswordReset] = useState(false);
+  const [ uid, setUid ] = useState()
 
-  useState(() => {
+  useEffect(() => {
     setLoading(true);
     const unsubscribe = onAuthStateChanged(auth, (res) => {
       if (res) {
@@ -35,7 +36,17 @@ export const UserContextProvider = ({ children }) => {
       setLoading(false);
     });
     return unsubscribe;
+
+    
   }, []);
+
+  useEffect(() => {
+    const fetchAuth = async () => {
+      setUid(auth.currentUser.uid)
+    }
+    fetchAuth()
+  },[])
+
 
   const signInUser = (email, password) => {
     setLoading(true);
@@ -109,6 +120,7 @@ export const UserContextProvider = ({ children }) => {
     setLoading,
     setPasswordReset,
     passwordReset,
+    uid
   };
   return (
     <UserContext.Provider value={contextValue}>{children}</UserContext.Provider>

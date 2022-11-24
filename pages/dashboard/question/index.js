@@ -1,29 +1,25 @@
 import React, { useEffect, useState } from 'react';
 import { collection, onSnapshot } from 'firebase/firestore';
-import { useRouter } from 'next/router';
 import Head from 'next/head';
 import Link from 'next/link';
-import { auth, db } from '../../../firebase';
-
+import { db } from '../../../firebase';
 import { Sidebar, Breadcrumb } from '../../../components';
+
+import { useUserContext } from '../../../context/userContext';
 
 const Tests = () => {
   const [questions, setQuestions] = useState([]);
-
-  const questColl = collection(db, `users/${auth.currentUser.uid}/question`);
-
   const [searchTerm, setSearchTerm] = useState('');
-
   const [testCard, setTestCard] = useState(true);
 
-  const router = useRouter();
-  const { id } = router.query;
+  const { uid } = useUserContext()
 
   useEffect(() => {
+    const questColl = collection(db, `users/${uid}/question`);
     onSnapshot(questColl, (snapshot) =>
       setQuestions(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
     );
-  }, []);
+  }, [uid]);
 
   return (
     <div>
@@ -124,7 +120,6 @@ const Tests = () => {
                 }
               })
               .map((val, key) => {
-                console.log(val);
                 return (
                   <>
                     <div
