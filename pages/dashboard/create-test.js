@@ -25,6 +25,7 @@ const CreateTest = () => {
   const [loading, setLoading] = useState(false);
   const [ questionTime, setQuestionTime ] = useState("")
   const [ questionVisibility, setQuestionVisibility ] = useState("")
+  const router = useRouter()
 
   let getValue = (i, e) => {
     let newInput = [...input];
