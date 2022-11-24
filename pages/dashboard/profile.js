@@ -65,7 +65,6 @@ const Profile = () => {
             </div>
             <h3 className="text-2xl font-semibold my-5">
               Siz hali test yaratmadingiz.
-<<<<<<< HEAD
             </h3>
             <div>
               <div className="flex items-center justify-between">
@@ -246,9 +245,6 @@ const Profile = () => {
                 </div>
               </div>
             </div>
-=======
-            </h3> 
->>>>>>> a563ee03228c3d9a09a12213896e42f512fa0bcb
           </div>
         </div>
       </Sidebar>

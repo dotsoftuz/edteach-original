@@ -132,7 +132,7 @@ const Tests = () => {
             })
             .map((val, key) => {
               return (
-                <>
+                
                   <Link href={`/dashboard/question/${val.id}`} >
                     <div
                       className={`${
@@ -196,10 +196,9 @@ const Tests = () => {
                         </svg>
                       </div>
                     </div>
-                  </>
+                  </Link>
                 );
               })}
-          </div>
         </div>
       </Sidebar>
     </div>
