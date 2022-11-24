@@ -1,9 +1,11 @@
 import { addDoc, collection } from 'firebase/firestore';
 import React, { useState } from 'react';
-import { Loader, Sidebar } from '../../components';
-import { auth, db } from '../../firebase';
 import { useRouter } from 'next/router';
 import toast, { Toaster } from 'react-hot-toast';
+import { Sidebar } from '../../components';
+import { db } from '../../firebase';
+
+import { useUserContext } from '../../context/userContext';
 
 const CreateTest = () => {
   const [input, setInput] = useState([
@@ -17,7 +19,9 @@ const CreateTest = () => {
       ],
     },
   ]);
-  const questColl = collection(db, `users/${auth.currentUser.uid}/question`);
+
+  const { uid } = useUserContext();
+  const questColl = collection(db, `users/${uid}/question`);
   const [loading, setLoading] = useState(false);
   const [questionTime, setQuestionTime] = useState();
   const [questionVisibility, setQuestionVisibility] = useState();
@@ -114,14 +118,14 @@ const CreateTest = () => {
     setQuestionVisibility(e.target.value);
   };
 
-  console.log(questionVisibility);
-
   let data = {
     title: quizData.title,
     description: quizData.description,
     questionList: input,
     timestamp: new Date(),
     prefixTime: new Date().getTime,
+    questionTime,
+    questionVisibility,
   };
 
   const createQuest = async (e) => {
@@ -130,20 +134,21 @@ const CreateTest = () => {
       await addDoc(questColl, data);
       console.log('Ketti');
     } catch (error) {
-      toast.error("Hello World")      
+      toast.error('Hello World');
       console.log('Xato');
       console.log(error);
       setTimeout(() => {
-
         router.push('/dashboard/question');
-      }, 2000)
+      }, 2000);
     }
   };
 
   return (
     <Sidebar>
       <div className="container mx-auto px-5">
-      <div><Toaster/></div>
+        <div>
+          <Toaster />
+        </div>
         <div className="px-2 py-3 md:p-5 mx-auto w-full md:max-w-7xl shadow-lg my-10 md:my-16 rounded-xl bg-gray-100">
           <h2 className="text-xl font-bold uppercase mx-1 md:mx-3 text-center">
             Test yaratish

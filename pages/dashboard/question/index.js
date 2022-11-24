@@ -1,25 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import { collection, onSnapshot } from 'firebase/firestore';
-import { useRouter } from 'next/router';
 import Head from 'next/head';
 import Link from 'next/link';
 import { db } from '../../../firebase';
 
 import { Sidebar, Breadcrumb } from '../../../components';
 
+import { useUserContext } from '../../../context/userContext';
+
 const Tests = () => {
   const [questions, setQuestions] = useState([]);
 
-  const questColl = collection(db, `question`);
-
   const [searchTerm, setSearchTerm] = useState('');
-
   const [testCard, setTestCard] = useState(true);
 
-  const router = useRouter();
-  const { id } = router.query;
+  const { uid } = useUserContext();
 
   useEffect(() => {
+    const questColl = collection(db, `users/${uid}/question`);
     onSnapshot(questColl, (snapshot) =>
       setQuestions(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
     );
@@ -129,71 +127,74 @@ const Tests = () => {
                 }
               })
               .map((val, key) => {
-                console.log(val);
                 return (
                   <>
-                    <div
-                      className={`${
-                        testCard
-                          ? 'flex flex-col space-y-2'
-                          : 'flex flex-row space-x-2 md:space-x-4'
-                      } relative  p-4 rounded-lg bg-gray-200`}
-                    >
-                      <Link href={`/dashboard/question/${val.id}`}>
-                        <img
-                          className={`${
-                            testCard ? 'w-full' : 'w-72'
-                          } rounded-lg h-56 object-cover cursor-pointer`}
-                          src="/images/about-img1.jpg"
-                          alt="test image"
-                        />
-                      </Link>
-                      <div className="flex flex-col justify-between">
-                        <div>
-                          <span className="bg-purple-500 text-white text-xs font-semibold px-1 rounded-full">
-                            Quiz
-                          </span>
-                          <h2 className="text-xl font-semibold">{val.title}</h2>
-                          <h2 className="text-lg font-semibold">
-                            {val.description}
-                          </h2>
-                        </div>
-                        <div>
-                          <div className="flex items-center space-x-2">
-                            <h2 className=" text-base font-semibold">
-                              Umumiy testlar soni:
-                            </h2>
-                            <span className="bg-purple-500 text-white text-xs font-semibold px-1 rounded-full">
-                              {val.questionList.length} ta
-                            </span>
-                          </div>
-                          <h2 className="text-xs font-semibold">
-                            Yaratuvchi: Zebiniso
-                          </h2>
-                        </div>
-                      </div>
+                    <Link href={`/dashboard/question/${val.id}`}>
                       <div
                         className={`${
-                          testCard ? 'bottom-2' : 'top-2'
-                        } absolute  right-2 flex items-center space-x-1 hover:text-purple-500 cursor-pointer`}
+                          testCard
+                            ? 'flex flex-col space-y-2'
+                            : 'flex flex-row space-x-2 md:space-x-4'
+                        } relative  p-4 rounded-lg bg-gray-200`}
                       >
-                        <p className="text-lg font-semibold">Start</p>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          strokeWidth={1.5}
-                          stroke="currentColor"
-                          className="w-5 h-5"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.348a1.125 1.125 0 010 1.971l-11.54 6.347a1.125 1.125 0 01-1.667-.985V5.653z"
+                        <Link href={`/dashboard/question/${val.id}`}>
+                          <img
+                            className={`${
+                              testCard ? 'w-full' : 'w-72'
+                            } rounded-lg h-56 object-cover cursor-pointer`}
+                            src="/images/about-img1.jpg"
+                            alt="test image"
                           />
-                        </svg>
+                        </Link>
+                        <div className="flex flex-col justify-between">
+                          <div>
+                            <span className="bg-purple-500 text-white text-xs font-semibold px-1 rounded-full">
+                              Quiz
+                            </span>
+                            <h2 className="text-xl font-semibold">
+                              {val.title}
+                            </h2>
+                            <h2 className="text-lg font-semibold">
+                              {val.description}
+                            </h2>
+                          </div>
+                          <div>
+                            <div className="flex items-center space-x-2">
+                              <h2 className=" text-base font-semibold">
+                                Umumiy testlar soni:
+                              </h2>
+                              <span className="bg-purple-500 text-white text-xs font-semibold px-1 rounded-full">
+                                {val.questionList.length} ta
+                              </span>
+                            </div>
+                            <h2 className="text-xs font-semibold">
+                              Yaratuvchi: Zebiniso
+                            </h2>
+                          </div>
+                        </div>
+                        <div
+                          className={`${
+                            testCard ? 'bottom-2' : 'top-2'
+                          } absolute  right-2 flex items-center space-x-1 hover:text-purple-500 cursor-pointer`}
+                        >
+                          <p className="text-lg font-semibold">Start</p>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            strokeWidth={1.5}
+                            stroke="currentColor"
+                            className="w-5 h-5"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.348a1.125 1.125 0 010 1.971l-11.54 6.347a1.125 1.125 0 01-1.667-.985V5.653z"
+                            />
+                          </svg>
+                        </div>
                       </div>
-                    </div>
+                    </Link>
                   </>
                 );
               })}
