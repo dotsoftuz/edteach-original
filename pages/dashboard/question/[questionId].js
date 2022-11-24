@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { collection, onSnapshot } from 'firebase/firestore';
 import { auth, db } from '../../../firebase';
-import { Sidebar } from '../../../components';
+import { Sidebar, Breadcrumb } from '../../../components';
 
 function QuestionId() {
   const router = useRouter();

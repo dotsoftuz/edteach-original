@@ -28,7 +28,7 @@ const Tests = () => {
   const sendData = async (id) => {
     const collectionRef = doc(db, `question`, id);
     const payload = {
-      status: "started",
+      status: 'started',
       pin: String(Math.floor(Math.random() * 9000) + 1000),
     };
     await updateDoc(collectionRef, payload);
@@ -117,23 +117,28 @@ const Tests = () => {
               </div>
             </div>
           </div>
-
-          {questions
-            .filter((val) => {
-              if (searchTerm === '') {
-                return val;
-              } else if (
-                val.title
-                  .toLocaleLowerCase()
-                  .includes(searchTerm.toLocaleLowerCase())
-              ) {
-                return val;
-              }
-            })
-            .map((val, key) => {
-              return (
-                
-                  <Link href={`/dashboard/question/${val.id}`} >
+          <div
+            className={`${
+              testCard
+                ? 'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'
+                : 'flex flex-col space-y-2'
+            } my-5`}
+          >
+            {questions
+              .filter((val) => {
+                if (searchTerm === '') {
+                  return val;
+                } else if (
+                  val.title
+                    .toLocaleLowerCase()
+                    .includes(searchTerm.toLocaleLowerCase())
+                ) {
+                  return val;
+                }
+              })
+              .map((val, key) => {
+                return (
+                  <Link href={`/dashboard/question/${val.id}`}>
                     <div
                       className={`${
                         testCard
@@ -199,6 +204,7 @@ const Tests = () => {
                   </Link>
                 );
               })}
+          </div>
         </div>
       </Sidebar>
     </div>
