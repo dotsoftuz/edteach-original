@@ -141,7 +141,7 @@ const CreateTest = () => {
         router.push('/dashboard/question');
       }, 2000);
     } catch (error) {
-      toast.error('Hello World');
+      toast.error('Somthing wrong');
       console.log(error);
     }
   };
