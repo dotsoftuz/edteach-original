@@ -39,9 +39,10 @@ const CreateTest = () => {
   const getCorrectAnswer = (index, i) => {
     let newInput = [...input];
     newInput[index].answerList[i].isCorrect = true;
-
-    setInput(input);
+    
+    setInput(newInput);
   };
+
 
   let addFormFields = () => {
     setInput([

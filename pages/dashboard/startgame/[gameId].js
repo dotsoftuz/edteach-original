@@ -24,7 +24,11 @@ function gameId() {
 
 
   return (
-    <Sidebar></Sidebar>
+    <Sidebar>
+        <h1>{questions.map((item) => {
+            return item.pin
+        })}</h1>
+    </Sidebar>
   )
 }
 
