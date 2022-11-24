@@ -3,15 +3,13 @@ import { useRouter } from 'next/router';
 import { collection, onSnapshot } from 'firebase/firestore';
 import { db } from '../../../firebase';
 import { Sidebar } from '../../../components';
-import {Breadcrumb} from '../../../components';
+import { Breadcrumb } from '../../../components';
 import { useUserContext } from '../../../context/userContext';
-
-
 
 function QuestionId() {
   const router = useRouter();
   const { questionId } = router.query;
-  const { uid } = useUserContext()
+  const { uid } = useUserContext();
 
   const [questions, setQuestions] = useState([]);
 
@@ -24,12 +22,12 @@ function QuestionId() {
 
   return (
     <Sidebar>
-       <Breadcrumb
-          page="Asosiy sahifa"
-          page2="Umumiy Testlar"
-          link="/dashboard"
-          active
-        />
+      <Breadcrumb
+        page="Asosiy sahifa"
+        page2="Umumiy Testlar"
+        link="/dashboard"
+        active
+      />
       <div>
         {questions.map((item, key) => {
           const answers = item.questionList.map((item2) => item2.question);

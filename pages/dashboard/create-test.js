@@ -22,10 +22,9 @@ const CreateTest = () => {
 
   const { uid } = useUserContext();
   const questColl = collection(db, `users/${uid}/question`);
-  const [questionTime, setQuestionTime] = useState();
-  const [questionVisibility, setQuestionVisibility] = useState();
-  // const [gender, setGender] = useState(); //hghj
-  const router = useRouter();
+  const [loading, setLoading] = useState(false);
+  const [ questionTime, setQuestionTime ] = useState("")
+  const [ questionVisibility, setQuestionVisibility ] = useState("")
 
   let getValue = (i, e) => {
     let newInput = [...input];
@@ -119,17 +118,20 @@ const CreateTest = () => {
     setQuestionTime(e.target.value);
   };
   const handleChangeVisibilty = (e) => {
-    setQuestionVisibility(e.target.value);
-  };
+    setQuestionVisibility(e.target.value)
+  }
+
+  const date = new Date()
+  const prefixTime = new Date().getTime()
 
   let data = {
     title: quizData.title,
     description: quizData.description,
     questionList: input,
-    timestamp: new Date(),
-    prefixTime: new Date().getTime,
     questionTime,
-    questionVisibility,
+    date,
+    prefixTime,
+    questionVisibility
   };
 
   const createQuest = async (e) => {
