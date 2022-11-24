@@ -14,7 +14,7 @@ const Tests = () => {
 
   const { uid } = useUserContext()
 
-  useEffect( () => {
+  useEffect(() => {
     const questColl = collection(db, `users/${uid}/question`);
     onSnapshot(questColl, (snapshot) =>
       setQuestions(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
@@ -24,9 +24,9 @@ const Tests = () => {
   const sendData = async (id) => {
     const collectionRef = doc(db, `users/${uid}/question`, id);
     const payload = {
-      status: "started",
+      status: 'started',
       pin: String(Math.floor(Math.random() * 900000) + 1000),
-      id: id
+      id: id,
     };
     await updateDoc(collectionRef, payload);
   };
