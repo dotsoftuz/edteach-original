@@ -1,7 +1,7 @@
 import { addDoc, collection } from 'firebase/firestore';
 import React, { useState } from 'react';
 import { Sidebar } from '../../components';
-import { db } from '../../firebase';
+import { auth, db } from '../../firebase';
 
 const CreateTest = () => {
   const [input, setInput] = useState([
@@ -15,8 +15,10 @@ const CreateTest = () => {
       ],
     },
   ]);
-  const questColl = collection(db, `question`);
+  const questColl = collection(db, `users/${auth.currentUser.uid}/question`);
   const [loading, setLoading] = useState(false);
+  const [ questionTime, setQuestionTime ] = useState()
+  const [ questionVisibility, setQuestionVisibility ] = useState()
 
   let getValue = (i, e) => {
     let newInput = [...input];
@@ -52,6 +54,36 @@ const CreateTest = () => {
     ]);
   };
 
+  const time = [
+    {
+      name: "30 soniya",
+      value: 30000,
+    },
+    {
+      name: "1 daqiqa",
+      value: 60000,
+    },
+    {
+      name: "3 daqiqa",
+      value: 1800000,
+    },
+    {
+      name: "5 daqiqa",
+      value: 3500000,
+    },
+  ]
+
+  const visibility = [
+    {
+      name: "Ommaviy",
+      value: "public"
+    },
+    {
+      name: "Yashirin",
+      value: "private"
+    },
+  ]
+ 
   let removeFormFields = (i) => {
     let newInput = [...input];
     newInput.splice(i, 1);
@@ -72,10 +104,21 @@ const CreateTest = () => {
     });
   };
 
+  const handleChangetime = (e) => {
+    setQuestionTime(e.target.value)
+  }
+  const handleChangeVisibilty = (e) => {
+    setQuestionVisibility(e.target.value)
+  }
+
+  console.log(questionVisibility);
+
   let data = {
     title: quizData.title,
     description: quizData.description,
     questionList: input,
+    timestamp: new Date(),
+    prefixTime: new Date().getTime
   };
 
   const createQuest = async (e) => {
@@ -117,6 +160,25 @@ const CreateTest = () => {
                 name="description"
               placeholder="Misol: Dunyo aholisi haqida "
             />
+
+            <div>
+              <div>
+                <label>Vaqt</label>
+                <select onChange={handleChangetime}>
+                  {time.map((item) => {
+                    return <option value={item.value} >{item.name}</option>
+                  })}
+                </select>
+              </div>
+              <div>
+                <label>Sayt ko`rinishi</label>
+                <select onChange={handleChangeVisibilty}>
+                  {visibility.map((item) => {
+                    return <option value={item.value}>{item.name}</option>
+                  })}
+                </select>
+              </div>
+            </div>
           </div>
         </div>
       </div>

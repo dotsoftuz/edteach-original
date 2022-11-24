@@ -3,14 +3,14 @@ import { collection, doc, onSnapshot, updateDoc } from 'firebase/firestore';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 import Link from 'next/link';
-import { db } from '../../../firebase';
+import { auth, db } from '../../../firebase';
 
 import { Sidebar, Breadcrumb } from '../../../components';
 
 const Tests = () => {
   const [questions, setQuestions] = useState([]);
 
-  const questColl = collection(db, `question`);
+  const questColl = collection(db, `users/${auth.currentUser.uid}/question`);
 
   const [searchTerm, setSearchTerm] = useState('');
 
@@ -24,7 +24,7 @@ const Tests = () => {
   }, []);
 
   const sendData = async (id) => {
-    const collectionRef = doc(db, `question`, id);
+    const collectionRef = doc(db, `users/${auth.currentUser.uid}/question`, id);
     const payload = {
       status: "started",
       pin: String(Math.floor(Math.random() * 9000) + 1000),

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { collection, onSnapshot } from 'firebase/firestore';
-import { db } from '../../../firebase';
+import { auth, db } from '../../../firebase';
 import { Sidebar } from '../../../components';
 
 function QuestionId() {
@@ -10,7 +10,7 @@ function QuestionId() {
 
   const [questions, setQuestions] = useState([]);
 
-  const questColl = collection(db, `question`);
+  const questColl = collection(db, `users/${auth.currentUser.uid}/question`);
 
   useEffect(() => {
     onSnapshot(questColl, (snapshot) =>
@@ -24,7 +24,6 @@ function QuestionId() {
         {questions.map((item, key) => {
           const answers = item.questionList.map((item2) => item2.question);
           const check = item.id === questionId;
-          console.log(item.questionList.map((item2) => item2));
           return (
             <>
               <div key={key} className="text-center mt-52 text-3xl   ">
