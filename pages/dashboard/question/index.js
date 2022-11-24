@@ -114,7 +114,13 @@ const Tests = () => {
               </div>
             </div>
           </div>
-
+          <div
+                className={`${
+                  testCard
+                    ? 'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'
+                    : 'flex flex-col space-y-2'
+                } my-5`}
+              >
           {questions
             .filter((val) => {
               if (searchTerm === '') {
@@ -198,6 +204,7 @@ const Tests = () => {
                   </div>
                 );
               })}
+        </div>
         </div>
       </Sidebar>
     </div>
