@@ -60,7 +60,7 @@ const Profile = () => {
             </div>
             <h3 className="text-2xl font-semibold mt-5">
               Siz hali test yaratmadingiz.
-            </h3> 
+            </h3>
           </div>
         </div>
       </Sidebar>

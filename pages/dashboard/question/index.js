@@ -26,7 +26,7 @@ const Tests = () => {
   const sendData = async (id) => {
     const collectionRef = doc(db, `question`, id);
     const payload = {
-      status: "started",
+      status: 'started',
       pin: String(Math.floor(Math.random() * 9000) + 1000),
     };
     await updateDoc(collectionRef, payload);
@@ -68,7 +68,7 @@ const Tests = () => {
             .map((val, key) => {
               return (
                 <>
-                  <Link href={`/dashboard/question/${val.id}`} >
+                  <Link href={`/dashboard/question/${val.id}`}>
                     <div
                       key={key}
                       onClick={() => sendData(val.id)}
