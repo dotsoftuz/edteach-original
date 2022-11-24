@@ -3,14 +3,14 @@ import { collection, onSnapshot } from 'firebase/firestore';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 import Link from 'next/link';
-import { auth, db } from '../../../firebase';
+import { db } from '../../../firebase';
 
 import { Sidebar, Breadcrumb } from '../../../components';
 
 const Tests = () => {
   const [questions, setQuestions] = useState([]);
 
-  const questColl = collection(db, `users/${auth.currentUser.uid}/question`);
+  const questColl = collection(db, `question`);
 
   const [searchTerm, setSearchTerm] = useState('');
 
@@ -25,15 +25,6 @@ const Tests = () => {
     );
   }, []);
 
-  const sendData = async (id) => {
-    const collectionRef = doc(db, `question`, id);
-    const payload = {
-      status: "started",
-      pin: String(Math.floor(Math.random() * 9000) + 1000),
-    };
-    await updateDoc(collectionRef, payload);
-  };
-
   return (
     <div>
       <Head>
@@ -42,7 +33,12 @@ const Tests = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Sidebar>
-        <Breadcrumb page="Ommaviy testlar" link="/" />
+        <Breadcrumb
+          page="Asosiy sahifa"
+          page2="Umumiy Testlar"
+          link="/dashboard"
+          active
+        />
         <div>
           <div className="relative my-5">
             <input
@@ -113,22 +109,29 @@ const Tests = () => {
             </div>
           </div>
 
-          {questions
-            .filter((val) => {
-              if (searchTerm === '') {
-                return val;
-              } else if (
-                val.title
-                  .toLocaleLowerCase()
-                  .includes(searchTerm.toLocaleLowerCase())
-              ) {
-                return val;
-              }
-            })
-            .map((val, key) => {
-              return (
-                <>
-                  <Link href={`/dashboard/question/${val.id}`} >
+          <div
+            className={`${
+              testCard
+                ? 'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'
+                : 'flex flex-col space-y-2'
+            } my-5`}
+          >
+            {questions
+              .filter((val) => {
+                if (searchTerm === '') {
+                  return val;
+                } else if (
+                  val.title
+                    .toLocaleLowerCase()
+                    .includes(searchTerm.toLocaleLowerCase())
+                ) {
+                  return val;
+                }
+              })
+              .map((val, key) => {
+                console.log(val);
+                return (
+                  <>
                     <div
                       className={`${
                         testCard
@@ -165,7 +168,7 @@ const Tests = () => {
                             </span>
                           </div>
                           <h2 className="text-xs font-semibold">
-                            Yaratuvchi: Andy Panda
+                            Yaratuvchi: Zebiniso
                           </h2>
                         </div>
                       </div>
