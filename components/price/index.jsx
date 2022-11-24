@@ -4,7 +4,7 @@ const PriceCard = (props) => {
   let { degree, price, description, text1, text2, text3, text4, text5, link } =
     props;
   return (
-    <div className="sm:min-h-[500px] sm:relative rounded-lg shadow-lg p-5">
+    <div className="sm:min-h-[530px] xl:min-h-[500px] sm:relative rounded-lg shadow-lg p-5">
       <div className="flex flex-col items-center">
         <h3 className="text-2xl  lg:text-3xl font-semibold text-[#333333]">
           {degree}
@@ -34,7 +34,7 @@ const PriceCard = (props) => {
         <div
           className={
             text1
-              ? 'flex gap-3 items-center pt-3 md:pt-4 sm:ml-16 lg:ml-0 xl:ml-16 mr-auto'
+              ? 'flex gap-3 items-center pt-3 md:pt-4 sm:ml-4 lg:ml-0 xl:ml-12 mr-auto'
               : 'hidden'
           }
         >
@@ -62,7 +62,7 @@ const PriceCard = (props) => {
         <div
           className={
             text2
-              ? 'flex gap-3 items-center pt-3 md:pt-4 sm:ml-16 lg:ml-0 xl:ml-16 mr-auto'
+              ? 'flex gap-3 items-center pt-3 md:pt-4 sm:ml-4 lg:ml-0 xl:ml-12 mr-auto'
               : 'hidden'
           }
         >
@@ -90,7 +90,7 @@ const PriceCard = (props) => {
         <div
           className={
             text3
-              ? 'flex gap-3 items-center pt-3 md:pt-4 sm:ml-16 lg:ml-0 xl:ml-16 mr-auto'
+              ? 'flex gap-3 items-center pt-3 md:pt-4 sm:ml-4 lg:ml-0 xl:ml-12 mr-auto'
               : 'hidden'
           }
         >
@@ -118,7 +118,7 @@ const PriceCard = (props) => {
         <div
           className={
             text4
-              ? 'flex gap-3 items-center pt-3 md:pt-4 sm:ml-16 lg:ml-0 xl:ml-16 mr-auto'
+              ? 'flex gap-3 items-center pt-3 md:pt-4 sm:ml-4 lg:ml-0 xl:ml-12 mr-auto'
               : 'hidden'
           }
         >
@@ -146,7 +146,7 @@ const PriceCard = (props) => {
         <div
           className={
             text5
-              ? 'flex gap-3 items-center pt-3 md:pt-4 sm:ml-16 lg:ml-0 xl:ml-16 mr-auto'
+              ? 'flex gap-3 items-center pt-3 md:pt-4 sm:ml-4 lg:ml-0 xl:ml-12 mr-auto'
               : 'hidden'
           }
         >
@@ -172,7 +172,7 @@ const PriceCard = (props) => {
           <p className="text-[16px]"> {text5}</p>
         </div>
         <a href={link}>
-          <button className="text-[18px] font-[500] mt-10 rounded-md text-[white] duration-400 text-center bg-purple-500 hover:bg-purple-400  py-[10px] px-[90px] sm:absolute sm:bottom-5 sm:left-[19%] lg:left-0  xl:left-[19%] ">
+          <button className="text-[18px] font-[500] mt-10 rounded-md text-[white] duration-400 text-center bg-purple-500 hover:bg-purple-400  py-[10px] px-[90px] sm:absolute sm:bottom-5 sm:left-[15%] lg:left-5  xl:left-[19%] ">
             Tanlash
           </button>
         </a>
@@ -183,14 +183,14 @@ const PriceCard = (props) => {
 
 const Price = () => {
   return (
-    <div className="container mx-auto py-10">
+    <div className="container mx-auto py-10" id='price'>
       <h2 className="text-center text-xl md:text-2xl lg:text-3xl font-semibold uppercase  text-[#333333]">
         Obuna va Narxlar
       </h2>
       <p className="text-center text-xl  sm:text-2xl pt-2 md:pt-4 lg:pt-5 text-[#333333]">
         Biz sizga maqbul keladigan eng qulay narxdagi xizmatlarni taklif qilamiz
       </p>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 mt-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-10">
         <PriceCard
           degree="Oddiy"
           price="1"

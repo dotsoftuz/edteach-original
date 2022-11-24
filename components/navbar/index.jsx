@@ -8,25 +8,28 @@ const Header = () => {
         <div className="flex items-center justify-between gap-4 lg:gap-10">
           <div className="flex lg:w-0 lg:flex-1">
             <Link href="/">
-              <span>Logo</span>
+              <span>edTeach</span>
             </Link>
           </div>
 
           <nav
             aria-label="Site Nav"
-            className="hidden gap-8 text-sm font-medium md:flex"
+            className="hidden gap-8 text-sm font-medium md:flex duration-700"
           >
-            <a className="text-gray-500" href="">
-              About
+            <a className="text-gray-500" href="#">
+              Asosiy
+            </a>
+            <a className="text-gray-500 duration-700" href="#price">
+              Obuna
             </a>
             <a className="text-gray-500" href="">
-              Blog
+              Xizmatlar
             </a>
             <a className="text-gray-500" href="">
-              Projects
+              Kurslar
             </a>
-            <a className="text-gray-500" href="">
-              Contact
+            <a className="text-gray-500" href="#contact">
+              Aloqa
             </a>
           </nav>
 
