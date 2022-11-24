@@ -42,9 +42,8 @@ const CreateTest = () => {
   const getCorrectAnswer = (index, i) => {
     let newInput = [...input];
     newInput[index].answerList[i].isCorrect = true;
-    // newInput[index].answerList.isCorrect = false;
 
-    setInput(input);
+    setInput(newInput);
   };
   // function onChangeValue(event) {
   //   setGender(event.target.value);

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { collection, onSnapshot } from 'firebase/firestore';
+import { collection, doc, onSnapshot, updateDoc } from 'firebase/firestore';
 import Head from 'next/head';
 import Link from 'next/link';
 import { db } from '../../../firebase';
@@ -22,6 +22,17 @@ const Tests = () => {
       setQuestions(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
     );
   }, [uid]);
+
+
+  const sendData = async (id) => {
+    const collectionRef = doc(db, `users/${uid}/question`, id);
+    const payload = {
+      status: "started",
+      pin: String(Math.floor(Math.random() * 900000) + 1000),
+      id: id
+    };
+    await updateDoc(collectionRef, payload);
+  };
 
   return (
     <div>
@@ -196,6 +207,7 @@ const Tests = () => {
                       </div>
                     </Link>
                   </>
+
                 );
               })}
           </div>
