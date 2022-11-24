@@ -2,12 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-
+html{
+  scroll-behavior: smooth;
+}
 .page-section {
     position: relative;
     padding: 0;
   }
   
+
   /* FIRST SECTION */
   
   .first-section {

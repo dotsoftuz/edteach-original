@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Head from 'next/head';
 
 import { Sidebar, Breadcrumb } from '../../components';
 import { CiEdit } from 'react-icons/ci';
 
 const Profile = () => {
+  const [testCard, setTestCard] = useState(false);
+
   return (
     <div>
       <Head>
@@ -18,12 +20,15 @@ const Profile = () => {
           <div>
             <div className="relative flex flex-col md:flex-row bg-gray-200 rounded-lg p-4 md:p-6 my-5">
               <div className="flex items-center">
-                <div>
+                <div className="group relative">
                   <img
                     className="rounded-full w-16 h-16 md:w-20 md:h-20 object-contain"
                     src="https://www.lazydev.uz/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fperson01.2102dbe6.png&w=64&q=75"
                     alt="avatar img"
                   />
+                  <div className="absolute top-0 rounded-full w-16 h-16 md:w-20 md:h-20 bg-black bg-opacity-40 hidden group-hover:block">
+                    <CiEdit className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-3xl text-white cursor-pointer" />
+                  </div>
                 </div>
                 <div className="ml-5">
                   <div className="flex items-center space-x-2">
@@ -58,9 +63,9 @@ const Profile = () => {
                 </a>
               </div>
             </div>
-            <h3 className="text-2xl font-semibold mt-5">
+            <h3 className="text-2xl font-semibold my-5">
               Siz hali test yaratmadingiz.
-            </h3>
+            </h3> 
           </div>
         </div>
       </Sidebar>
