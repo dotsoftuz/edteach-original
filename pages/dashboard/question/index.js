@@ -3,16 +3,18 @@ import { collection, doc, onSnapshot, updateDoc } from 'firebase/firestore';
 import Head from 'next/head';
 import Link from 'next/link';
 import { db } from '../../../firebase';
+
 import { Sidebar, Breadcrumb } from '../../../components';
 
 import { useUserContext } from '../../../context/userContext';
 
 const Tests = () => {
   const [questions, setQuestions] = useState([]);
+
   const [searchTerm, setSearchTerm] = useState('');
   const [testCard, setTestCard] = useState(true);
 
-  const { uid } = useUserContext()
+  const { uid } = useUserContext();
 
   useEffect( () => {
     const questColl = collection(db, `users/${uid}/question`);
@@ -20,6 +22,7 @@ const Tests = () => {
       setQuestions(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
     );
   }, [uid]);
+
 
   const sendData = async (id) => {
     const collectionRef = doc(db, `users/${uid}/question`, id);
@@ -114,70 +117,72 @@ const Tests = () => {
               </div>
             </div>
           </div>
+
           <div
-                className={`${
-                  testCard
-                    ? 'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'
-                    : 'flex flex-col space-y-2'
-                } my-5`}
-              >
-          {questions
-            .filter((val) => {
-              if (searchTerm === '') {
-                return val;
-              } else if (
-                val.title
-                  .toLocaleLowerCase()
-                  .includes(searchTerm.toLocaleLowerCase())
-              ) {
-                return val;
-              }
-            })
-            .map((val, key) => {
-              return (
-                
-                  <div
-                    className={`${
-                      testCard
-                        ? 'flex flex-col space-y-2'
-                        : 'flex flex-row space-x-2 md:space-x-4'
-                    } relative  p-4 rounded-lg bg-gray-200`}
-                  >
+            className={`${
+              testCard
+                ? 'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'
+                : 'flex flex-col space-y-2'
+            } my-5`}
+          >
+            {questions
+              .filter((val) => {
+                if (searchTerm === '') {
+                  return val;
+                } else if (
+                  val.title
+                    .toLocaleLowerCase()
+                    .includes(searchTerm.toLocaleLowerCase())
+                ) {
+                  return val;
+                }
+              })
+              .map((val, key) => {
+                return (
+                  <>
                     <Link href={`/dashboard/question/${val.id}`}>
-                      <img
+                      <div
                         className={`${
-                          testCard ? 'w-full' : 'w-72'
-                        } rounded-lg h-56 object-cover cursor-pointer`}
-                        src="/images/about-img1.jpg"
-                        alt="test image"
-                      />
-                    </Link>
-                    <div className="flex flex-col justify-between">
-                      <div>
-                        <span className="bg-purple-500 text-white text-xs font-semibold px-1 rounded-full">
-                          Quiz
-                        </span>
-                        <h2 className="text-xl font-semibold">{val.title}</h2>
-                        <h2 className="text-lg font-semibold">
-                          {val.description}
-                        </h2>
-                      </div>
-                      <div>
-                        <div className="flex items-center space-x-2">
-                          <h2 className=" text-base font-semibold">
-                            Umumiy testlar soni:
-                          </h2>
-                          <span className="bg-purple-500 text-white text-xs font-semibold px-1 rounded-full">
-                            {val.questionList.length} ta
-                          </span>
+                          testCard
+                            ? 'flex flex-col space-y-2'
+                            : 'flex flex-row space-x-2 md:space-x-4'
+                        } relative  p-4 rounded-lg bg-gray-200`}
+                      >
+                        <Link href={`/dashboard/question/${val.id}`}>
+                          <img
+                            className={`${
+                              testCard ? 'w-full' : 'w-72'
+                            } rounded-lg h-56 object-cover cursor-pointer`}
+                            src="/images/about-img1.jpg"
+                            alt="test image"
+                          />
+                        </Link>
+                        <div className="flex flex-col justify-between">
+                          <div>
+                            <span className="bg-purple-500 text-white text-xs font-semibold px-1 rounded-full">
+                              Quiz
+                            </span>
+                            <h2 className="text-xl font-semibold">
+                              {val.title}
+                            </h2>
+                            <h2 className="text-lg font-semibold">
+                              {val.description}
+                            </h2>
+                          </div>
+                          <div>
+                            <div className="flex items-center space-x-2">
+                              <h2 className=" text-base font-semibold">
+                                Umumiy testlar soni:
+                              </h2>
+                              <span className="bg-purple-500 text-white text-xs font-semibold px-1 rounded-full">
+                                {val.questionList.length} ta
+                              </span>
+                            </div>
+                            <h2 className="text-xs font-semibold">
+                              Yaratuvchi: Zebiniso
+                            </h2>
+                          </div>
                         </div>
-                        <h2 className="text-xs font-semibold">
-                          Yaratuvchi: Zebiniso
-                        </h2>
-                      </div>
-                    </div>
-                    <div onClick={() => sendData(val.id)}>
-                      <Link href={`startgame/${val.id}`}>
                         <div
                           className={`${
                             testCard ? 'bottom-2' : 'top-2'
@@ -199,12 +204,13 @@ const Tests = () => {
                             />
                           </svg>
                         </div>
-                      </Link>
-                    </div>
-                  </div>
+                      </div>
+                    </Link>
+                  </>
+
                 );
               })}
-        </div>
+          </div>
         </div>
       </Sidebar>
     </div>
