@@ -3,14 +3,14 @@ import { collection, onSnapshot } from 'firebase/firestore';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 import Link from 'next/link';
-import { db } from '../../../firebase';
+import { auth, db } from '../../../firebase';
 
 import { Sidebar, Breadcrumb } from '../../../components';
 
 const Tests = () => {
   const [questions, setQuestions] = useState([]);
 
-  const questColl = collection(db, `question`);
+  const questColl = collection(db, `users/${auth.currentUser.uid}/question`);
 
   const [searchTerm, setSearchTerm] = useState('');
 
@@ -24,6 +24,15 @@ const Tests = () => {
       setQuestions(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
     );
   }, []);
+
+  const sendData = async (id) => {
+    const collectionRef = doc(db, `question`, id);
+    const payload = {
+      status: "started",
+      pin: String(Math.floor(Math.random() * 9000) + 1000),
+    };
+    await updateDoc(collectionRef, payload);
+  };
 
   return (
     <div>
@@ -109,29 +118,22 @@ const Tests = () => {
             </div>
           </div>
 
-          <div
-            className={`${
-              testCard
-                ? 'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'
-                : 'flex flex-col space-y-2'
-            } my-5`}
-          >
-            {questions
-              .filter((val) => {
-                if (searchTerm === '') {
-                  return val;
-                } else if (
-                  val.title
-                    .toLocaleLowerCase()
-                    .includes(searchTerm.toLocaleLowerCase())
-                ) {
-                  return val;
-                }
-              })
-              .map((val, key) => {
-                console.log(val);
-                return (
-                  <>
+          {questions
+            .filter((val) => {
+              if (searchTerm === '') {
+                return val;
+              } else if (
+                val.title
+                  .toLocaleLowerCase()
+                  .includes(searchTerm.toLocaleLowerCase())
+              ) {
+                return val;
+              }
+            })
+            .map((val, key) => {
+              return (
+                <>
+                  <Link href={`/dashboard/question/${val.id}`} >
                     <div
                       className={`${
                         testCard

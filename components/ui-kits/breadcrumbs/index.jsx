@@ -25,7 +25,7 @@ const Breadcrumb = (props) => {
 
   return (
     <div className="flex items-center space-x-1 md:space-x-2 pt-2">
-      <Link href="/">
+      <Link href="/dashboard">
         <a className="font-semibold">Bosh sahifa</a>
       </Link>
       <ArrowIcon />

@@ -34,9 +34,12 @@ const Contact = () => {
       );
   };
   return (
-    <div className="container mx-auto px-5 pt-10  sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
+    <div id='contact' className="container mx-auto px-5 pt-14  sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
+       <h2 className="text-center text-xl md:text-2xl lg:text-3xl font-semibold uppercase  text-[#333333]">
+        AlOQAGA CHIQINCH
+      </h2>
       {/* Message send */}
-      <div className="">
+      <div className="pt-7">
         <form
           className="lg:w-[60%] lg:my-4 w-full mx-auto"
           ref={form}

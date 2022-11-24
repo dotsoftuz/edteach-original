@@ -1,5 +1,8 @@
+import toast from "kutty/src/toast";
 import React, { useState, useRef } from "react";
+import { Toaster } from "react-hot-toast";
 import { useUserContext } from "../../context/userContext";
+
 const SignIn = () => {
   const emailRef = useRef();
   const psdRef = useRef();
@@ -10,6 +13,7 @@ const SignIn = () => {
     const email = emailRef.current.value;
     const password = psdRef.current.value;
     if (email && password) signInUser(email, password);
+
   };
   const [showPassword, setShowPassword] = useState(false);
 
@@ -19,7 +23,7 @@ const SignIn = () => {
         <h1 className="text-center text-2xl font-bold text-indigo-600 sm:text-3xl">
           Get started today
         </h1>
-
+        <div><Toaster /></div>
         <p className="mx-auto mt-4 max-w-md text-center text-gray-500">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati
           sunt dolores deleniti inventore quaerat mollitia?
