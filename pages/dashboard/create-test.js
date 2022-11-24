@@ -22,9 +22,9 @@ const CreateTest = () => {
 
   const { uid } = useUserContext();
   const questColl = collection(db, `users/${uid}/question`);
-  const [loading, setLoading] = useState(false);
   const [questionTime, setQuestionTime] = useState();
   const [questionVisibility, setQuestionVisibility] = useState();
+  // const [gender, setGender] = useState(); //hghj
   const router = useRouter();
 
   let getValue = (i, e) => {
@@ -42,9 +42,14 @@ const CreateTest = () => {
   const getCorrectAnswer = (index, i) => {
     let newInput = [...input];
     newInput[index].answerList[i].isCorrect = true;
+    // newInput[index].answerList.isCorrect = false;
 
     setInput(input);
   };
+  // function onChangeValue(event) {
+  //   setGender(event.target.value);
+  //   console.log(event.target.value);
+  // }
 
   let addFormFields = () => {
     setInput([
@@ -132,14 +137,13 @@ const CreateTest = () => {
     e.preventDefault();
     try {
       await addDoc(questColl, data);
-      console.log('Ketti');
-    } catch (error) {
-      toast.error('Hello World');
-      console.log('Xato');
-      console.log(error);
+      toast.success("Test muvoffaqiyatli qo'shildi");
       setTimeout(() => {
         router.push('/dashboard/question');
       }, 2000);
+    } catch (error) {
+      toast.error('Hello World');
+      console.log(error);
     }
   };
 
@@ -153,6 +157,7 @@ const CreateTest = () => {
           <h2 className="text-xl font-bold uppercase mx-1 md:mx-3 text-center">
             Test yaratish
           </h2>
+
           <div>
             <div className="mt-4 mb-2 ml-2">
               <label className="font-bold">Sarlovha</label>
@@ -218,11 +223,19 @@ const CreateTest = () => {
                 onChange={(e) => getValue(index, e)}
               />
               {element.answerList.map((item, i) => (
-                <div key={item.id}>
+                <div key={item.id} className="flex">
                   <input
+                    type="radio"
+                    // value={item.name}
+                    name="checked"
+                    onClick={() => getCorrectAnswer(index, i)}
+                  />{' '}
+                  {/* <input type="radio"  name="gender" checked={gender === "Female"}/> Female
+      <input type="radio" value="Other" name="gendervalue="Female"" checked={gender === "Other"} /> Other */}
+                  {/* <input
                     type="checkbox"
                     onClick={() => getCorrectAnswer(index, i)}
-                  />
+                  /> */}
                   <input
                     type="text"
                     value={item.body || ''}
