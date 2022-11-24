@@ -13,7 +13,7 @@ const Course = () => {
       </Head>
       <Sidebar>
         <div className="p-5">
-          <Breadcrumb page="Kurslar" link="/course" />
+          <Breadcrumb page="Asosiy sahifa" page2="Kurslar" link="/dashboard" active />
         </div>
       </Sidebar>
     </div>

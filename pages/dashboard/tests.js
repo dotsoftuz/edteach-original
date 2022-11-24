@@ -26,8 +26,13 @@ const Tests = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Sidebar>
-      <Breadcrumb page="Ommaviy testlar" link="/tests" />
-        <div className='w-full'>
+        <Breadcrumb
+          page="Asosiy sahifa"
+          page2="Umumiy Testlar"
+          link="/dashboard"
+          active
+        />
+        <div className="w-full">
           <input
             type="text"
             placeholder="enter search term ....."

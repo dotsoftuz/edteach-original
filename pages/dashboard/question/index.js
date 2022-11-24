@@ -33,7 +33,12 @@ const Tests = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Sidebar>
-        <Breadcrumb page="Ommaviy testlar" link="/" />
+        <Breadcrumb
+          page="Asosiy sahifa"
+          page2="Umumiy Testlar"
+          link="/dashboard"
+          active
+        />
         <div>
           <div className="relative my-5">
             <input
@@ -163,7 +168,7 @@ const Tests = () => {
                             </span>
                           </div>
                           <h2 className="text-xs font-semibold">
-                            Yaratuvchi: Andy Panda
+                            Yaratuvchi: Zebiniso
                           </h2>
                         </div>
                       </div>
