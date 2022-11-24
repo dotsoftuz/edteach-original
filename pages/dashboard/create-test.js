@@ -1,7 +1,11 @@
 import { addDoc, collection } from 'firebase/firestore';
 import React, { useState } from 'react';
+import { useRouter } from 'next/router';
+import toast, { Toaster } from 'react-hot-toast';
 import { Sidebar } from '../../components';
-import { auth, db } from '../../firebase';
+import { db } from '../../firebase';
+
+import { useUserContext } from '../../context/userContext';
 
 const CreateTest = () => {
   const [input, setInput] = useState([
@@ -15,10 +19,12 @@ const CreateTest = () => {
       ],
     },
   ]);
-  const questColl = collection(db, `users/${auth.currentUser.uid}/question`);
+
+  const { uid } = useUserContext();
+  const questColl = collection(db, `users/${uid}/question`);
   const [loading, setLoading] = useState(false);
-  const [ questionTime, setQuestionTime ] = useState()
-  const [ questionVisibility, setQuestionVisibility ] = useState()
+  const [ questionTime, setQuestionTime ] = useState("")
+  const [ questionVisibility, setQuestionVisibility ] = useState("")
 
   let getValue = (i, e) => {
     let newInput = [...input];
@@ -36,8 +42,12 @@ const CreateTest = () => {
     let newInput = [...input];
     newInput[index].answerList[i].isCorrect = true;
 
-    setInput(input);
+    setInput(newInput);
   };
+  // function onChangeValue(event) {
+  //   setGender(event.target.value);
+  //   console.log(event.target.value);
+  // }
 
   let addFormFields = () => {
     setInput([
@@ -56,34 +66,34 @@ const CreateTest = () => {
 
   const time = [
     {
-      name: "30 soniya",
+      name: '30 soniya',
       value: 30000,
     },
     {
-      name: "1 daqiqa",
+      name: '1 daqiqa',
       value: 60000,
     },
     {
-      name: "3 daqiqa",
+      name: '3 daqiqa',
       value: 1800000,
     },
     {
-      name: "5 daqiqa",
+      name: '5 daqiqa',
       value: 3500000,
     },
-  ]
+  ];
 
   const visibility = [
     {
-      name: "Ommaviy",
-      value: "public"
+      name: 'Ommaviy',
+      value: 'public',
     },
     {
-      name: "Yashirin",
-      value: "private"
+      name: 'Yashirin',
+      value: 'private',
     },
-  ]
- 
+  ];
+
   let removeFormFields = (i) => {
     let newInput = [...input];
     newInput.splice(i, 1);
@@ -105,27 +115,35 @@ const CreateTest = () => {
   };
 
   const handleChangetime = (e) => {
-    setQuestionTime(e.target.value)
-  }
+    setQuestionTime(e.target.value);
+  };
   const handleChangeVisibilty = (e) => {
     setQuestionVisibility(e.target.value)
   }
 
-  console.log(questionVisibility);
+  const date = new Date()
+  const prefixTime = new Date().getTime()
 
   let data = {
     title: quizData.title,
     description: quizData.description,
     questionList: input,
-    timestamp: new Date(),
-    prefixTime: new Date().getTime
+    questionTime,
+    date,
+    prefixTime,
+    questionVisibility
   };
 
   const createQuest = async (e) => {
     e.preventDefault();
     try {
       await addDoc(questColl, data);
+      toast.success("Test muvoffaqiyatli qo'shildi");
+      setTimeout(() => {
+        router.push('/dashboard/question');
+      }, 2000);
     } catch (error) {
+      toast.error('Hello World');
       console.log(error);
     }
   };
@@ -133,10 +151,14 @@ const CreateTest = () => {
   return (
     <Sidebar>
       <div className="container mx-auto px-5">
+        <div>
+          <Toaster />
+        </div>
         <div className="px-2 py-3 md:p-5 mx-auto w-full md:max-w-7xl shadow-lg my-10 md:my-16 rounded-xl bg-gray-100">
           <h2 className="text-xl font-bold uppercase mx-1 md:mx-3 text-center">
             Test yaratish
           </h2>
+
           <div>
             <div className="mt-4 mb-2 ml-2">
               <label className="font-bold">Sarlovha</label>
@@ -156,25 +178,33 @@ const CreateTest = () => {
               className="rounded-xl w-full bg-gray-200 outline-none py-4 px-4 text-sm focus:px-6 duration-200 placeholder-gray-800 mb-5"
               type="text"
               onChange={handleChange}
-                value={quizData.description}
-                name="description"
+              value={quizData.description}
+              name="description"
               placeholder="Misol: Dunyo aholisi haqida "
             />
 
-            <div>
+            <div className="flex justify-between">
               <div>
-                <label>Vaqt</label>
+                <label>Vaqt: </label>
                 <select onChange={handleChangetime}>
                   {time.map((item) => {
-                    return <option key={item.id} value={item.value} >{item.name}</option>
+                    return (
+                      <option key={item.id} value={item.value}>
+                        {item.name}
+                      </option>
+                    );
                   })}
                 </select>
               </div>
               <div>
-                <label>Sayt ko`rinishi</label>
+                <label>Sayt ko`rinishi: </label>
                 <select onChange={handleChangeVisibilty}>
                   {visibility.map((item) => {
-                    return <option key={item.id} value={item.value}>{item.name}</option>
+                    return (
+                      <option key={item.id} value={item.value}>
+                        {item.name}
+                      </option>
+                    );
                   })}
                 </select>
               </div>
@@ -194,11 +224,19 @@ const CreateTest = () => {
                 onChange={(e) => getValue(index, e)}
               />
               {element.answerList.map((item, i) => (
-                <div key={item.id}>
+                <div key={item.id} className="flex">
                   <input
+                    type="radio"
+                    // value={item.name}
+                    name="checked"
+                    onClick={() => getCorrectAnswer(index, i)}
+                  />{' '}
+                  {/* <input type="radio"  name="gender" checked={gender === "Female"}/> Female
+      <input type="radio" value="Other" name="gendervalue="Female"" checked={gender === "Other"} /> Other */}
+                  {/* <input
                     type="checkbox"
                     onClick={() => getCorrectAnswer(index, i)}
-                  />
+                  /> */}
                   <input
                     type="text"
                     value={item.body || ''}
@@ -230,8 +268,8 @@ const CreateTest = () => {
           </button>
           <button
             className="w-fit rounded-lg py-3 px-8 mx-2 cursor-pointer active:scale-95
-            shadow-md text-sm duration-300 border bg-[#1a5cff] active:bg-opacity-80
-            ease-in-out md:text-sm text-white mt-4"
+              shadow-md text-sm duration-300 border bg-[#1a5cff] active:bg-opacity-80
+              ease-in-out md:text-sm text-white mt-4"
             onClick={createQuest}
           >
             Testni yaratiash

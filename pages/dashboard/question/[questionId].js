@@ -1,31 +1,33 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { collection, onSnapshot } from 'firebase/firestore';
-import { auth, db } from '../../../firebase';
-import { Sidebar, Breadcrumb } from '../../../components';
+import { db } from '../../../firebase';
+import { Sidebar } from '../../../components';
+import { Breadcrumb } from '../../../components';
+import { useUserContext } from '../../../context/userContext';
 
 function QuestionId() {
   const router = useRouter();
-  const { id, questionId } = router.query;
+  const { questionId } = router.query;
+  const { uid } = useUserContext();
 
   const [questions, setQuestions] = useState([]);
 
-  const questColl = collection(db, `users/${auth.currentUser.uid}/question`);
-
   useEffect(() => {
+    const questColl = collection(db, `users/${uid}/question`);
     onSnapshot(questColl, (snapshot) =>
       setQuestions(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
     );
-  }, []);
+  }, [uid]);
 
   return (
     <Sidebar>
-       <Breadcrumb
-          page="Asosiy sahifa"
-          page2="Umumiy Testlar"
-          link="/dashboard"
-          active
-        />
+      <Breadcrumb
+        page="Asosiy sahifa"
+        page2="Umumiy Testlar"
+        link="/dashboard"
+        active
+      />
       <div>
         {questions.map((item, key) => {
           const answers = item.questionList.map((item2) => item2.question);
