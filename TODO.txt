@@ -2,38 +2,24 @@ htmlFor copy and paste: Check - ✔️, Not done - ❌;
 
 ⚠️ <a> tegini o'rniga <Link> ishlatila | <img> tagi o'rniga <Image> ishlatila  ⚠️
 
-Versetka:
- 1. Bosh sahifa page: ❌
-  - Navbar ✔️
-  - Header ✔️
-  - About
-  - How does work?
-  - Footer ✔️
-
- 2. Login and Signup page: 
-  - UI ✔️
-  - Login ✔️
-  - Signup and Google ❌
-
-3. Create test: ❌
-  - 
-
 Aziz: 
- - Sign Up vas Google ❌
- - Firebase ni qo'shib chiqish (*Backend*) ❌
+ - Sign Up va Google 
+ - Testga qoshilish
+ - Testni yechish
+ - Testni javobini chiqarish
 
 Muhammad:
-- Profile ( Edit )
-- Testlar ( Edit )
-- Sidebar mobile version sidebar som issue 
+ - Testga pin va qo'shiliuvchilar 
+ - test branchni mainga otqizish
+ - Profile edit
+ - (testga like) agar kere busa ⚠️
+ - Breadcrumbs tugirlab chiqish
 
 Muzaffar: 
- - Foydali qismi (eski edteachdan copy paste) ✔️
- - Kurslar  ❌
- - Test yaratish qismi: Misol - (public/example/test-yaratish.png) ✔️
- - Pin orqali kirish (Input va button) ❌
-
+ - Foydali va linklar sahifasini yaxshilab chiqish : ILOJI BORICHA CHIROYLIRO QI Imageni orniga img ishlatsen boladi ishlamasa 
+ - Asosiy sahifa
+ 
 Komil: 
- - Textlarni haqiqiy textga o'girib chiq (eski edteachda olasan) [O'zbekcha faqat] ❌
- - Linklarni to'girlab chiq Bosh sahifa pagedagi ❌
- - Test yaratish qismi mobile qismiga ko'pro etibor ber! (public/example/test-variantlari.png) ❌
+ - Linklarni to'girlab chiq Bosh sahifa pagedagi navbardagi ortiqcha linklani olib tasha
+ - Test yaratish qismi
+ - Home page yana 1-2 ta narsa qoshish
