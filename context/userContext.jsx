@@ -9,7 +9,7 @@ import {
 } from "firebase/auth";
 import { auth, db } from "../firebase";
 import { toast } from "react-toastify";
-import { doc, setDoc } from "firebase/firestore";
+import { collection, doc, onSnapshot, query, setDoc, where } from "firebase/firestore";
 
 export const UserContext = createContext({});
 
@@ -19,6 +19,7 @@ export const useUserContext = () => {
 
 export const UserContextProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [questions, setQuestions] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [registry, setRegistry] = useState(false);
@@ -27,6 +28,15 @@ export const UserContextProvider = ({ children }) => {
   const [userName, setUserName] = useState("")
   const [userEmail, setUserEmail] = useState();
 
+
+
+  useEffect(() => {
+    const questColl = collection(db, `question`);
+    const q = query(questColl, where("uid", "==", `${uid}`))
+    onSnapshot(q, (snapshot) =>
+      setQuestions(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
+    );
+  }, [uid]);
 
 
   useEffect(() => {
@@ -131,7 +141,8 @@ export const UserContextProvider = ({ children }) => {
     passwordReset,
     uid,
     userName,
-    userEmail
+    userEmail,
+    questions
   };
   return (
     <UserContext.Provider value={contextValue}>{children}</UserContext.Provider>

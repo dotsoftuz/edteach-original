@@ -8,9 +8,14 @@ import { db } from '../../firebase';
 import { useUserContext } from '../../context/userContext';
 
 const CreateTest = () => {
+
+  const {userName} = useUserContext();
+  console.log(userName);
+
   const [input, setInput] = useState([
     {
       question: '',
+      
       answerList: [
         { name: 'a', body: '', isCorrect: false },
         { name: 'b', body: '', isCorrect: false },
@@ -24,7 +29,7 @@ const CreateTest = () => {
   const questColl = collection(db, `question`);
 
   const [questionTime, setQuestionTime] = useState('');
-  const [questionVisibility, setQuestionVisibility] = useState('');
+  const [questionVisibility, setQuestionVisibility] = useState('public');
   const router = useRouter();
 
   let getValue = (i, e) => {
@@ -132,6 +137,7 @@ const CreateTest = () => {
   let data = {
     title: quizData.title,
     description: quizData.description,
+    createrName: userName,
     questionList: input,
     questionTime,
     date,
