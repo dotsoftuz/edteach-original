@@ -1,5 +1,5 @@
 import { addDoc, collection } from 'firebase/firestore';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import toast, { Toaster } from 'react-hot-toast';
 import { Sidebar } from '../../components';
@@ -23,9 +23,9 @@ const CreateTest = () => {
   const { uid } = useUserContext();
   const questColl = collection(db, `users/${uid}/question`);
   const [loading, setLoading] = useState(false);
-  const [ questionTime, setQuestionTime ] = useState("")
-  const [ questionVisibility, setQuestionVisibility ] = useState("")
-
+  const [questionTime, setQuestionTime] = useState('');
+  const [questionVisibility, setQuestionVisibility] = useState('');
+  const router = useRouter();
   let getValue = (i, e) => {
     let newInput = [...input];
     newInput[i][e.target.name] = e.target.value;
@@ -40,7 +40,18 @@ const CreateTest = () => {
 
   const getCorrectAnswer = (index, i) => {
     let newInput = [...input];
-    newInput[index].answerList[i].isCorrect = true;
+    newInput[index].answerList.map(
+      (item, key) => {
+        console.log(
+          key === i ? (item.isCorrect = true) : (item.isCorrect = false)
+        );
+        console.log(newInput);
+      }
+
+      // i === key  ? newInput[index].answerList.isCorrect = true :  newInput[index].answerList.isCorrect = false;
+      // ? (newInput[index].answerList[i].isCorrect = true)
+      // : (newInput[index].answerList.isCorrect = false)
+    );
 
     setInput(newInput);
   };
@@ -118,11 +129,11 @@ const CreateTest = () => {
     setQuestionTime(e.target.value);
   };
   const handleChangeVisibilty = (e) => {
-    setQuestionVisibility(e.target.value)
-  }
+    setQuestionVisibility(e.target.value);
+  };
 
-  const date = new Date()
-  const prefixTime = new Date().getTime()
+  const date = new Date();
+  const prefixTime = new Date().getTime();
 
   let data = {
     title: quizData.title,
@@ -131,7 +142,7 @@ const CreateTest = () => {
     questionTime,
     date,
     prefixTime,
-    questionVisibility
+    questionVisibility,
   };
 
   const createQuest = async (e) => {
@@ -147,6 +158,27 @@ const CreateTest = () => {
       console.log(error);
     }
   };
+
+  useEffect(() => {
+    window.addEventListener('beforeunload', alertUser);
+    return () => {
+      window.removeEventListener('beforeunload', alertUser);
+    };
+  }, []);
+  const alertUser = (e) => {
+    e.preventDefault();
+    e.returnValue = '';
+  };
+
+  // window.onbeforeunload = (event) => {
+  //   const e = event || window.event;
+  //   // Cancel the event
+  //   e.preventDefault();
+  //   if (e) {
+  //     e.returnValue = ''; // Legacy method for cross browser support
+  //   }
+  //   return ''; // Legacy method for cross browser support
+  // };
 
   return (
     <Sidebar>
@@ -225,17 +257,20 @@ const CreateTest = () => {
               />
               {element.answerList.map((item, i) => (
                 <div key={item.id} className="flex">
-                  <input
-                    type="radio"
-                    // value={item.name}
-                    name="checked"
+                  <div
+                    className={
+                      !item.isCorrect
+                        ? 'w-10 h-10 rounded-full bg-blue-500'
+                        : 'w-10 h-10 rounded-full bg-red-500'
+                    }
                     onClick={() => getCorrectAnswer(index, i)}
-                  />{' '}
+                  ></div>
+
+                  {/* onClick={() => getCorrectAnswer(index, i)} */}
                   {/* <input type="radio"  name="gender" checked={gender === "Female"}/> Female
       <input type="radio" value="Other" name="gendervalue="Female"" checked={gender === "Other"} /> Other */}
                   {/* <input
                     type="checkbox"
-                    onClick={() => getCorrectAnswer(index, i)}
                   /> */}
                   <input
                     type="text"

@@ -135,7 +135,7 @@ const Tests = () => {
             })
             .map((val, key) => {
               return (
-                
+                <>
                   <div
                     className={`${
                       testCard
@@ -202,6 +202,7 @@ const Tests = () => {
                       </Link>
                     </div>
                   </div>
+                </>
                 );
               })}
         </div>
