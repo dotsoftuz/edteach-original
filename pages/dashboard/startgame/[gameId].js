@@ -9,14 +9,23 @@ function GameID() {
   const router = useRouter();
   const { uid } = useUserContext();
   const [questions, setQuestions] = useState([]);
+  const [ players, setPlayers ] = useState([])
 
   useEffect(() => {
     const fetchData = async () => {
       const { gameId } = router.query;
-      const questColl = collection(db, `users/${uid}/question`);
+      const questColl = collection(db, `question`);
       const queryColl = query(questColl, where('id', '==', `${gameId}`));
       onSnapshot(queryColl, (snapshot) =>
         setQuestions(
+          snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
+        )
+      );
+
+      const playerColl = collection(db, `question/${gameId}/players`)
+
+      onSnapshot(playerColl, (snapshot) =>
+        setPlayers(
           snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
         )
       );
@@ -44,11 +53,14 @@ function GameID() {
                   </h1>
                   <div className="p-0 md:p-5 h-full">
                     <ol>
-                      <li className="flex items-center justify-between bg-gray-200 px-4 py-3 my-2 rounded-lg">
-                        <p className="text-lg font-semibold">1</p>
-                        <h1 className="ml-0 xl:ml-5">Jo`shqin</h1>
-                        <small>Talaba</small>
-                      </li>
+                      {players.map((item, index) => {
+                        return (
+                          <li className="flex items-center justify-between bg-gray-200 px-4 py-3 my-2 rounded-lg">
+                            <p className="text-lg font-semibold">{index + 1}</p>
+                            <h1 className="ml-0 xl:ml-5">{item.playerName}</h1>
+                          </li>
+                        )
+                      })}
                     </ol>
                     <h1 className="flex items-center justify-center h-full -mt-5 text-red-500 font-semibold text-lg">
                       Hali ishtorkchilar yo`q

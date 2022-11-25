@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { collection, doc, onSnapshot, updateDoc } from 'firebase/firestore';
+import { collection, doc, onSnapshot, query, updateDoc, where } from 'firebase/firestore';
 import Head from 'next/head';
 import Link from 'next/link';
 import { db } from '../../../firebase';
 import { Sidebar, Breadcrumb } from '../../../components';
-
 import { useUserContext } from '../../../context/userContext';
 
 const Tests = () => {
@@ -15,14 +14,15 @@ const Tests = () => {
   const { uid } = useUserContext();
 
   useEffect(() => {
-    const questColl = collection(db, `users/${uid}/question`);
-    onSnapshot(questColl, (snapshot) =>
+    const questColl = collection(db, `question`);
+    const q = query(questColl, where("uid", "==", `${uid}`))
+    onSnapshot(q, (snapshot) =>
       setQuestions(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
     );
   }, [uid]);
 
   const sendData = async (id) => {
-    const collectionRef = doc(db, `users/${uid}/question`, id);
+    const collectionRef = doc(db, `question`, id);
     const payload = {
       status: 'started',
       pin: String(Math.floor(Math.random() * 900000) + 1000),

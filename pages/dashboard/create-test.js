@@ -21,7 +21,7 @@ const CreateTest = () => {
   ]);
 
   const { uid } = useUserContext();
-  const questColl = collection(db, `users/${uid}/question`);
+  const questColl = collection(db, `question`);
 
   const [questionTime, setQuestionTime] = useState('');
   const [questionVisibility, setQuestionVisibility] = useState('');
@@ -137,6 +137,7 @@ const CreateTest = () => {
     date,
     prefixTime,
     questionVisibility,
+    uid
   };
 
   const createQuest = async (e) => {
