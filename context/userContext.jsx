@@ -26,9 +26,13 @@ export const UserContextProvider = ({ children }) => {
 
   useEffect(() => {
     setLoading(true);
-    const unsubscribe = onAuthStateChanged(auth, (res) => {
+    const unsubscribe = onAuthStateChanged(auth, async (res) => {
       if (res) {
         setUser(res);
+        const getUid = async () => {
+          setUid(auth.currentUser.uid)
+        }
+        getUid()
       } else {
         setUser(null);
       }
@@ -40,18 +44,12 @@ export const UserContextProvider = ({ children }) => {
     
   }, []);
 
-  useEffect(() => {
-    const fetchAuth = async () => {
-      setUid(auth.currentUser.uid)
-    }
-    fetchAuth()
-  },[])
 
 
-  const signInUser = (email, password) => {
+  const signInUser = async (email, password) => {
     setLoading(true);
 
-    signInWithEmailAndPassword(auth, email, password)
+    await signInWithEmailAndPassword(auth, email, password)
       .catch((error) => {
         console.log(error);
       })
@@ -61,7 +59,7 @@ export const UserContextProvider = ({ children }) => {
   const registerUser = async (email, password, fullName) => {
     setLoading(true);
 
-    createUserWithEmailAndPassword(auth, email, password)
+    await createUserWithEmailAndPassword(auth, email, password)
       .then(() => {
         createCategory(email, fullName);
       })
