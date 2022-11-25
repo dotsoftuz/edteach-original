@@ -12,7 +12,7 @@ const Tests = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [testCard, setTestCard] = useState(true);
 
-  const { uid } = useUserContext()
+  const { uid } = useUserContext();
 
   useEffect(() => {
     const questColl = collection(db, `users/${uid}/question`);
@@ -121,6 +121,7 @@ const Tests = () => {
                 : 'flex flex-col space-y-2'
             } my-5`}
           >
+
           {questions
             .filter((val) => {
               if (searchTerm === '') {
@@ -135,8 +136,10 @@ const Tests = () => {
             })
             .map((val, key) => {
               return (
-                
+                <>
+
                   <div
+                  key={key}
                     className={`${
                       testCard
                         ? 'flex flex-col space-y-2'
@@ -202,9 +205,10 @@ const Tests = () => {
                       </Link>
                     </div>
                   </div>
+                </>
                 );
               })}
-        </div>
+          </div>
         </div>
       </Sidebar>
     </div>

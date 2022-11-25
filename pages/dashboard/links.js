@@ -1,18 +1,24 @@
 // import Breadcrumb from 'kutty/src/breadcrumb';
 import Link from 'next/link';
 import React from 'react';
-import { Sidebar } from '../../components';
+import { Sidebar, Breadcrumb } from '../../components';
+
 function Links(props) {
   return (
     <Sidebar>
-      <Breadcrumb page="Asosiy sahifa" page2="Havolalar" link="/dashboard" active />
-      <div className="flex flex-wrap justify-center">
-        <ul className="w-[50%] divide-y divide-gray-200 mt-28 dark:divide-gray-700">
-          <li className="pb-3 sm:pb-4">
+      <Breadcrumb
+        page="Asosiy sahifa"
+        page2="Havolalar"
+        link="/dashboard"
+        active
+      />
+      <div className="">
+        <ul className="divide-y divide-gray-200 my-5">
+          <li className="pb-3 sm:pb-4 cursor-pointer">
             <div className="flex items-center space-x-4">
               <div className="flex-1 min-w-0">
                 <Link href="https://www.springernature.com/gp" target="_blank">
-                  <p className="text-2xl flex items-center hover:underline font-bold text-black truncate ">
+                  <p className="text-lg md:text-xl flex items-center hover:underline font-bold text-black truncate ">
                     <font>
                       <font>Springer tabiati</font>
                     </font>
@@ -34,11 +40,11 @@ function Links(props) {
               </div>
             </div>
           </li>
-          <li className="pb-3 sm:pb-4">
+          <li className="pb-3 sm:pb-4 cursor-pointer">
             <div className="flex items-center space-x-4 mt-3">
               <div className="flex-1 min-w-0">
                 <Link href="https://scientist.com/ " target="_blank">
-                  <p className="text-2xl flex items-center hover:underline font-bold text-black truncate ">
+                  <p className="text-lg md:text-xl flex items-center hover:underline font-bold text-black truncate ">
                     <font>
                       <font>Scientist.com</font>
                     </font>
@@ -60,11 +66,11 @@ function Links(props) {
               </div>
             </div>
           </li>
-          <li className="pb-3 sm:pb-4">
+          <li className="pb-3 sm:pb-4 cursor-pointer">
             <div className="flex items-center space-x-4 mt-3">
               <div className="flex-1 min-w-0">
                 <Link href="https://www.mdpi.com/" target="_blank">
-                  <p className="text-2xl flex items-center hover:underline font-bold text-black truncate ">
+                  <p className="text-lg md:text-xl flex items-center hover:underline font-bold text-black truncate ">
                     <font>
                       <font>MDPI</font>
                     </font>
@@ -86,11 +92,11 @@ function Links(props) {
               </div>
             </div>
           </li>
-          <li className="pb-3 sm:pb-4">
+          <li className="pb-3 sm:pb-4 cursor-pointer">
             <div className="flex items-center space-x-4 mt-3">
               <div className="flex-1 min-w-0">
                 <Link href="https://global.oup.com/?cc=uz" target="_blank">
-                  <p className="text-2xl flex items-center hover:underline font-bold text-black  ">
+                  <p className="text-lg md:text-xl flex items-center hover:underline font-bold text-black  ">
                     <font>
                       <font>Kembrij universiteti matbuoti va baholash</font>
                     </font>
@@ -112,11 +118,11 @@ function Links(props) {
               </div>
             </div>
           </li>
-          <li className="pb-3 sm:pb-4">
+          <li className="pb-3 sm:pb-4 cursor-pointer">
             <div className="flex items-center space-x-4 mt-3">
               <div className="flex-1 min-w-0">
                 <Link href="https://global.oup.com/?cc=uz" target="_blank">
-                  <p className="text-2xl flex items-center hover:underline font-bold text-black truncate ">
+                  <p className="text-lg md:text-xl flex items-center hover:underline font-bold text-black truncate ">
                     <font>
                       <font>Oksford universiteti matbuoti</font>
                     </font>
@@ -138,11 +144,11 @@ function Links(props) {
               </div>
             </div>
           </li>
-          <li className="pb-3 sm:pb-4">
+          <li className="pb-3 sm:pb-4 cursor-pointer">
             <div className="flex items-center space-x-4 mt-3">
               <div className="flex-1 min-w-0">
                 <Link href="https://www.elsevier.com/ " target="_blank">
-                  <p className="text-2xl flex items-center hover:underline font-bold text-black truncate ">
+                  <p className="text-lg md:text-xl flex items-center hover:underline font-bold text-black truncate ">
                     <font>
                       <font>Elsevier</font>
                     </font>
@@ -164,11 +170,11 @@ function Links(props) {
               </div>
             </div>
           </li>
-          <li className="pb-3 sm:pb-4">
+          <li className="pb-3 sm:pb-4 cursor-pointer">
             <div className="flex items-center space-x-4 mt-3">
               <div className="flex-1 min-w-0">
                 <Link href="https://www.tandfonline.com/  " target="_blank">
-                  <p className="text-2xl flex items-center hover:underline font-bold text-black truncate ">
+                  <p className="text-lg md:text-xl flex items-center hover:underline font-bold text-black truncate ">
                     <font>
                       <font>Teylor va Frensis Onlayn</font>
                     </font>
@@ -190,11 +196,11 @@ function Links(props) {
               </div>
             </div>
           </li>
-          <li className="pb-3 sm:pb-4">
+          <li className="pb-3 sm:pb-4 cursor-pointer">
             <div className="flex items-center space-x-4 mt-3">
               <div className="flex-1 min-w-0">
                 <Link href="https://www.ariessys.com/ " target="_blank">
-                  <p className="text-2xl flex items-center hover:underline font-bold text-black truncate ">
+                  <p className="text-lg md:text-xl flex items-center hover:underline font-bold text-black truncate ">
                     <font>
                       <font>Aries tizimlari</font>
                     </font>
@@ -216,11 +222,11 @@ function Links(props) {
               </div>
             </div>
           </li>
-          <li className="pb-3 sm:pb-4">
+          <li className="pb-3 sm:pb-4 cursor-pointer">
             <div className="flex items-center space-x-4 mt-3">
               <div className="flex-1 min-w-0">
                 <Link href="https://www.emerald.com/insight/ " target="_blank">
-                  <p className="text-2xl flex items-center hover:underline font-bold text-black truncate ">
+                  <p className="text-lg md:text-xl flex items-center hover:underline font-bold text-black truncate ">
                     <font>
                       <font>Emerald nashriyoti</font>
                     </font>
@@ -242,11 +248,11 @@ function Links(props) {
               </div>
             </div>
           </li>
-          <li className="pb-3 sm:pb-4">
+          <li className="pb-3 sm:pb-4 cursor-pointer">
             <div className="flex items-center space-x-4 mt-3">
               <div className="flex-1 min-w-0">
                 <Link href="https://www.sciencedirect.com/" target="_blank">
-                  <p className="text-2xl flex items-center hover:underline font-bold text-black truncate ">
+                  <p className="text-lg md:text-xl flex items-center hover:underline font-bold text-black truncate ">
                     <font>
                       <font>ScienceDirect</font>
                     </font>
@@ -268,11 +274,11 @@ function Links(props) {
               </div>
             </div>
           </li>
-          <li className="pb-3 sm:pb-4">
+          <li className="pb-3 sm:pb-4 cursor-pointer">
             <div className="flex items-center space-x-4 mt-3">
               <div className="flex-1 min-w-0">
                 <Link href="https://www.springerpub.com/ " target="_blank">
-                  <p className="text-2xl flex items-center hover:underline font-bold text-black truncate ">
+                  <p className="text-lg md:text-xl flex items-center hover:underline font-bold text-black truncate ">
                     <font>
                       <font>Springer nashriyoti</font>
                     </font>
@@ -294,14 +300,14 @@ function Links(props) {
               </div>
             </div>
           </li>
-          <li className="pb-3 sm:pb-4">
+          <li className="pb-3 sm:pb-4 cursor-pointer">
             <div className="flex items-center space-x-4 mt-3">
               <div className="flex-1 min-w-0">
                 <Link
                   href="https://Bosh sahifa.liebertpub.com/company/company-Bosh sahifa/153 "
                   target="_blank"
                 >
-                  <p className="text-2xl flex items-center hover:underline font-bold text-black truncate ">
+                  <p className="text-lg md:text-xl flex items-center hover:underline font-bold text-black truncate ">
                     <font>
                       <font>Meri Enn Libert, Inc.</font>
                     </font>
@@ -323,11 +329,11 @@ function Links(props) {
               </div>
             </div>
           </li>
-          <li className="pb-3 sm:pb-4">
+          <li className="pb-3 sm:pb-4 cursor-pointer">
             <div className="flex items-center space-x-4 mt-3">
               <div className="flex-1 min-w-0">
                 <Link href="https://www.nature.com/" target="_blank">
-                  <p className="text-2xl flex items-center hover:underline font-bold text-black truncate ">
+                  <p className="text-lg md:text-xl flex items-center hover:underline font-bold text-black truncate ">
                     <font>
                       <font>Tabiat</font>
                     </font>
@@ -349,11 +355,11 @@ function Links(props) {
               </div>
             </div>
           </li>
-          <li className="pb-3 sm:pb-4">
+          <li className="pb-3 sm:pb-4 cursor-pointer">
             <div className="flex items-center space-x-4 mt-3">
               <div className="flex-1 min-w-0">
                 <Link href="https://www.cambridge.org/  " target="_blank">
-                  <p className="text-2xl flex items-center hover:underline font-bold text-black truncate ">
+                  <p className="text-lg md:text-xl flex items-center hover:underline font-bold text-black truncate ">
                     <font>
                       <font>Kembrij</font>
                     </font>
@@ -375,11 +381,11 @@ function Links(props) {
               </div>
             </div>
           </li>
-          <li className="pb-3 sm:pb-4">
+          <li className="pb-3 sm:pb-4 cursor-pointer">
             <div className="flex items-center space-x-4 mt-3">
               <div className="flex-1 min-w-0">
                 <Link href="https://www.researchgate.net/  " target="_blank">
-                  <p className="text-2xl flex items-center hover:underline font-bold text-black truncate ">
+                  <p className="text-lg md:text-xl flex items-center hover:underline font-bold text-black truncate ">
                     <font>
                       <font>ResearchGate</font>
                     </font>
@@ -401,11 +407,11 @@ function Links(props) {
               </div>
             </div>
           </li>
-          <li className="pb-3 sm:pb-4">
+          <li className="pb-3 sm:pb-4 cursor-pointer">
             <div className="flex items-center space-x-4 mt-3">
               <div className="flex-1 min-w-0">
                 <Link href="https://www.proquest.com/  " target="_blank">
-                  <p className="text-2xl flex items-center hover:underline font-bold text-black truncate ">
+                  <p className="text-lg md:text-xl flex items-center hover:underline font-bold text-black truncate ">
                     <font>
                       <font>ProQuest</font>
                     </font>
@@ -427,11 +433,11 @@ function Links(props) {
               </div>
             </div>
           </li>
-          <li className="pb-3 sm:pb-4">
+          <li className="pb-3 sm:pb-4 cursor-pointer">
             <div className="flex items-center space-x-4 mt-3">
               <div className="flex-1 min-w-0">
                 <Link href="https://pubmed.ncbi.nlm.nih.gov/ " target="_blank">
-                  <p className="text-2xl flex items-center hover:underline font-bold text-black truncate ">
+                  <p className="text-lg md:text-xl flex items-center hover:underline font-bold text-black truncate ">
                     <font>
                       <font>PubMed</font>
                     </font>
@@ -453,14 +459,14 @@ function Links(props) {
               </div>
             </div>
           </li>
-          <li className="pb-3 sm:pb-4">
+          <li className="pb-3 sm:pb-4 cursor-pointer">
             <div className="flex items-center space-x-4 mt-3">
               <div className="flex-1 min-w-0">
                 <Link
                   href="https://www.dart-europe.org/basic-search.php  "
                   target="_blank"
                 >
-                  <p className="text-2xl flex items-center hover:underline font-bold text-black truncate ">
+                  <p className="text-lg md:text-xl flex items-center hover:underline font-bold text-black truncate ">
                     <font>
                       <font>DART-Europe elektron tezislar portali</font>
                     </font>
@@ -482,14 +488,14 @@ function Links(props) {
               </div>
             </div>
           </li>
-          <li className="pb-3 sm:pb-4">
+          <li className="pb-3 sm:pb-4 cursor-pointer">
             <div className="flex items-center space-x-4 mt-3">
               <div className="flex-1 min-w-0">
                 <Link
                   href="https://www.ebsco.com/products/research-databases/ebsco-open-dissertations "
                   target="_blank"
                 >
-                  <p className="text-2xl flex items-center hover:underline font-bold text-black truncate ">
+                  <p className="text-lg md:text-xl flex items-center hover:underline font-bold text-black truncate ">
                     <font>
                       <font>EBSCO</font>
                     </font>
@@ -511,14 +517,14 @@ function Links(props) {
               </div>
             </div>
           </li>
-          <li className="pb-3 sm:pb-4">
+          <li className="pb-3 sm:pb-4 cursor-pointer">
             <div className="flex items-center space-x-4 mt-3">
               <div className="flex-1 min-w-0">
                 <Link
                   href="https://ethos.bl.uk/Bosh sahifa.do "
                   target="_blank"
                 >
-                  <p className="text-2xl flex items-center hover:underline font-bold text-black ">
+                  <p className="text-lg md:text-xl flex items-center hover:underline font-bold text-black ">
                     <font>
                       <font>EthOS (Britaniya kutubxonasidan)</font>
                     </font>
@@ -540,11 +546,11 @@ function Links(props) {
               </div>
             </div>
           </li>
-          <li className="pb-3 sm:pb-4">
+          <li className="pb-3 sm:pb-4 cursor-pointer">
             <div className="flex items-center space-x-4 mt-3">
               <div className="flex-1 min-w-0">
                 <Link href=" https://iisc.ac.in/ " target="_blank">
-                  <p className="text-2xl flex items-center hover:underline font-bold text-black ">
+                  <p className="text-lg md:text-xl flex items-center hover:underline font-bold text-black ">
                     <font>
                       <font>Hindiston fan instituti</font>
                     </font>
@@ -566,14 +572,14 @@ function Links(props) {
               </div>
             </div>
           </li>
-          <li className="pb-3 sm:pb-4">
+          <li className="pb-3 sm:pb-4 cursor-pointer">
             <div className="flex items-center space-x-4 mt-3">
               <div className="flex-1 min-w-0">
                 <Link
                   href="https://shodhganga.inflibnet.ac.in/ "
                   target="_blank"
                 >
-                  <p className="text-2xl flex items-center hover:underline font-bold text-black ">
+                  <p className="text-lg md:text-xl flex items-center hover:underline font-bold text-black ">
                     <font>
                       <font>
                         Hind tezislari va dissertatsiyalari (Shodhganga)
@@ -597,11 +603,11 @@ function Links(props) {
               </div>
             </div>
           </li>
-          <li className="pb-3 sm:pb-4">
+          <li className="pb-3 sm:pb-4 cursor-pointer">
             <div className="flex items-center space-x-4 mt-3">
               <div className="flex-1 min-w-0">
                 <Link href="http://www.netd.ac.za/   " target="_blank">
-                  <p className="text-2xl flex items-center hover:underline font-bold text-black ">
+                  <p className="text-lg md:text-xl flex items-center hover:underline font-bold text-black ">
                     <font>
                       <font>Milliy ETD portali (Janubiy Afrika)</font>
                     </font>
@@ -623,11 +629,11 @@ function Links(props) {
               </div>
             </div>
           </li>
-          <li className="pb-3 sm:pb-4">
+          <li className="pb-3 sm:pb-4 cursor-pointer">
             <div className="flex items-center space-x-4 mt-3">
               <div className="flex-1 min-w-0">
                 <Link href="https://ndltd.org/  " target="_blank">
-                  <p className="text-2xl flex items-center hover:underline font-bold text-black ">
+                  <p className="text-lg md:text-xl flex items-center hover:underline font-bold text-black ">
                     <font>
                       <font>
                         Tezislar va dissertatsiyalarning tarmoqli raqamli
@@ -652,11 +658,11 @@ function Links(props) {
               </div>
             </div>
           </li>
-          <li className="pb-3 sm:pb-4">
+          <li className="pb-3 sm:pb-4 cursor-pointer">
             <div className="flex items-center space-x-4 mt-3">
               <div className="flex-1 min-w-0">
                 <Link href="https://etd.ohiolink.edu/  " target="_blank">
-                  <p className="text-2xl flex items-center hover:underline font-bold text-black ">
+                  <p className="text-lg md:text-xl flex items-center hover:underline font-bold text-black ">
                     <font>
                       <font>OhioLINK ETD markazi</font>
                     </font>
@@ -678,11 +684,11 @@ function Links(props) {
               </div>
             </div>
           </li>
-          <li className="pb-3 sm:pb-4">
+          <li className="pb-3 sm:pb-4 cursor-pointer">
             <div className="flex items-center space-x-4 mt-3">
               <div className="flex-1 min-w-0">
                 <Link href="https://oatd.org/   " target="_blank">
-                  <p className="text-2xl flex items-center hover:underline font-bold text-black ">
+                  <p className="text-lg md:text-xl flex items-center hover:underline font-bold text-black ">
                     <font>
                       <font>Ochiq kirish tezislari va dissertatsiyalari</font>
                     </font>
@@ -704,14 +710,14 @@ function Links(props) {
               </div>
             </div>
           </li>
-          <li className="pb-3 sm:pb-4">
+          <li className="pb-3 sm:pb-4 cursor-pointer">
             <div className="flex items-center space-x-4 mt-3">
               <div className="flex-1 min-w-0">
                 <Link
                   href="https://www.bac-lac.gc.ca/fra/services/theses/Pages/theses-canada.aspx "
                   target="_blank"
                 >
-                  <p className="text-2xl flex items-center hover:underline font-bold text-black ">
+                  <p className="text-lg md:text-xl flex items-center hover:underline font-bold text-black ">
                     <font>
                       <font>Tezislar Kanada</font>
                     </font>
@@ -733,11 +739,11 @@ function Links(props) {
               </div>
             </div>
           </li>
-          <li className="pb-3 sm:pb-4">
+          <li className="pb-3 sm:pb-4 cursor-pointer">
             <div className="flex items-center space-x-4 mt-3">
               <div className="flex-1 min-w-0">
                 <Link href="https://trove.nla.gov.au/ " target="_blank">
-                  <p className="text-2xl flex items-center hover:underline font-bold text-black ">
+                  <p className="text-lg md:text-xl flex items-center hover:underline font-bold text-black ">
                     <font>
                       <font>TROVE</font>
                     </font>
@@ -759,14 +765,14 @@ function Links(props) {
               </div>
             </div>
           </li>
-          <li className="pb-3 sm:pb-4">
+          <li className="pb-3 sm:pb-4 cursor-pointer">
             <div className="flex items-center space-x-4 mt-3">
               <div className="flex-1 min-w-0">
                 <Link
                   href="https://catalog.crl.edu/Search/Results?filter%5b%5d=crl_scope:Dissertations&amp;redirect_src_path=/search~S4 "
                   target="_blank"
                 >
-                  <p className="text-2xl flex items-center hover:underline font-bold text-black ">
+                  <p className="text-lg md:text-xl flex items-center hover:underline font-bold text-black ">
                     <font>
                       <font>
                         Dissertatsiyalar (Tadqiqot kutubxonalari markazi)
@@ -790,14 +796,14 @@ function Links(props) {
               </div>
             </div>
           </li>
-          <li className="pb-3 sm:pb-4">
+          <li className="pb-3 sm:pb-4 cursor-pointer">
             <div className="flex items-center space-x-4 mt-3">
               <div className="flex-1 min-w-0">
                 <Link
                   href="https://ucla.on.worldcat.org/discovery "
                   target="_blank"
                 >
-                  <p className="text-2xl flex items-center hover:underline font-bold text-black ">
+                  <p className="text-lg md:text-xl flex items-center hover:underline font-bold text-black ">
                     <font>
                       <font>Melvil</font>
                     </font>
@@ -819,14 +825,14 @@ function Links(props) {
               </div>
             </div>
           </li>
-          <li className="pb-3 sm:pb-4">
+          <li className="pb-3 sm:pb-4 cursor-pointer">
             <div className="flex items-center space-x-4 mt-3">
               <div className="flex-1 min-w-0">
                 <Link
                   href="https://searchworks.stanford.edu/catalog?f[genre_ssim][]=Thesis/Dissertation"
                   target="_blank"
                 >
-                  <p className="text-2xl flex items-center hover:underline font-bold text-black ">
+                  <p className="text-lg md:text-xl flex items-center hover:underline font-bold text-black ">
                     <font>
                       <font>Stenford universiteti kutubxonalari</font>
                     </font>
@@ -848,14 +854,14 @@ function Links(props) {
               </div>
             </div>
           </li>
-          <li className="pb-3 sm:pb-4">
+          <li className="pb-3 sm:pb-4 cursor-pointer">
             <div className="flex items-center space-x-4 mt-3">
               <div className="flex-1 min-w-0">
                 <Link
                   href="https://guides.library.cornell.edu/dissertations/other "
                   target="_blank"
                 >
-                  <p className="text-2xl flex items-center hover:underline font-bold text-black ">
+                  <p className="text-lg md:text-xl flex items-center hover:underline font-bold text-black ">
                     <font>
                       <font>Kornel universiteti kutubxonasi</font>
                     </font>
@@ -877,14 +883,14 @@ function Links(props) {
               </div>
             </div>
           </li>
-          <li className="pb-3 sm:pb-4">
+          <li className="pb-3 sm:pb-4 cursor-pointer">
             <div className="flex items-center space-x-4 mt-3">
               <div className="flex-1 min-w-0">
                 <Link
                   href="https://csulb.libguides.com/freedatabases/dissertations"
                   target="_blank"
                 >
-                  <p className="text-2xl flex items-center hover:underline font-bold text-black ">
+                  <p className="text-lg md:text-xl flex items-center hover:underline font-bold text-black ">
                     <font>
                       <font>CSULB LibGuides</font>
                     </font>
@@ -906,14 +912,14 @@ function Links(props) {
               </div>
             </div>
           </li>
-          <li className="pb-3 sm:pb-4">
+          <li className="pb-3 sm:pb-4 cursor-pointer">
             <div className="flex items-center space-x-4 mt-3">
               <div className="flex-1 min-w-0">
                 <Link
                   href="https://library.princeton.edu/research/databases/search/dissertation"
                   target="_blank"
                 >
-                  <p className="text-2xl flex items-center hover:underline font-bold text-black ">
+                  <p className="text-lg md:text-xl flex items-center hover:underline font-bold text-black ">
                     <font>
                       <font>Prinston universiteti kutubxonasi</font>
                     </font>
@@ -935,11 +941,11 @@ function Links(props) {
               </div>
             </div>
           </li>
-          <li className="pb-3 sm:pb-4">
+          <li className="pb-3 sm:pb-4 cursor-pointer">
             <div className="flex items-center space-x-4 mt-3">
               <div className="flex-1 min-w-0">
                 <Link href="https://ora.ox.ac.uk/" target="_blank">
-                  <p className="text-2xl flex items-center hover:underline font-bold text-black ">
+                  <p className="text-lg md:text-xl flex items-center hover:underline font-bold text-black ">
                     <font>
                       <font>Oksford universiteti tadqiqot arxivi</font>
                     </font>
@@ -961,11 +967,11 @@ function Links(props) {
               </div>
             </div>
           </li>
-          <li className="pb-3 sm:pb-4">
+          <li className="pb-3 sm:pb-4 cursor-pointer">
             <div className="flex items-center space-x-4 mt-3">
               <div className="flex-1 min-w-0">
                 <Link href="http://etheses.lse.ac.uk/" target="_blank">
-                  <p className="text-2xl flex items-center hover:underline font-bold text-black ">
+                  <p className="text-lg md:text-xl flex items-center hover:underline font-bold text-black ">
                     <font>
                       <font>LSE tezislari onlayn</font>
                     </font>
@@ -987,11 +993,11 @@ function Links(props) {
               </div>
             </div>
           </li>
-          <li className="pb-3 sm:pb-4">
+          <li className="pb-3 sm:pb-4 cursor-pointer">
             <div className="flex items-center space-x-4 mt-3">
               <div className="flex-1 min-w-0">
                 <Link href="https://www.lib.cam.ac.uk/newton" target="_blank">
-                  <p className="text-2xl flex items-center hover:underline font-bold text-black ">
+                  <p className="text-lg md:text-xl flex items-center hover:underline font-bold text-black ">
                     <font>
                       <font>
                         Kembrij universiteti kutubxonasi tezislar katalogi

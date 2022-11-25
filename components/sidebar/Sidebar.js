@@ -59,7 +59,7 @@ const Sidebar = ({ children }) => {
       >
         <div
           className={`${
-            sidebarShowDesktop ? 'w-[15rem] md:w-[20rem]' : 'w-24'
+            sidebarShowDesktop ? 'w-[15rem] sm:w-[17rem] md:w-[20rem]' : 'w-24'
           } h-screen bg-gray-200 shadow-xl duration-200 space-y-6 p-2 md:p-5`}
         >
           <div className="relative flex items-center">
@@ -165,10 +165,10 @@ const Sidebar = ({ children }) => {
         <div>
           {children}
           <div
-            className="absolute top-5 right-4 block md:hidden"
+            className="fixed top-5 right-4 block md:hidden"
             onClick={toggleSidebarMobile}
           >
-            <MdMenu className="text-2xl" />
+            <MdMenu className="text-3xl" />
           </div>
         </div>
       </main>
