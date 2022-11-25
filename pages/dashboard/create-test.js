@@ -43,23 +43,16 @@ const CreateTest = () => {
     let newInput = [...input];
     newInput[index].answerList.map(
       (item, key) => {
-        console.log(
+        
           key === i ? (item.isCorrect = true) : (item.isCorrect = false)
-        );
-        console.log(newInput);
+        
       }
 
-      // i === key  ? newInput[index].answerList.isCorrect = true :  newInput[index].answerList.isCorrect = false;
-      // ? (newInput[index].answerList[i].isCorrect = true)
-      // : (newInput[index].answerList.isCorrect = false)
+ 
     );
 
     setInput(newInput);
   };
-  // function onChangeValue(event) {
-  //   setGender(event.target.value);
-  //   console.log(event.target.value);
-  // }
 
   let addFormFields = () => {
     setInput([
