@@ -22,10 +22,11 @@ const CreateTest = () => {
 
   const { uid } = useUserContext();
   const questColl = collection(db, `users/${uid}/question`);
-  const [loading, setLoading] = useState(false);
+
   const [questionTime, setQuestionTime] = useState('');
   const [questionVisibility, setQuestionVisibility] = useState('');
   const router = useRouter();
+
   let getValue = (i, e) => {
     let newInput = [...input];
     newInput[i][e.target.name] = e.target.value;
