@@ -5,6 +5,7 @@ import {
   signOut,
   sendPasswordResetEmail,
   createUserWithEmailAndPassword,
+  updateProfile,
 } from "firebase/auth";
 import { auth, db } from "../firebase";
 import { toast } from "react-toastify";
@@ -22,7 +23,11 @@ export const UserContextProvider = ({ children }) => {
   const [error, setError] = useState("");
   const [registry, setRegistry] = useState(false);
   const [passwordReset, setPasswordReset] = useState(false);
-  const [ uid, setUid ] = useState()
+  const [uid, setUid] = useState()
+  const [userName, setUserName] = useState("")
+  const [userEmail, setUserEmail] = useState();
+
+
 
   useEffect(() => {
     setLoading(true);
@@ -31,6 +36,9 @@ export const UserContextProvider = ({ children }) => {
         setUser(res);
         const getUid = async () => {
           setUid(auth.currentUser.uid)
+          setUserEmail(auth.currentUser.email)
+          setUserName(auth.currentUser.displayName)
+          console.log(auth);
         }
         getUid()
       } else {
@@ -41,7 +49,7 @@ export const UserContextProvider = ({ children }) => {
     });
     return unsubscribe;
 
-    
+
   }, []);
 
 
@@ -61,6 +69,9 @@ export const UserContextProvider = ({ children }) => {
 
     await createUserWithEmailAndPassword(auth, email, password)
       .then(() => {
+        updateProfile(auth.currentUser, {
+          displayName: fullName,
+        })
         createCategory(email, fullName);
       })
       .catch(() => {
@@ -73,7 +84,7 @@ export const UserContextProvider = ({ children }) => {
   const createCategory = async (email, fullName) => {
     setLoading(true);
     try {
-      
+
       const docUser = doc(db, `users`, auth.currentUser.uid);
 
       await setDoc(docUser, {
@@ -118,7 +129,9 @@ export const UserContextProvider = ({ children }) => {
     setLoading,
     setPasswordReset,
     passwordReset,
-    uid
+    uid,
+    userName,
+    userEmail
   };
   return (
     <UserContext.Provider value={contextValue}>{children}</UserContext.Provider>

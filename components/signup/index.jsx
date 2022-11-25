@@ -14,7 +14,11 @@ const SignUp = () => {
     const password = psdRef.current.value;
     const name = nameRef.current.value;
     if (email && password && name) registerUser(email, password, name);
+ 
   };
+
+
+
 
   const [showPassword, setShowPassword] = useState(false);
   return (
@@ -145,10 +149,11 @@ const SignUp = () => {
           </div>
 
           <button
+            onClick={onSubmit}
             type="submit"
             className="block w-full rounded-lg  bg-green-400 px-5 py-3 text-sm font-medium text-white"
           >
-            Sign in
+            Sign Up
           </button>
 
           <p className="text-center text-sm text-gray-500">

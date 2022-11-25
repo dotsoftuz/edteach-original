@@ -3,7 +3,7 @@ htmlFor copy and paste: Check - ✔️, Not done - ❌;
 ⚠️ <a> tegini o'rniga <Link> ishlatila | <img> tagi o'rniga <Image> ishlatila  ⚠️
 
 Aziz: 
- - Sign Up va Google 
+ - [Sign Up = ✔️] va Google 
  - Testga qoshilish
  - Testni yechish
  - Testni javobini chiqarish
@@ -17,7 +17,7 @@ Muhammad:
 
 Muzaffar: 
  - Foydali va linklar sahifasini yaxshilab chiqish : ILOJI BORICHA CHIROYLIRO QI Imageni orniga img ishlatsen boladi ishlamasa ✔️
- - Asosiy sahifa
+ - Asosiy sahifa 
  
 Komil: 
  - Linklarni to'girlab chiq Bosh sahifa pagedagi navbardagi ortiqcha linklani olib tasha

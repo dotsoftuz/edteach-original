@@ -10,11 +10,12 @@ import { BsPlusCircleFill } from 'react-icons/bs';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import { useUserContext } from '../../context/userContext';
 
+
 const Sidebar = ({ children }) => {
   const [sidebarShowDesktop, setSidebarShowDesktop] = useState(true);
   const [sidebarShowMobile, setSidebarShowMobile] = useState(true);
   const router = useRouter();
-  const { logoutUser } = useUserContext();
+  const { logoutUser, userName } = useUserContext();
 
   const toggleSidebarDesktop = () => {
     setSidebarShowDesktop(!sidebarShowDesktop);
@@ -78,7 +79,7 @@ const Sidebar = ({ children }) => {
               }
             >
               <h2 className="text-[#242627] font-semibold text-base md:text-lg truncate">
-                Zebiniso
+                {userName}
               </h2>
             </div>
             <div
