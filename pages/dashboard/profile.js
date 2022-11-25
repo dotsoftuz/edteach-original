@@ -11,8 +11,6 @@ const Profile = () => {
 
   console.log(questions);
 
-  const avatar = userName.slice(1)
-
   return (
     <div>
       <Head>
