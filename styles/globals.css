@@ -2,31 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
-html{
+html {
   scroll-behavior: smooth;
 }
 .page-section {
-    position: relative;
-    padding: 0;
-  }
-  
+  position: relative;
+  padding: 0;
+}
 
-  /* FIRST SECTION */
-  
-  .first-section {
-    margin: 1.5rem;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(20rem, 40rem));
-    grid-gap: 2rem;
-    justify-content: center;
-  }
+/* FIRST SECTION */
 
+.first-section {
+  margin: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 40rem));
+  grid-gap: 2rem;
+  justify-content: center;
+}
 
-  @layer components {
-    .about-img span{
-      @apply  !h-full
-    }
-    .about-img span img{
-      @apply rounded-3xl  object-cover object-center !inset-0  
-    }
+@layer components {
+  .about-img, .image-fulled span {
+    @apply !h-full;
   }
+  .about-img span img {
+    @apply rounded-3xl  object-cover object-center !inset-0;
+  }
+  .image-fulled span img {
+    @apply rounded-3xl   object-cover object-center;
+  }
+}
