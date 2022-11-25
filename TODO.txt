@@ -16,7 +16,7 @@ Muhammad:
  - Breadcrumbs tugirlab chiqish
 
 Muzaffar: 
- - Foydali va linklar sahifasini yaxshilab chiqish : ILOJI BORICHA CHIROYLIRO QI Imageni orniga img ishlatsen boladi ishlamasa 
+ - Foydali va linklar sahifasini yaxshilab chiqish : ILOJI BORICHA CHIROYLIRO QI Imageni orniga img ishlatsen boladi ishlamasa ✔️
  - Asosiy sahifa
  
 Komil: 
