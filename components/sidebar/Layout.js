@@ -9,7 +9,7 @@ const Layout = ({ children }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [testCard, setTestCard] = useState(true);
 
-  const { questionsPublic } = useUserContext();
+  const { questionsPublic, userName } = useUserContext();
 
   const sendData = async (id) => {
     const collectionRef = doc(db, `question`, id);
@@ -20,13 +20,11 @@ const Layout = ({ children }) => {
     };
     await updateDoc(collectionRef, payload);
   };
+
   return (
     <div className="flex flex-auto">
       <Sidebar>
-        <Breadcrumb
-          page="Asosiy sahifa"
-          link="/dashboard"
-        />
+        <Breadcrumb page="Asosiy sahifa" link="/dashboard" />
         <div>
           <div className="relative my-5">
             <input
@@ -171,7 +169,7 @@ const Layout = ({ children }) => {
                       </div>
                     </Link>
                     <div onClick={() => sendData(val.id)}>
-                      <Link href={`startgame/${val.id}`}>
+                      <Link href={`/dashboard/startgame/${val.id}`}>
                         <div
                           className={`${
                             testCard ? 'bottom-2' : 'top-2'
