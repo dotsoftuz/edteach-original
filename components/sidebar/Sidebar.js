@@ -30,7 +30,7 @@ const Sidebar = ({ children }) => {
       path: '/dashboard',
       icon: <MdOutlineSpaceDashboard />,
     },
-    { title: 'Testlar', path: '/dashboard/question', icon: <GrTest /> },
+    { title: 'Testlarim', path: '/dashboard/question', icon: <GrTest /> },
     { title: 'Foydali', path: '/dashboard/useful', icon: <FiLink /> },
     { title: 'Profil', path: '/dashboard/profile', icon: <FiUser /> },
     { title: 'Chiqish', path: '', icon: <IoExitOutline />, logout: true, red: true },

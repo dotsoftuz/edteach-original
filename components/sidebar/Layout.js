@@ -3,8 +3,7 @@ import Link from 'next/link';
 import React, { useState } from 'react';
 import { useUserContext } from '../../context/userContext';
 import { db } from '../../firebase';
-import Breadcrumb from '../ui-kits/breadcrumbs';
-import Sidebar from './Sidebar';
+import { Sidebar, Breadcrumb } from '../';
 
 const Layout = ({ children }) => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -26,9 +25,7 @@ const Layout = ({ children }) => {
       <Sidebar>
         <Breadcrumb
           page="Asosiy sahifa"
-          page2="Umumiy Testlar"
           link="/dashboard"
-          active
         />
         <div>
           <div className="relative my-5">

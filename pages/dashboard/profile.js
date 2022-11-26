@@ -250,7 +250,7 @@ const Profile = () => {
                 <h2 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-4xl text-white">
                   {userName.charAt(0)}
                 </h2>
-                <input type="file" class="hidden" name="file1" />
+                <input type="file" className="hidden" name="file1" />
                 <div className="absolute top-0 rounded-full w-16 h-16 md:w-20 md:h-20 bg-black bg-opacity-40 hidden group-hover:block">
                   <CiEdit className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-3xl text-white cursor-pointer" />
                 </div>
@@ -292,8 +292,12 @@ const Profile = () => {
               onClick={CloseDialog}
               className="absolute bottom-4 right-4 space-x-2"
             >
-              <button className="rounded-lg py-2 px-4 shadow-md text-sm md:text-base font-semibold active:bg-opacity-80 ease-in-out bg-purple-200 text-purple-500 active:scale-95 duration-200">Bekor qilmoq</button>
-              <button className="rounded-lg py-2 px-4 shadow-md text-sm md:text-base font-semibold active:bg-opacity-80 ease-in-out bg-purple-500 text-white active:scale-95 duration-200">Saqlamoq</button>
+              <button className="rounded-lg py-2 px-4 shadow-md text-sm md:text-base font-semibold active:bg-opacity-80 ease-in-out bg-purple-200 text-purple-500 active:scale-95 duration-200">
+                Bekor qilmoq
+              </button>
+              <button className="rounded-lg py-2 px-4 shadow-md text-sm md:text-base font-semibold active:bg-opacity-80 ease-in-out bg-purple-500 text-white active:scale-95 duration-200">
+                Saqlamoq
+              </button>
             </div>
           </div>
         </div>

@@ -32,7 +32,7 @@ const Tests = () => {
       <Sidebar>
         <Breadcrumb
           page="Asosiy sahifa"
-          page2="Umumiy Testlar"
+          page2="Testlarim"
           link="/dashboard"
           active
         />
