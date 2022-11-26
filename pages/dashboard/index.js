@@ -11,8 +11,6 @@ import { useUserContext } from '../../context/userContext';
 function Dashboard() {
   const { user, loading } = useUserContext();
 
-
-
   return (
     <div>
       <Head>

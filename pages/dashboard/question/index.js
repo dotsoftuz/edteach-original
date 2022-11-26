@@ -1,6 +1,5 @@
-import { useState } from 'react';
-import { paginate } from '../../../utils/paginate';
-import { doc, updateDoc } from 'firebase/firestore';
+import React, { useEffect, useState } from 'react';
+import { collection, deleteDoc, doc, getDoc, onSnapshot, updateDoc } from 'firebase/firestore';
 import Head from 'next/head';
 import Link from 'next/link';
 import { db } from '../../../firebase';
@@ -25,13 +24,24 @@ const Tests = () => {
   console.log(questions);
 
   const sendData = async (id) => {
+    setIdP(id)
     const collectionRef = doc(db, `question`, id);
+    const quest = await getDoc(collectionRef)
     const payload = {
       status: 'started',
       pin: String(Math.floor(Math.random() * 900000) + 1000),
       id: id,
     };
-    await updateDoc(collectionRef, payload);
+    
+    await updateDoc(collectionRef, payload).then(() => {
+      quest.data().playerId.map((i) => {
+        const deletePlayer = async () => {
+          const PlayerColl = doc(db, `question/${id}/players`, i.id)
+          await deleteDoc(PlayerColl)
+        }
+        deletePlayer()
+      })
+    })
   };
 
   return (
@@ -48,7 +58,7 @@ const Tests = () => {
           link="/dashboard"
           active
         />
-        <div className='mb-5 md:mb-10'>
+        <div className='p-5  md:pr-[2rem] lg:pr-[4rem]'>
           <div className="relative my-5">
             <input
               type="text"
@@ -192,7 +202,7 @@ const Tests = () => {
                       </div>
                     </Link>
                     <div onClick={() => sendData(val.id)}>
-                      <Link href={`startgame/${val.id}`}>
+                      <Link href={`startgame/${val.id}`} >
                         <div
                           className={`${
                             testCard ? 'bottom-2' : 'top-2'

@@ -10,8 +10,6 @@ const Layout = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [testCard, setTestCard] = useState(true);
 
-  const { questionsPublic } = useUserContext();
-
   const pageSize = 8;
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -20,6 +18,7 @@ const Layout = () => {
   };
 
   const paginatePosts = paginate(questionsPublic, currentPage, pageSize);
+  const { questionsPublic, uid } = useUserContext();
 
   const sendData = async (id) => {
     const collectionRef = doc(db, `question`, id);
@@ -35,7 +34,7 @@ const Layout = () => {
     <div>
       <Sidebar>
         <Breadcrumb page="Asosiy sahifa" link="/dashboard" />
-        <div className='mb-5 md:mb-10'>
+        <div className="p-5  md:pr-[2rem] lg:pr-[4rem]">
           <div className="relative my-5">
             <input
               type="text"
@@ -107,9 +106,9 @@ const Layout = () => {
           <div
             className={`${
               testCard
-                ? 'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'
-                : 'flex flex-col space-y-2'
-            } my-5`}
+                ? 'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 '
+                : 'flex flex-col space-y-2 '
+            } my-5 !w-full`}
           >
             {paginatePosts
               .filter((val) => {
@@ -125,85 +124,91 @@ const Layout = () => {
               })
               .map((val, key) => {
                 return (
-                  <div
-                    key={key}
-                    className={`${
-                      testCard
-                        ? 'flex flex-col space-y-2'
-                        : 'flex flex-row space-x-2 md:space-x-4'
-                    } relative  p-4 rounded-lg bg-gray-200`}
-                  >
-                    <Link href={`/dashboard/question/${val.id}`}>
-                      <div
-                        className={`${
-                          testCard
-                            ? 'flex flex-col space-y-2'
-                            : 'flex flex-row space-x-2 md:space-x-4'
-                        } relative  p-4 rounded-lg bg-gray-200`}
-                      >
-                        <Link href={`/dashboard/question/${val.id}`}>
-                          <img
-                            className={`${
-                              testCard ? 'w-full' : 'w-72'
-                            } rounded-lg h-56 object-cover cursor-pointer`}
-                            src="/images/about-img1.jpg"
-                            alt="test image"
-                          />
-                        </Link>
-                        <div className="flex flex-col justify-between">
-                          <div>
-                            <span className="bg-purple-500 text-white text-xs font-semibold px-1 rounded-full">
-                              Quiz
-                            </span>
-                            <h2 className="text-xl font-semibold">
-                              {val.title}
-                            </h2>
-                            <h2 className="text-lg font-semibold">
-                              {val.description}
-                            </h2>
-                          </div>
-                          <div>
-                            <div className="flex items-center space-x-2">
-                              <h2 className=" text-base font-semibold">
-                                Umumiy testlar soni:
-                              </h2>
-                              <span className="bg-purple-500 text-white text-xs font-semibold px-1 rounded-full">
-                                {val.questionList.length} ta
-                              </span>
-                            </div>
-                            <h2 className="text-xs font-semibold">
-                              Yaratuvchi: {val.createrName}
-                            </h2>
-                          </div>
-                        </div>
-                      </div>
-                    </Link>
-                    <div onClick={() => sendData(val.id)}>
-                      <Link href={`/dashboard/startgame/${val.id}`}>
+                  <>
+                    <div
+                      key={key}
+                      className={`${
+                        testCard
+                          ? 'flex flex-col space-y-2'
+                          : 'flex flex-row space-x-2 md:space-x-4'
+                      } relative  p-4 rounded-lg bg-gray-200`}
+                    >
+                      <Link href={`/dashboard/question/${val.id}`}>
                         <div
                           className={`${
-                            testCard ? 'bottom-2' : 'top-2'
-                          } absolute  right-2 flex items-center space-x-1 hover:text-purple-500 cursor-pointer`}
+                            testCard
+                              ? 'flex flex-col space-y-2'
+                              : 'flex flex-row space-x-2 md:space-x-4'
+                          } relative  p-4 rounded-lg bg-gray-200`}
                         >
-                          <p className="text-lg font-semibold">Start</p>
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            strokeWidth={1.5}
-                            stroke="currentColor"
-                            className="w-5 h-5"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.348a1.125 1.125 0 010 1.971l-11.54 6.347a1.125 1.125 0 01-1.667-.985V5.653z"
+                          <Link href={`/dashboard/question/${val.id}`}>
+                            <img
+                              className={`${
+                                testCard ? 'w-full' : 'w-72'
+                              } rounded-lg h-56 object-cover cursor-pointer`}
+                              src="/images/about-img1.jpg"
+                              alt="test image"
                             />
-                          </svg>
+                          </Link>
+                          <div className="flex flex-col justify-between">
+                            <div>
+                              <span className="bg-purple-500 text-white text-xs font-semibold px-1 rounded-full">
+                                Quiz
+                              </span>
+                              <h2 className="text-xl font-semibold">
+                                {val.title}
+                              </h2>
+                              <h2 className="text-lg font-semibold">
+                                {val.description}
+                              </h2>
+                            </div>
+                            <div>
+                              <div className="flex items-center space-x-2">
+                                <h2 className=" text-base font-semibold">
+                                  Umumiy testlar soni:
+                                </h2>
+                                <span className="bg-purple-500 text-white text-xs font-semibold px-1 rounded-full">
+                                  {val.questionList.length} ta
+                                </span>
+                              </div>
+                              <h2 className="text-xs font-semibold">
+                                Yaratuvchi: {val.createrName}
+                              </h2>
+                            </div>
+                          </div>
                         </div>
                       </Link>
+                      {val.uid === uid ? (
+                        <div onClick={() => sendData(val.id)}>
+                          <Link href={`startgame/${val.id}`}>
+                            <div
+                              className={`${
+                                testCard ? 'bottom-2' : 'top-2'
+                              } absolute  right-2 flex items-center space-x-1 hover:text-purple-500 cursor-pointer`}
+                            >
+                              <p className="text-lg font-semibold">Start</p>
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                strokeWidth={1.5}
+                                stroke="currentColor"
+                                className="w-5 h-5"
+                              >
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.348a1.125 1.125 0 010 1.971l-11.54 6.347a1.125 1.125 0 01-1.667-.985V5.653z"
+                                />
+                              </svg>
+                            </div>
+                          </Link>
+                        </div>
+                      ) : (
+                        ''
+                      )}
                     </div>
-                  </div>
+                  </>
                 );
               })}
           </div>

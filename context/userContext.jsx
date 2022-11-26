@@ -54,6 +54,7 @@ export const UserContextProvider = ({ children }) => {
           setUid(auth.currentUser.uid)
           setUserEmail(auth.currentUser.email)
           setUserName(auth.currentUser.displayName)
+
         }
         getUid()
       } else {
