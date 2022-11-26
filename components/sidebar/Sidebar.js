@@ -106,7 +106,7 @@ const Sidebar = ({ children }) => {
                 <div key={item.title}>
                   <Link href={item.path}>
                     <div
-                      className={`${item.red ? 'hover:bg-red-300 hover:text-white' : 'hover:bg-gray-300'} ${
+                      className={`${item.red ? 'hover:bg-[#ef4444] hover:text-white' : 'hover:bg-gray-300'} ${
                         router.pathname == item.path ? 'bg-gray-300' : ''
                       } flex items-center px-3 py-2 my-1 rounded-lg cursor-pointer hover:bg-gray-300 group`}
                       onClick={item.logout ? handleClick : ''}
