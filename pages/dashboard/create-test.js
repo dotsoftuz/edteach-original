@@ -10,12 +10,10 @@ import { useUserContext } from '../../context/userContext';
 const CreateTest = () => {
 
   const {userName} = useUserContext();
-  console.log(userName);
 
   const [input, setInput] = useState([
     {
       question: '',
-      
       answerList: [
         { name: 'a', body: '', isCorrect: false },
         { name: 'b', body: '', isCorrect: false },
@@ -143,7 +141,8 @@ const CreateTest = () => {
     date,
     prefixTime,
     questionVisibility,
-    uid
+    uid,
+    playerId: []
   };
 
   const createQuest = async (e) => {
