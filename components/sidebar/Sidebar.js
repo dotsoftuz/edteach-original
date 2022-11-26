@@ -2,7 +2,6 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { MdOutlineSpaceDashboard, MdMenu } from 'react-icons/md';
 import { IoExitOutline } from 'react-icons/io5';
-import { SiConcourse } from 'react-icons/si';
 import { FiUser, FiLink } from 'react-icons/fi';
 import { GrTest } from 'react-icons/gr';
 import { useState } from 'react';
@@ -167,10 +166,10 @@ const Sidebar = ({ children }) => {
         <div>
           {children}
           <div
-            className="fixed top-5 right-4 block md:hidden"
+            className="fixed top-3 right-4 block md:hidden"
             onClick={toggleSidebarMobile}
           >
-            <MdMenu className="text-3xl" />
+            <MdMenu className="text-5xl p-2 rounded-lg bg-gray-200 shadow-lg" />
           </div>
         </div>
       </main>

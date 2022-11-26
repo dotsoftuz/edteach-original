@@ -43,7 +43,7 @@ function GameID() {
   return (
     <Sidebar>
       <div className="flex items-center justify-center h-screen">
-        {questions.map((game) => {
+        {questions.map((game, index) => {
           return (
             <div
               key={index}
