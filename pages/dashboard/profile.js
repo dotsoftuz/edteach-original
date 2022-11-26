@@ -94,7 +94,7 @@ const Profile = () => {
                 </a>
               </div>
             </div>
-            {!questions ? (
+            {/* {!questions ? (
               <h3 className="text-2xl font-semibold my-5">
                 Siz hali test yaratmadingiz.
               </h3>
@@ -219,7 +219,7 @@ const Profile = () => {
                   ))}
                 </div>
               </div>
-            )}
+            )} */}
           </div>
         </div>
       </Sidebar>

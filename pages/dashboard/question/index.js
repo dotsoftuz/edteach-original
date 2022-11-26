@@ -10,7 +10,7 @@ const Tests = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [testCard, setTestCard] = useState(true);
 
-  const { questionsPublic } = useUserContext();
+  const { questions } = useUserContext();
 
   const sendData = async (id) => {
     const collectionRef = doc(db, `question`, id);
@@ -112,7 +112,7 @@ const Tests = () => {
                 : 'flex flex-col space-y-2'
             } my-5`}
           >
-            {questionsPublic
+            {questions
               .filter((val) => {
                 if (searchTerm === '') {
                   return val;
