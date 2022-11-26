@@ -1,12 +1,13 @@
+import { useEffect, useState } from 'react';
 import { addDoc, collection } from 'firebase/firestore';
-import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import toast, { Toaster } from 'react-hot-toast';
-import { Sidebar } from '../../components';
-import { db } from '../../firebase';
-
-import { useUserContext } from '../../context/userContext';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
+
+import { Sidebar } from 'components';
+import { useUserContext } from 'context/userContext';
+import { db } from '../../firebase';
+import Head from 'next/head';
 
 const CreateTest = () => {
   const { userName } = useUserContext();
@@ -149,7 +150,7 @@ const CreateTest = () => {
       await addDoc(questColl, data);
       toast.success("Test muvoffaqiyatli qo'shildi");
       setTimeout(() => {
-        router.push('/dashboard/profile');
+        router.push('/dashboard/question');
       }, 2000);
     } catch (error) {
       toast.error('Somthing wrong');
@@ -322,6 +323,7 @@ const CreateTest = () => {
         absolute  px-0.5 py-3 hidden md:block bg-gray-300 text-[#161925] cursor-pointer top-[50%]`}
         >
           {isToggled ? <IoIosArrowForward /> : <IoIosArrowBack />}
+
         </div>
 
         <div className="flex flex-col items-start w-full">

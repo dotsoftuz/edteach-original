@@ -1,9 +1,9 @@
-import { appWithTranslation } from "next-i18next";
+import { appWithTranslation } from 'next-i18next';
 
-import "../styles/globals.css";
-import "../styles/Loader.css";
+import 'styles/globals.css';
+import 'styles/Loader.css';
 
-import { UserContextProvider } from "../context/userContext";
+import { UserContextProvider } from 'context/userContext';
 
 function MyApp({ Component, pageProps }) {
   return (
