@@ -9,8 +9,6 @@ const Profile = () => {
   const [testCard, setTestCard] = useState(false);
   const { userName, userEmail, questions } = useUserContext();
 
-  console.log(questions);
-
   const avatar = userName.slice(1);
 
   return (
