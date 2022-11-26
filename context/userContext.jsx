@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from 'react';
 import {
   signInWithEmailAndPassword,
   onAuthStateChanged,
@@ -6,10 +6,17 @@ import {
   sendPasswordResetEmail,
   createUserWithEmailAndPassword,
   updateProfile,
-} from "firebase/auth";
-import { auth, db } from "../firebase";
-import { toast } from "react-toastify";
-import { collection, doc, onSnapshot, query, setDoc, where } from "firebase/firestore";
+} from 'firebase/auth';
+import { auth, db } from '../firebase';
+import { toast } from 'react-toastify';
+import {
+  collection,
+  doc,
+  onSnapshot,
+  query,
+  setDoc,
+  where,
+} from 'firebase/firestore';
 
 export const UserContext = createContext({});
 
@@ -22,28 +29,30 @@ export const UserContextProvider = ({ children }) => {
   const [questions, setQuestions] = useState([]);
   const [questionsPublic, setQuestionsPublic] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
   const [registry, setRegistry] = useState(false);
   const [passwordReset, setPasswordReset] = useState(false);
-  const [uid, setUid] = useState()
-  const [userName, setUserName] = useState("")
+  const [uid, setUid] = useState();
+  const [userName, setUserName] = useState('');
   const [userEmail, setUserEmail] = useState();
-
-
 
   useEffect(() => {
     const questColl = collection(db, `question`);
-    const q = query(questColl, where("uid", "==", `${uid}`))
+    const q = query(questColl, where('uid', '==', `${uid}`));
     onSnapshot(q, (snapshot) =>
       setQuestions(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
     );
     const questCollPublic = collection(db, `question`);
-    const q1 = query(questCollPublic, where("questionVisibility", "==", `public`))
+    const q1 = query(
+      questCollPublic,
+      where('questionVisibility', '==', `public`)
+    );
     onSnapshot(q1, (snapshot) =>
-      setQuestionsPublic(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
+      setQuestionsPublic(
+        snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
+      )
     );
   }, [uid]);
-
 
   useEffect(() => {
     setLoading(true);
@@ -51,20 +60,18 @@ export const UserContextProvider = ({ children }) => {
       if (res) {
         setUser(res);
         const getUid = async () => {
-          setUid(auth.currentUser.uid)
-          setUserEmail(auth.currentUser.email)
-          setUserName(auth.currentUser.displayName)
-        }
-        getUid()
+          setUid(auth.currentUser.uid);
+          setUserEmail(auth.currentUser.email);
+          setUserName(auth.currentUser.displayName);
+        };
+        getUid();
       } else {
         setUser(null);
       }
-      setError("");
+      setError('');
       setLoading(false);
     });
     return unsubscribe;
-
-
   }, []);
 
   const signInUser = async (email, password) => {
@@ -84,11 +91,11 @@ export const UserContextProvider = ({ children }) => {
       .then(() => {
         updateProfile(auth.currentUser, {
           displayName: fullName,
-        })
+        });
         createCategory(email, fullName);
       })
       .catch(() => {
-        toast.error("Foydalanuvchi topilmadi yoki noto`g`ri password");
+        toast.error('Foydalanuvchi topilmadi yoki noto`g`ri password');
       });
 
     setLoading(false);
@@ -97,7 +104,6 @@ export const UserContextProvider = ({ children }) => {
   const createCategory = async (email, fullName) => {
     setLoading(true);
     try {
-
       const docUser = doc(db, `users`, auth.currentUser.uid);
 
       await setDoc(docUser, {
@@ -146,7 +152,7 @@ export const UserContextProvider = ({ children }) => {
     userName,
     userEmail,
     questions,
-    questionsPublic
+    questionsPublic,
   };
   return (
     <UserContext.Provider value={contextValue}>{children}</UserContext.Provider>
