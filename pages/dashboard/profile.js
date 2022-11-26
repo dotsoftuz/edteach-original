@@ -11,7 +11,7 @@ const Profile = () => {
 
   console.log(questions);
 
-  const avatar = userName.slice(1)
+  const avatar = userName.slice(1);
 
   return (
     <div>
@@ -32,11 +32,7 @@ const Profile = () => {
             <div className="relative flex flex-col md:flex-row bg-gray-200 rounded-lg p-4 md:p-6 my-5">
               <div className="flex items-center">
                 <div className="group relative">
-                  <h2
-                    className="rounded-full w-16 h-16 md:w-20 md:h-20 object-contain text-4xl text-center pt-4 bg-[#0FD4FFFF] text-white "
-                    // src="https://www.lazydev.uz/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fperson01.2102dbe6.png&w=64&q=75"
-                    // alt="avatar img"
-                  >
+                  <h2 className="rounded-full w-16 h-16 md:w-20 md:h-20 object-contain text-4xl text-center pt-4 bg-[#0FD4FFFF] text-white ">
                     {userName.charAt(0)}
                   </h2>
                   <div className="absolute top-0 rounded-full w-16 h-16 md:w-20 md:h-20 bg-black bg-opacity-40 hidden group-hover:block">
@@ -123,15 +119,16 @@ const Profile = () => {
                     </svg>
                   </div>
                 </div>
-                {questions.map((item) => (
-                  <>
-                    <div
-                      className={`${
-                        testCard
-                          ? 'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'
-                          : 'flex flex-col space-y-2'
-                      } my-5`}
-                    >
+
+                <div
+                  className={`${
+                    testCard
+                      ? 'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'
+                      : 'flex flex-col space-y-2'
+                  } my-5`}
+                >
+                  {questions.map((item) => (
+                    <>
                       <div
                         className={`${
                           testCard
@@ -196,9 +193,9 @@ const Profile = () => {
                           </svg>
                         </div>
                       </div>
-                    </div>
-                  </>
-                ))}
+                    </>
+                  ))}
+                </div>
               </div>
             )}
           </div>
