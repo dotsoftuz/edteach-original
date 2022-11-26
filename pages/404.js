@@ -1,34 +1,29 @@
+import Link from 'next/link';
 import React from 'react';
 
 const NotFound = () => {
   return (
     <section className="flex items-center justify-center h-screen">
-      <div className="grid items-center w-full grid-cols-1 gap-10 mx-auto md:w-4/5 lg:grid-cols-2 xl:gap-32">
-        <div>
-          <p className="mb-2 text-xs font-semibold tracking-wide text-gray-500 uppercase">
-            Error 404
-          </p>
-          <h1 className="mb-4 text-2xl font-extrabold leading-tight tracking-tight text-left text-gray-900 md:text-4xl">
-            Oops! The page you&apos;re looking htmlFor isn&apos;t here.
+      <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
+        <div className="mx-auto max-w-screen-sm text-center">
+          <h1 className="mb-4 text-7xl tracking-tight font-extrabold lg:text-9xl text-primary-600 dark:text-primary-500">
+            404
           </h1>
-          <p className="mb-5 text-base text-left text-gray-800 md:text-xl">
-            You might have the wrong address, or the page may have moved.
+          <p className="mb-4 text-3xl tracking-tight font-bold text-gray-900 md:text-4xl dark:text-white">
+            Nimadir нито ketdi.
           </p>
-          <a
-            href="#"
-            className="w-full mb-2 btn btn-lg btn-light sm:w-auto sm:mb-0"
-          >
-            Back to Bosh sahifapage
-          </a>
-          <a
-            href="#"
-            className="w-full mb-2 btn btn-lg btn-white sm:w-auto sm:mb-0"
-          >
-            Contact us
-          </a>
-        </div>
-        <div>
-          <div className="w-full h-full py-48 bg-gray-200 rounded-lg"></div>
+          <p className="mb-4 text-lg font-light text-gray-500 dark:text-gray-400">
+            Bunday sahifa topilmadi.
+          </p>
+          <Link href="/">
+            <a
+              className="w-fit rounded-lg py-3 px-4 font-medium shadow-md text-sm duration-300
+          active:bg-opacity-80 cursor-pointer ease-in-out active:scale-95 bg-purple-500 
+          dark:bg-[#1a5cff] md:text-sm text-white hover:shadow-md"
+            >
+              Bosh sahifaga o&apos;tish
+            </a>
+          </Link>
         </div>
       </div>
     </section>
