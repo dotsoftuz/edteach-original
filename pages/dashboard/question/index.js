@@ -167,35 +167,11 @@ const Tests = () => {
                               </span>
                             </div>
                             <h2 className="text-xs font-semibold">
-                              Yaratuvchi: Zebiniso
+                              Yaratuvchi: {val.createrName}
                             </h2>
                           </div>
                         </div>
-                        <div onClick={() => sendData(val.id)}>
-                          <Link href={`startgame/${val.id}`}>
-                            <div
-                              className={`${
-                                testCard ? 'bottom-2' : 'top-2'
-                              } absolute  right-2 flex items-center space-x-1 hover:text-purple-500 cursor-pointer`}
-                            >
-                              <p className="text-lg font-semibold">Start</p>
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                strokeWidth={1.5}
-                                stroke="currentColor"
-                                className="w-5 h-5"
-                              >
-                                <path
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.348a1.125 1.125 0 010 1.971l-11.54 6.347a1.125 1.125 0 01-1.667-.985V5.653z"
-                                />
-                              </svg>
-                            </div>
-                          </Link>
-                        </div>
+
                       </div>
                     ) : (
                       ''
