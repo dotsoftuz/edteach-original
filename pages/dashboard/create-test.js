@@ -15,13 +15,12 @@ import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 
 
 const CreateTest = () => {
-  const { userName } = useUserContext();
-  console.log(userName);
+
+  const {userName} = useUserContext();
 
   const [input, setInput] = useState([
     {
       question: '',
-
       answerList: [
         { name: 'a', body: '', isCorrect: false, bgColor: "red" },
         { name: 'b', body: '', isCorrect: false, bgColor: "blue" },
@@ -144,6 +143,7 @@ const CreateTest = () => {
     prefixTime,
     questionVisibility,
     uid,
+    playerId: []
   };
 
   const createQuest = async (e) => {

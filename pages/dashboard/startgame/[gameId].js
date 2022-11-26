@@ -1,4 +1,4 @@
-import { collection, onSnapshot, query, where } from 'firebase/firestore';
+import { collection, doc, onSnapshot, query, updateDoc, where } from 'firebase/firestore';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 import { Sidebar } from '../../../components';
@@ -31,10 +31,19 @@ function GameID() {
     fetchData();
   }, [uid, router]);
 
+  const deletePlayer = (id) => {
+    const { gameId } = router.query;
+    const playerColl = doc(db, `question/${gameId}/players`, id)
+    const payload = {
+      isPlay: false
+    }
+    updateDoc(playerColl, payload)
+  }
+
   return (
     <Sidebar>
       <div className="flex items-center justify-center h-screen">
-        {questions.map((game, index) => {
+        {questions.map((game) => {
           return (
             <div
               key={index}
@@ -53,14 +62,12 @@ function GameID() {
                   </h1>
                   <div className="p-0 md:p-5 h-full">
                     <ol>
-                      {players.map((item, index) => {
+                      {players.filter((item) => item.isPlay).map((item, index) => {
                         return (
-                          <li
-                            key={index}
-                            className="flex items-center justify-between bg-gray-200 px-4 py-3 my-2 rounded-lg"
-                          >
+                          <li className="flex items-center justify-between bg-gray-200 px-4 py-3 my-2 rounded-lg" key={item.id}>
                             <p className="text-lg font-semibold">{index + 1}</p>
                             <h1 className="ml-0 xl:ml-5">{item.playerName}</h1>
+                            <button onClick={() =>  deletePlayer(item.id)}>O`yinchini chetlatish</button>
                           </li>
                         );
                       })}
