@@ -11,7 +11,7 @@ const Tests = () => {
   const [testCard, setTestCard] = useState(true);
   const [ players, setPlayers ] = useState([])
   const [ idP, setIdP ] = useState()
-  const { questionsPublic } = useUserContext();
+  const { questions } = useUserContext();
 
   useEffect(() => {
     const fetChPlayers = async () => {
