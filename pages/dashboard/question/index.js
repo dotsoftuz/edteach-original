@@ -58,7 +58,7 @@ const Tests = () => {
           link="/dashboard"
           active
         />
-        <div>
+        <div className='p-5  md:pr-[2rem] lg:pr-[4rem]'>
           <div className="relative my-5">
             <input
               type="text"

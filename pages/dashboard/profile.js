@@ -88,7 +88,7 @@ const Profile = () => {
                 <a
                   onClick={openEdit}
                   className="rounded-lg py-2 px-4 font-medium text-sm duration-300
-          active:bg-opacity-80 cursor-pointer ease-in-out active:scale-95 bg-transparent border border-purple-500 md:text-sm text-purple-500 hover:shadow-md text-center"
+                   active:bg-opacity-80 cursor-pointer ease-in-out active:scale-95 bg-transparent border border-purple-500 md:text-sm text-purple-500 hover:shadow-md text-center"
                 >
                   Tahrirlamoq
                 </a>

@@ -25,7 +25,7 @@ const Layout = () => {
     <div>
       <Sidebar>
         <Breadcrumb page="Asosiy sahifa" link="/dashboard" />
-        <div>
+        <div className='p-5  md:pr-[2rem] lg:pr-[4rem]'>
           <div className="relative my-5">
             <input
               type="text"

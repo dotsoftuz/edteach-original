@@ -3,12 +3,12 @@ import Link from 'next/link';
 
 const Header = () => {
   return (
-    <header aria-label="Site Header" className="shadow-sm">
+    <header aria-label="Site Header" className="border-b">
       <div className="mx-auto max-w-screen-xl p-4">
         <div className="flex items-center justify-between gap-4 lg:gap-10">
           <div className="flex lg:w-0 lg:flex-1">
             <Link href="/">
-              <span>edTeach</span>
+              <span className='text-sm md:text-xl font-semibold'>edTeach</span>
             </Link>
           </div>
 
@@ -16,19 +16,19 @@ const Header = () => {
             aria-label="Site Nav"
             className="hidden gap-8 text-sm font-medium md:flex duration-700"
           >
-            <a className="text-gray-500" href="#">
+            <a className="text-sm md:text-base font-semibold text-gray-500" href="#">
               Asosiy
             </a>
-            <a className="text-gray-500 duration-700" href="#price">
+            <a className="text-sm md:text-base font-semibold text-gray-500 duration-700" href="#price">
               Obuna
             </a>
-            <a className="text-gray-500" href="">
+            <a className="text-sm md:text-base font-semibold text-gray-500" href="">
               Xizmatlar
             </a>
-            <a className="text-gray-500" href="">
+            <a className="text-sm md:text-base font-semibold text-gray-500" href="">
               Kurslar
             </a>
-            <a className="text-gray-500" href="#contact">
+            <a className="text-sm md:text-base font-semibold text-gray-500" href="#contact">
               Aloqa
             </a>
           </nav>
@@ -45,7 +45,7 @@ const Header = () => {
 
           <div className="lg:hidden">
             <button
-              className="rounded-lg bg-gray-100 p-2 text-gray-600"
+              className="text-sm md:text-base font-semibold rounded-lg bg-gray-100 p-2 text-gray-600"
               type="button"
             >
               <span className="sr-only">Open menu</span>

@@ -24,7 +24,7 @@ const Breadcrumb = (props) => {
   const { page, page2, link, active = false } = props;
 
   return (
-    <div className="flex items-center space-x-1 md:space-x-2 pt-5 md:pt-3">
+    <div className="flex items-center space-x-1 md:space-x-2 pt-5 !md:pt-3 p-5 pl-7 md:pr-[2rem] lg:pr-[4rem]">
       <Link href="/">
         <a className="font-semibold">Bosh sahifa</a>
       </Link>
