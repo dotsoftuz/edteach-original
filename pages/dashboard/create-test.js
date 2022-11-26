@@ -9,12 +9,11 @@ import { useUserContext } from '../../context/userContext';
 
 const CreateTest = () => {
   const { userName } = useUserContext();
-  console.log(userName);
+  const [testId, setTestId] = useState(0);
 
   const [input, setInput] = useState([
     {
       question: '',
-
       answerList: [
         { name: 'a', body: '', isCorrect: false },
         { name: 'b', body: '', isCorrect: false },
@@ -29,6 +28,7 @@ const CreateTest = () => {
 
   const [questionTime, setQuestionTime] = useState('');
   const [questionVisibility, setQuestionVisibility] = useState('public');
+
   const router = useRouter();
 
   let getValue = (i, e) => {
@@ -53,6 +53,7 @@ const CreateTest = () => {
   };
 
   let addFormFields = () => {
+    setTestId(testId + 1)
     setInput([
       ...input,
       {
@@ -100,7 +101,9 @@ const CreateTest = () => {
   let removeFormFields = (i) => {
     let newInput = [...input];
     newInput.splice(i, 1);
+
     setInput(newInput);
+    setTestId(testId - 1);
   };
 
   const [quizData, setQuizData] = useState({
@@ -164,146 +167,152 @@ const CreateTest = () => {
     e.returnValue = '';
   };
 
-  // window.onbeforeunload = (event) => {
-  //   const e = event || window.event;
-  //   // Cancel the event
-  //   e.preventDefault();
-  //   if (e) {
-  //     e.returnValue = ''; // Legacy method for cross browser support
-  //   }
-  //   return ''; // Legacy method for cross browser support
-  // };
 
   return (
     <Sidebar>
-      <div className="container mx-auto px-5">
-        <div>
-          <Toaster />
-        </div>
-        <div className="px-2 py-3 md:p-5 mx-auto w-full md:max-w-7xl shadow-lg my-10 md:my-16 rounded-xl bg-gray-100">
-          <h2 className="text-xl font-bold uppercase mx-1 md:mx-3 text-center">
-            Test yaratish
-          </h2>
-
-          <div>
-            <div className="mt-4 mb-2 ml-2">
-              <label className="font-bold">Sarlovha</label>
+      <div className="container mx-auto px-5 ">
+        <div className="flex">
+          <div className="w-[90%]">
+            <div>
+              <Toaster />
             </div>
-            <input
-              className="rounded-xl w-full  bg-gray-200 outline-none py-4 px-4 text-sm focus:px-6 duration-200 placeholder-gray-800"
-              type="text"
-              onChange={handleChange}
-              value={quizData.title}
-              name="title"
-              placeholder="Misol: Geografiya"
-            />
-            <div className="mt-4 mb-2 ml-2">
-              <label className="font-bold">Tavsif</label>
-            </div>
-            <input
-              className="rounded-xl w-full bg-gray-200 outline-none py-4 px-4 text-sm focus:px-6 duration-200 placeholder-gray-800 mb-5"
-              type="text"
-              onChange={handleChange}
-              value={quizData.description}
-              name="description"
-              placeholder="Misol: Dunyo aholisi haqida "
-            />
+            <div className="px-2 py-3 md:p-5 mx-auto w-full md:max-w-7xl shadow-lg my-10 md:my-16 rounded-xl bg-gray-100">
+              <h2 className="text-xl font-bold uppercase mx-1 md:mx-3 text-center">
+                Test yaratish
+              </h2>
 
-            <div className="flex justify-between">
               <div>
-                <label>Vaqt: </label>
-                <select onChange={handleChangetime}>
-                  {time.map((item) => {
-                    return (
-                      <option key={item.id} value={item.value}>
-                        {item.name}
-                      </option>
-                    );
-                  })}
-                </select>
-              </div>
-              <div>
-                <label>Sayt ko`rinishi: </label>
-                <select onChange={handleChangeVisibilty}>
-                  {visibility.map((item) => {
-                    return (
-                      <option key={item.id} value={item.value}>
-                        {item.name}
-                      </option>
-                    );
-                  })}
-                </select>
+                <div className="mt-4 mb-2 ml-2">
+                  <label className="font-bold">Sarlovha</label>
+                </div>
+                <input
+                  className="rounded-xl w-full  bg-gray-200 outline-none py-4 px-4 text-sm focus:px-6 duration-200 placeholder-gray-800"
+                  type="text"
+                  onChange={handleChange}
+                  value={quizData.title}
+                  name="title"
+                  placeholder="Misol: Geografiya"
+                />
+                <div className="mt-4 mb-2 ml-2">
+                  <label className="font-bold">Tavsif</label>
+                </div>
+                <input
+                  className="rounded-xl w-full bg-gray-200 outline-none py-4 px-4 text-sm focus:px-6 duration-200 placeholder-gray-800 mb-5"
+                  type="text"
+                  onChange={handleChange}
+                  value={quizData.description}
+                  name="description"
+                  placeholder="Misol: Dunyo aholisi haqida "
+                />
+
+                <div className="flex justify-between">
+                  <div>
+                    <label>Vaqt: </label>
+                    <select onChange={handleChangetime}>
+                      {time.map((item) => {
+                        return (
+                          <option key={item.id} value={item.value}>
+                            {item.name}
+                          </option>
+                        );
+                      })}
+                    </select>
+                  </div>
+                  <div>
+                    <label>Sayt ko`rinishi: </label>
+                    <select onChange={handleChangeVisibilty}>
+                      {visibility.map((item) => {
+                        return (
+                          <option key={item.id} value={item.value}>
+                            {item.name}
+                          </option>
+                        );
+                      })}
+                    </select>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-      <div className="form-box p-5">
-        <form>
-          {input.map((element, index) => (
-            <div className="form" key={index}>
-              <label>Question{index + 1}</label>
-              <input
-                type="text"
-                name="question"
-                value={element.question || ''}
-                onChange={(e) => getValue(index, e)}
-              />
-              {element.answerList.map((item, i) => (
-                <div key={item.id} className="flex">
-                  <div
-                    className={
-                      !item.isCorrect
-                        ? 'w-10 h-10 rounded-full bg-blue-500'
-                        : 'w-10 h-10 rounded-full bg-red-500'
-                    }
-                    onClick={() => getCorrectAnswer(index, i)}
-                  ></div>
 
-                  {/* onClick={() => getCorrectAnswer(index, i)} */}
-                  {/* <input type="radio"  name="gender" checked={gender === "Female"}/> Female
-      <input type="radio" value="Other" name="gendervalue="Female"" checked={gender === "Other"} /> Other */}
-                  {/* <input
-                    type="checkbox"
-                  /> */}
+            <div className="form-box p-5">
+              <form>
+                <div className="form">
                   <input
                     type="text"
-                    value={item.body || ''}
-                    name={'body'}
-                    onChange={(e) => getValue2(index, i, e)}
-                    placeholder={item.name}
+                    name="question"
+                    value={!input[testId] ? '' : input[testId].question}
+                    onChange={(e) => getValue(testId, e)}
                   />
-                </div>
-              ))}
+                  {!input[testId]
+                    ? ''
+                    : input[testId].answerList.map((item, i) => (
+                        <div key={item.id} className="flex">
+                          <div
+                            className={
+                              !item.isCorrect
+                                ? 'w-10 h-10 rounded-full bg-blue-500'
+                                : 'w-10 h-10 rounded-full bg-red-500'
+                            }
+                            onClick={() => getCorrectAnswer(testId, i)}
+                          ></div>
 
-              {index ? (
-                <button
-                  type="button"
-                  className="btn-danger btn-sm mt-2 "
-                  onClick={() => removeFormFields(index)}
-                >
-                  Remove
-                </button>
-              ) : null}
+                          <input
+                            type="text"
+                            value={item.body || ''}
+                            name={'body'}
+                            onChange={(e) => getValue2(testId, i, e)}
+                            placeholder={item.name}
+                          />
+                        </div>
+                      ))}
+                </div>
+              </form>
             </div>
-          ))}
-          <button
-            className="btn btn-info m-2"
-            type="button"
-            onClick={() => addFormFields()}
-          >
-            {' '}
-            Add
-          </button>
-          <button
-            className="w-fit rounded-lg py-3 px-8 mx-2 cursor-pointer active:scale-95
+          </div>
+
+          <div>
+            {input.map((item, key) => {
+              return (
+                <>
+                  <div
+                    className="w-32 h-32 bg-black m-5 text-slate-50"
+                    onClick={() => setTestId(key)}
+                  >
+                    {' '}
+                    Question {key}{' '}
+                  </div>
+                  {key > 0 ? (
+                    <button
+                      type="button"
+                      className="btn-danger btn-sm mt-2 "
+                      onClick={() => removeFormFields(testId)}
+                    >
+                      Remove
+                    </button>
+                  ) : null}
+                </>
+              );
+            })}
+            <br />
+            <button
+              className="btn btn-info m-2"
+              type="button"
+              onClick={() => addFormFields()}
+            >
+              {' '}
+              Add
+            </button>
+
+            <button
+              className="w-fit rounded-lg py-3 px-8 mx-2 cursor-pointer active:scale-95
               shadow-md text-sm duration-300 border bg-[#1a5cff] active:bg-opacity-80
               ease-in-out md:text-sm text-white mt-4"
-            onClick={createQuest}
-          >
-            Testni yaratiash
-          </button>
-        </form>
+              onClick={createQuest}
+            >
+              Testni yaratiash
+            </button>
+          </div>
+        </div>
       </div>
     </Sidebar>
   );
