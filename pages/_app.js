@@ -1,16 +1,15 @@
-import { ThemeProvider } from "next-themes";
 import { appWithTranslation } from "next-i18next";
 
 import "../styles/globals.css";
-import { Layout } from "../components";
+import "../styles/Loader.css";
+
+import { UserContextProvider } from "../context/userContext";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <ThemeProvider defaultTheme="system" enableSystem={true} attribute="class">
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
-    </ThemeProvider>
+    <UserContextProvider>
+      <Component {...pageProps} />
+    </UserContextProvider>
   );
 }
 

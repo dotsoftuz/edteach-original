@@ -1,5 +1,5 @@
-import React from "react";
-import Link from "next/link";
+import React from 'react';
+import Link from 'next/link';
 
 const Header = () => {
   return (
@@ -7,44 +7,40 @@ const Header = () => {
       <div className="mx-auto max-w-screen-xl p-4">
         <div className="flex items-center justify-between gap-4 lg:gap-10">
           <div className="flex lg:w-0 lg:flex-1">
-            <a href="#">
-              <span className="">Logo</span>
-              <span className="h-10 w-20 rounded-lg bg-gray-200"></span>
-            </a>
+            <Link href="/">
+              <span>edTeach</span>
+            </Link>
           </div>
 
           <nav
             aria-label="Site Nav"
-            className="hidden gap-8 text-sm font-medium md:flex"
+            className="hidden gap-8 text-sm font-medium md:flex duration-700"
           >
-            <a className="text-gray-500" href="">
-              About
+            <a className="text-gray-500" href="#">
+              Asosiy
+            </a>
+            <a className="text-gray-500 duration-700" href="#price">
+              Obuna
             </a>
             <a className="text-gray-500" href="">
-              Blog
+              Xizmatlar
             </a>
             <a className="text-gray-500" href="">
-              Projects
+              Kurslar
             </a>
-            <a className="text-gray-500" href="">
-              Contact
+            <a className="text-gray-500" href="#contact">
+              Aloqa
             </a>
           </nav>
 
           <div className="hidden flex-1 items-center justify-end gap-4 sm:flex">
-            <a
-              className="rounded-lg bg-gray-100 px-5 py-2 text-sm font-medium text-gray-500"
-              href=""
+            <Link
+              href="/dashboard"
             >
-              Log in
-            </a>
-
-            <a
-              className="rounded-lg bg-blue-600 px-5 py-2 text-sm font-medium text-white"
-              href=""
-            >
-              Sign up
-            </a>
+              <a className='w-fit rounded-lg py-2 px-8 font-medium shadow-md text-sm duration-300
+          active:bg-opacity-80 cursor-pointer ease-in-out active:scale-95 bg-purple-500 
+          dark:bg-[#1a5cff] md:text-sm text-white hover:shadow-md'>Kirish</a>
+            </Link>
           </div>
 
           <div className="lg:hidden">
@@ -58,7 +54,7 @@ const Header = () => {
                 className="h-5 w-5"
                 fill="none"
                 stroke="currentColor"
-                viewbox="0 0 24 24"
+                viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path

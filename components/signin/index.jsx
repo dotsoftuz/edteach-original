@@ -1,21 +1,36 @@
-import React from "react";
-import Link from "next/link";
+import toast from "kutty/src/toast";
+import React, { useState, useRef } from "react";
+import { Toaster } from "react-hot-toast";
+import { useUserContext } from "../../context/userContext";
 
 const SignIn = () => {
+  const emailRef = useRef();
+  const psdRef = useRef();
+  const { signInUser, setRegistry } = useUserContext();
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    const email = emailRef.current.value;
+    const password = psdRef.current.value;
+    if (email && password) signInUser(email, password);
+
+  };
+  const [showPassword, setShowPassword] = useState(false);
+
   return (
     <div className="flex items-center justify-center h-screen">
       <div className="mx-auto max-w-lg">
         <h1 className="text-center text-2xl font-bold text-indigo-600 sm:text-3xl">
           Get started today
         </h1>
-
+        <div><Toaster /></div>
         <p className="mx-auto mt-4 max-w-md text-center text-gray-500">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati
           sunt dolores deleniti inventore quaerat mollitia?
         </p>
 
-        <htmlForm
-          action=""
+        <form
+          onSubmit={onSubmit}
           className="mt-6 mb-0 space-y-4 rounded-lg p-8 shadow-2xl"
         >
           <p className="text-lg font-medium">Sign in to your account</p>
@@ -31,6 +46,7 @@ const SignIn = () => {
                 id="email"
                 className="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm"
                 placeholder="Enter email"
+                ref={emailRef}
               />
 
               <span className="absolute inset-y-0 right-4 inline-flex items-center">
@@ -59,13 +75,17 @@ const SignIn = () => {
 
             <div className="relative mt-1">
               <input
-                type="password"
+                type={showPassword ? "text" : "password"}
                 id="password"
                 className="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm"
                 placeholder="Enter password"
+                ref={psdRef}
               />
 
-              <span className="absolute inset-y-0 right-4 inline-flex items-center">
+              <span
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute inset-y-0 right-4 inline-flex items-center cursor-pointer"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-5 w-5 text-gray-400"
@@ -92,18 +112,19 @@ const SignIn = () => {
 
           <button
             type="submit"
-            className="block w-full rounded-lg bg-indigo-600 px-5 py-3 text-sm font-medium text-white"
+            className="block w-full rounded-lg  bg-green-400  px-5 py-3 text-sm font-medium text-white"
           >
             Sign in
           </button>
 
           <p className="text-center text-sm text-gray-500">
             No account?
-            <Link href="/signup">
-              <a className="underline">Sign up</a>
-            </Link>
+            <br />
+            <span className="cursor-pointer" onClick={() => setRegistry(true)}>
+              Sign Up
+            </span>
           </p>
-        </htmlForm>
+        </form>
       </div>
     </div>
   );
