@@ -1,16 +1,28 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import { paginate } from '../../../utils/paginate';
 import { doc, updateDoc } from 'firebase/firestore';
 import Head from 'next/head';
 import Link from 'next/link';
 import { db } from '../../../firebase';
-import { Sidebar, Breadcrumb } from '../../../components';
+import { Sidebar, Breadcrumb, Pagination } from '../../../components';
 import { useUserContext } from '../../../context/userContext';
 
 const Tests = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [testCard, setTestCard] = useState(true);
 
+  const pageSize = 8;
+  const [currentPage, setCurrentPage] = useState(1);
+
   const { questions } = useUserContext();
+
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  };
+
+  const paginatePosts = paginate(questions, currentPage, pageSize);
+
+  console.log(questions);
 
   const sendData = async (id) => {
     const collectionRef = doc(db, `question`, id);
@@ -36,7 +48,7 @@ const Tests = () => {
           link="/dashboard"
           active
         />
-        <div>
+        <div className='mb-5 md:mb-10'>
           <div className="relative my-5">
             <input
               type="text"
@@ -112,7 +124,7 @@ const Tests = () => {
                 : 'flex flex-col space-y-2'
             } my-5`}
           >
-            {questions
+            {paginatePosts
               .filter((val) => {
                 if (searchTerm === '') {
                   return val;
@@ -208,6 +220,12 @@ const Tests = () => {
                 );
               })}
           </div>
+          <Pagination
+            items={questions.length}
+            pageSize={pageSize}
+            currentPage={currentPage}
+            onPageChange={handlePageChange}
+          />
         </div>
       </Sidebar>
     </div>

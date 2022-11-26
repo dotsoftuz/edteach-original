@@ -3,13 +3,23 @@ import Link from 'next/link';
 import React, { useState } from 'react';
 import { useUserContext } from '../../context/userContext';
 import { db } from '../../firebase';
-import { Sidebar, Breadcrumb } from '../';
+import { Sidebar, Breadcrumb, Pagination } from '../';
+import { paginate } from '../../utils/paginate';
 
 const Layout = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [testCard, setTestCard] = useState(true);
 
-  const { questionsPublic, userName } = useUserContext();
+  const { questionsPublic } = useUserContext();
+
+  const pageSize = 8;
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  };
+
+  const paginatePosts = paginate(questionsPublic, currentPage, pageSize);
 
   const sendData = async (id) => {
     const collectionRef = doc(db, `question`, id);
@@ -25,7 +35,7 @@ const Layout = () => {
     <div>
       <Sidebar>
         <Breadcrumb page="Asosiy sahifa" link="/dashboard" />
-        <div>
+        <div className='mb-5 md:mb-10'>
           <div className="relative my-5">
             <input
               type="text"
@@ -101,7 +111,7 @@ const Layout = () => {
                 : 'flex flex-col space-y-2'
             } my-5`}
           >
-            {questionsPublic
+            {paginatePosts
               .filter((val) => {
                 if (searchTerm === '') {
                   return val;
@@ -197,6 +207,12 @@ const Layout = () => {
                 );
               })}
           </div>
+          <Pagination
+            items={questionsPublic.length}
+            pageSize={pageSize}
+            currentPage={currentPage}
+            onPageChange={handlePageChange}
+          />
         </div>
       </Sidebar>
     </div>

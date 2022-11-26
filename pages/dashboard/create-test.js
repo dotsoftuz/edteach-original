@@ -145,7 +145,7 @@ const CreateTest = () => {
       await addDoc(questColl, data);
       toast.success("Test muvoffaqiyatli qo'shildi");
       setTimeout(() => {
-        router.push('/dashboard/profile');
+        router.push('/dashboard/question');
       }, 2000);
     } catch (error) {
       toast.error('Somthing wrong');
