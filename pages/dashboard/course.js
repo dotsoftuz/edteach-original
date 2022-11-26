@@ -12,7 +12,7 @@ const Course = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Sidebar>
-        <div className="p-5">
+        <div>
           <Breadcrumb page="Asosiy sahifa" page2="Kurslar" link="/dashboard" active />
         </div>
       </Sidebar>

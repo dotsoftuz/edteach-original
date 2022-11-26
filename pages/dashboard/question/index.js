@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { doc, updateDoc } from 'firebase/firestore';
+import React, { useEffect, useState } from 'react';
+import { collection, deleteDoc, doc, getDoc, onSnapshot, updateDoc } from 'firebase/firestore';
 import Head from 'next/head';
 import Link from 'next/link';
 import { db } from '../../../firebase';
@@ -9,17 +9,39 @@ import { useUserContext } from '../../../context/userContext';
 const Tests = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [testCard, setTestCard] = useState(true);
-
+  const [ players, setPlayers ] = useState([])
+  const [ idP, setIdP ] = useState()
   const { questions } = useUserContext();
 
+  useEffect(() => {
+    const fetChPlayers = async () => {
+      const PlayerColl = collection(db, `question/${idP}/players`)
+      onSnapshot(PlayerColl, (snapshot) =>
+        setPlayers(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
+      );
+    }
+    fetChPlayers()
+  }, [idP]);
+
   const sendData = async (id) => {
+    setIdP(id)
     const collectionRef = doc(db, `question`, id);
+    const quest = await getDoc(collectionRef)
     const payload = {
       status: 'started',
       pin: String(Math.floor(Math.random() * 900000) + 1000),
       id: id,
     };
-    await updateDoc(collectionRef, payload);
+    
+    await updateDoc(collectionRef, payload).then(() => {
+      quest.data().playerId.map((i) => {
+        const deletePlayer = async () => {
+          const PlayerColl = doc(db, `question/${id}/players`, i.id)
+          await deleteDoc(PlayerColl)
+        }
+        deletePlayer()
+      })
+    })
   };
 
   return (
@@ -32,11 +54,11 @@ const Tests = () => {
       <Sidebar>
         <Breadcrumb
           page="Asosiy sahifa"
-          page2="Umumiy Testlar"
+          page2="Testlarim"
           link="/dashboard"
           active
         />
-        <div>
+        <div className='p-5  md:pr-[2rem] lg:pr-[4rem]'>
           <div className="relative my-5">
             <input
               type="text"
@@ -180,7 +202,7 @@ const Tests = () => {
                       </div>
                     </Link>
                     <div onClick={() => sendData(val.id)}>
-                      <Link href={`startgame/${val.id}`}>
+                      <Link href={`startgame/${val.id}`} >
                         <div
                           className={`${
                             testCard ? 'bottom-2' : 'top-2'

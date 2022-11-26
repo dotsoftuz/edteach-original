@@ -3,10 +3,9 @@ import Link from 'next/link';
 import React, { useState } from 'react';
 import { useUserContext } from '../../context/userContext';
 import { db } from '../../firebase';
-import Breadcrumb from '../ui-kits/breadcrumbs';
-import Sidebar from './Sidebar';
+import { Sidebar, Breadcrumb } from '../';
 
-const Layout = ({ children }) => {
+const Layout = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [testCard, setTestCard] = useState(true);
 
@@ -22,18 +21,11 @@ const Layout = ({ children }) => {
     await updateDoc(collectionRef, payload);
   };
 
-  console.log(questionsPublic);
-
   return (
-    <div className="flex flex-auto">
+    <div>
       <Sidebar>
-        <Breadcrumb
-          page="Asosiy sahifa"
-          page2="Umumiy Testlar"
-          link="/dashboard"
-          active
-        />
-        <div className="!w-full">
+        <Breadcrumb page="Asosiy sahifa" link="/dashboard" />
+        <div className="p-5  md:pr-[2rem] lg:pr-[4rem]">
           <div className="relative my-5">
             <input
               type="text"
