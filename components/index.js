@@ -19,3 +19,6 @@ export { default as Sidebar } from './sidebar/Sidebar';
 // UI kits
 export { default as Breadcrumb } from './ui-kits/breadcrumbs/index';
 export { default as Pagination } from './ui-kits/pagination/index';
+
+// Pages components
+export { default as EditProfile } from './pages/profile/edit/index';

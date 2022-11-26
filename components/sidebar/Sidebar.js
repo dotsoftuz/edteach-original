@@ -32,7 +32,12 @@ const Sidebar = ({ children }) => {
     { title: 'Testlarim', path: '/dashboard/question', icon: <GrTest /> },
     { title: 'Foydali', path: '/dashboard/useful', icon: <FiLink /> },
     { title: 'Profil', path: '/dashboard/profile', icon: <FiUser /> },
-    { title: 'Chiqish', path: '', icon: <IoExitOutline />, logout: true, red: true },
+    {
+      title: 'Chiqish',
+      path: '',
+      icon: <IoExitOutline />,
+      logout: true,
+    },
   ];
 
   const listTextDefaultClass =
@@ -105,16 +110,16 @@ const Sidebar = ({ children }) => {
                 <div key={item.title}>
                   <Link href={item.path}>
                     <div
-                      className={`${item.red ? 'hover:bg-[#ef4444] hover:text-white' : 'hover:bg-gray-300'} ${
+                      className={`${
                         router.pathname == item.path ? 'bg-gray-300' : ''
                       } flex items-center px-3 py-2 my-1 rounded-lg cursor-pointer hover:bg-gray-300 group`}
                       onClick={item.logout ? handleClick : ''}
                     >
                       <span className="text-2xl">{item.icon}</span>
                       <h1
-                        className={
-                          `${item.red ? 'group-hover:text-white' : ''} ${sidebarShowDesktop ? listTextDefaultClass : 'hidden'}`
-                        }
+                        className={` ${
+                          sidebarShowDesktop ? listTextDefaultClass : 'hidden'
+                        }`}
                       >
                         {item.title}
                       </h1>

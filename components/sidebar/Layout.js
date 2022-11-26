@@ -137,7 +137,9 @@ const Layout = () => {
                       <Link href={`/dashboard/question/${val.id}`}>
                         <img
                           className={`${
-                            testCard ? 'h-56 w-full' : 'h-32 md:h-56 w-36 md:w-72'
+                            testCard
+                              ? 'h-56 w-full'
+                              : 'h-32 md:h-56 w-36 md:w-72'
                           } rounded-lg  object-cover cursor-pointer`}
                           src="/images/about-img1.jpg"
                           alt="test image"
@@ -148,7 +150,9 @@ const Layout = () => {
                           <span className="bg-purple-500 text-white text-xs font-semibold px-1 rounded-full">
                             Test
                           </span>
-                          <h2 className="text-lg md:text-xl font-semibold">{val.title}</h2>
+                          <h2 className="text-lg md:text-xl font-semibold">
+                            {val.title}
+                          </h2>
                           <h2 className="text-sm md:text-lg font-semibold">
                             {val.description}
                           </h2>
