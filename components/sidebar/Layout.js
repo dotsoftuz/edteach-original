@@ -5,7 +5,7 @@ import { useUserContext } from '../../context/userContext';
 import { db } from '../../firebase';
 import { Sidebar, Breadcrumb } from '../';
 
-const Layout = ({ children }) => {
+const Layout = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [testCard, setTestCard] = useState(true);
 
@@ -22,7 +22,7 @@ const Layout = ({ children }) => {
   };
 
   return (
-    <div className="flex flex-auto">
+    <div>
       <Sidebar>
         <Breadcrumb page="Asosiy sahifa" link="/dashboard" />
         <div>
