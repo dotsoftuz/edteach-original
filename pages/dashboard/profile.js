@@ -15,9 +15,9 @@ const Profile = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Sidebar>
-        <div className="p-5">
+        <div >
         <Breadcrumb page="Asosiy sahifa" page2="Profil" link="/dashboard" active />
-          <div>
+          <div className="p-5">
             <div className="relative flex flex-col md:flex-row bg-gray-200 rounded-lg p-4 md:p-6 my-5">
               <div className="flex items-center">
                 <div className="group relative">

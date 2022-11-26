@@ -26,7 +26,11 @@ html{
     .about-img span{
       @apply  !h-full
     }
-    .about-img span img{
+    .about-img span img{ 
       @apply rounded-3xl  object-cover object-center !inset-0  
+    }
+
+    .create-blok{
+      @apply flex items-center justify-between p-[10px] min-h-[7rem] gap-5 rounded-lg shadow-[0__1px_3px_#80858b]
     }
   }

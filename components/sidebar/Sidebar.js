@@ -159,8 +159,8 @@ const Sidebar = ({ children }) => {
 
       <main
         className={`${
-          sidebarShowDesktop ? 'md:ml-72 lg:ml-64' : 'md:ml-20 lg:ml-10'
-        } container mx-auto md:-ml-4`}
+          sidebarShowDesktop ? 'md:ml-72 lg:ml-[20rem]' : 'md:ml-20 lg:ml-32'
+        }  md:-ml-4 w-full`}
       >
         <div>
           {children}
