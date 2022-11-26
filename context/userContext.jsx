@@ -20,6 +20,7 @@ export const useUserContext = () => {
 export const UserContextProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [questions, setQuestions] = useState([]);
+  const [questionsPublic, setQuestionsPublic] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [registry, setRegistry] = useState(false);
@@ -36,6 +37,11 @@ export const UserContextProvider = ({ children }) => {
     onSnapshot(q, (snapshot) =>
       setQuestions(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
     );
+    const questCollPublic = collection(db, `question`);
+    const q1 = query(questCollPublic, where("questionVisibility", "==", `public`))
+    onSnapshot(q1, (snapshot) =>
+      setQuestionsPublic(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
+    );
   }, [uid]);
 
 
@@ -48,7 +54,6 @@ export const UserContextProvider = ({ children }) => {
           setUid(auth.currentUser.uid)
           setUserEmail(auth.currentUser.email)
           setUserName(auth.currentUser.displayName)
-          console.log(auth);
         }
         getUid()
       } else {
@@ -61,8 +66,6 @@ export const UserContextProvider = ({ children }) => {
 
 
   }, []);
-
-
 
   const signInUser = async (email, password) => {
     setLoading(true);
@@ -142,7 +145,8 @@ export const UserContextProvider = ({ children }) => {
     uid,
     userName,
     userEmail,
-    questions
+    questions,
+    questionsPublic
   };
   return (
     <UserContext.Provider value={contextValue}>{children}</UserContext.Provider>

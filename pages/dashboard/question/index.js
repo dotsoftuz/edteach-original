@@ -10,7 +10,7 @@ const Tests = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [testCard, setTestCard] = useState(true);
 
-  const { questions } = useUserContext();
+  const { questionsPublic } = useUserContext();
 
   const sendData = async (id) => {
     const collectionRef = doc(db, `question`, id);
@@ -112,7 +112,7 @@ const Tests = () => {
                 : 'flex flex-col space-y-2'
             } my-5`}
           >
-            {questions
+            {questionsPublic
               .filter((val) => {
                 if (searchTerm === '') {
                   return val;
@@ -126,10 +126,16 @@ const Tests = () => {
               })
               .map((val, key) => {
                 return (
-                  <>
-                    {val.questionVisibility === 'public' ? (
+                  <div
+                    key={key}
+                    className={`${
+                      testCard
+                        ? 'flex flex-col space-y-2'
+                        : 'flex flex-row space-x-2 md:space-x-4'
+                    } relative  p-4 rounded-lg bg-gray-200`}
+                  >
+                    <Link href={`/dashboard/question/${val.id}`}>
                       <div
-                        key={key}
                         className={`${
                           testCard
                             ? 'flex flex-col space-y-2'
@@ -171,12 +177,34 @@ const Tests = () => {
                             </h2>
                           </div>
                         </div>
-
                       </div>
-                    ) : (
-                      ''
-                    )}
-                  </>
+                    </Link>
+                    <div onClick={() => sendData(val.id)}>
+                      <Link href={`startgame/${val.id}`}>
+                        <div
+                          className={`${
+                            testCard ? 'bottom-2' : 'top-2'
+                          } absolute  right-2 flex items-center space-x-1 hover:text-purple-500 cursor-pointer`}
+                        >
+                          <p className="text-lg font-semibold">Start</p>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            strokeWidth={1.5}
+                            stroke="currentColor"
+                            className="w-5 h-5"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.348a1.125 1.125 0 010 1.971l-11.54 6.347a1.125 1.125 0 01-1.667-.985V5.653z"
+                            />
+                          </svg>
+                        </div>
+                      </Link>
+                    </div>
+                  </div>
                 );
               })}
           </div>
