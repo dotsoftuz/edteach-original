@@ -11,8 +11,6 @@ const Profile = () => {
   const [testCard, setTestCard] = useState(false);
   const { userName, userEmail, questions } = useUserContext();
 
-<<<<<<< HEAD
-=======
   const [edit, setEdit] = useState(false);
 
   const openEdit = () => {
@@ -33,7 +31,6 @@ const Profile = () => {
     'rounded-xl py-2 px-4 shadow-md text-sm duration-300 ease-in-out bg-blue-500 bg-opacity-30 md:text-sm text-[#1a5cff] ';
 
   const avatar = userName.slice(1);
->>>>>>> 8a27facd5ba2b1970bee2faea3365f2a773e00df
 
   return (
     <div>
