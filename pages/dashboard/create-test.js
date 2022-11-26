@@ -15,9 +15,13 @@ import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 
 
 const CreateTest = () => {
+  const { userName } = useUserContext();
+  console.log(userName);
+
   const [input, setInput] = useState([
     {
       question: '',
+
       answerList: [
         { name: 'a', body: '', isCorrect: false, bgColor: "red" },
         { name: 'b', body: '', isCorrect: false, bgColor: "blue" },
@@ -28,10 +32,10 @@ const CreateTest = () => {
   ]);
 
   const { uid } = useUserContext();
-  const questColl = collection(db, `users/${uid}/question`);
+  const questColl = collection(db, `question`);
 
   const [questionTime, setQuestionTime] = useState('');
-  const [questionVisibility, setQuestionVisibility] = useState('');
+  const [questionVisibility, setQuestionVisibility] = useState('public');
   const router = useRouter();
 
   let getValue = (i, e) => {
@@ -48,25 +52,12 @@ const CreateTest = () => {
 
   const getCorrectAnswer = (index, i) => {
     let newInput = [...input];
-    newInput[index].answerList.map(
-      (item, key) => {
-        console.log(
-          key === i ? (item.isCorrect = true) : (item.isCorrect = false)
-        );
-        console.log(newInput);
-      }
-
-      // i === key  ? newInput[index].answerList.isCorrect = true :  newInput[index].answerList.isCorrect = false;
-      // ? (newInput[index].answerList[i].isCorrect = true)
-      // : (newInput[index].answerList.isCorrect = false)
-    );
+    newInput[index].answerList.map((item, key) => {
+      key === i ? (item.isCorrect = true) : (item.isCorrect = false);
+    });
 
     setInput(newInput);
   };
-  // function onChangeValue(event) {
-  //   setGender(event.target.value);
-  //   console.log(event.target.value);
-  // }
 
   let addFormFields = () => {
     setInput([
@@ -146,11 +137,13 @@ const CreateTest = () => {
   let data = {
     title: quizData.title,
     description: quizData.description,
+    createrName: userName,
     questionList: input,
     questionTime,
     date,
     prefixTime,
     questionVisibility,
+    uid,
   };
 
   const createQuest = async (e) => {
@@ -159,7 +152,7 @@ const CreateTest = () => {
       await addDoc(questColl, data);
       toast.success("Test muvoffaqiyatli qo'shildi");
       setTimeout(() => {
-        router.push('/dashboard/question');
+        router.push('/dashboard/profile');
       }, 2000);
     } catch (error) {
       toast.error('Somthing wrong');

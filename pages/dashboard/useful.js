@@ -38,7 +38,7 @@ function UseFul() {
               className="snap-center cursor-pointer w-full md:w-[35vw] rounded-3xl"
             >
               <div className="relative flex-shrink-0 w-full">
-                <div className="absolute rounded-3xl inset-0 w-full h-full object-cover object-center">
+                <div className="absolute w-full h-full inset-0 image-fulled">
                   <Image src={img1} alt="project images" />
                 </div>
                 <div className="absolute inset-0 h-full w-full bg-gradient-to-br from-black/30  rounded-3xl" />
@@ -54,7 +54,7 @@ function UseFul() {
 
             <li className="snap-center w-full md:w-[35vw] rounded-3xl cursor-not-allowed">
               <div className="relative flex-shrink-0 w-full">
-                <div className="absolute rounded-3xl inset-0 w-full h-full object-cover object-center">
+                <div className="absolute w-full h-full inset-0 image-fulled">
                   <Image src={img6} alt="project images" />
                 </div>
                 <div className="absolute inset-0 h-full w-full bg-gradient-to-br from-black/30  rounded-3xl" />
@@ -74,7 +74,7 @@ function UseFul() {
           <ul className="container my-10 mx-auto grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-10 justify-items-center w-full md:w-fit px-5 md:px-0">
             <li className="snap-center w-full md:w-[35vw] rounded-3xl cursor-not-allowed">
               <div className="relative flex-shrink-0 w-full">
-                <div className="absolute rounded-3xl inset-0 w-full h-full object-cover object-center">
+                <div className="absolute w-full h-full inset-0 image-fulled">
                   <Image src={img3} alt="project images" />
                 </div>
                 <div className="absolute inset-0 h-full w-full bg-gradient-to-br from-black/30  rounded-3xl" />
@@ -93,7 +93,7 @@ function UseFul() {
 
             <li className="snap-center w-full md:w-[35vw] rounded-3xl cursor-not-allowed">
               <div className="relative flex-shrink-0 w-full">
-                <div className="absolute rounded-3xl inset-0 w-full h-full object-cover object-center">
+                <div className="absolute w-full h-full inset-0 image-fulled">
                   <Image src={img2} alt="project images" />
                 </div>
                 <div className="absolute inset-0 h-full w-full bg-gradient-to-br from-black/30  rounded-3xl" />
@@ -141,7 +141,7 @@ function UseFul() {
                 <Link href="/dashboard/links">
                   <li className="snap-center cursor-pointer w-full rounded-2xl px-2 sm:mt-0 mt-5">
                     <div className="relative flex-shrink-0 w-full">
-                      <div className="absolute rounded-3xl inset-0 w-full h-full object-cover object-center">
+                      <div className="absolute w-full h-full inset-0 image-fulled">
                         <Image src={img5} alt="project images" />
                       </div>
                       <div className="absolute inset-0 h-full w-[50%] bg-gradient-to-br from-black/30  rounded-3xl" />
@@ -157,7 +157,7 @@ function UseFul() {
                 </Link>
                 <li className="snap-center w-[100%] rounded-2xl px-2 sm:mt-0 mt-5 cursor-not-allowed">
                   <div className="relative flex-shrink-0 w-full">
-                    <div className="absolute rounded-3xl inset-0 w-full h-full object-cover object-center">
+                    <div className="absolute w-full h-full inset-0 image-fulled">
                       <Image src={img4} alt="project images" />
                     </div>
                     <div className="absolute inset-0 h-full w-[50%] bg-gradient-to-br from-black/30  rounded-3xl" />

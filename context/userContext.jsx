@@ -5,10 +5,11 @@ import {
   signOut,
   sendPasswordResetEmail,
   createUserWithEmailAndPassword,
+  updateProfile,
 } from "firebase/auth";
 import { auth, db } from "../firebase";
 import { toast } from "react-toastify";
-import { doc, setDoc } from "firebase/firestore";
+import { collection, doc, onSnapshot, query, setDoc, where } from "firebase/firestore";
 
 export const UserContext = createContext({});
 
@@ -18,17 +19,43 @@ export const useUserContext = () => {
 
 export const UserContextProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [questions, setQuestions] = useState([]);
+  const [questionsPublic, setQuestionsPublic] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [registry, setRegistry] = useState(false);
   const [passwordReset, setPasswordReset] = useState(false);
-  const [ uid, setUid ] = useState()
+  const [uid, setUid] = useState()
+  const [userName, setUserName] = useState("")
+  const [userEmail, setUserEmail] = useState();
+
+
+
+  useEffect(() => {
+    const questColl = collection(db, `question`);
+    const q = query(questColl, where("uid", "==", `${uid}`))
+    onSnapshot(q, (snapshot) =>
+      setQuestions(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
+    );
+    const questCollPublic = collection(db, `question`);
+    const q1 = query(questCollPublic, where("questionVisibility", "==", `public`))
+    onSnapshot(q1, (snapshot) =>
+      setQuestionsPublic(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
+    );
+  }, [uid]);
+
 
   useEffect(() => {
     setLoading(true);
-    const unsubscribe = onAuthStateChanged(auth, (res) => {
+    const unsubscribe = onAuthStateChanged(auth, async (res) => {
       if (res) {
         setUser(res);
+        const getUid = async () => {
+          setUid(auth.currentUser.uid)
+          setUserEmail(auth.currentUser.email)
+          setUserName(auth.currentUser.displayName)
+        }
+        getUid()
       } else {
         setUser(null);
       }
@@ -37,21 +64,13 @@ export const UserContextProvider = ({ children }) => {
     });
     return unsubscribe;
 
-    
+
   }, []);
 
-  useEffect(() => {
-    const fetchAuth = async () => {
-      setUid(auth.currentUser.uid)
-    }
-    fetchAuth()
-  },[])
-
-
-  const signInUser = (email, password) => {
+  const signInUser = async (email, password) => {
     setLoading(true);
 
-    signInWithEmailAndPassword(auth, email, password)
+    await signInWithEmailAndPassword(auth, email, password)
       .catch((error) => {
         console.log(error);
       })
@@ -61,8 +80,11 @@ export const UserContextProvider = ({ children }) => {
   const registerUser = async (email, password, fullName) => {
     setLoading(true);
 
-    createUserWithEmailAndPassword(auth, email, password)
+    await createUserWithEmailAndPassword(auth, email, password)
       .then(() => {
+        updateProfile(auth.currentUser, {
+          displayName: fullName,
+        })
         createCategory(email, fullName);
       })
       .catch(() => {
@@ -75,7 +97,7 @@ export const UserContextProvider = ({ children }) => {
   const createCategory = async (email, fullName) => {
     setLoading(true);
     try {
-      
+
       const docUser = doc(db, `users`, auth.currentUser.uid);
 
       await setDoc(docUser, {
@@ -120,7 +142,11 @@ export const UserContextProvider = ({ children }) => {
     setLoading,
     setPasswordReset,
     passwordReset,
-    uid
+    uid,
+    userName,
+    userEmail,
+    questions,
+    questionsPublic
   };
   return (
     <UserContext.Provider value={contextValue}>{children}</UserContext.Provider>
