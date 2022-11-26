@@ -9,7 +9,7 @@ function GameID() {
   const router = useRouter();
   const { uid } = useUserContext();
   const [questions, setQuestions] = useState([]);
-  const [ players, setPlayers ] = useState([])
+  const [players, setPlayers] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -22,12 +22,10 @@ function GameID() {
         )
       );
 
-      const playerColl = collection(db, `question/${gameId}/players`)
+      const playerColl = collection(db, `question/${gameId}/players`);
 
       onSnapshot(playerColl, (snapshot) =>
-        setPlayers(
-          snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
-        )
+        setPlayers(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
       );
     };
     fetchData();
@@ -47,12 +45,15 @@ function GameID() {
       <div className="flex items-center justify-center h-screen">
         {questions.map((game) => {
           return (
-            <div className="w-[100%] md:[90%] xl:w-[40%] bg-gray-200 p-4 md:p-8 rounded-2xl">
+            <div
+              key={index}
+              className="w-[100%] md:[90%] xl:w-[40%] bg-gray-200 p-4 md:p-8 rounded-2xl"
+            >
               <h1 className="text-center text-xl font-semibold uppercase">
                 Kutish rejimida
               </h1>
               <h2 className="text-center text-lg my-2 font-semibold">
-                PIN <span className='text-purple-500'>{game.pin}</span>
+                PIN <span className="text-purple-500">{game.pin}</span>
               </h2>
               <div className="w-full bg-gray-100 h-[300px] md:h-[350px] p-4 text-center text-base font-semibold rounded-2xl">
                 <div className="relative overflow-y-scroll overflow-x-hidden scrollbar-hide h-full block w-full ">
@@ -68,7 +69,7 @@ function GameID() {
                             <h1 className="ml-0 xl:ml-5">{item.playerName}</h1>
                             <button onClick={() =>  deletePlayer(item.id)}>O`yinchini chetlatish</button>
                           </li>
-                        )
+                        );
                       })}
                     </ol>
                     <h1 className="flex items-center justify-center h-full -mt-5 text-red-500 font-semibold text-lg">

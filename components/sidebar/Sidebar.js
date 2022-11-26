@@ -10,7 +10,6 @@ import { BsPlusCircleFill } from 'react-icons/bs';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import { useUserContext } from '../../context/userContext';
 
-
 const Sidebar = ({ children }) => {
   const [sidebarShowDesktop, setSidebarShowDesktop] = useState(true);
   const [sidebarShowMobile, setSidebarShowMobile] = useState(true);
@@ -31,19 +30,16 @@ const Sidebar = ({ children }) => {
       path: '/dashboard',
       icon: <MdOutlineSpaceDashboard />,
     },
-
-    { title: 'Kurslar', path: '/dashboard/course', icon: <SiConcourse /> },
-    { title: 'Testlar', path: '/dashboard/question', icon: <GrTest /> },
+    { title: 'Testlarim', path: '/dashboard/question', icon: <GrTest /> },
     { title: 'Foydali', path: '/dashboard/useful', icon: <FiLink /> },
     { title: 'Profil', path: '/dashboard/profile', icon: <FiUser /> },
-    { title: 'Chiqish', path: '', icon: <IoExitOutline />, red: true },
+    { title: 'Chiqish', path: '', icon: <IoExitOutline />, logout: true, red: true },
   ];
 
   const listTextDefaultClass =
     'text-gray-700 font-semibold ml-4 cursor-pointer';
 
   const handleClick = () => {
-    // e.preventDefault()
     logoutUser();
     router.push('/');
   };
@@ -65,12 +61,17 @@ const Sidebar = ({ children }) => {
         >
           <div className="relative flex items-center">
             <Link href="/dashboard/profile">
-              <div className="flex items-center justify-center rounded-2xl border-2 border-gray-300 dark:border-transparent bg-transparent dark:bg-[#242627] w-fit p-1 cursor-pointer">
-                <img
-                  className="rounded-full w-10 h-10 object-contain"
-                  src="https://www.lazydev.uz/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fperson01.2102dbe6.png&w=64&q=75"
-                  alt="avatar img"
-                />
+              <div className="flex items-center justify-center rounded-2xl border-2 border-gray-300 bg-transparent w-fit p-0.5 cursor-pointer">
+                <div className="group relative">
+                  <img
+                    className="rounded-full w-12 h-12 object-contain"
+                    src="https://e7.pngegg.com/pngimages/748/695/png-clipart-circle-purple-font-purple-circle-violet-circle-frame-thumbnail.png"
+                    alt=""
+                  />
+                  <h2 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-2xl text-white">
+                    {userName.charAt(0)}
+                  </h2>
+                </div>
               </div>
             </Link>
             <div
@@ -97,7 +98,7 @@ const Sidebar = ({ children }) => {
           </div>
           <div className="px-1">
             <small className="text-xs font-medium text-[#161925] dark:text-gray-500 uppercase py-2 mb-2">
-              Sahifalar
+              {sidebarShowDesktop ? 'Sahifalar' : 'Sahifa...'}
             </small>
 
             <div className="md:mt-4">
@@ -105,15 +106,15 @@ const Sidebar = ({ children }) => {
                 <div key={item.title}>
                   <Link href={item.path}>
                     <div
-                      className={`${
+                      className={`${item.red ? 'hover:bg-[#ef4444] hover:text-white' : 'hover:bg-gray-300'} ${
                         router.pathname == item.path ? 'bg-gray-300' : ''
                       } flex items-center px-3 py-2 my-1 rounded-lg cursor-pointer hover:bg-gray-300 group`}
-                      onClick={item.red ? handleClick : ''}
+                      onClick={item.logout ? handleClick : ''}
                     >
                       <span className="text-2xl">{item.icon}</span>
                       <h1
                         className={
-                          sidebarShowDesktop ? listTextDefaultClass : 'hidden'
+                          `${item.red ? 'group-hover:text-white' : ''} ${sidebarShowDesktop ? listTextDefaultClass : 'hidden'}`
                         }
                       >
                         {item.title}
@@ -126,7 +127,7 @@ const Sidebar = ({ children }) => {
           </div>
           <div className="px-1">
             <small className="text-xs font-medium text-[#161925] dark:text-gray-500 uppercase py-2 truncate">
-              Test yaratish
+              {sidebarShowDesktop ? 'Test yaratish' : 'Test...'}
             </small>
           </div>
           <Link href="/dashboard/create-test">

@@ -44,15 +44,9 @@ const CreateTest = () => {
 
   const getCorrectAnswer = (index, i) => {
     let newInput = [...input];
-    newInput[index].answerList.map(
-      (item, key) => {
-        
-          key === i ? (item.isCorrect = true) : (item.isCorrect = false)
-        
-      }
-
- 
-    );
+    newInput[index].answerList.map((item, key) => {
+      key === i ? (item.isCorrect = true) : (item.isCorrect = false);
+    });
 
     setInput(newInput);
   };
@@ -151,7 +145,7 @@ const CreateTest = () => {
       await addDoc(questColl, data);
       toast.success("Test muvoffaqiyatli qo'shildi");
       setTimeout(() => {
-        router.push('/dashboard/question');
+        router.push('/dashboard/profile');
       }, 2000);
     } catch (error) {
       toast.error('Somthing wrong');
