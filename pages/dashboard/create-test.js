@@ -211,7 +211,6 @@ const CreateTest = () => {
                 placeholder="Misol: Dunyo aholisi haqida "
               />
             </div>
-
           </div>
         </div>
       </div>
@@ -279,13 +278,11 @@ const CreateTest = () => {
                               : ''
                     }
                   >
-
                     <div className={`${item.svgIcon === "diamond" ? "rotate-45" : ""} !min-w-[30px] leading-[100%]`} >
                       <Image src={item.svgIcon === "triangle" ? `${triangle.src}` :
                         item.svgIcon === "square" ? `${square.src}`
                           : item.svgIcon === "circle" ? `${circle.src}` : item.svgIcon === "diamond" ? `${diamond.src}` : ""} width="30px" height="30px" />
                     </div>
-
                     <input
                       type="text"
                       className="w-full h-[32px] outline-none rounded-lg bg-[rgb(0_0_0_/_10%)] text-white text-[20px] pl-[10px]"
@@ -293,7 +290,6 @@ const CreateTest = () => {
                       name={'body'}
                       onChange={(e) => getValue2(testId, i, e)}
                     />
-
                     {/* check dev */}
                     <div
                       className={
@@ -315,7 +311,9 @@ const CreateTest = () => {
                         width="1em"
                         xmlns="http://www.w3.org/2000/svg"
                       >
-                        <path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"></path>
+                        <path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095        
+                         72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z">
+                        </path>
                       </svg>
                     </div>
                   </div>
@@ -332,20 +330,19 @@ const CreateTest = () => {
         <div
           onClick={handleClick}
           className={`
-      ${!isToggled ? '-left-5 rounded-l-lg ' : 'left-0  rounded-r-lg  '}
-        absolute  px-0.5 py-3 hidden md:block bg-gray-300 text-[#161925] cursor-pointer top-[50%]`}
+          ${!isToggled ? '-left-5 rounded-l-lg ' : 'left-0  rounded-r-lg  '}
+          absolute  px-0.5 py-3 hidden md:block bg-gray-300 text-[#161925] cursor-pointer top-[50%]`}
         >
           {isToggled ? <IoIosArrowForward /> : <IoIosArrowBack />}
-
         </div>
-
         <div className="flex flex-col items-start w-full">
           <label className="text-[16px] pb-2 text-gray-700">
             Savol ko`rinishi:{' '}
           </label>
           <select
             onChange={handleChangeVisibilty}
-            className="w-full text-[16px]  border:text-[204_204_204] py-[0.3rem] px-[0.2rem] rounded-[0.3rem] mb-4 !outline-1 outline-indigo-400 border-[1px] border-[gray] bg-[#fff]"
+            className="w-full text-[16px]  border:text-[204_204_204] py-[0.3rem] px-[0.2rem] rounded-[0.3rem] mb-4 !outline-1 outline-indigo-400 border-[1px] border-[gray] 
+            bg-[#fff]"
           >
             {visibility.map((item) => {
               return (
@@ -356,14 +353,14 @@ const CreateTest = () => {
             })}
           </select>
         </div>
-
         <div className="flex flex-col items-start w-full">
           <label className="text-[16px] pb-2 text-gray-700">
             Vaqt chegarasi{' '}
           </label>
           <select
             onChange={handleChangetime}
-            className="w-full text-[16px]  border:text-[204_204_204] py-[0.3rem] px-[0.2rem] rounded-[0.3rem] mb-4 !outline-1 outline-indigo-400 border-[1px] border-[gray] bg-[#fff]"
+            className="w-full text-[16px]  border:text-[204_204_204] py-[0.3rem] px-[0.2rem] rounded-[0.3rem] mb-4 !outline-1 outline-indigo-400 border-[1px] border-[gray] 
+             bg-[#fff]"
           >
             {time.map((item) => {
               return (
@@ -374,11 +371,10 @@ const CreateTest = () => {
             })}
           </select>
         </div>
-
         <button
           className="w-full rounded-lg py-2 px-8 mx-2 cursor-pointer active:scale-95
-    shadow-md text-sm duration-300 border bg-[#1a5cff]   active:bg-opacity-80
-    ease-in-out md:text-sm text-white mt-2"
+          shadow-md text-sm duration-300 border bg-[#1a5cff]   active:bg-opacity-80
+          ease-in-out md:text-sm text-white mt-2"
           onClick={createQuest}
         >
           Jo`natish
