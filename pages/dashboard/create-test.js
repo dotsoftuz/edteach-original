@@ -9,6 +9,12 @@ import { useUserContext } from 'context/userContext';
 import { db } from '../../firebase';
 import Head from 'next/head';
 
+import triangle from "../../public/images/triangle.svg"
+import square from "../../public/images/square.svg"
+import circle from "../../public/images/circle.svg"
+import diamond from "../../public/images/diamond.svg"
+
+
 const CreateTest = () => {
   const { userName } = useUserContext();
   const [testId, setTestId] = useState(0);
@@ -17,10 +23,10 @@ const CreateTest = () => {
     {
       question: '',
       answerList: [
-        { name: 'a', body: '', isCorrect: false, bgColor: "red" },
-        { name: 'b', body: '', isCorrect: false, bgColor: "blue" },
-        { name: 'c', body: '', isCorrect: false, bgColor: "yellow" },
-        { name: 'd', body: '', isCorrect: false, bgColor: "gren" },
+        { name: 'a', body: '', isCorrect: false, bgColor: "red", svgIcon: "triangle" },
+        { name: 'b', body: '', isCorrect: false, bgColor: "blue", svgIcon: "square" },
+        { name: 'c', body: '', isCorrect: false, bgColor: "yellow", svgIcon: "circle" },
+        { name: 'd', body: '', isCorrect: false, bgColor: "gren", svgIcon: "diamond" },
       ],
     },
   ]);
@@ -61,10 +67,10 @@ const CreateTest = () => {
       {
         question: '',
         answerList: [
-          { name: 'a', body: '', isCorrect: false, bgColor: "red" },
-          { name: 'b', body: '', isCorrect: false, bgColor: "blue" },
-          { name: 'c', body: '', isCorrect: false, bgColor: "yellow" },
-          { name: 'd', body: '', isCorrect: false, bgColor: "gren" },
+          { name: 'a', body: '', isCorrect: false, bgColor: "red", svgIcon: "triangle" },
+          { name: 'b', body: '', isCorrect: false, bgColor: "blue", svgIcon: "square" },
+          { name: 'c', body: '', isCorrect: false, bgColor: "yellow", svgIcon: "circle" },
+          { name: 'd', body: '', isCorrect: false, bgColor: "gren", svgIcon: "diamond" },
         ],
       },
     ]);
@@ -168,6 +174,7 @@ const CreateTest = () => {
     e.preventDefault();
     e.returnValue = '';
   };
+  console.log(circle);
 
   const [isToggled, setIsToggled] = useState(false);
   const handleClick = () => setIsToggled(!isToggled);
@@ -271,8 +278,9 @@ const CreateTest = () => {
                               : ''
                     }
                   >
-                    <div className="min-w-[40px] h-[40px] auto bg-black rounded-full"></div>
-
+                    <img className={`${item.svgIcon === "diamond" ? "rotate-45" : ""} min-w-[30px] h-[30px] ml-2`}  src={item.svgIcon === "triangle" ? `${triangle.src}` : 
+                    item.svgIcon === "square" ? `${square.src}`                
+                      :item.svgIcon === "circle" ? `${circle.src}` : item.svgIcon === "diamond" ? `${diamond.src}` : ""} ></img>
                     <input
                       type="text"
                       className="w-full h-[32px] outline-none rounded-lg bg-[rgb(0_0_0_/_10%)] text-white text-[20px] pl-[10px]"
