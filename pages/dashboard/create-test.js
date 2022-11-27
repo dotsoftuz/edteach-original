@@ -3,6 +3,7 @@ import { addDoc, collection } from 'firebase/firestore';
 import { useRouter } from 'next/router';
 import toast, { Toaster } from 'react-hot-toast';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
+import Image from 'next/image';
 
 import { Sidebar } from 'components';
 import { useUserContext } from 'context/userContext';
@@ -278,9 +279,13 @@ const CreateTest = () => {
                               : ''
                     }
                   >
-                    <img className={`${item.svgIcon === "diamond" ? "rotate-45" : ""} min-w-[30px] h-[30px] ml-2`}  src={item.svgIcon === "triangle" ? `${triangle.src}` : 
-                    item.svgIcon === "square" ? `${square.src}`                
-                      :item.svgIcon === "circle" ? `${circle.src}` : item.svgIcon === "diamond" ? `${diamond.src}` : ""} ></img>
+
+                    <div className={`${item.svgIcon === "diamond" ? "rotate-45" : ""} !min-w-[30px] leading-[100%]`} >
+                      <Image src={item.svgIcon === "triangle" ? `${triangle.src}` :
+                        item.svgIcon === "square" ? `${square.src}`
+                          : item.svgIcon === "circle" ? `${circle.src}` : item.svgIcon === "diamond" ? `${diamond.src}` : ""} width="30px" height="30px" />
+                    </div>
+
                     <input
                       type="text"
                       className="w-full h-[32px] outline-none rounded-lg bg-[rgb(0_0_0_/_10%)] text-white text-[20px] pl-[10px]"
