@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { collection, onSnapshot } from 'firebase/firestore';
+import { Sidebar } from 'components';
+import { Breadcrumb } from 'components';
+import { useUserContext } from 'context/userContext';
+
 import { db } from '../../../firebase';
-import { Sidebar } from '../../../components';
-import { Breadcrumb } from '../../../components';
-import { useUserContext } from '../../../context/userContext';
 
 function QuestionId() {
   const router = useRouter();

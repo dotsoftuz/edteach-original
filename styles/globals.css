@@ -30,7 +30,7 @@ html {
   }
 
   .create-blok {
-    @apply flex items-center justify-between p-[10px] min-h-[7rem] gap-5 rounded-lg shadow-[0__1px_3px_#80858b];
+    @apply flex items-center justify-between p-[10px] pl-5 min-h-[7rem] gap-5 rounded-lg shadow-[0__1px_3px_#80858b];
   }
 
   .image-fulled span img {

@@ -2,7 +2,6 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { MdOutlineSpaceDashboard, MdMenu } from 'react-icons/md';
 import { IoExitOutline } from 'react-icons/io5';
-import { SiConcourse } from 'react-icons/si';
 import { FiUser, FiLink } from 'react-icons/fi';
 import { GrTest } from 'react-icons/gr';
 import { useState } from 'react';
@@ -33,7 +32,12 @@ const Sidebar = ({ children }) => {
     { title: 'Testlarim', path: '/dashboard/question', icon: <GrTest /> },
     { title: 'Foydali', path: '/dashboard/useful', icon: <FiLink /> },
     { title: 'Profil', path: '/dashboard/profile', icon: <FiUser /> },
-    { title: 'Chiqish', path: '', icon: <IoExitOutline />, logout: true, red: true },
+    {
+      title: 'Chiqish',
+      path: '',
+      icon: <IoExitOutline />,
+      logout: true,
+    },
   ];
 
   const listTextDefaultClass =
@@ -106,16 +110,16 @@ const Sidebar = ({ children }) => {
                 <div key={item.title}>
                   <Link href={item.path}>
                     <div
-                      className={`${item.red ? 'hover:bg-[#ef4444] hover:text-white' : 'hover:bg-gray-300'} ${
+                      className={`${
                         router.pathname == item.path ? 'bg-gray-300' : ''
                       } flex items-center px-3 py-2 my-1 rounded-lg cursor-pointer hover:bg-gray-300 group`}
                       onClick={item.logout ? handleClick : ''}
                     >
                       <span className="text-2xl">{item.icon}</span>
                       <h1
-                        className={
-                          `${item.red ? 'group-hover:text-white' : ''} ${sidebarShowDesktop ? listTextDefaultClass : 'hidden'}`
-                        }
+                        className={` ${
+                          sidebarShowDesktop ? listTextDefaultClass : 'hidden'
+                        }`}
                       >
                         {item.title}
                       </h1>
@@ -167,10 +171,10 @@ const Sidebar = ({ children }) => {
         <div>
           {children}
           <div
-            className="fixed top-5 right-4 block md:hidden"
+            className="fixed top-3 right-4 block md:hidden"
             onClick={toggleSidebarMobile}
           >
-            <MdMenu className="text-3xl" />
+            <MdMenu className="text-5xl p-2 rounded-lg bg-gray-200 shadow-lg" />
           </div>
         </div>
       </main>
