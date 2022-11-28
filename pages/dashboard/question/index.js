@@ -192,7 +192,7 @@ const Tests = () => {
                     </div>
 
                     <div onClick={() => sendData(val.id)}>
-                      <Link href={`startgame/${val.id}`}>
+                      <Link href={`/dashboard/startgame/${val.id}`}>
                         <div
                           className={`${
                             testCard ? 'bottom-2' : 'top-2'

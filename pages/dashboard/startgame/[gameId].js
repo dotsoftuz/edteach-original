@@ -8,6 +8,7 @@ import {
   updateDoc,
   where,
 } from 'firebase/firestore';
+import { BsTrash } from 'react-icons/bs';
 
 import { Sidebar } from 'components';
 import { useUserContext } from 'context/userContext';
@@ -85,7 +86,7 @@ function GameID() {
                                 {item.playerName}
                               </h1>
                               <button onClick={() => deletePlayer(item.id)}>
-                                O`yinchini chetlatish
+                                <BsTrash className="text-base md:text-lg text-red-500" />
                               </button>
                             </li>
                           );
