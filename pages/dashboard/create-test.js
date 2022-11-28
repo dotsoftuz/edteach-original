@@ -57,7 +57,7 @@ const CreateTest = () => {
   const { uid } = useUserContext();
   const questColl = collection(db, `question`);
 
-  const [questionTime, setQuestionTime] = useState('');
+  const [questionTime, setQuestionTime] = useState('30000');
   const [questionVisibility, setQuestionVisibility] = useState('public');
 
   const router = useRouter();
@@ -197,14 +197,47 @@ const CreateTest = () => {
     uid,
   };
 
+  // const body = input.map((item) => item.answerList.map((item2) => item2.body));
+  // const question = input.map((item) => item.question);
+
+  // useEffect(() => {
+  //   if (!data.title) {
+  //     toast.error("Testga sarlovha qo'ying");
+  //   } else if (!data.description) {
+  //     toast.error('Testga sharh yozing');
+  //   } else if (input.map((item) => item.question === '')) {
+  //     toast.error('Testga savol yozing');
+  //   } else {
+  //     toast.success("Test muvoffaqiyatli qo'shildi");
+  //   }
+  // }, [input]);
+
+  // useEffect(() => {
+  //   const hello = input.map((item) =>
+  //     item.answerList.map((item2) => item2.isCorrect)
+  //   );
+  //   console.log(hello.some((e) => e === true));
+  //   console.log(hello);
+  // }, [input]);
+
+  // console.log(data);
+
   const createQuest = async (e) => {
     e.preventDefault();
     try {
-      await addDoc(questColl, data);
-      toast.success("Test muvoffaqiyatli qo'shildi");
-      setTimeout(() => {
-        router.push('/dashboard/question');
-      }, 2000);
+      if (!data.title) {
+        toast.error("Testga sarlovha qo'ying");
+      } else if (!data.description) {
+        toast.error('Testga sharh yozing');
+      } else if (input.map((item) => item.question.length === "")) {
+        toast.error('Testga savol yozing');
+      } else {
+        await addDoc(questColl, data);
+        toast.success("Test muvoffaqiyatli qo'shildi");
+        setTimeout(() => {
+          router.push('/dashboard/question');
+        }, 2000);
+      }
     } catch (error) {
       toast.error('Somthing wrong');
       console.log(error);
@@ -221,7 +254,6 @@ const CreateTest = () => {
     e.preventDefault();
     e.returnValue = '';
   };
-  console.log(circle);
 
   const [isToggled, setIsToggled] = useState(false);
   const handleClick = () => setIsToggled(!isToggled);
