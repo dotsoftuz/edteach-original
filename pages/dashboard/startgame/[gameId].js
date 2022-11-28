@@ -8,6 +8,7 @@ import {
   updateDoc,
   where,
 } from 'firebase/firestore';
+import { BsTrash } from 'react-icons/bs';
 
 import { Sidebar } from 'components';
 import { useUserContext } from 'context/userContext';
