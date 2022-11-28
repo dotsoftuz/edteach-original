@@ -5,16 +5,14 @@ import toast, { Toaster } from 'react-hot-toast';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import Image from 'next/image';
 
-import { Sidebar } from 'components';
 import { useUserContext } from 'context/userContext';
 import { db } from '../../firebase';
 import Head from 'next/head';
 
-import triangle from "../../public/images/triangle.svg"
-import square from "../../public/images/square.svg"
-import circle from "../../public/images/circle.svg"
-import diamond from "../../public/images/diamond.svg"
-
+import triangle from '../../public/images/triangle.svg';
+import square from '../../public/images/square.svg';
+import circle from '../../public/images/circle.svg';
+import diamond from '../../public/images/diamond.svg';
 
 const CreateTest = () => {
   const { userName } = useUserContext();
@@ -24,10 +22,34 @@ const CreateTest = () => {
     {
       question: '',
       answerList: [
-        { name: 'a', body: '', isCorrect: false, bgColor: "red", svgIcon: "triangle" },
-        { name: 'b', body: '', isCorrect: false, bgColor: "blue", svgIcon: "square" },
-        { name: 'c', body: '', isCorrect: false, bgColor: "yellow", svgIcon: "circle" },
-        { name: 'd', body: '', isCorrect: false, bgColor: "gren", svgIcon: "diamond" },
+        {
+          name: 'a',
+          body: '',
+          isCorrect: false,
+          bgColor: 'red',
+          svgIcon: 'triangle',
+        },
+        {
+          name: 'b',
+          body: '',
+          isCorrect: false,
+          bgColor: 'blue',
+          svgIcon: 'square',
+        },
+        {
+          name: 'c',
+          body: '',
+          isCorrect: false,
+          bgColor: 'yellow',
+          svgIcon: 'circle',
+        },
+        {
+          name: 'd',
+          body: '',
+          isCorrect: false,
+          bgColor: 'gren',
+          svgIcon: 'diamond',
+        },
       ],
     },
   ]);
@@ -68,10 +90,34 @@ const CreateTest = () => {
       {
         question: '',
         answerList: [
-          { name: 'a', body: '', isCorrect: false, bgColor: "red", svgIcon: "triangle" },
-          { name: 'b', body: '', isCorrect: false, bgColor: "blue", svgIcon: "square" },
-          { name: 'c', body: '', isCorrect: false, bgColor: "yellow", svgIcon: "circle" },
-          { name: 'd', body: '', isCorrect: false, bgColor: "gren", svgIcon: "diamond" },
+          {
+            name: 'a',
+            body: '',
+            isCorrect: false,
+            bgColor: 'red',
+            svgIcon: 'triangle',
+          },
+          {
+            name: 'b',
+            body: '',
+            isCorrect: false,
+            bgColor: 'blue',
+            svgIcon: 'square',
+          },
+          {
+            name: 'c',
+            body: '',
+            isCorrect: false,
+            bgColor: 'yellow',
+            svgIcon: 'circle',
+          },
+          {
+            name: 'd',
+            body: '',
+            isCorrect: false,
+            bgColor: 'gren',
+            svgIcon: 'diamond',
+          },
         ],
       },
     ]);
@@ -175,22 +221,23 @@ const CreateTest = () => {
     e.preventDefault();
     e.returnValue = '';
   };
-  console.log(circle);
 
-  const [isToggled, setIsToggled] = useState(false);
+  const [isToggled, setIsToggled] = useState(true);
   const handleClick = () => setIsToggled(!isToggled);
 
   return (
-    <div className="lg:flex overflow-x-hidden w-full pt-14 relative">
+    <div className="lg:flex !overflow-hidden w-full h-screen pt-14 relative  over">
+      <div>
+        <Toaster />
+      </div>
       {/* createTest top blok */}
-      <div className='absolute top-0 left-0 w-full z-20 bg-white'>
-        <div>
-          <Toaster />
-        </div>
+      <div className="absolute top-0 left-0 w-full z-20 bg-white ">
         <div className="px-2 py-3 md:px-5   w-full  shadow-[0px_0px_5px_#80838b]  ">
-          <div className='flex items-center gap-20 ml-12'>
+          <div className="flex items-center gap-20 ml-12 justify-between">
             <div className="flex items-center gap-5">
-              <label className="font-bold text-lg text-gray-500">Sarlovha</label>
+              <label className="font-bold text-lg text-gray-500">
+                Sarlovha
+              </label>
               <input
                 className="lg:min-w-[300px] border-gray-300 border-[1px] outline-none py-2 px-2 text-sm duration-200 placeholder-gray-800"
                 type="text"
@@ -200,22 +247,29 @@ const CreateTest = () => {
                 placeholder="Misol: Geografiya"
               />
             </div>
-            <div className="flex items-center gap-5">
-              <label className="font-bold text-lg text-gray-500">Tavsif</label>
-              <input
-                className="lg:min-w-[300px] border-gray-300 border-[1px] outline-none py-2 px-2 text-sm  duration-200 placeholder-gray-800"
-                type="text"
-                onChange={handleChange}
-                value={quizData.description}
-                name="description"
-                placeholder="Misol: Dunyo aholisi haqida "
-              />
+            <div className="flex">
+              <button
+                className="w-full rounded-lg py-2 px-8 mx-2 cursor-pointer active:scale-95
+                shadow-md text-sm duration-300 border bg-white hover:bg-gray-100  active:bg-opacity-80
+                ease-in-out md:text-sm text-[#1a5cff] mt-2"
+                onClick={() => router.push('/dashboard/profile')}
+              >
+                Chiqish
+              </button>
+              <button
+                className="w-full rounded-lg py-2 px-8 mx-2 cursor-pointer active:scale-95
+               shadow-md text-sm duration-300 border bg-[#1a5cff] hover:bg-[#0d51fd]  active:bg-opacity-80
+               ease-in-out md:text-sm text-white mt-2"
+                onClick={createQuest}
+              >
+                Jo`natish
+              </button>
             </div>
           </div>
         </div>
       </div>
       {/* createTest left blok */}
-      <div className='min-w-[12rem] p-5 pt-7 flex flex-col items-center h-0 overflow-auto overflow-x-hidden min-h-screen shadow-[0px_0px_5px_#80838b] z-10'>
+      <div className="min-w-[12rem] p-5 pt-7 flex flex-col items-center h-0 overflow-auto overflow-x-hidden min-h-screen shadow-[0px_0px_5px_#80838b] z-10">
         {input.map((item, key) => {
           return (
             <>
@@ -249,18 +303,18 @@ const CreateTest = () => {
         </button>
       </div>
       {/* createTest center blok */}
-      <div className="form-box p-5 pt-10 w-full min-h-full pr-7 flex  items-start overflow-x-hidden bg-slate-100">
-        <form className='w-full'>
-          <div className="form">
+      <div className="form-box p-5 pt-10 w-full min-h-full pr-7 flex  items-start overflow-hidden bg-slate-100">
+        <form className="w-full min-h-full">
+          <div className="form min-h-full flex flex-col justify-between">
             <input
               className="w-full rounded-lg h-[50px] text-[20px] p-4 outline-none bg-gray-200 shadow-[0_1px_3px_#80838b] text-center placeholder:text-gray-700"
               type="text"
               name="question"
-              placeholder='Savolingizni yozing'
+              placeholder="Savolingizni yozing"
               value={!input[testId] ? '' : input[testId].question}
               onChange={(e) => getValue(testId, e)}
             />
-            <div className="grid gap-2 grid-cols-2 pt-[260px]">
+            <div className="grid gap-2 grid-cols-2 pt-[230px]">
               {!input[testId]
                 ? ''
                 : input[testId].answerList.map((item, i) => (
@@ -278,10 +332,25 @@ const CreateTest = () => {
                               : ''
                     }
                   >
-                    <div className={`${item.svgIcon === "diamond" ? "rotate-45" : ""} !min-w-[30px] leading-[100%]`} >
-                      <Image src={item.svgIcon === "triangle" ? `${triangle.src}` :
-                        item.svgIcon === "square" ? `${square.src}`
-                          : item.svgIcon === "circle" ? `${circle.src}` : item.svgIcon === "diamond" ? `${diamond.src}` : ""} width="30px" height="30px" />
+                    <div
+                      className={`${item.svgIcon === 'diamond' ? 'rotate-45' : ''
+                        } !min-w-[30px] leading-[100%]`}
+                    >
+                      <Image
+                        src={
+                          item.svgIcon === 'triangle'
+                            ? `${triangle.src}`
+                            : item.svgIcon === 'square'
+                              ? `${square.src}`
+                              : item.svgIcon === 'circle'
+                                ? `${circle.src}`
+                                : item.svgIcon === 'diamond'
+                                  ? `${diamond.src}`
+                                  : ''
+                        }
+                        width="30px"
+                        height="30px"
+                      />
                     </div>
                     <input
                       type="text"
@@ -294,8 +363,8 @@ const CreateTest = () => {
                     <div
                       className={
                         !item.isCorrect
-                          ? '!min-w-[45px] h-[45px] rounded-full border-4 border-white bg-transparent flex justify-center items-center hover:bg-[#66bf39]'
-                          : '!min-w-[45px] h-[45px] rounded-full border-4 border-white bg-[#66bf39] flex justify-center items-center hover:bg-[#66bf39]'
+                          ? '!min-w-[45px] h-[45px] rounded-full border-4 border-white bg-transparent flex justify-center items-center hover:bg-[#66bf39] hover:cursor-pointer'
+                          : '!min-w-[45px] h-[45px] rounded-full border-4 border-white bg-[#66bf39] flex justify-center items-center hover:bg-[#66bf39] hover:cursor-pointer'
                       }
                       onClick={() => getCorrectAnswer(testId, i)}
                     >
@@ -311,9 +380,10 @@ const CreateTest = () => {
                         width="1em"
                         xmlns="http://www.w3.org/2000/svg"
                       >
-                        <path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095        
-                         72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z">
-                        </path>
+                        <path
+                          d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095        
+                         72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+                        ></path>
                       </svg>
                     </div>
                   </div>
@@ -324,14 +394,12 @@ const CreateTest = () => {
       </div>
       {/* createTest right blok */}
       <div
-        className={`${!isToggled ? '-mr-[12.555rem]' : 'ml-0'
+        className={`${!isToggled ? '-mr-[16.30rem]' : 'ml-0'
           } flex flex-col min-w-[200px] h-screen shadow-[0px_0px_5px_#80838b] items-center p-3 pt-7 relative  duration-300`}
       >
         <div
           onClick={handleClick}
-          className={`
-          ${!isToggled ? '-left-5 rounded-l-lg ' : 'left-0  rounded-r-lg  '}
-          absolute  px-0.5 py-3 hidden md:block bg-gray-300 text-[#161925] cursor-pointer top-[50%]`}
+          className="absolute  px-1 py-3.5 -left-6 rounded-l-lg hidden md:block bg-white shadow-[rgb(0_0_0_/_15%)_-2px_0px_4px_0px] text-[#161925] cursor-pointer top-[100px]"
         >
           {isToggled ? <IoIosArrowForward /> : <IoIosArrowBack />}
         </div>
@@ -371,14 +439,29 @@ const CreateTest = () => {
             })}
           </select>
         </div>
-        <button
-          className="w-full rounded-lg py-2 px-8 mx-2 cursor-pointer active:scale-95
-          shadow-md text-sm duration-300 border bg-[#1a5cff]   active:bg-opacity-80
-          ease-in-out md:text-sm text-white mt-2"
-          onClick={createQuest}
-        >
-          Jo`natish
-        </button>
+
+        <div className="">
+          <label className="font-bold text-lg text-gray-500">Tavsif</label>
+
+          <textarea
+            className="w-[100%] border-gray-300 border-[1px] outline-none py-2 px-2 text-sm  duration-200 placeholder-gray-800"
+            placeholder="Misol: Dunyo aholisi haqida "
+            name="description"
+            value={quizData.description}
+            onChange={handleChange}
+            cols="30"
+            rows="10"
+          ></textarea>
+
+          {/* <input
+                className="lg:min-w-[300px] border-gray-300 border-[1px] outline-none py-2 px-2 text-sm  duration-200 placeholder-gray-800"
+                type="text"
+                onChange={handleChange}
+                value={quizData.description}
+                name="description"
+                placeholder="Misol: Dunyo aholisi haqida "
+              /> */}
+        </div>
       </div>
     </div>
   );
