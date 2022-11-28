@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { deleteDoc, doc, getDoc, updateDoc, setIdP } from 'firebase/firestore';
+import React, { useState } from 'react';
+import { deleteDoc, doc, getDoc, updateDoc } from 'firebase/firestore';
 import Head from 'next/head';
 import Link from 'next/link';
 import { db } from '../../../firebase';
@@ -22,10 +22,7 @@ const Tests = () => {
 
   const paginatePosts = paginate(questions, currentPage, pageSize);
 
-  console.log(questions);
-
   const sendData = async (id) => {
-    setIdP(id);
     const collectionRef = doc(db, `question`, id);
     const quest = await getDoc(collectionRef);
     const payload = {
@@ -192,7 +189,7 @@ const Tests = () => {
                     </div>
 
                     <div onClick={() => sendData(val.id)}>
-                      <Link href={`startgame/${val.id}`}>
+                      <Link href={`/dashboard/startgame/${val.id}`}>
                         <div
                           className={`${
                             testCard ? 'bottom-2' : 'top-2'
@@ -219,13 +216,20 @@ const Tests = () => {
                   </div>
                 );
               })}
+            <Pagination
+              items={questions.length}
+              pageSize={pageSize}
+              currentPage={currentPage}
+              onPageChange={handlePageChange}
+            />
           </div>
-          <Pagination
-            items={questions.length}
-            pageSize={pageSize}
-            currentPage={currentPage}
-            onPageChange={handlePageChange}
-          />
+          {!paginatePosts.length > 1 && (
+            <div className="flex items-center justify-center h-[70vh]">
+              <h1 className="text-2xl text-red-600 font-semibold">
+                Teslar mavjud emas.
+              </h1>
+            </div>
+          )}
         </div>
       </Sidebar>
     </div>
