@@ -195,6 +195,7 @@ const CreateTest = () => {
     prefixTime,
     questionVisibility,
     uid,
+    playerId: []
   };
 
   const createQuest = async (e) => {
