@@ -229,8 +229,6 @@ const CreateTest = () => {
         toast.error("Testga sarlovha qo'ying");
       } else if (!data.description) {
         toast.error('Testga sharh yozing');
-      } else if (input.map((item) => item.question.length === "")) {
-        toast.error('Testga savol yozing');
       } else {
         await addDoc(questColl, data);
         toast.success("Test muvoffaqiyatli qo'shildi");
@@ -351,84 +349,86 @@ const CreateTest = () => {
               {!input[testId]
                 ? ''
                 : input[testId].answerList.map((item, i) => (
-                  <div
-                    key={item.id}
-                    className={
-                      item.bgColor === 'red'
-                        ? ` bg-[#e21b3c]   create-blok`
-                        : item.bgColor === 'blue'
+                    <div
+                      key={item.id}
+                      className={
+                        item.bgColor === 'red'
+                          ? ` bg-[#e21b3c]   create-blok`
+                          : item.bgColor === 'blue'
                           ? `bg-[#1368ce]  create-blok`
                           : item.bgColor === 'yellow'
-                            ? `bg-[#d89e00] create-blok`
-                            : item.bgColor === 'gren'
-                              ? `bg-[#26890c] create-blok`
-                              : ''
-                    }
-                  >
-                    <div
-                      className={`${item.svgIcon === 'diamond' ? 'rotate-45' : ''
-                        } !min-w-[30px] leading-[100%]`}
+                          ? `bg-[#d89e00] create-blok`
+                          : item.bgColor === 'gren'
+                          ? `bg-[#26890c] create-blok`
+                          : ''
+                      }
                     >
-                      <Image
-                        src={
-                          item.svgIcon === 'triangle'
-                            ? `${triangle.src}`
-                            : item.svgIcon === 'square'
+                      <div
+                        className={`${
+                          item.svgIcon === 'diamond' ? 'rotate-45' : ''
+                        } !min-w-[30px] leading-[100%]`}
+                      >
+                        <Image
+                          src={
+                            item.svgIcon === 'triangle'
+                              ? `${triangle.src}`
+                              : item.svgIcon === 'square'
                               ? `${square.src}`
                               : item.svgIcon === 'circle'
-                                ? `${circle.src}`
-                                : item.svgIcon === 'diamond'
-                                  ? `${diamond.src}`
-                                  : ''
-                        }
-                        width="30px"
-                        height="30px"
+                              ? `${circle.src}`
+                              : item.svgIcon === 'diamond'
+                              ? `${diamond.src}`
+                              : ''
+                          }
+                          width="30px"
+                          height="30px"
+                        />
+                      </div>
+                      <input
+                        type="text"
+                        className="w-full h-[32px] outline-none rounded-lg bg-[rgb(0_0_0_/_10%)] text-white text-[20px] pl-[10px]"
+                        value={item.body || ''}
+                        name={'body'}
+                        onChange={(e) => getValue2(testId, i, e)}
                       />
-                    </div>
-                    <input
-                      type="text"
-                      className="w-full h-[32px] outline-none rounded-lg bg-[rgb(0_0_0_/_10%)] text-white text-[20px] pl-[10px]"
-                      value={item.body || ''}
-                      name={'body'}
-                      onChange={(e) => getValue2(testId, i, e)}
-                    />
-                    {/* check dev */}
-                    <div
-                      className={
-                        !item.isCorrect
-                          ? '!min-w-[45px] h-[45px] rounded-full border-4 border-white bg-transparent flex justify-center items-center hover:bg-[#66bf39] hover:cursor-pointer'
-                          : '!min-w-[45px] h-[45px] rounded-full border-4 border-white bg-[#66bf39] flex justify-center items-center hover:bg-[#66bf39] hover:cursor-pointer'
-                      }
-                      onClick={() => getCorrectAnswer(testId, i)}
-                    >
-                      <svg
+                      {/* check dev */}
+                      <div
                         className={
-                          item.isCorrect ? 'text-white block' : ' hidden'
+                          !item.isCorrect
+                            ? '!min-w-[45px] h-[45px] rounded-full border-4 border-white bg-transparent flex justify-center items-center hover:bg-[#66bf39] hover:cursor-pointer'
+                            : '!min-w-[45px] h-[45px] rounded-full border-4 border-white bg-[#66bf39] flex justify-center items-center hover:bg-[#66bf39] hover:cursor-pointer'
                         }
-                        stroke="currentColor"
-                        fill="currentColor"
-                        strokeWidth="0"
-                        viewBox="0 0 512 512"
-                        height="1em"
-                        width="1em"
-                        xmlns="http://www.w3.org/2000/svg"
+                        onClick={() => getCorrectAnswer(testId, i)}
                       >
-                        <path
-                          d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095        
+                        <svg
+                          className={
+                            item.isCorrect ? 'text-white block' : ' hidden'
+                          }
+                          stroke="currentColor"
+                          fill="currentColor"
+                          strokeWidth="0"
+                          viewBox="0 0 512 512"
+                          height="1em"
+                          width="1em"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095        
                          72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
-                        ></path>
-                      </svg>
+                          ></path>
+                        </svg>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
             </div>
           </div>
         </form>
       </div>
       {/* createTest right blok */}
       <div
-        className={`${!isToggled ? '-mr-[16.30rem]' : 'ml-0'
-          } flex flex-col min-w-[200px] h-screen shadow-[0px_0px_5px_#80838b] items-center p-3 pt-7 relative  duration-300`}
+        className={`${
+          !isToggled ? '-mr-[16.30rem]' : 'ml-0'
+        } flex flex-col min-w-[200px] h-screen shadow-[0px_0px_5px_#80838b] items-center p-3 pt-7 relative  duration-300`}
       >
         <div
           onClick={handleClick}
