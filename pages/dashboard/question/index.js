@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { deleteDoc, doc, getDoc, updateDoc, setIdP } from 'firebase/firestore';
+import React, { useState } from 'react';
+import { deleteDoc, doc, getDoc, updateDoc } from 'firebase/firestore';
 import Head from 'next/head';
 import Link from 'next/link';
 import { db } from '../../../firebase';
@@ -22,10 +22,7 @@ const Tests = () => {
 
   const paginatePosts = paginate(questions, currentPage, pageSize);
 
-  console.log(questions);
-
   const sendData = async (id) => {
-    setIdP(id);
     const collectionRef = doc(db, `question`, id);
     const quest = await getDoc(collectionRef);
     const payload = {

@@ -55,7 +55,7 @@ function GameID() {
         {questions.map((game, index) => {
           return (
             <div
-              key={index}
+              key={game.id}
               className="w-[100%] md:[90%] xl:w-[40%] bg-gray-200 p-4 md:p-8 rounded-2xl"
             >
               <h1 className="text-center text-xl font-semibold uppercase">
