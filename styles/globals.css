@@ -20,6 +20,10 @@ html {
   justify-content: center;
 }
 
+
+
+
+
 @layer components {
   .about-img,
   .image-fulled span {
