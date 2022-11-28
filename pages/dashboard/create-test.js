@@ -255,11 +255,11 @@ const CreateTest = () => {
     e.returnValue = '';
   };
 
-  const [isToggled, setIsToggled] = useState(false);
+  const [isToggled, setIsToggled] = useState(true);
   const handleClick = () => setIsToggled(!isToggled);
 
   return (
-    <div className="lg:flex overflow-x-hidden w-full pt-14 relative  over">
+    <div className="lg:flex !overflow-hidden w-full h-screen pt-14 relative  over">
       <div>
         <Toaster />
       </div>
@@ -283,16 +283,16 @@ const CreateTest = () => {
             <div className="flex">
               <button
                 className="w-full rounded-lg py-2 px-8 mx-2 cursor-pointer active:scale-95
-          shadow-md text-sm duration-300 border bg-white hover:bg-gray-100  active:bg-opacity-80
-          ease-in-out md:text-sm text-[#1a5cff] mt-2"
+                shadow-md text-sm duration-300 border bg-white hover:bg-gray-100  active:bg-opacity-80
+                ease-in-out md:text-sm text-[#1a5cff] mt-2"
                 onClick={() => router.push('/dashboard/profile')}
               >
                 Chiqish
               </button>
               <button
                 className="w-full rounded-lg py-2 px-8 mx-2 cursor-pointer active:scale-95
-          shadow-md text-sm duration-300 border bg-[#1a5cff] hover:bg-[#0d51fd]  active:bg-opacity-80
-          ease-in-out md:text-sm text-white mt-2"
+               shadow-md text-sm duration-300 border bg-[#1a5cff] hover:bg-[#0d51fd]  active:bg-opacity-80
+               ease-in-out md:text-sm text-white mt-2"
                 onClick={createQuest}
               >
                 Jo`natish
@@ -336,9 +336,9 @@ const CreateTest = () => {
         </button>
       </div>
       {/* createTest center blok */}
-      <div className="form-box p-5 pt-10 w-full min-h-full pr-7 flex  items-start overflow-x-hidden bg-slate-100">
-        <form className="w-full">
-          <div className="form">
+      <div className="form-box p-5 pt-10 w-full min-h-full pr-7 flex  items-start overflow-hidden bg-slate-100">
+        <form className="w-full min-h-full">
+          <div className="form min-h-full flex flex-col justify-between">
             <input
               className="w-full rounded-lg h-[50px] text-[20px] p-4 outline-none bg-gray-200 shadow-[0_1px_3px_#80838b] text-center placeholder:text-gray-700"
               type="text"
@@ -347,96 +347,92 @@ const CreateTest = () => {
               value={!input[testId] ? '' : input[testId].question}
               onChange={(e) => getValue(testId, e)}
             />
-            <div className="grid gap-2 grid-cols-2 pt-[260px]">
+            <div className="grid gap-2 grid-cols-2 pt-[230px]">
               {!input[testId]
                 ? ''
                 : input[testId].answerList.map((item, i) => (
-                    <div
-                      key={item.id}
-                      className={
-                        item.bgColor === 'red'
-                          ? ` bg-[#e21b3c]   create-blok`
-                          : item.bgColor === 'blue'
+                  <div
+                    key={item.id}
+                    className={
+                      item.bgColor === 'red'
+                        ? ` bg-[#e21b3c]   create-blok`
+                        : item.bgColor === 'blue'
                           ? `bg-[#1368ce]  create-blok`
                           : item.bgColor === 'yellow'
-                          ? `bg-[#d89e00] create-blok`
-                          : item.bgColor === 'gren'
-                          ? `bg-[#26890c] create-blok`
-                          : ''
-                      }
-                    >
-                      <div
-                        className={`${
-                          item.svgIcon === 'diamond' ? 'rotate-45' : ''
+                            ? `bg-[#d89e00] create-blok`
+                            : item.bgColor === 'gren'
+                              ? `bg-[#26890c] create-blok`
+                              : ''
+                    }
+                  >
+                    <div
+                      className={`${item.svgIcon === 'diamond' ? 'rotate-45' : ''
                         } !min-w-[30px] leading-[100%]`}
-                      >
-                        <Image
-                          src={
-                            item.svgIcon === 'triangle'
-                              ? `${triangle.src}`
-                              : item.svgIcon === 'square'
+                    >
+                      <Image
+                        src={
+                          item.svgIcon === 'triangle'
+                            ? `${triangle.src}`
+                            : item.svgIcon === 'square'
                               ? `${square.src}`
                               : item.svgIcon === 'circle'
-                              ? `${circle.src}`
-                              : item.svgIcon === 'diamond'
-                              ? `${diamond.src}`
-                              : ''
-                          }
-                          width="30px"
-                          height="30px"
-                        />
-                      </div>
-                      <input
-                        type="text"
-                        className="w-full h-[32px] outline-none rounded-lg bg-[rgb(0_0_0_/_10%)] text-white text-[20px] pl-[10px]"
-                        value={item.body || ''}
-                        name={'body'}
-                        onChange={(e) => getValue2(testId, i, e)}
-                      />
-                      {/* check dev */}
-                      <div
-                        className={
-                          !item.isCorrect
-                            ? '!min-w-[45px] h-[45px] rounded-full border-4 border-white bg-transparent flex justify-center items-center hover:bg-[#66bf39] hover:cursor-pointer'
-                            : '!min-w-[45px] h-[45px] rounded-full border-4 border-white bg-[#66bf39] flex justify-center items-center hover:bg-[#66bf39] hover:cursor-pointer'
+                                ? `${circle.src}`
+                                : item.svgIcon === 'diamond'
+                                  ? `${diamond.src}`
+                                  : ''
                         }
-                        onClick={() => getCorrectAnswer(testId, i)}
-                      >
-                        <svg
-                          className={
-                            item.isCorrect ? 'text-white block' : ' hidden'
-                          }
-                          stroke="currentColor"
-                          fill="currentColor"
-                          strokeWidth="0"
-                          viewBox="0 0 512 512"
-                          height="1em"
-                          width="1em"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095        
-                         72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
-                          ></path>
-                        </svg>
-                      </div>
+                        width="30px"
+                        height="30px"
+                      />
                     </div>
-                  ))}
+                    <input
+                      type="text"
+                      className="w-full h-[32px] outline-none rounded-lg bg-[rgb(0_0_0_/_10%)] text-white text-[20px] pl-[10px]"
+                      value={item.body || ''}
+                      name={'body'}
+                      onChange={(e) => getValue2(testId, i, e)}
+                    />
+                    {/* check dev */}
+                    <div
+                      className={
+                        !item.isCorrect
+                          ? '!min-w-[45px] h-[45px] rounded-full border-4 border-white bg-transparent flex justify-center items-center hover:bg-[#66bf39] hover:cursor-pointer'
+                          : '!min-w-[45px] h-[45px] rounded-full border-4 border-white bg-[#66bf39] flex justify-center items-center hover:bg-[#66bf39] hover:cursor-pointer'
+                      }
+                      onClick={() => getCorrectAnswer(testId, i)}
+                    >
+                      <svg
+                        className={
+                          item.isCorrect ? 'text-white block' : ' hidden'
+                        }
+                        stroke="currentColor"
+                        fill="currentColor"
+                        strokeWidth="0"
+                        viewBox="0 0 512 512"
+                        height="1em"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095        
+                         72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+                        ></path>
+                      </svg>
+                    </div>
+                  </div>
+                ))}
             </div>
           </div>
         </form>
       </div>
       {/* createTest right blok */}
       <div
-        className={`${
-          !isToggled ? '-mr-[16.5rem]' : 'ml-0'
-        } flex flex-col min-w-[200px] h-screen shadow-[0px_0px_5px_#80838b] items-center p-3 pt-7 relative  duration-300`}
+        className={`${!isToggled ? '-mr-[16.30rem]' : 'ml-0'
+          } flex flex-col min-w-[200px] h-screen shadow-[0px_0px_5px_#80838b] items-center p-3 pt-7 relative  duration-300`}
       >
         <div
           onClick={handleClick}
-          className={`
-          ${!isToggled ? '-left-5 rounded-l-lg ' : 'left-0  rounded-r-lg  '}
-          absolute  px-0.5 py-3 hidden md:block bg-gray-300 text-[#161925] cursor-pointer top-[50%]`}
+          className="absolute  px-1 py-3.5 -left-6 rounded-l-lg hidden md:block bg-white shadow-[rgb(0_0_0_/_15%)_-2px_0px_4px_0px] text-[#161925] cursor-pointer top-[100px]"
         >
           {isToggled ? <IoIosArrowForward /> : <IoIosArrowBack />}
         </div>

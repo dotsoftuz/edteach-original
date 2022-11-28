@@ -8,6 +8,7 @@ import {
   updateDoc,
   where,
 } from 'firebase/firestore';
+import { BsTrash } from 'react-icons/bs';
 
 import { Sidebar } from 'components';
 import { useUserContext } from 'context/userContext';
@@ -54,7 +55,7 @@ function GameID() {
         {questions.map((game, index) => {
           return (
             <div
-              key={index}
+              key={game.id}
               className="w-[100%] md:[90%] xl:w-[40%] bg-gray-200 p-4 md:p-8 rounded-2xl"
             >
               <h1 className="text-center text-xl font-semibold uppercase">
@@ -85,7 +86,7 @@ function GameID() {
                                 {item.playerName}
                               </h1>
                               <button onClick={() => deletePlayer(item.id)}>
-                                O`yinchini chetlatish
+                                <BsTrash className="text-base md:text-lg text-red-500" />
                               </button>
                             </li>
                           );
