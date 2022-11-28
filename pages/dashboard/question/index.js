@@ -216,13 +216,20 @@ const Tests = () => {
                   </div>
                 );
               })}
+            <Pagination
+              items={questions.length}
+              pageSize={pageSize}
+              currentPage={currentPage}
+              onPageChange={handlePageChange}
+            />
           </div>
-          <Pagination
-            items={questions.length}
-            pageSize={pageSize}
-            currentPage={currentPage}
-            onPageChange={handlePageChange}
-          />
+          {!paginatePosts.length > 1 && (
+            <div className="flex items-center justify-center h-[70vh]">
+              <h1 className="text-2xl text-red-600 font-semibold">
+                Teslar mavjud emas.
+              </h1>
+            </div>
+          )}
         </div>
       </Sidebar>
     </div>

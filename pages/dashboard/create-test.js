@@ -229,9 +229,7 @@ const CreateTest = () => {
         toast.error("Testga sarlovha qo'ying");
       } else if (!data.description) {
         toast.error('Testga sharh yozing');
-      } else if (input.map((item) => item.question.length === "")) {
-        toast.error('Testga savol yozing');
-      } else {
+      }  else {
         await addDoc(questColl, data);
         toast.success("Test muvoffaqiyatli qo'shildi");
         setTimeout(() => {
