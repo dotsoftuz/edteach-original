@@ -195,6 +195,7 @@ const CreateTest = () => {
     prefixTime,
     questionVisibility,
     uid,
+    playerId: []
   };
 
   // const body = input.map((item) => item.answerList.map((item2) => item2.body));
