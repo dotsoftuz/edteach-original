@@ -166,10 +166,10 @@ const Tests = () => {
                         <span className="bg-purple-500 text-white text-xs font-semibold px-1 rounded-full">
                           Quiz
                         </span>
-                        <h2 className="text-lg md:text-xl font-semibold">
+                        <h2 className="text-lg md:text-xl font-semibold truncate">
                           {val.title}
                         </h2>
-                        <h2 className="text-sm md:text-lg font-semibold">
+                        <h2 className="text-sm md:text-lg font-semibold truncate">
                           {val.description}
                         </h2>
                       </div>

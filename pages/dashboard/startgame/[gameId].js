@@ -130,7 +130,7 @@ function GameID() {
                                     {item.playerName}
                                   </h1>
                                   <button onClick={() => deletePlayer(item.id)}>
-                                    O`yinchini chetlatish
+                                    <BsTrash className='text-lg text-red-500' />
                                   </button>
                                 </li>
                               );
