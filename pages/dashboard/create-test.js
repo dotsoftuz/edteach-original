@@ -13,6 +13,7 @@ import triangle from '../../public/images/triangle.svg';
 import square from '../../public/images/square.svg';
 import circle from '../../public/images/circle.svg';
 import diamond from '../../public/images/diamond.svg';
+import {BsTrash} from "react-icons/Bs"
 
 const CreateTest = () => {
   const { userName } = useUserContext();
@@ -301,31 +302,33 @@ const CreateTest = () => {
         </div>
       </div>
       {/* createTest left blok */}
-      <div className="min-w-[12rem] p-5 pt-7 flex flex-col items-center h-0 overflow-auto overflow-x-hidden min-h-screen shadow-[0px_0px_5px_#80838b] z-10">
+      <div className="min-w-[12rem]  pt-4 flex flex-col items-center h-0 overflow-auto overflow-x-hidden min-h-screen shadow-[0px_0px_5px_#80838b] z-10">
         {input.map((item, key) => {
           return (
             <>
               <div
-                className="w-full !min-h-[7rem] bg-black mb-4  text-slate-50"
+                className="w-full !min-h-[7rem] bg-[#eaf4fc] relative  mb-4 p-5 text-sm font-semibold   text-gray-800"
                 onClick={() => setTestId(key)}
               >
-                {' '}
-                Question {key}{' '}
-              </div>
-              {key > 0 ? (
+                <div>
+                {key + 1}  Quiz 
+                </div>
+               {key > 0 ? (
                 <button
                   type="button"
-                  className="btn-danger btn-sm mb-4 text-sm w-full bg-[#dc3545] text-white rounded-lg py-[6px] px-3  cursor-pointer"
+                  className=" hover:bg-gray-200  rounded-full p-2 cursor-pointer absolute left-1 bottom-2 text-lg"
                   onClick={() => removeFormFields(testId)}
                 >
-                  Remove
+                  <BsTrash/>
                 </button>
               ) : null}
+              </div>
             </>
           );
         })}
         <br />
-        <button
+       <div className='w-full px-4'>
+       <button
           className="btn text-sm btn-info  w-full bg-[#1a5cff] text-white rounded-lg py-2 px-3  cursor-pointer"
           type="button"
           onClick={() => addFormFields()}
@@ -333,6 +336,7 @@ const CreateTest = () => {
           {' '}
           Savol qo`shish
         </button>
+       </div>
       </div>
       {/* createTest center blok */}
       <div className="form-box p-5 pt-10 w-full min-h-full pr-7 flex  items-start overflow-hidden bg-slate-100">
@@ -425,67 +429,69 @@ const CreateTest = () => {
         </form>
       </div>
       {/* createTest right blok */}
-      <div
-        className={`${!isToggled ? '-mr-[16.30rem]' : 'ml-0'
-          } flex flex-col min-w-[200px] h-screen shadow-[0px_0px_5px_#80838b] items-center p-3 pt-7 relative  duration-300`}
-      >
+      <div className={`${!isToggled ? '-mr-[12.450rem]' : '!mr-0'
+        } relative h-screen duration-300 min-w-[200px] w-[200px] felex-[0_0_16rem]`}>
         <div
           onClick={handleClick}
           className="absolute  px-1 py-3.5 -left-6 rounded-l-lg hidden md:block bg-white shadow-[rgb(0_0_0_/_15%)_-2px_0px_4px_0px] text-[#161925] cursor-pointer top-[100px]"
         >
           {isToggled ? <IoIosArrowForward /> : <IoIosArrowBack />}
         </div>
-        <div className="flex flex-col items-start w-full">
-          <label className="text-[16px] pb-2 text-gray-700">
-            Savol ko`rinishi:{' '}
-          </label>
-          <select
-            onChange={handleChangeVisibilty}
-            className="w-full text-[16px]  border:text-[204_204_204] py-[0.3rem] px-[0.2rem] rounded-[0.3rem] mb-4 !outline-1 outline-indigo-400 border-[1px] border-[gray] 
+        <div
+          className="flex flex-col  h-full shadow-[0px_0px_5px_#80838b] items-center p-3 pt-7"
+        >
+
+          <div className="flex flex-col items-start w-full">
+            <label className="text-[16px] pb-2 text-gray-700">
+              Savol ko`rinishi:{' '}
+            </label>
+            <select
+              onChange={handleChangeVisibilty}
+              className="w-full text-[16px]  border:text-[204_204_204] py-[0.3rem] px-[0.2rem] rounded-[0.3rem] mb-4 !outline-1 outline-indigo-400 border-[1px] border-[gray] 
             bg-[#fff]"
-          >
-            {visibility.map((item) => {
-              return (
-                <option key={item.id} value={item.value}>
-                  {item.name}
-                </option>
-              );
-            })}
-          </select>
-        </div>
-        <div className="flex flex-col items-start w-full">
-          <label className="text-[16px] pb-2 text-gray-700">
-            Vaqt chegarasi{' '}
-          </label>
-          <select
-            onChange={handleChangetime}
-            className="w-full text-[16px]  border:text-[204_204_204] py-[0.3rem] px-[0.2rem] rounded-[0.3rem] mb-4 !outline-1 outline-indigo-400 border-[1px] border-[gray] 
+            >
+              {visibility.map((item) => {
+                return (
+                  <option key={item.id} value={item.value}>
+                    {item.name}
+                  </option>
+                );
+              })}
+            </select>
+          </div>
+          <div className="flex flex-col items-start w-full">
+            <label className="text-[16px] pb-2 text-gray-700">
+              Vaqt chegarasi{' '}
+            </label>
+            <select
+              onChange={handleChangetime}
+              className="w-full text-[16px]  border:text-[204_204_204] py-[0.3rem] px-[0.2rem] rounded-[0.3rem] mb-4 !outline-1 outline-indigo-400 border-[1px] border-[gray] 
              bg-[#fff]"
-          >
-            {time.map((item) => {
-              return (
-                <option key={item.id} value={item.value}>
-                  {item.name}
-                </option>
-              );
-            })}
-          </select>
-        </div>
+            >
+              {time.map((item) => {
+                return (
+                  <option key={item.id} value={item.value}>
+                    {item.name}
+                  </option>
+                );
+              })}
+            </select>
+          </div>
 
-        <div className="">
-          <label className="font-bold text-lg text-gray-500">Tavsif</label>
+          <div className="">
+            <label className="font-bold text-lg text-gray-500">Tavsif</label>
 
-          <textarea
-            className="w-[100%] border-gray-300 border-[1px] outline-none py-2 px-2 text-sm  duration-200 placeholder-gray-800"
-            placeholder="Misol: Dunyo aholisi haqida "
-            name="description"
-            value={quizData.description}
-            onChange={handleChange}
-            cols="30"
-            rows="10"
-          ></textarea>
+            <textarea
+              className="w-[100%] border-gray-300 border-[1px] outline-none py-2 px-2 text-sm  duration-200 placeholder-gray-800"
+              placeholder="Misol: Dunyo aholisi haqida "
+              name="description"
+              value={quizData.description}
+              onChange={handleChange}
+              cols="30"
+              rows="10"
+            ></textarea>
 
-          {/* <input
+            {/* <input
                 className="lg:min-w-[300px] border-gray-300 border-[1px] outline-none py-2 px-2 text-sm  duration-200 placeholder-gray-800"
                 type="text"
                 onChange={handleChange}
@@ -493,8 +499,13 @@ const CreateTest = () => {
                 name="description"
                 placeholder="Misol: Dunyo aholisi haqida "
               /> */}
+          </div>
         </div>
+
       </div>
+
+
+
     </div>
   );
 };
