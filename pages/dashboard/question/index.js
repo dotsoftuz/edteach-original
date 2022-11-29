@@ -29,6 +29,7 @@ const Tests = () => {
       status: 'started',
       pin: String(Math.floor(Math.random() * 900000) + 1000),
       id: id,
+      questionIndex: 0
     };
 
     await updateDoc(collectionRef, payload).then(() => {
