@@ -93,7 +93,7 @@ const Layout = () => {
                   stroke="currentColor"
                   className={`${
                     testCard ? '' : 'bg-gray-200'
-                  } w-10 h-10 p-2 rounded-lg cursor-pointer`}
+                  } hidden md:block w-10 h-10 p-2 rounded-lg cursor-pointer`}
                 >
                   <path
                     strokeLinecap="round"
