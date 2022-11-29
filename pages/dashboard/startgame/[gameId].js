@@ -21,7 +21,34 @@ function GameID() {
   const [players, setPlayers] = useState([]);
   const [counter, setCounter] = useState(false);
   const [disabled, setDisabled] = useState(true);
-  const [count, setCount] = useState(10);
+  const [testId, setTestId] = useState(0);
+  const [count, setCount] = useState(5);
+  const [testCount, setTestCount] = useState(30);
+  const [testCounter, setTestCounter] = useState(false);
+
+  const deletePlayer = (id) => {
+    const { gameId } = router.query;
+    const playerColl = doc(db, `question/${gameId}/players`, id);
+    const payload = {
+      isPlay: false,
+    };
+    updateDoc(playerColl, payload);
+  };
+
+  const sendData = async (id) => {
+    const collectionRef = doc(db, `question`, id);
+    const payload = {
+      status: 'showingQuestion',
+    };
+
+    await updateDoc(collectionRef, payload).then(() => {
+      setCounter(true);
+      setTestCount(+questions.map((item) => item.questionTime));
+    });
+  };
+
+  // console.log(testCount);
+  // console.log(testTime);
 
   useEffect(() => {
     if (counter !== false) {
@@ -31,12 +58,29 @@ function GameID() {
         }
         if (count === 0) {
           setDisabled(false);
+          setTestCounter(true);
         }
       }, 1000);
 
       return () => clearInterval(interval);
     }
   }, [count, counter]);
+
+  useEffect(() => {
+    if (testCounter) {
+      const interval = setInterval(() => {
+        if (testCount) {
+          setTestCount(testCount - 1);
+        }
+        if (testCount === 0) {
+          setTestId((t) => t + 1);
+          // testCounter(true)
+        }
+      }, 1000);
+
+      return () => clearInterval(interval);
+    }
+  }, [testCount, testCounter]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -57,25 +101,15 @@ function GameID() {
     };
     fetchData();
   }, [uid, router]);
-
-  const deletePlayer = (id) => {
-    const { gameId } = router.query;
-    const playerColl = doc(db, `question/${gameId}/players`, id);
-    const payload = {
-      isPlay: false,
+  useEffect(() => {
+    window.addEventListener('beforeunload', alertUser);
+    return () => {
+      window.removeEventListener('beforeunload', alertUser);
     };
-    updateDoc(playerColl, payload);
-  };
-
-  const sendData = async (id) => {
-    const collectionRef = doc(db, `question`, id);
-    const payload = {
-      status: 'showingQuestion',
-    };
-
-    await updateDoc(collectionRef, payload).then(() => {
-      setCounter(true);
-    });
+  }, []);
+  const alertUser = (e) => {
+    e.preventDefault();
+    e.returnValue = '';
   };
 
   return (
@@ -91,9 +125,24 @@ function GameID() {
                     ''
                   ) : (
                     <>
-                      {game.questionList.map((ans) => {
-                        return <h1>{ans.question}</h1>;
-                      })}
+                      {' '}
+                      <div key={index} className="flex">
+                        <p className={testCount === 0 ? 'hidden' : 'visible'}>
+                          {testCount}
+                        </p>
+                        <div>
+                          <h1>{game.questionList[testId].question}</h1>{' '}
+                          <ul>
+                            {game.questionList[testId].answerList.map(
+                              (item) => (
+                                <>
+                                  <li>{item.body}</li>
+                                </>
+                              )
+                            )}
+                          </ul>
+                        </div>
+                      </div>
                     </>
                   )}
                 </h1>
@@ -136,9 +185,11 @@ function GameID() {
                               );
                             })}
                         </ol>
-                        <h1 className="flex items-center justify-center h-full -mt-5 text-red-500 font-semibold text-lg">
-                          Hali ishtorkchilar yo`q
-                        </h1>
+                        {players.length === 0 && (
+                          <h1 className="flex items-center justify-center h-full -mt-5 text-red-500 font-semibold text-lg">
+                            Hali ishtorkchilar yo`q
+                          </h1>
+                        )}
                       </div>
                     </div>
                   </div>
@@ -147,7 +198,7 @@ function GameID() {
                     className="px-3 py-3 bg-emerald-400 text-white font-bold rounded-xl mt-4"
                     onClick={() => sendData(game.id)}
                   >
-                    O'yinni boshlash
+                    O`yinni boshlash
                   </button>
                 </div>
               )}

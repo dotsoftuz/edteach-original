@@ -57,7 +57,7 @@ const CreateTest = () => {
   const { uid } = useUserContext();
   const questColl = collection(db, `question`);
 
-  const [questionTime, setQuestionTime] = useState('30000');
+  const [questionTime, setQuestionTime] = useState(30);
   const [questionVisibility, setQuestionVisibility] = useState('public');
 
   const router = useRouter();
@@ -126,19 +126,19 @@ const CreateTest = () => {
   const time = [
     {
       name: '30 soniya',
-      value: 30000,
+      value: 30,
     },
     {
       name: '1 daqiqa',
-      value: 60000,
+      value: 60,
     },
     {
       name: '3 daqiqa',
-      value: 1800000,
+      value: 180,
     },
     {
       name: '5 daqiqa',
-      value: 3500000,
+      value: 350,
     },
   ];
 
@@ -195,7 +195,7 @@ const CreateTest = () => {
     prefixTime,
     questionVisibility,
     uid,
-    playerId: []
+    playerId: [],
   };
 
   // const body = input.map((item) => item.answerList.map((item2) => item2.body));
