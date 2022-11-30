@@ -10,9 +10,15 @@ import {
 } from 'firebase/firestore';
 import { BsTrash } from 'react-icons/bs';
 
+import triangle from '../../../public/images/triangle.svg';
+import square from '../../../public/images/square.svg';
+import circle from '../../../public/images/circle.svg';
+import diamond from '../../../public/images/diamond.svg';
+
 import { Sidebar } from 'components';
 import { useUserContext } from 'context/userContext';
 import { db } from '../../../firebase';
+import Image from 'next/image';
 
 function GameID() {
   const router = useRouter();
@@ -20,11 +26,14 @@ function GameID() {
   const [questions, setQuestions] = useState([]);
   const [players, setPlayers] = useState([]);
   const [counter, setCounter] = useState(false);
-  const [disabled, setDisabled] = useState(true);
-  const [count, setCount] = useState(5);
+
   const [testCount, setTestCount] = useState(30);
   const [testCounter, setTestCounter] = useState(false);
-  const [showNextButton, setShowNextButton] = useState(false);
+  const [disabled, setDisabled] = useState(false);
+  const [count, setCount] = useState(10);
+  const [time, setTime] = useState(15);
+  const [showButton, setShowButton] = useState(false);
+  const [testId, setTestId] = useState(0);
   // const [nexQuestion, setNexQuestion] = useState(false);
 
   const deletePlayer = (id) => {
@@ -55,14 +64,29 @@ function GameID() {
           setCount(count - 1);
         }
         if (count === 0) {
-          setDisabled(false);
+          setDisabled(true);
           setTestCounter(true);
         }
       }, 1000);
 
       return () => clearInterval(interval);
     }
-  }, [count, counter]);
+  }, [count, counter, questions]);
+
+  useEffect(() => {
+    if (testCounter !== false) {
+      const interval1 = setInterval(() => {
+        if (time) {
+          setTime(time - 1);
+        }
+        if (time === 0) {
+          setShowButton(true);
+        }
+      }, 1000);
+
+      return () => clearInterval(interval1);
+    }
+  }, [testCounter, time]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -94,6 +118,14 @@ function GameID() {
     e.returnValue = '';
   };
 
+  const nextQuestion = () => {
+    setTime(15);
+    setTestId(testId + 1);
+    setShowButton(false);
+  };
+
+  console.log(questions);
+
   return (
     <Sidebar>
       <div className="flex items-center justify-center h-screen">
@@ -102,33 +134,99 @@ function GameID() {
             <>
               {game.status === 'showingQuestion' ? (
                 <h1>
-                  <p className={count === 0 ? 'hidden' : 'visible'}>{count}</p>
-                  {disabled ? (
+                  <p className={count === 0 ? 'hidden' : 'visible text-5xl'}>
+                    {count}
+                  </p>
+                  {!disabled ? (
                     ''
                   ) : (
-                    <>
-                      {' '}
-                      <div key={index} className="flex">
-                        <p className={testCount === 0 ? 'hidden' : 'visible'}>
-                          {testCount}
-                        </p>
-                        <div>
-                          <h1>
-                            {game.questionList[game.questionIndex].question}
-                          </h1>{' '}
-                          <ul>
-                            {game.questionList[
-                              game.questionIndex
-                            ].answerList.map((item) => (
-                              <>
-                                <li>{item.body}</li>
-                              </>
-                            ))}
-                          </ul>
-                        </div>
-                        {showNextButton ? <button>Next</button> : ''}
+                    <div className="flex">
+                      <p className={time === 0 ? 'hidden' : 'visible text-5xl'}>
+                        {time}
+                      </p>
+                      <div>
+
+                      <h1>{game.questionList[testId].question}</h1>
+
+                    {/* <ul >
+                      <li>{game.questionList[testId].answerList.map((item) => )}</li>
+                    </ul> */}
+
+
+                    <div className="grid gap-2 grid-cols-2 pt-[230px]">
+              {game.questionList[testId].answerList.map((item) =>(
+                    <div
+                      key={item.id}
+                      className={
+                        item.bgColor === 'red'
+                          ? ` bg-[#e21b3c]   create-blok`
+                          : item.bgColor === 'blue'
+                          ? `bg-[#1368ce]  create-blok`
+                          : item.bgColor === 'yellow'
+                          ? `bg-[#d89e00] create-blok`
+                          : item.bgColor === 'gren'
+                          ? `bg-[#26890c] create-blok`
+                          : ''
+                      }
+                    >
+                      <div
+                        className={`${
+                          item.svgIcon === 'diamond' ? 'rotate-45' : ''
+                        } !min-w-[30px] leading-[100%]`}
+                      >
+                        <Image
+                          src={
+                            item.svgIcon === 'triangle'
+                              ? `${triangle.src}`
+                              : item.svgIcon === 'square'
+                              ? `${square.src}`
+                              : item.svgIcon === 'circle'
+                              ? `${circle.src}`
+                              : item.svgIcon === 'diamond'
+                              ? `${diamond.src}`
+                              : ''
+                          }
+                          width="30px"
+                          height="30px"
+                        />
                       </div>
-                    </>
+              <div>{item.body}</div>
+                      {/* check dev */}
+                      <div
+                        className={
+                          !item.isCorrect
+                            ? '!min-w-[45px] h-[45px] rounded-full border-4 border-white bg-transparent flex justify-center items-center hover:bg-[#66bf39] hover:cursor-pointer'
+                            : '!min-w-[45px] h-[45px] rounded-full border-4 border-white bg-[#66bf39] flex justify-center items-center hover:bg-[#66bf39] hover:cursor-pointer'
+                        }
+
+                      >
+                        <svg
+                          className={
+                            item.isCorrect ? 'text-white block' : ' hidden'
+                          }
+                          stroke="currentColor"
+                          fill="currentColor"
+                          strokeWidth="0"
+                          viewBox="0 0 512 512"
+                          height="1em"
+                          width="1em"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095        
+                         72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+                          ></path>
+                        </svg>
+                      </div>
+                    </div>
+                  ))}
+            </div>
+
+                      </div>
+                      {showButton && (
+                        <button onClick={nextQuestion}>Next</button>
+                      )}
+                    </div>
                   )}
                 </h1>
               ) : (
