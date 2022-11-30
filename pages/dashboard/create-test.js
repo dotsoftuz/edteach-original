@@ -127,19 +127,19 @@ const CreateTest = () => {
   const time = [
     {
       name: '30 soniya',
-      value: 30000,
+      value: 30,
     },
     {
       name: '1 daqiqa',
-      value: 60000,
+      value: 60,
     },
     {
       name: '3 daqiqa',
-      value: 1800000,
+      value: 180,
     },
     {
       name: '5 daqiqa',
-      value: 3500000,
+      value: 350,
     },
   ];
 
@@ -198,31 +198,6 @@ const CreateTest = () => {
     uid,
     playerId: []
   };
-
-  // const body = input.map((item) => item.answerList.map((item2) => item2.body));
-  // const question = input.map((item) => item.question);
-
-  // useEffect(() => {
-  //   if (!data.title) {
-  //     toast.error("Testga sarlovha qo'ying");
-  //   } else if (!data.description) {
-  //     toast.error('Testga sharh yozing');
-  //   } else if (input.map((item) => item.question === '')) {
-  //     toast.error('Testga savol yozing');
-  //   } else {
-  //     toast.success("Test muvoffaqiyatli qo'shildi");
-  //   }
-  // }, [input]);
-
-  // useEffect(() => {
-  //   const hello = input.map((item) =>
-  //     item.answerList.map((item2) => item2.isCorrect)
-  //   );
-  //   console.log(hello.some((e) => e === true));
-  //   console.log(hello);
-  // }, [input]);
-
-  // console.log(data);
 
   const createQuest = async (e) => {
     e.preventDefault();

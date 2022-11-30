@@ -20,8 +20,12 @@ function GameID() {
   const [questions, setQuestions] = useState([]);
   const [players, setPlayers] = useState([]);
   const [counter, setCounter] = useState(false);
-  const [disabled, setDisabled] = useState(true);
+  const [testCounter, setTestCounter] = useState(false);
+  const [disabled, setDisabled] = useState(false);
   const [count, setCount] = useState(10);
+  const [time, setTime] = useState(0);
+  const [showButton, setShowButton] = useState(false);
+  const [testId, setTestId] = useState(0);
 
   useEffect(() => {
     if (counter !== false) {
@@ -30,13 +34,29 @@ function GameID() {
           setCount(count - 1);
         }
         if (count === 0) {
-          setDisabled(false);
+          setDisabled(true);
+          setTestCounter(true);
         }
       }, 1000);
 
       return () => clearInterval(interval);
     }
-  }, [count, counter]);
+  }, [count, counter, questions]);
+
+  useEffect(() => {
+    if (testCounter !== false) {
+      const interval1 = setInterval(() => {
+        if (time) {
+          setTime(time - 1);
+        }
+        if (time === 0) {
+          setShowButton(true);
+        }
+      }, 1000);
+
+      return () => clearInterval(interval1);
+    }
+  }, [testCounter, time]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -78,6 +98,12 @@ function GameID() {
     });
   };
 
+  const nextQuestion = () => {
+    setTime(15);
+    setTestId(testId + 1);
+    setShowButton(false);
+  };
+
   return (
     <Sidebar>
       <div className="flex items-center justify-center h-screen">
@@ -86,15 +112,21 @@ function GameID() {
             <>
               {game.status === 'showingQuestion' ? (
                 <h1>
-                  <p className={count === 0 ? 'hidden' : 'visible'}>{count}</p>
-                  {disabled ? (
+                  <p className={count === 0 ? 'hidden' : 'visible text-5xl'}>
+                    {count}
+                  </p>
+                  {!disabled ? (
                     ''
                   ) : (
-                    <>
-                      {game.questionList.map((ans) => {
-                        return <h1>{ans.question}</h1>;
-                      })}
-                    </>
+                    <div className="flex">
+                      <h1>
+                        {game.questionList[testId].question}
+                        {time}
+                      </h1>
+                      {showButton && (
+                        <button onClick={nextQuestion}>Next</button>
+                      )}
+                    </div>
                   )}
                 </h1>
               ) : (
@@ -130,7 +162,7 @@ function GameID() {
                                     {item.playerName}
                                   </h1>
                                   <button onClick={() => deletePlayer(item.id)}>
-                                    <BsTrash className='text-lg text-red-500' />
+                                    <BsTrash className="text-lg text-red-500" />
                                   </button>
                                 </li>
                               );
