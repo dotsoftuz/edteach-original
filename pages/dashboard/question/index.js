@@ -29,6 +29,7 @@ const Tests = () => {
       status: 'started',
       pin: String(Math.floor(Math.random() * 900000) + 1000),
       id: id,
+      questionIndex: 0
     };
 
     await updateDoc(collectionRef, payload).then(() => {
@@ -166,10 +167,10 @@ const Tests = () => {
                         <span className="bg-purple-500 text-white text-xs font-semibold px-1 rounded-full">
                           Quiz
                         </span>
-                        <h2 className="text-lg md:text-xl font-semibold">
+                        <h2 className="text-lg md:text-xl font-semibold truncate">
                           {val.title}
                         </h2>
-                        <h2 className="text-sm md:text-lg font-semibold">
+                        <h2 className="text-sm md:text-lg font-semibold truncate">
                           {val.description}
                         </h2>
                       </div>
@@ -216,13 +217,20 @@ const Tests = () => {
                   </div>
                 );
               })}
+            <Pagination
+              items={questions.length}
+              pageSize={pageSize}
+              currentPage={currentPage}
+              onPageChange={handlePageChange}
+            />
           </div>
-          <Pagination
-            items={questions.length}
-            pageSize={pageSize}
-            currentPage={currentPage}
-            onPageChange={handlePageChange}
-          />
+          {!paginatePosts.length > 1 && (
+            <div className="flex items-center justify-center h-[70vh]">
+              <h1 className="text-2xl text-red-600 font-semibold">
+                Teslar mavjud emas.
+              </h1>
+            </div>
+          )}
         </div>
       </Sidebar>
     </div>

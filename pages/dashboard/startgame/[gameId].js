@@ -21,10 +21,11 @@ function GameID() {
   const [players, setPlayers] = useState([]);
   const [counter, setCounter] = useState(false);
   const [disabled, setDisabled] = useState(true);
-  const [testId, setTestId] = useState(0);
   const [count, setCount] = useState(5);
   const [testCount, setTestCount] = useState(30);
   const [testCounter, setTestCounter] = useState(false);
+  const [showNextButton, setShowNextButton] = useState(false);
+  // const [nexQuestion, setNexQuestion] = useState(false);
 
   const deletePlayer = (id) => {
     const { gameId } = router.query;
@@ -47,9 +48,6 @@ function GameID() {
     });
   };
 
-  // console.log(testCount);
-  // console.log(testTime);
-
   useEffect(() => {
     if (counter !== false) {
       const interval = setInterval(() => {
@@ -65,22 +63,6 @@ function GameID() {
       return () => clearInterval(interval);
     }
   }, [count, counter]);
-
-  useEffect(() => {
-    if (testCounter) {
-      const interval = setInterval(() => {
-        if (testCount) {
-          setTestCount(testCount - 1);
-        }
-        if (testCount === 0) {
-          setTestId((t) => t + 1);
-          // testCounter(true)
-        }
-      }, 1000);
-
-      return () => clearInterval(interval);
-    }
-  }, [testCount, testCounter]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -131,17 +113,20 @@ function GameID() {
                           {testCount}
                         </p>
                         <div>
-                          <h1>{game.questionList[testId].question}</h1>{' '}
+                          <h1>
+                            {game.questionList[game.questionIndex].question}
+                          </h1>{' '}
                           <ul>
-                            {game.questionList[testId].answerList.map(
-                              (item) => (
-                                <>
-                                  <li>{item.body}</li>
-                                </>
-                              )
-                            )}
+                            {game.questionList[
+                              game.questionIndex
+                            ].answerList.map((item) => (
+                              <>
+                                <li>{item.body}</li>
+                              </>
+                            ))}
                           </ul>
                         </div>
+                        {showNextButton ? <button>Next</button> : ''}
                       </div>
                     </>
                   )}
@@ -179,7 +164,7 @@ function GameID() {
                                     {item.playerName}
                                   </h1>
                                   <button onClick={() => deletePlayer(item.id)}>
-                                    O`yinchini chetlatish
+                                    <BsTrash className="text-lg text-red-500" />
                                   </button>
                                 </li>
                               );
