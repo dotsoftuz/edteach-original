@@ -31,7 +31,7 @@ html {
   }
 
   .create-blok {
-    @apply flex items-center p-[10px] w-[30rem] pl-5 min-h-[7rem] gap-5 rounded-lg shadow-[0__1px_3px_#80858b];
+    @apply flex items-center p-3 sm:p-[10px]  pl-5 sm:min-h-[7rem] gap-5 rounded-lg shadow-[0__1px_3px_#80858b];
   }
 
   .image-fulled span img {
