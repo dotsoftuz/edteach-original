@@ -13,7 +13,7 @@ import triangle from 'public/images/triangle.svg';
 import square from 'public/images/square.svg';
 import circle from 'public/images/circle.svg';
 import diamond from 'public/images/diamond.svg';
-import { BsTrash } from 'react-icons/Bs';
+import { BsTrash } from 'react-icons/bs';
 
 const CreateTest = () => {
   const { userName } = useUserContext();
