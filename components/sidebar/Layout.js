@@ -17,7 +17,7 @@ const Layout = () => {
     setCurrentPage(page);
   };
 
-  const { questionsPublic, uid } = useUserContext();
+  const { questionsPublic, uid, getUsertime } = useUserContext();
 
   const paginatePosts = paginate(questionsPublic, currentPage, pageSize);
 
@@ -168,6 +168,9 @@ const Layout = () => {
                           </div>
                           <h2 className="text-xs font-semibold">
                             Yaratuvchi: {val.createrName}
+                          </h2>
+                          <h2 className="text-xs font-semibold">
+                            Test yaratilgan vaqt: {getUsertime(new Date(val.prefixTime))}
                           </h2>
                         </div>
                       </div>
