@@ -325,7 +325,7 @@ const CreateTest = () => {
               value={!input[testId] ? '' : input[testId].question}
               onChange={(e) => getValue(testId, e)}
             />
-            <div className="grid gap-2 grid-cols-2 pt-[230px]">
+            <div className="grid gap-2 grid-cols-2 lg:pt-[150px] xl:pt-[230px]">
               {!input[testId]
                 ? ''
                 : input[testId].answerList.map((item, i) => (
