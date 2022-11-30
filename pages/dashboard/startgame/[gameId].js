@@ -183,9 +183,14 @@ function GameID() {
                               );
                             })}
                         </ol>
-                        <h1 className="flex items-center justify-center h-full -mt-5 text-red-500 font-semibold text-lg">
-                          Hali ishtorkchilar yo`q
-                        </h1>
+
+                        {players.length === 0 ? (
+                          <h1 className="flex items-center justify-center h-full -mt-5 text-red-500 font-semibold text-lg">
+                            Hali ishtorkchilar yo`q
+                          </h1>
+                        ) : (
+                          ''
+                        )}
                       </div>
                     </div>
                   </div>
@@ -193,6 +198,7 @@ function GameID() {
                   <button
                     className="px-3 py-3 bg-emerald-400 text-white font-bold rounded-xl mt-4"
                     onClick={() => sendData(game.id)}
+                    disabled={players.length === 0}
                   >
                     O'yinni boshlash
                   </button>
