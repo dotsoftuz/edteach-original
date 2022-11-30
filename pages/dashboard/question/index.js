@@ -113,7 +113,7 @@ const Tests = () => {
                   stroke="currentColor"
                   className={`${
                     testCard ? '' : 'bg-gray-200'
-                  } w-10 h-10 p-2 rounded-lg cursor-pointer`}
+                  } hidden md:block w-10 h-10 p-2 rounded-lg cursor-pointer`}
                 >
                   <path
                     strokeLinecap="round"
@@ -163,7 +163,7 @@ const Tests = () => {
                       />
                     </Link>
                     <div className="flex flex-col justify-between">
-                      <div>
+                      <div className="w-full overflow-hidden">
                         <span className="bg-purple-500 text-white text-xs font-semibold px-1 rounded-full">
                           Quiz
                         </span>
@@ -183,9 +183,6 @@ const Tests = () => {
                             {val.questionList.length} ta
                           </span>
                         </div>
-                        <h2 className="text-xs font-semibold">
-                          Yaratuvchi: {val.createrName}
-                        </h2>
                       </div>
                     </div>
 
@@ -196,14 +193,14 @@ const Tests = () => {
                             testCard ? 'bottom-2' : 'top-2'
                           } absolute  right-2 flex items-center space-x-1 hover:text-purple-500 cursor-pointer`}
                         >
-                          <p className="text-lg font-semibold">Start</p>
+                          <p className="text-lg font-semibold">Boshloash</p>
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
                             viewBox="0 0 24 24"
                             strokeWidth={1.5}
                             stroke="currentColor"
-                            className="w-5 h-5"
+                            className="w-5 h-5 mt-1"
                           >
                             <path
                               strokeLinecap="round"
