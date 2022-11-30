@@ -14,7 +14,7 @@ const Tests = () => {
   const pageSize = 8;
   const [currentPage, setCurrentPage] = useState(1);
 
-  const { questions } = useUserContext();
+  const { questions, getUsertime } = useUserContext();
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
@@ -43,16 +43,7 @@ const Tests = () => {
     });
   };
 
-  function addLeadingzero(d) {
-    return d < 10 ? '0' + d : d;
-  }
 
-  function getUsertime(t) {
-    let Y = t.getUTCFullYear();
-    let M = addLeadingzero(t.getMonth() + 1);
-    let D = addLeadingzero(t.getDate());
-    return ` ${D}/${M}/${Y}`;
-  }
 
   return (
     <div>
