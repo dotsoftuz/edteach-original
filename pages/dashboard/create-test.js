@@ -62,7 +62,7 @@ const CreateTest = () => {
   const { uid } = useUserContext();
   const questColl = collection(db, `question`);
 
-  const [questionTime, setQuestionTime] = useState('30000');
+  const [questionTime, setQuestionTime] = useState(30);
   const [questionVisibility, setQuestionVisibility] = useState('public');
 
   const router = useRouter();
