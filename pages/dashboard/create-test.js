@@ -19,8 +19,6 @@ const CreateTest = () => {
   const { userName } = useUserContext();
   const [testId, setTestId] = useState(0);
 
-  let emptyString = '‎';
-
   const [input, setInput] = useState([
     {
       question: '',
@@ -317,8 +315,8 @@ const CreateTest = () => {
                         testId === key ? 'ring-gray-700' : 'ring-transparent'
                       } bg-white ring-2 hover:ring-gray-700 rounded-md p-2 w-full mt-8 h-20 grid grid-cols-2 grid-rows-2 gap-1 cursor-pointer`}
                     >
-                      {item.answerList.map((answer) => (
-                        <div className="relative border-2 rounded-md p-1">
+                      {item.answerList.map((answer, index) => (
+                        <div key={index} className="relative border-2 rounded-md p-1">
                           {answer.isCorrect && (
                             <div className="w-2 h-2 bg-green-500 rounded-full absolute top-2 right-2" />
                           )}
