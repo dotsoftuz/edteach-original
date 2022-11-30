@@ -3,13 +3,13 @@ import { useRouter } from 'next/router';
 import {
   collection,
   doc,
+  getDoc,
   onSnapshot,
   query,
   updateDoc,
   where,
 } from 'firebase/firestore';
 import { BsTrash } from 'react-icons/bs';
-
 import { Sidebar } from 'components';
 import { useUserContext } from 'context/userContext';
 import { db } from '../../../firebase';
@@ -23,9 +23,9 @@ function GameID() {
   const [testCounter, setTestCounter] = useState(false);
   const [disabled, setDisabled] = useState(false);
   const [count, setCount] = useState(10);
-  const [time, setTime] = useState(0);
+  const [time, setTime] = useState();
   const [showButton, setShowButton] = useState(false);
-  const [testId, setTestId] = useState(0);
+  const [singleData, setSingleData] = useState({});
 
   useEffect(() => {
     if (counter !== false) {
@@ -69,6 +69,13 @@ function GameID() {
         )
       );
 
+      const docRef = doc(db, `question`, `${gameId}`);
+      const docSnap = await getDoc(docRef);
+      if (docSnap.exists()) {
+        setSingleData(docSnap.data());
+        setTime(docSnap.data().questionTime);
+      }
+
       const playerColl = collection(db, `question/${gameId}/players`);
 
       onSnapshot(playerColl, (snapshot) =>
@@ -98,9 +105,15 @@ function GameID() {
     });
   };
 
-  const nextQuestion = () => {
-    setTime(15);
-    setTestId(testId + 1);
+  const nextQuestion = async (id) => {
+    setTime(singleData.questionTime);
+    const collectionRef = doc(db, `question`, id);
+    const docSnap = await getDoc(collectionRef);
+    const payload = {
+      questionIndex: docSnap.data().questionIndex + 1,
+    };
+
+    await updateDoc(collectionRef, payload);
     setShowButton(false);
   };
 
@@ -120,11 +133,13 @@ function GameID() {
                   ) : (
                     <div className="flex">
                       <h1>
-                        {game.questionList[testId].question}
+                        {game.questionList[game.questionIndex].question}
                         {time}
                       </h1>
                       {showButton && (
-                        <button onClick={nextQuestion}>Next</button>
+                        <button onClick={() => nextQuestion(game.id)}>
+                          Next
+                        </button>
                       )}
                     </div>
                   )}
