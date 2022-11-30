@@ -179,14 +179,14 @@ const Layout = () => {
                                 testCard ? 'bottom-2' : 'top-2'
                               } absolute  right-2 flex items-center space-x-1 hover:text-purple-500 cursor-pointer`}
                             >
-                              <p className="text-lg font-semibold">Start</p>
+                              <p className="text-lg font-semibold">Boshlash</p>
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 fill="none"
                                 viewBox="0 0 24 24"
                                 strokeWidth={1.5}
                                 stroke="currentColor"
-                                className="w-5 h-5"
+                                className="w-5 h-5 mt-1"
                               >
                                 <path
                                   strokeLinecap="round"
