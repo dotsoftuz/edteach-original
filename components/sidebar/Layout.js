@@ -17,7 +17,7 @@ const Layout = () => {
     setCurrentPage(page);
   };
 
-  const { questionsPublic, uid } = useUserContext();
+  const { questionsPublic, uid, getUsertime } = useUserContext();
 
   const paginatePosts = paginate(questionsPublic, currentPage, pageSize);
 
@@ -93,7 +93,7 @@ const Layout = () => {
                   stroke="currentColor"
                   className={`${
                     testCard ? '' : 'bg-gray-200'
-                  } w-10 h-10 p-2 rounded-lg cursor-pointer`}
+                  } hidden md:block w-10 h-10 p-2 rounded-lg cursor-pointer`}
                 >
                   <path
                     strokeLinecap="round"
@@ -169,6 +169,9 @@ const Layout = () => {
                           <h2 className="text-xs font-semibold">
                             Yaratuvchi: {val.createrName}
                           </h2>
+                          <h2 className="text-xs font-semibold">
+                            Test yaratilgan vaqt: {getUsertime(new Date(val.prefixTime))}
+                          </h2>
                         </div>
                       </div>
                       {val.uid === uid ? (
@@ -179,14 +182,14 @@ const Layout = () => {
                                 testCard ? 'bottom-2' : 'top-2'
                               } absolute  right-2 flex items-center space-x-1 hover:text-purple-500 cursor-pointer`}
                             >
-                              <p className="text-lg font-semibold">Start</p>
+                              <p className="text-lg font-semibold">Boshlash</p>
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 fill="none"
                                 viewBox="0 0 24 24"
                                 strokeWidth={1.5}
                                 stroke="currentColor"
-                                className="w-5 h-5"
+                                className="w-5 h-5 mt-1"
                               >
                                 <path
                                   strokeLinecap="round"
