@@ -20,7 +20,6 @@ html {
   justify-content: center;
 }
 
-
 @layer components {
   .about-img span{
     @apply !h-full;
@@ -34,7 +33,7 @@ html {
   }
 
   .create-blok {
-    @apply flex items-center p-3 sm:p-[10px]  pl-5 sm:min-h-[7rem] gap-5 rounded-lg shadow-[0__1px_3px_#80858b];
+    @apply flex items-center p-[10px] w-full md:w-[30rem] lg:w-[35rem] xl:w-[40rem] pl-5 h-[5rem] md:h-[7rem] gap-5 rounded-lg shadow-[0__1px_3px_#80858b];
   }
 
   .image-fulled span img {

@@ -48,7 +48,7 @@ const Header = () => {
             <Link
               href="/dashboard"
             >
-              <a className='w-fit rounded-lg py-2 !px-8  font-medium shadow-md text-sm duration-300
+              <a className='w-fit rounded-lg py-2 !px-12  font-medium shadow-md text-sm duration-300
                 active:bg-opacity-80 cursor-pointer ease-in-out active:scale-95 bg-purple-500 
                  dark:bg-[#1a5cff] md:text-sm text-white hover:shadow-md'>Kirish</a>
             </Link>
