@@ -26,8 +26,8 @@ function GameID() {
   const [questions, setQuestions] = useState([]);
   const [players, setPlayers] = useState([]);
   const [counter, setCounter] = useState(false);
-
-  const [testCount, setTestCount] = useState(30);
+  const [questionTime, setQuestionTime] = useState(false);
+  const [questionCount, setQuestionCount] = useState(3);
   const [testCounter, setTestCounter] = useState(false);
   const [disabled, setDisabled] = useState(false);
   const [count, setCount] = useState(10);
@@ -55,9 +55,9 @@ function GameID() {
 
     await updateDoc(collectionRef, payload).then(() => {
       setCounter(true);
-      setTestCount(+questions.map((item) => item.questionTime));
     });
   };
+  // start timer
 
   useEffect(() => {
     if (counter !== false) {
@@ -67,13 +67,31 @@ function GameID() {
         }
         if (count === 0) {
           setDisabled(true);
-          setTestCounter(true);
+          setQuestionTime(true);
         }
       }, 1000);
 
       return () => clearInterval(interval);
     }
   }, [count, counter, questions]);
+
+  // Animation 3s
+  useEffect(() => {
+    if (questionTime !== false) {
+      const interval2 = setInterval(() => {
+        if (questionCount) {
+          setQuestionCount(questionCount - 1);
+        }
+        if (questionCount === 0) {
+          setTestCounter(true);
+        }
+      }, 1000);
+
+      return () => clearInterval(interval2);
+    }
+  }, [questionTime, questionCount]);
+
+  //question timer
 
   useEffect(() => {
     if (testCounter !== false) {
@@ -116,6 +134,7 @@ function GameID() {
     };
     fetchData();
   }, [uid, router]);
+
   useEffect(() => {
     window.addEventListener('beforeunload', alertUser);
     return () => {
@@ -128,6 +147,8 @@ function GameID() {
   };
 
   const nextQuestion = async (id, length, index) => {
+    setTestCounter(false);
+    setQuestionCount(3);
     if (index + 1 < length) {
       setTime(singleData.questionTime);
       const collectionRef = doc(db, `question`, id);
@@ -162,145 +183,156 @@ function GameID() {
                         <h2>Songgi natija</h2>
                       </div>
                     ) : (
-                      <div className="flex justify-between">
-                        <div>
-                          <div
-                            className={
-                              time === 0
-                                ? 'hidden'
-                                : 'bg-gray-700 w-28 h-28 mr-10 mt-40 rounded-full justify-center items-center flex'
-                            }
-                          >
-                            <p className="visible text-5xl text-white">
-                              {time}
-                            </p>
+                      <>
+                        {questionCount ? (
+                          <div>
+                            <span class="loader"></span>
+                            <h1 className="text-5xl">
+                              {game.questionList[game.questionIndex].question}
+                            </h1>
                           </div>
-                          <h2>
-                            {game.questionIndex + 1} /{' '}
-                            {game.questionList.length}
-                          </h2>
-                        </div>
-
-                        <div>
-                          <div className="text-center py-5 text-white  bg-gray-600 ">
-                            {game.questionList[game.questionIndex].question}
-                          </div>
-                          <div className="grid gap-2 grid-cols-2 pt-[230px]">
-                            {game.questionList[
-                              game.questionIndex
-                            ].answerList.map((item) => (
+                        ) : (
+                          <div className="flex justify-between">
+                            <div>
                               <div
-                                key={item.id}
                                 className={
                                   time === 0
-                                    ? item.bgColor === 'red'
-                                      ? item.isCorrect
-                                        ? ' bg-[#e21b3c]   create-blok'
-                                        : ` bg-[#e21b3c]   create-blok opacity-60`
-                                      : item.bgColor === 'blue'
-                                      ? item.isCorrect
-                                        ? `bg-[#1368ce]  create-blok`
-                                        : `bg-[#1368ce]  create-blok opacity-60`
-                                      : item.bgColor === 'yellow'
-                                      ? item.isCorrect
-                                        ? `bg-[#d89e00] create-blok`
-                                        : `bg-[#d89e00] create-blok opacity-60`
-                                      : item.bgColor === 'gren'
-                                      ? item.isCorrect
-                                        ? `bg-[#26890c] create-blok`
-                                        : `bg-[#26890c] create-blok opacity-60`
-                                      : ''
-                                    : item.bgColor === 'red'
-                                    ? ' bg-[#e21b3c]   create-blok'
-                                    : item.bgColor === 'blue'
-                                    ? `bg-[#1368ce]  create-blok`
-                                    : item.bgColor === 'yellow'
-                                    ? `bg-[#d89e00] create-blok`
-                                    : item.bgColor === 'gren'
-                                    ? `bg-[#26890c] create-blok`
-                                    : ''
+                                    ? 'hidden'
+                                    : 'bg-gray-700 w-28 h-28 mr-10 mt-40 rounded-full justify-center items-center flex'
                                 }
                               >
-                                <div
-                                  className={`${
-                                    item.svgIcon === 'diamond'
-                                      ? 'rotate-45'
-                                      : ''
-                                  } !min-w-[30px] leading-[100%]`}
-                                >
-                                  <Image
-                                    src={
-                                      item.svgIcon === 'triangle'
-                                        ? `${triangle.src}`
-                                        : item.svgIcon === 'square'
-                                        ? `${square.src}`
-                                        : item.svgIcon === 'circle'
-                                        ? `${circle.src}`
-                                        : item.svgIcon === 'diamond'
-                                        ? `${diamond.src}`
+                                <p className="visible text-5xl text-white">
+                                  {time}
+                                </p>
+                              </div>
+                              <h2>
+                                {game.questionIndex + 1} /{' '}
+                                {game.questionList.length}
+                              </h2>
+                            </div>
+
+                            <div>
+                              <div className="text-center py-5 text-white  bg-gray-600 ">
+                                {game.questionList[game.questionIndex].question}
+                              </div>
+                              <div className="grid gap-2 grid-cols-2 pt-[230px]">
+                                {game.questionList[
+                                  game.questionIndex
+                                ].answerList.map((item) => (
+                                  <div
+                                    key={item.id}
+                                    className={
+                                      time === 0
+                                        ? item.bgColor === 'red'
+                                          ? item.isCorrect
+                                            ? ' bg-[#e21b3c]   create-blok'
+                                            : ` bg-[#e21b3c]   create-blok opacity-60`
+                                          : item.bgColor === 'blue'
+                                          ? item.isCorrect
+                                            ? `bg-[#1368ce]  create-blok`
+                                            : `bg-[#1368ce]  create-blok opacity-60`
+                                          : item.bgColor === 'yellow'
+                                          ? item.isCorrect
+                                            ? `bg-[#d89e00] create-blok`
+                                            : `bg-[#d89e00] create-blok opacity-60`
+                                          : item.bgColor === 'gren'
+                                          ? item.isCorrect
+                                            ? `bg-[#26890c] create-blok`
+                                            : `bg-[#26890c] create-blok opacity-60`
+                                          : ''
+                                        : item.bgColor === 'red'
+                                        ? ' bg-[#e21b3c]   create-blok'
+                                        : item.bgColor === 'blue'
+                                        ? `bg-[#1368ce]  create-blok`
+                                        : item.bgColor === 'yellow'
+                                        ? `bg-[#d89e00] create-blok`
+                                        : item.bgColor === 'gren'
+                                        ? `bg-[#26890c] create-blok`
                                         : ''
                                     }
-                                    width="30px"
-                                    height="30px"
-                                  />
-                                </div>
-                                <div className="text-white text-3xl flex-grow">
-                                  <p className="">{item.body}</p>
-                                </div>
-                                {/* check dev */}
+                                  >
+                                    <div
+                                      className={`${
+                                        item.svgIcon === 'diamond'
+                                          ? 'rotate-45'
+                                          : ''
+                                      } !min-w-[30px] leading-[100%]`}
+                                    >
+                                      <Image
+                                        src={
+                                          item.svgIcon === 'triangle'
+                                            ? `${triangle.src}`
+                                            : item.svgIcon === 'square'
+                                            ? `${square.src}`
+                                            : item.svgIcon === 'circle'
+                                            ? `${circle.src}`
+                                            : item.svgIcon === 'diamond'
+                                            ? `${diamond.src}`
+                                            : ''
+                                        }
+                                        width="30px"
+                                        height="30px"
+                                      />
+                                    </div>
+                                    <div className="text-white text-3xl flex-grow">
+                                      <p className="">{item.body}</p>
+                                    </div>
+                                    {/* check dev */}
 
-                                {time === 0 && (
-                                  <div className="!min-w-[45px] h-[45px] rounded-full flex justify-center items-center   ">
-                                    {item.isCorrect ? (
-                                      <svg
-                                        className="text-white block"
-                                        stroke="currentColor"
-                                        fill="currentColor"
-                                        strokeWidth="0"
-                                        viewBox="0 0 512 512"
-                                        height="1em"
-                                        width="1em"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                      >
-                                        <path
-                                          d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095        
+                                    {time === 0 && (
+                                      <div className="!min-w-[45px] h-[45px] rounded-full flex justify-center items-center   ">
+                                        {item.isCorrect ? (
+                                          <svg
+                                            className="text-white block"
+                                            stroke="currentColor"
+                                            fill="currentColor"
+                                            strokeWidth="0"
+                                            viewBox="0 0 512 512"
+                                            height="1em"
+                                            width="1em"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                          >
+                                            <path
+                                              d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095        
                          72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
-                                        ></path>
-                                      </svg>
-                                    ) : (
-                                      <div className="text-white">X</div>
+                                            ></path>
+                                          </svg>
+                                        ) : (
+                                          <div className="text-white">X</div>
+                                        )}
+                                      </div>
                                     )}
                                   </div>
-                                )}
+                                ))}
                               </div>
-                            ))}
-                          </div>
-                        </div>
+                            </div>
 
-                        <div className="pl-20">
-                          {showButton ? (
-                            <button
-                              className="bg-blue-600 px-12 text-white py-5"
-                              onClick={() =>
-                                nextQuestion(
-                                  game.id,
-                                  game.questionList.length,
-                                  game.questionIndex
-                                )
-                              }
-                            >
-                              Next
-                            </button>
-                          ) : (
-                            <button
-                              className="bg-blue-600 px-12 text-white py-5"
-                              onClick={() => setTime(0)}
-                            >
-                              Skip
-                            </button>
-                          )}
-                        </div>
-                      </div>
+                            <div className="pl-20">
+                              {showButton ? (
+                                <button
+                                  className="bg-blue-600 px-12 text-white py-5"
+                                  onClick={() =>
+                                    nextQuestion(
+                                      game.id,
+                                      game.questionList.length,
+                                      game.questionIndex
+                                    )
+                                  }
+                                >
+                                  Next
+                                </button>
+                              ) : (
+                                <button
+                                  className="bg-blue-600 px-12 text-white py-5"
+                                  onClick={() => setTime(0)}
+                                >
+                                  Skip
+                                </button>
+                              )}
+                            </div>
+                          </div>
+                        )}
+                      </>
                     )}
                   </>
                 )}
