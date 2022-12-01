@@ -359,7 +359,7 @@ const CreateTest = () => {
               value={!input[testId] ? '' : input[testId].question}
               onChange={(e) => getValue(testId, e)}
             />
-            <div className="grid gap-2 sm:grid-cols-2 pt-[120px] xl:pt-[200px]">
+            <div className="grid gap-2 sm:grid-cols-2 pt-[120px] xl:pt-[200px] w-fit mx-auto">
               {!input[testId]
                 ? ''
                 : input[testId].answerList.map((item, i) => (
@@ -367,7 +367,7 @@ const CreateTest = () => {
                     key={item.id}
                     className={
                       item.bgColor === 'red'
-                        ? ` bg-[#e21b3c]   create-blok`
+                        ? ` bg-[#e21b3c]  create-blok`
                         : item.bgColor === 'blue'
                           ? `bg-[#1368ce]  create-blok`
                           : item.bgColor === 'yellow'

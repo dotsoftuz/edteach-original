@@ -43,13 +43,6 @@ function GameID() {
 
   const [copyPin, setCopyPin] = useState(false);
 
-  const copyClipBoard = () => {
-    setCopyPin(true);
-    setTimeout(() => {
-      setCopyPin(false);
-    }, 3000);
-  };
-
   const deletePlayer = (id) => {
     const { gameId } = router.query;
     const playerColl = doc(db, `question/${gameId}/players`, id);
@@ -351,7 +344,7 @@ function GameID() {
                               setCopyPin(true);
                               setInterval(() => {
                                 setCopyPin(false);
-                              }, 3000);
+                              }, 5000);
                             }}
                             className={`${
                               copyPin ? 'bg-purple-500' : 'bg-gray-500'
