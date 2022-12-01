@@ -44,9 +44,10 @@ function GameID() {
   const [copyPin, setCopyPin] = useState(false);
 
   const copyClipBoard = () => {
-    setInterval(() => {
-      setCopyPin('Nusxalandi!');
-    });
+    setCopyPin(true);
+    setTimeout(() => {
+      setCopyPin(false);
+    }, 3000);
   };
 
   const deletePlayer = (id) => {
@@ -167,7 +168,7 @@ function GameID() {
             <>
               {game.status === 'showingQuestion' ? (
                 <>
-                  <div className='absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2'>
+                  <div className="absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2">
                     <p className={count === 0 ? 'hidden' : 'visible text-5xl'}>
                       {count}
                     </p>
@@ -346,7 +347,12 @@ function GameID() {
                             {game.pin}
                           </h2>
                           <span
-                            onClick={() => setCopyPin(!copyPin)}
+                            onClick={() => {
+                              setCopyPin(true);
+                              setInterval(() => {
+                                setCopyPin(false);
+                              }, 3000);
+                            }}
                             className={`${
                               copyPin ? 'bg-purple-500' : 'bg-gray-500'
                             }  hidden absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 right-0 text-lg text-white font-semibold bg-opacity-40 w-full h-full group-hover:inline-flex items-center justify-center rounded-lg`}
@@ -372,7 +378,7 @@ function GameID() {
                         <div className="flex items-center space-x-2 bg-purple-500 hover:bg-purple-600 duration-200 mt-4 rounded-lg py-2 px-3">
                           <FaUser className="text-white text-2xl" />
                           <span className="text-xl text-white font-bold">
-                            {players.length + 1}
+                            {players.length}
                           </span>
                         </div>
                       </div>
