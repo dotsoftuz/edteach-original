@@ -13,7 +13,7 @@ import triangle from 'public/images/triangle.svg';
 import square from 'public/images/square.svg';
 import circle from 'public/images/circle.svg';
 import diamond from 'public/images/diamond.svg';
-import { BsTrash } from 'react-icons/bs';
+import { BsTrash, BsPlusLg } from 'react-icons/bs';
 
 const CreateTest = () => {
   const { userName } = useUserContext();
@@ -284,15 +284,15 @@ const CreateTest = () => {
         </div>
       </div>
       {/* createTest left blok */}
-      <div className="sticky top-0 left-0 bg-white   lg:min-w-[13rem] pt-4 flex flex-col  overflow-hidden  h-full   z-10">
-        <div className="flex flex-col items-center overflow-y-auto w-full max-h-full overflow-x-hidden">
+      <div className="lg:sticky lg:top-0 left-0 bg-white justify-between lg:justify-start lg:items-start items-center  w-full lg:min-w-[13rem] lg:w-[13rem] lg:pt-4 lg:pb-0 py-2 flex lg:flex-col  overflow-hidden bottom-0  fixed  lg:h-full lg:z-10  z-[1000]">
+        <div className="flex lg:flex-col items-center lg:overflow-y-auto lg:overflow-x-hidden overflow-x-auto overflow-y-hidden  w-full max-h-full ">
           {input.map((item, key) => {
             return (
               <>
                 <div
                   className={`${
                     testId === key ? 'bg-gray-200' : ''
-                  } relative w-full  mb-2 pt-2 pb-2 text-sm font-semibold text-gray-800`}
+                  } relative min-w-[7rem] lg:w-full lg:h-auto h-full lg:mb-2  pt-2 pb-2 text-sm font-semibold text-gray-800`}
                   onClick={() => setTestId(key)}
                 >
                   <h3 className="px-4">{key + 1} - Test</h3>
@@ -306,14 +306,14 @@ const CreateTest = () => {
                         <BsTrash />
                       </button>
                     )}
-                    <h2 className="text-center mb-2 font-medium w-[12rem] py-1 absolute top-6 left-1/2 transform -translate-x-1/2 overflow-hidden truncate">
+                    <h2 className="text-center hidden lg:block lg:mb-2 font-medium w-[6rem] lg:w-[12rem] py-1 leading-[100%] absolute top-6 left-1/2 transform -translate-x-1/2 overflow-hidden truncate">
                       {item.question}
                     </h2>
                     <div
                       onClick={() => setTestId(key)}
                       className={`${
                         testId === key ? 'ring-gray-700' : 'ring-transparent'
-                      } bg-white ring-2 hover:ring-gray-700 rounded-md p-2 w-full mt-8 h-20 grid grid-cols-2 grid-rows-2 gap-1 cursor-pointer`}
+                      } bg-white ring-2 hover:ring-gray-700 rounded-md p-2 w-full mt-2 lg:mt-8 h-14 lg:h-20 grid grid-cols-2 grid-rows-2 gap-1 cursor-pointer`}
                     >
                       {item.answerList.map((answer, index) => (
                         <div
@@ -321,7 +321,7 @@ const CreateTest = () => {
                           className="relative border-2 rounded-md p-1"
                         >
                           {answer.isCorrect && (
-                            <div className="w-2 h-2 bg-green-500 rounded-full absolute top-2 right-2" />
+                            <div className="w-2 h-2 bg-green-500 rounded-full absolute lg:top-2 top-[0.1] right-2" />
                           )}
                         </div>
                       ))}
@@ -333,13 +333,13 @@ const CreateTest = () => {
           })}
           <br />
         </div>
-        <div className="w-full px-4 mb-6">
+        <div className="lg:w-full px-4 lg:mb-6">
           <button
-            className="btn text-sm btn-info  w-full bg-[#1a5cff] text-white rounded-lg py-2 px-3  cursor-pointer"
+            className="btn text-sm btn-info w-12 h-12 lg:h-auto flex  justify-center items-center lg:w-full bg-[#1a5cff] text-white rounded-lg py-2  px-3  cursor-pointer"
             type="button"
             onClick={() => addFormFields()}
           >
-            Savol qo`shish
+           <span className='lg:block hidden'> Savol qo`shish</span>  <span className='lg:hidden text-lg'><BsPlusLg/></span> 
           </button>
         </div>
       </div>
