@@ -153,7 +153,7 @@ function GameID() {
   return (
     <div>
       <Head>
-        <title>edTeach - O'yin</title>
+        <title>edTeach - O&apos;yin</title>
       </Head>
       <div className="h-screen">
         {questions.map((game, index) => {
@@ -320,6 +320,7 @@ function GameID() {
                         <a
                           href="https://edteach-game.uz "
                           target="_blank"
+                          rel="noreferrer"
                           className="font-bold cursor-pointer hover:text-purple-500"
                         >
                           www.edteach-game.uz
