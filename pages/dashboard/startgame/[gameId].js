@@ -161,15 +161,17 @@ function GameID() {
       <Head>
         <title>edTeach - O'yin</title>
       </Head>
-      <div className="bg-purple-400 h-screen">
+      <div className="h-screen">
         {questions.map((game, index) => {
           return (
             <>
               {game.status === 'showingQuestion' ? (
                 <>
-                  <p className={count === 0 ? 'hidden' : 'visible text-5xl'}>
-                    {count}
-                  </p>
+                  <div className='absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2'>
+                    <p className={count === 0 ? 'hidden' : 'visible text-5xl'}>
+                      {count}
+                    </p>
+                  </div>
                   {!disabled ? (
                     ''
                   ) : (
@@ -316,7 +318,7 @@ function GameID() {
                   )}
                 </>
               ) : (
-                <div key={game.id}>
+                <div className="bg-purple-400 h-screen" key={game.id}>
                   <div className="bg-purple-500 w-screen py-3">
                     <div className="flex items-center space-x-5 bg-white w-fit p-5 rounded-lg mx-auto">
                       <div className="text-xl font-semibold">
@@ -346,10 +348,10 @@ function GameID() {
                           <span
                             onClick={() => setCopyPin(!copyPin)}
                             className={`${
-                              copyPin ? 'bg-green-500' : 'bg-gray-500'
-                            }  hidden absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 right-0 text-lg text-white font-semibold bg-opacity-50 w-full h-full group-hover:inline-flex items-center justify-center rounded-lg`}
+                              copyPin ? 'bg-purple-500' : 'bg-gray-500'
+                            }  hidden absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 right-0 text-lg text-white font-semibold bg-opacity-40 w-full h-full group-hover:inline-flex items-center justify-center rounded-lg`}
                           >
-                            {copyPin ? 'Nusxalandi' : 'Nusxalash'}
+                            {copyPin ? 'Nusxalandi!' : 'Nusxalash!'}
                           </span>
                         </div>
                       </div>
