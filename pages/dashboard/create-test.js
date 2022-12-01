@@ -13,7 +13,7 @@ import triangle from '../../public/images/triangle.svg';
 import square from '../../public/images/square.svg';
 import circle from '../../public/images/circle.svg';
 import diamond from '../../public/images/diamond.svg';
-import {BsTrash} from "react-icons/Bs"
+import { BsTrash } from 'react-icons/Bs';
 
 const CreateTest = () => {
   const { userName } = useUserContext();
@@ -58,7 +58,7 @@ const CreateTest = () => {
   const { uid } = useUserContext();
   const questColl = collection(db, `question`);
 
-  const [questionTime, setQuestionTime] = useState('30000');
+  const [questionTime, setQuestionTime] = useState(30);
   const [questionVisibility, setQuestionVisibility] = useState('public');
 
   const router = useRouter();
@@ -196,7 +196,7 @@ const CreateTest = () => {
     prefixTime,
     questionVisibility,
     uid,
-    playerId: []
+    playerId: [],
   };
 
   const createQuest = async (e) => {
@@ -206,7 +206,7 @@ const CreateTest = () => {
         toast.error("Testga sarlovha qo'ying");
       } else if (!data.description) {
         toast.error('Testga sharh yozing');
-      }  else {
+      } else {
         await addDoc(questColl, data);
         toast.success("Test muvoffaqiyatli qo'shildi");
         setTimeout(() => {
@@ -285,33 +285,31 @@ const CreateTest = () => {
                 className="w-full !min-h-[7rem] bg-[#eaf4fc] relative  mb-4 p-5 text-sm font-semibold   text-gray-800"
                 onClick={() => setTestId(key)}
               >
-                <div>
-                {key + 1}  Quiz 
-                </div>
-               {key > 0 ? (
-                <button
-                  type="button"
-                  className=" hover:bg-gray-200  rounded-full p-2 cursor-pointer absolute left-1 bottom-2 text-lg"
-                  onClick={() => removeFormFields(testId)}
-                >
-                  <BsTrash/>
-                </button>
-              ) : null}
+                <div>{key + 1} Quiz</div>
+                {key > 0 ? (
+                  <button
+                    type="button"
+                    className=" hover:bg-gray-200  rounded-full p-2 cursor-pointer absolute left-1 bottom-2 text-lg"
+                    onClick={() => removeFormFields(testId)}
+                  >
+                    <BsTrash />
+                  </button>
+                ) : null}
               </div>
             </>
           );
         })}
         <br />
-       <div className='w-full px-4'>
-       <button
-          className="btn text-sm btn-info  w-full bg-[#1a5cff] text-white rounded-lg py-2 px-3  cursor-pointer"
-          type="button"
-          onClick={() => addFormFields()}
-        >
-          {' '}
-          Savol qo`shish
-        </button>
-       </div>
+        <div className="w-full px-4">
+          <button
+            className="btn text-sm btn-info  w-full bg-[#1a5cff] text-white rounded-lg py-2 px-3  cursor-pointer"
+            type="button"
+            onClick={() => addFormFields()}
+          >
+            {' '}
+            Savol qo`shish
+          </button>
+        </div>
       </div>
       {/* createTest center blok */}
       <div className="form-box p-5 pt-10 w-full min-h-full pr-7 flex  items-start overflow-hidden bg-slate-100">
@@ -329,93 +327,94 @@ const CreateTest = () => {
               {!input[testId]
                 ? ''
                 : input[testId].answerList.map((item, i) => (
-                  <div
-                    key={item.id}
-                    className={
-                      item.bgColor === 'red'
-                        ? ` bg-[#e21b3c]   create-blok`
-                        : item.bgColor === 'blue'
+                    <div
+                      key={item.id}
+                      className={
+                        item.bgColor === 'red'
+                          ? ` bg-[#e21b3c]   create-blok`
+                          : item.bgColor === 'blue'
                           ? `bg-[#1368ce]  create-blok`
                           : item.bgColor === 'yellow'
-                            ? `bg-[#d89e00] create-blok`
-                            : item.bgColor === 'gren'
-                              ? `bg-[#26890c] create-blok`
-                              : ''
-                    }
-                  >
-                    <div
-                      className={`${item.svgIcon === 'diamond' ? 'rotate-45' : ''
-                        } !min-w-[30px] leading-[100%]`}
+                          ? `bg-[#d89e00] create-blok`
+                          : item.bgColor === 'gren'
+                          ? `bg-[#26890c] create-blok`
+                          : ''
+                      }
                     >
-                      <Image
-                        src={
-                          item.svgIcon === 'triangle'
-                            ? `${triangle.src}`
-                            : item.svgIcon === 'square'
+                      <div
+                        className={`${
+                          item.svgIcon === 'diamond' ? 'rotate-45' : ''
+                        } !min-w-[30px] leading-[100%]`}
+                      >
+                        <Image
+                          src={
+                            item.svgIcon === 'triangle'
+                              ? `${triangle.src}`
+                              : item.svgIcon === 'square'
                               ? `${square.src}`
                               : item.svgIcon === 'circle'
-                                ? `${circle.src}`
-                                : item.svgIcon === 'diamond'
-                                  ? `${diamond.src}`
-                                  : ''
-                        }
-                        width="30px"
-                        height="30px"
+                              ? `${circle.src}`
+                              : item.svgIcon === 'diamond'
+                              ? `${diamond.src}`
+                              : ''
+                          }
+                          width="30px"
+                          height="30px"
+                        />
+                      </div>
+                      <input
+                        type="text"
+                        className="w-full h-[32px] outline-none rounded-lg bg-[rgb(0_0_0_/_10%)] text-white text-[20px] pl-[10px]"
+                        value={item.body || ''}
+                        name={'body'}
+                        onChange={(e) => getValue2(testId, i, e)}
                       />
-                    </div>
-                    <input
-                      type="text"
-                      className="w-full h-[32px] outline-none rounded-lg bg-[rgb(0_0_0_/_10%)] text-white text-[20px] pl-[10px]"
-                      value={item.body || ''}
-                      name={'body'}
-                      onChange={(e) => getValue2(testId, i, e)}
-                    />
-                    {/* check dev */}
-                    <div
-                      className={
-                        !item.isCorrect
-                          ? '!min-w-[45px] h-[45px] rounded-full border-4 border-white bg-transparent flex justify-center items-center hover:bg-[#66bf39] hover:cursor-pointer'
-                          : '!min-w-[45px] h-[45px] rounded-full border-4 border-white bg-[#66bf39] flex justify-center items-center hover:bg-[#66bf39] hover:cursor-pointer'
-                      }
-                      onClick={() => getCorrectAnswer(testId, i)}
-                    >
-                      <svg
+                      {/* check dev */}
+                      <div
                         className={
-                          item.isCorrect ? 'text-white block' : ' hidden'
+                          !item.isCorrect
+                            ? '!min-w-[45px] h-[45px] rounded-full border-4 border-white bg-transparent flex justify-center items-center hover:bg-[#66bf39] hover:cursor-pointer'
+                            : '!min-w-[45px] h-[45px] rounded-full border-4 border-white bg-[#66bf39] flex justify-center items-center hover:bg-[#66bf39] hover:cursor-pointer'
                         }
-                        stroke="currentColor"
-                        fill="currentColor"
-                        strokeWidth="0"
-                        viewBox="0 0 512 512"
-                        height="1em"
-                        width="1em"
-                        xmlns="http://www.w3.org/2000/svg"
+                        onClick={() => getCorrectAnswer(testId, i)}
                       >
-                        <path
-                          d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095        
+                        <svg
+                          className={
+                            item.isCorrect ? 'text-white block' : ' hidden'
+                          }
+                          stroke="currentColor"
+                          fill="currentColor"
+                          strokeWidth="0"
+                          viewBox="0 0 512 512"
+                          height="1em"
+                          width="1em"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095        
                          72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
-                        ></path>
-                      </svg>
+                          ></path>
+                        </svg>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
             </div>
           </div>
         </form>
       </div>
       {/* createTest right blok */}
-      <div className={`${!isToggled ? '-mr-[12.450rem]' : '!mr-0'
-        } relative h-screen duration-300 min-w-[200px] w-[200px] felex-[0_0_16rem]`}>
+      <div
+        className={`${
+          !isToggled ? '-mr-[16.30rem]' : 'ml-0'
+        } flex flex-col min-w-[200px] h-screen shadow-[0px_0px_5px_#80838b] items-center p-3 pt-7 relative  duration-300`}
+      >
         <div
           onClick={handleClick}
           className="absolute  px-1 py-3.5 -left-6 rounded-l-lg hidden md:block bg-white shadow-[rgb(0_0_0_/_15%)_-2px_0px_4px_0px] text-[#161925] cursor-pointer top-[100px]"
         >
           {isToggled ? <IoIosArrowForward /> : <IoIosArrowBack />}
         </div>
-        <div
-          className="flex flex-col  h-full shadow-[0px_0px_5px_#80838b] items-center p-3 pt-7"
-        >
-
+        <div className="flex flex-col  h-full shadow-[0px_0px_5px_#80838b] items-center p-3 pt-7">
           <div className="flex flex-col items-start w-full">
             <label className="text-[16px] pb-2 text-gray-700">
               Savol ko`rinishi:{' '}
@@ -476,11 +475,7 @@ const CreateTest = () => {
               /> */}
           </div>
         </div>
-
       </div>
-
-
-
     </div>
   );
 };
