@@ -236,14 +236,14 @@ const CreateTest = () => {
   const handleClick = () => setIsToggled(!isToggled);
 
   return (
-    <div className="lg:flex !overflow-hidden w-full h-screen pt-14 relative  over">
+    <div className="lg:flex lg:!overflow-hidden w-full h-screen pt-14 relative">
       <div>
         <Toaster />
       </div>
       {/* createTest top blok */}
-      <div className="absolute top-0 left-0 w-full z-20 bg-white ">
+      <div className="fixed lg:absolute top-0 left-0 w-full z-20 bg-white ">
         <div className="px-2 py-3 md:px-5 w-full  shadow-[0px_0px_5px_#80838b]  ">
-          <div className="flex items-center gap-20 justify-between">
+          <div className="flex items-center  gap-2 sm:gap-20 justify-between">
             <div className="flex items-center space-x-4">
               <div className="relative group">
                 <label
@@ -254,7 +254,7 @@ const CreateTest = () => {
                 </label>
                 <input
                   id="label"
-                  className="rounded-md w-[15rem] md:w-[20rem] bg-gray-200 outline-none py-2 px-4 text-sm"
+                  className="rounded-md w-[100%] sm:w-[15rem] md:w-[20rem] bg-gray-200 outline-none py-2 px-4 text-sm"
                   type="text"
                   onChange={handleChange}
                   value={quizData.title}
@@ -264,17 +264,17 @@ const CreateTest = () => {
             </div>
             <div className="flex space-x-2">
               <button
-                className="w-full rounded-lg py-2 px-8 cursor-pointer active:scale-95
+                className="w-full rounded-lg py-2 px-2 sm:px-8 cursor-pointer active:scale-95
                shadow-md text-sm duration-300 border bg-[#1a5cff] hover:bg-[#0d51fd]  active:bg-opacity-80
-               ease-in-out md:text-sm text-white mt-2"
+               ease-in-out md:text-sm text-white"
                 onClick={createQuest}
               >
                 Jo&apos;natish
               </button>
               <button
-                className="w-full rounded-lg py-2 px-8 cursor-pointer active:scale-95
+                className="w-full rounded-lg py-2 px-2 sm:px-8 cursor-pointer active:scale-95
                 shadow-md text-sm duration-300 border bg-white hover:bg-gray-100  active:bg-opacity-80
-                ease-in-out md:text-sm text-[#1a5cff] mt-2"
+                ease-in-out md:text-sm text-[#1a5cff]"
                 onClick={() => router.push('/dashboard/profile')}
               >
                 Chiqish
@@ -284,15 +284,14 @@ const CreateTest = () => {
         </div>
       </div>
       {/* createTest left blok */}
-      <div className="sticky top-0 left-0 bg-white w-56 md:w-96 pt-4 h-screen overflow-auto overflow-x-hidden z-10">
-        <div className="flex flex-col items-center">
+      <div className="sticky top-0 left-0 bg-white   lg:min-w-[13rem] pt-4 flex flex-col  overflow-hidden  h-full   z-10">
+        <div className="flex flex-col items-center overflow-y-auto w-full max-h-full overflow-x-hidden">
           {input.map((item, key) => {
             return (
               <>
                 <div
-                  className={`${
-                    testId === key ? 'bg-gray-200' : ''
-                  } relative w-full !min-h-[7rem] mb-2 pt-2 pb-2 text-sm font-semibold text-gray-800`}
+                  className={`${testId === key ? 'bg-gray-200' : ''
+                    } relative w-full  mb-2 pt-2 pb-2 text-sm font-semibold text-gray-800`}
                   onClick={() => setTestId(key)}
                 >
                   <h3 className="px-4">{key + 1} - Test</h3>
@@ -311,9 +310,8 @@ const CreateTest = () => {
                     </h2>
                     <div
                       onClick={() => setTestId(key)}
-                      className={`${
-                        testId === key ? 'ring-gray-700' : 'ring-transparent'
-                      } bg-white ring-2 hover:ring-gray-700 rounded-md p-2 w-full mt-8 h-20 grid grid-cols-2 grid-rows-2 gap-1 cursor-pointer`}
+                      className={`${testId === key ? 'ring-gray-700' : 'ring-transparent'
+                        } bg-white ring-2 hover:ring-gray-700 rounded-md p-2 w-full mt-8 h-20 grid grid-cols-2 grid-rows-2 gap-1 cursor-pointer`}
                     >
                       {item.answerList.map((answer, index) => (
                         <div key={index} className="relative border-2 rounded-md p-1">
@@ -329,19 +327,20 @@ const CreateTest = () => {
             );
           })}
           <br />
-          <div className="w-full px-4">
-            <button
-              className="btn text-sm btn-info  w-full bg-[#1a5cff] text-white rounded-lg py-2 px-3  cursor-pointer"
-              type="button"
-              onClick={() => addFormFields()}
-            >
-              Savol qo`shish
-            </button>
-          </div>
+
+        </div>
+        <div className="w-full px-4 mb-6">
+          <button
+            className="btn text-sm btn-info  w-full bg-[#1a5cff] text-white rounded-lg py-2 px-3  cursor-pointer"
+            type="button"
+            onClick={() => addFormFields()}
+          >
+            Savol qo`shish
+          </button>
         </div>
       </div>
       {/* createTest center blok */}
-      <div className="form-box p-5 w-full min-h-full pr-7 overflow-hidden bg-slate-100">
+      <div className="form-box p-5 w-full min-h-full lg:pr-10 overflow-hidden bg-slate-100">
         <div className="ml-0 md:-ml-7">
           <Breadcrumb
             page="Asosiy sahifa"
@@ -360,90 +359,88 @@ const CreateTest = () => {
               value={!input[testId] ? '' : input[testId].question}
               onChange={(e) => getValue(testId, e)}
             />
-            <div className="grid gap-2 grid-cols-2 pt-[230px]">
+            <div className="grid gap-2 sm:grid-cols-2 pt-[120px] xl:pt-[200px]">
               {!input[testId]
                 ? ''
                 : input[testId].answerList.map((item, i) => (
-                    <div
-                      key={item.id}
-                      className={
-                        item.bgColor === 'red'
-                          ? ` bg-[#e21b3c]   create-blok`
-                          : item.bgColor === 'blue'
+                  <div
+                    key={item.id}
+                    className={
+                      item.bgColor === 'red'
+                        ? ` bg-[#e21b3c]   create-blok`
+                        : item.bgColor === 'blue'
                           ? `bg-[#1368ce]  create-blok`
                           : item.bgColor === 'yellow'
-                          ? `bg-[#d89e00] create-blok`
-                          : item.bgColor === 'gren'
-                          ? `bg-[#26890c] create-blok`
-                          : ''
-                      }
-                    >
-                      <div
-                        className={`${
-                          item.svgIcon === 'diamond' ? 'rotate-45' : ''
+                            ? `bg-[#d89e00] create-blok`
+                            : item.bgColor === 'gren'
+                              ? `bg-[#26890c] create-blok`
+                              : ''
+                    }
+                  >
+                    <div
+                      className={`${item.svgIcon === 'diamond' ? 'rotate-45' : ''
                         } !min-w-[30px] leading-[100%]`}
-                      >
-                        <Image
-                          src={
-                            item.svgIcon === 'triangle'
-                              ? `${triangle.src}`
-                              : item.svgIcon === 'square'
+                    >
+                      <Image
+                        src={
+                          item.svgIcon === 'triangle'
+                            ? `${triangle.src}`
+                            : item.svgIcon === 'square'
                               ? `${square.src}`
                               : item.svgIcon === 'circle'
-                              ? `${circle.src}`
-                              : item.svgIcon === 'diamond'
-                              ? `${diamond.src}`
-                              : ''
-                          }
-                          width="30px"
-                          height="30px"
-                        />
-                      </div>
-                      <input
-                        type="text"
-                        className="w-full h-[32px] outline-none rounded-lg bg-[rgb(0_0_0_/_10%)] text-white text-[20px] pl-[10px]"
-                        value={item.body || ''}
-                        name={'body'}
-                        onChange={(e) => getValue2(testId, i, e)}
-                      />
-                      {/* check dev */}
-                      <div
-                        className={
-                          !item.isCorrect
-                            ? '!min-w-[45px] h-[45px] rounded-full border-4 border-white bg-transparent flex justify-center items-center hover:bg-[#66bf39] hover:cursor-pointer'
-                            : '!min-w-[45px] h-[45px] rounded-full border-4 border-white bg-[#66bf39] flex justify-center items-center hover:bg-[#66bf39] hover:cursor-pointer'
+                                ? `${circle.src}`
+                                : item.svgIcon === 'diamond'
+                                  ? `${diamond.src}`
+                                  : ''
                         }
-                        onClick={() => getCorrectAnswer(testId, i)}
-                      >
-                        <svg
-                          className={
-                            item.isCorrect ? 'text-white block' : ' hidden'
-                          }
-                          stroke="currentColor"
-                          fill="currentColor"
-                          strokeWidth="0"
-                          viewBox="0 0 512 512"
-                          height="1em"
-                          width="1em"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095        
-                         72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
-                          ></path>
-                        </svg>
-                      </div>
+                        width="30px"
+                        height="30px"
+                      />
                     </div>
-                  ))}
+                    <input
+                      type="text"
+                      className="w-full h-[32px] outline-none rounded-lg bg-[rgb(0_0_0_/_10%)] text-white text-[20px] pl-[10px]"
+                      value={item.body || ''}
+                      name={'body'}
+                      onChange={(e) => getValue2(testId, i, e)}
+                    />
+                    {/* check dev */}
+                    <div
+                      className={
+                        !item.isCorrect
+                          ? '!min-w-[45px] h-[45px] rounded-full border-4 border-white bg-transparent flex justify-center items-center hover:bg-[#66bf39] hover:cursor-pointer'
+                          : '!min-w-[45px] h-[45px] rounded-full border-4 border-white bg-[#66bf39] flex justify-center items-center hover:bg-[#66bf39] hover:cursor-pointer'
+                      }
+                      onClick={() => getCorrectAnswer(testId, i)}
+                    >
+                      <svg
+                        className={
+                          item.isCorrect ? 'text-white block' : ' hidden'
+                        }
+                        stroke="currentColor"
+                        fill="currentColor"
+                        strokeWidth="0"
+                        viewBox="0 0 512 512"
+                        height="1em"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095        
+                         72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+                        ></path>
+                      </svg>
+                    </div>
+                  </div>
+                ))}
             </div>
           </div>
         </form>
       </div>
       {/* createTest right blok */}
       <div
-        className={`${
-          !isToggled ? '-mr-[12.450rem]' : '!mr-0'
-        } relative h-screen duration-300 min-w-[200px] w-[200px] flex-[0_0_16rem]`}
+        className={`${!isToggled ? '-mr-[12.450rem]' : '!mr-0 '
+          } relative  h-full duration-300 lg:!min-w-[200px] lg:w-[200px]  bg-white`}
       >
         <div
           onClick={handleClick}
@@ -451,7 +448,7 @@ const CreateTest = () => {
         >
           {isToggled ? <IoIosArrowForward /> : <IoIosArrowBack />}
         </div>
-        <div className="flex flex-col  h-full shadow-lg items-center p-3 pt-7">
+        <div className="flex flex-col  h-full w-full shadow-lg items-center p-3 pt-7">
           <div className="flex flex-col items-start w-full">
             <label className="text-[16px] pb-2 text-gray-700">
               Savol ko`rinishi:{' '}
@@ -489,7 +486,7 @@ const CreateTest = () => {
             </select>
           </div>
 
-          <div className="">
+          <div className="w-full">
             <label className="font-bold text-lg text-gray-500">Tavsif</label>
 
             <textarea

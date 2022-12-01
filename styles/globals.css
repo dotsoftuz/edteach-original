@@ -20,7 +20,6 @@ html {
   justify-content: center;
 }
 
-
 @layer components {
   .about-img,
   .image-fulled span {
@@ -37,5 +36,4 @@ html {
   .image-fulled span img {
     @apply rounded-3xl   object-cover object-center;
   }
-  
 }
