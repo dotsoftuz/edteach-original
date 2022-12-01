@@ -1,7 +1,13 @@
-import React from 'react';
+import { React, useEffect, useState } from 'react';
 import Link from 'next/link';
+import { FaTimes } from 'react-icons/fa';
+
 
 const Header = () => {
+
+  const [isToggled, setIsToggled] = useState(false);
+  const handleClick = () => setIsToggled(!isToggled);
+
   return (
     <header aria-label="Site Header" className="border-b">
       <div className="mx-auto max-w-screen-xl p-4">
@@ -11,11 +17,16 @@ const Header = () => {
               <span className='text-sm md:text-xl font-semibold'>edTeach</span>
             </Link>
           </div>
-
+          <div onClick={handleClick} className={isToggled ? "window-rgb rgb-active" : "window-rgb"}></div>
           <nav
             aria-label="Site Nav"
-            className="hidden gap-8 text-sm font-medium md:flex duration-700"
+            className={isToggled ? "nav nav-mobile" : "nav"}
           >
+            <div className='w-full border-b-[1px] justify-end lg:hidden flex'>
+              <div className='w-[50px] h-[50px] flex flex-col justify-center items-center text-[20px] text-gray-600 border-l-[1px]'><FaTimes onClick={handleClick} />
+              </div>
+              </div>
+
             <a className="text-sm md:text-base font-semibold text-gray-500" href="#">
               Asosiy
             </a>
@@ -31,6 +42,17 @@ const Header = () => {
             <a className="text-sm md:text-base font-semibold text-gray-500" href="#contact">
               Aloqa
             </a>
+
+            
+          <div className="md:hidden flex-1 items-start mt-5  flex">
+            <Link
+              href="/dashboard"
+            >
+              <a className='w-fit rounded-lg py-2 !px-8  font-medium shadow-md text-sm duration-300
+                active:bg-opacity-80 cursor-pointer ease-in-out active:scale-95 bg-purple-500 
+                 dark:bg-[#1a5cff] md:text-sm text-white hover:shadow-md'>Kirish</a>
+            </Link>
+          </div>
           </nav>
 
           <div className="hidden flex-1 items-center justify-end gap-4 sm:flex">
@@ -38,15 +60,16 @@ const Header = () => {
               href="/dashboard"
             >
               <a className='w-fit rounded-lg py-2 px-8 font-medium shadow-md text-sm duration-300
-          active:bg-opacity-80 cursor-pointer ease-in-out active:scale-95 bg-purple-500 
-          dark:bg-[#1a5cff] md:text-sm text-white hover:shadow-md'>Kirish</a>
+                active:bg-opacity-80 cursor-pointer ease-in-out active:scale-95 bg-purple-500 
+                 dark:bg-[#1a5cff] md:text-sm text-white hover:shadow-md'>Kirish</a>
             </Link>
           </div>
 
           <div className="lg:hidden">
             <button
-              className="text-sm md:text-base font-semibold rounded-lg bg-gray-100 p-2 text-gray-600"
+              className="text-sm md:text-base font-semibold z-100 rounded-lg bg-gray-100 p-2 text-gray-600"
               type="button"
+              onClick={handleClick}
             >
               <span className="sr-only">Open menu</span>
               <svg
