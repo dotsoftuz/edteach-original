@@ -14,7 +14,7 @@ const Tests = () => {
   const pageSize = 8;
   const [currentPage, setCurrentPage] = useState(1);
 
-  const { questions } = useUserContext();
+  const { questions, getUsertime } = useUserContext();
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
@@ -29,7 +29,7 @@ const Tests = () => {
       status: 'started',
       pin: String(Math.floor(Math.random() * 900000) + 1000),
       id: id,
-      questionIndex: 0
+      questionIndex: 0,
     };
 
     await updateDoc(collectionRef, payload).then(() => {
@@ -42,6 +42,8 @@ const Tests = () => {
       });
     });
   };
+
+
 
   return (
     <div>
@@ -144,6 +146,7 @@ const Tests = () => {
                 }
               })
               .map((val, key) => {
+                console.log(val.date);
                 return (
                   <div
                     key={key}
@@ -184,6 +187,16 @@ const Tests = () => {
                           </span>
                         </div>
                       </div>
+                      <div>
+                        <div className="flex items-center space-x-2">
+                          <h2 className="text-sm md:text-base font-semibold">
+                            Test yaratilgan vaqt:
+                          </h2>
+                          <span className="bg-purple-500 text-white text-xs font-semibold px-1 rounded-full">
+                            {getUsertime(new Date(val.prefixTime))}
+                          </span>
+                        </div>
+                      </div>
                     </div>
 
                     <div onClick={() => sendData(val.id)}>
@@ -193,7 +206,7 @@ const Tests = () => {
                             testCard ? 'bottom-2' : 'top-2'
                           } absolute  right-2 flex items-center space-x-1 hover:text-purple-500 cursor-pointer`}
                         >
-                          <p className="text-lg font-semibold">Boshloash</p>
+                          <p className="text-lg font-semibold">Boshlash</p>
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"

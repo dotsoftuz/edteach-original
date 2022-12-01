@@ -16,7 +16,6 @@ import square from '../../../public/images/square.svg';
 import circle from '../../../public/images/circle.svg';
 import diamond from '../../../public/images/diamond.svg';
 
-import { Sidebar } from 'components';
 import { useUserContext } from 'context/userContext';
 import { db } from '../../../firebase';
 import Image from 'next/image';
