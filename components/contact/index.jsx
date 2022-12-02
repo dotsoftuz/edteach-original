@@ -3,7 +3,8 @@ import emailjs from '@emailjs/browser';
 import toast, { Toaster } from 'react-hot-toast';
 import Image from 'next/image';
 import none from '../../public/images/about-img1.jpg';
-import { FiMenu } from 'react-icons/fi';
+import {IoLocationOutline, IoCallOutline} from "react-icons/io5"
+import {CiMail} from "react-icons/ci"
 
 const Contact = () => {
   const [inputs, setInputs] = useState({});
@@ -180,7 +181,7 @@ const Contact = () => {
               <div className="mb-8 flex w-full max-w-[420px] items-center rounded-lg bg-white p-4 shadow-md shadow-blue-500/10">
                 <div className="mr-6 flex h-[60px] w-full max-w-[60px] items-center justify-center overflow-hidden rounded bg-blue-500 bg-opacity-5 text-blue-500 sm:h-[70px] sm:max-w-[70px]">
                   <div className="text-3xl">
-                    <FiMenu />
+                    <IoLocationOutline />
                   </div>
                 </div>
                 <div className="w-full">
@@ -196,7 +197,7 @@ const Contact = () => {
               <div className="mb-8 flex w-full max-w-[420px] items-center rounded-lg bg-white p-4 shadow-md shadow-blue-500/10">
                 <div className="mr-6 flex h-[60px] w-full max-w-[60px] items-center justify-center overflow-hidden rounded bg-blue-500 bg-opacity-5 text-blue-500 sm:h-[70px] sm:max-w-[70px]">
                   <div className="text-3xl">
-                    <FiMenu />
+                    <IoCallOutline />
                   </div>
                 </div>
                 <div className="w-full">
@@ -212,7 +213,7 @@ const Contact = () => {
               <div className="mb-8 flex w-full max-w-[420px] items-center rounded-lg bg-white p-4 shadow-md shadow-blue-500/10">
                 <div className="mr-6 flex h-[60px] w-full max-w-[60px] items-center justify-center overflow-hidden rounded bg-blue-500 bg-opacity-5 text-blue-500 sm:h-[70px] sm:max-w-[70px]">
                   <div className="text-3xl">
-                    <FiMenu />
+                    <CiMail />
                   </div>
                 </div>
                 <div className="w-full">

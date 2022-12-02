@@ -44,7 +44,7 @@ const Feature = () => {
                 <div className="mb-3 w-16">
                   <Image src={none} alt="" />
                 </div>
-                <h3 className="text-lg font-bold text-slate-600">Web Design</h3>
+                <h3 className="text-lg font-bold text-slate-600">Yarating</h3>
                 <Link href="#">
                   <a className="text-sm text-blue-500">Learn more</a>
                 </Link>
@@ -53,7 +53,7 @@ const Feature = () => {
                 <div className="mb-3 w-16">
                   <Image src={none} alt="" />
                 </div>
-                <h3 className="text-lg font-bold text-slate-600">Automation</h3>
+                <h3 className="text-lg font-bold text-slate-600">Ulashing</h3>
                 <Link href="#">
                   <a className="text-sm text-blue-500">Learn more</a>
                 </Link>
@@ -63,7 +63,7 @@ const Feature = () => {
                   <Image src={none} alt="" />
                 </div>
                 <h3 className="text-lg font-bold text-slate-600">
-                  Infographics
+                  O'ynang
                 </h3>
                 <Link href="#">
                   <a className="text-sm text-blue-500">Learn more</a>

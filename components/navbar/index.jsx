@@ -29,28 +29,28 @@ const Header = () => {
                 <li>
                   <Link href="#">
                     <a className="text-lg font-medium text-slate-700 duration-200 hover:text-blue-600 lg:text-base">
-                      Home
+                      Asosiy
                     </a>
                   </Link>
                 </li>
                 <li>
                   <Link href="#">
                     <a className="text-lg font-medium text-slate-700 duration-200 hover:text-blue-600 lg:text-base">
-                      About
+                      Obuna
                     </a>
                   </Link>
                 </li>
                 <li>
                   <Link href="#">
                     <a className="text-lg font-medium text-slate-700 duration-200 hover:text-blue-600 lg:text-base">
-                      Services
+                      Xizmatlar
                     </a>
                   </Link>
                 </li>
                 <li>
                   <Link href="#">
                     <a className="text-lg font-medium text-slate-700 duration-200 hover:text-blue-600 lg:text-base">
-                      Portfolio
+                      Kurslar
                     </a>
                   </Link>
                 </li>
@@ -64,7 +64,7 @@ const Header = () => {
                 <li>
                   <Link href="#">
                     <a className="text-lg font-medium text-slate-700 duration-200 hover:text-blue-600 lg:text-base">
-                      Contact
+                      Aloqa
                     </a>
                   </Link>
                 </li>

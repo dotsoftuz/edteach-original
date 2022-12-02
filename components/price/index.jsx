@@ -1,8 +1,7 @@
 import React from 'react';
 
 const PriceCard = (props) => {
-  let { degree, price, description1, description2, text1, text2, text3, text4, link } =
-    props;
+  let { degree, price, description1, description2, text1, text2, text3, text4, link } = props;
   return (
     // <div className="sm:min-h-[530px] xl:min-h-[500px] sm:relative rounded-lg shadow-lg p-5">
     //   <div className="flex flex-col items-center">
@@ -178,7 +177,6 @@ const PriceCard = (props) => {
     //     </a>
     //   </div>
     // </div>
-
     <div className="relative flex flex-col p-8 bg-white rounded-lg border-[1px] shadow-[5px_5px_5px_rgb(147_197_253_/_0.1)]">
       <div className="flex-1">
         <h3 className="text-xl font-semibold text-neutral-600">{degree}</h3>
@@ -187,11 +185,9 @@ const PriceCard = (props) => {
           <span className="ml-1 text-xl font-semibold">/month</span>
         </p>
         <p className="mt-6 text-gray-500">{description1}</p>
-
         {/* <!-- Feature list --> */}
         <ul role="list" className="pt-6 mt-6 space-y-6 border-t">
           <span className="text-lg font-semibold text-neutral-600">{description2}</span>
-
           <li className={text1 ? "flex" : "hidden"}>
             <div className="inline-flex items-center min-w-[1.5rem] w-[1.5rem] h-6 bg-blue-600 rounded-xl">
               <svg className="flex-shrink-0 w-4 h-4 mx-auto text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -200,7 +196,6 @@ const PriceCard = (props) => {
             </div>
             <span className="ml-3 text-neutral-600">{text1}</span>
           </li>
-
           <li className={text2 ? "flex" : "hidden"}>
             <div className="inline-flex items-center min-w-[1.5rem] w-[1.5rem] h-6 bg-blue-600 rounded-xl">
               <svg className="flex-shrink-0 w-4 h-4 mx-auto text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -209,7 +204,6 @@ const PriceCard = (props) => {
             </div>
             <span className="ml-3 text-neutral-600">{text2}</span>
           </li>
-
           <li className={text3 ? "flex" : "hidden"}>
             <div className="inline-flex items-center min-w-[1.5rem] w-[1.5rem] h-6 bg-blue-600 rounded-xl">
               <svg className="flex-shrink-0 w-4 h-4 mx-auto text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -218,7 +212,6 @@ const PriceCard = (props) => {
             </div>
             <span className="ml-3 text-neutral-600">{text3}</span>
           </li>
-
           <li className={text4 ? "flex" : "hidden"}>
             <div className="inline-flex items-center min-w-[1.5rem] w-[1.5rem] h-6 bg-blue-600 rounded-xl">
               <svg className="flex-shrink-0 w-4 h-4 mx-auto text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -230,7 +223,7 @@ const PriceCard = (props) => {
         </ul>
       </div>
       <div className="mt-6 rounded-lg outline-none">
-        <a href={link}  className="w-full items-center block px-10 py-3.5 text-base font-medium text-center  text-blue-600 hover:bg-blue-500  hover:text-white transition duration-500 ease-in-out transform border-[2px]  border-white shadow-md rounded-xl  focus:border-gray-500 focus:ring-offset-2 focus:ring-gray-500 bg-white"> Tanlash </a>
+        <a href={link} className="w-full items-center block px-10 py-3.5 text-base font-medium text-center  text-blue-600 hover:bg-blue-500  hover:text-white transition duration-500 ease-in-out transform border-[2px]  border-white shadow-md rounded-xl  focus:border-gray-500 focus:ring-offset-2 focus:ring-gray-500 bg-white"> Tanlash </a>
       </div>
     </div>
   );
@@ -246,7 +239,7 @@ const Price = () => {
               degree="Oddiy"
               price="1"
               description1="Yakka taribdagi obuna uchun"
-              description2="What's included?"
+              description2="Nimalar kiradi?"
               text1="Savol javob"
               text2="Viktorina yaratish uchun"
               text3="Savol uchun 50 ta simvol"
@@ -257,7 +250,7 @@ const Price = () => {
               degree="O'rta"
               price="8"
               description1="Yakka taribdagi obuna uchun"
-              description2="What's included?"
+              description2="Nimalar kiradi?"
               text1="Savol-javoblar va viktorina yaratish"
               text2="Ko’p variantlilik, to’g’ri/noto’g’ri, bo’sh joyni to’ldirish"
               text3="Taqdimot namoyish etish"
@@ -268,7 +261,7 @@ const Price = () => {
               degree="Maxsus"
               price="10"
               description1="Korporativ obuna"
-              description2="What's included?"
+              description2="Nimalar kiradi?"
               text1="Cheklanmagan miqdordagi foydalanish"
               link="#"
             />
