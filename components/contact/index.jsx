@@ -34,8 +34,11 @@ const Contact = () => {
       );
   };
   return (
-    <div id='contact' className="container mx-auto px-5 pt-14  sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
-       <h2 className="text-center text-xl md:text-2xl lg:text-3xl font-semibold uppercase  text-[#333333]">
+    <div
+      id="contact"
+      className="container mx-auto px-5 pt-14  sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8"
+    >
+      <h2 className="text-center text-xl md:text-2xl lg:text-3xl font-semibold uppercase  text-[#333333]">
         AlOQAGA CHIQINCH
       </h2>
       {/* Message send */}
@@ -142,7 +145,7 @@ const Contact = () => {
           <button
             type="submit"
             className="w-fit flex mt-4 items-center rounded-lg py-2 px-8 font-medium shadow-md text-sm md:text-base duration-300
-            active:bg-opacity-80 cursor-pointer ease-in-out active:scale-95 bg-purple-500 
+            active:bg-opacity-80 cursor-pointer ease-in-out active:scale-95 bg-blue-500 
             dark:bg-[#1a5cff] text-white hover:shadow-md"
           >
             Yuborish

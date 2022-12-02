@@ -8,7 +8,7 @@ const Header = () => {
         <div className="flex items-center justify-between gap-4 lg:gap-10">
           <div className="flex lg:w-0 lg:flex-1">
             <Link href="/">
-              <span className='text-sm md:text-xl font-semibold'>edTeach</span>
+              <span className="text-sm md:text-xl font-semibold">edTeach</span>
             </Link>
           </div>
 
@@ -16,30 +16,47 @@ const Header = () => {
             aria-label="Site Nav"
             className="hidden gap-8 text-sm font-medium md:flex duration-700"
           >
-            <a className="text-sm md:text-base font-semibold text-gray-500" href="#">
+            <a
+              className="text-sm md:text-base font-semibold text-gray-500"
+              href="#"
+            >
               Asosiy
             </a>
-            <a className="text-sm md:text-base font-semibold text-gray-500 duration-700" href="#price">
+            <a
+              className="text-sm md:text-base font-semibold text-gray-500 duration-700"
+              href="#price"
+            >
               Obuna
             </a>
-            <a className="text-sm md:text-base font-semibold text-gray-500" href="">
+            <a
+              className="text-sm md:text-base font-semibold text-gray-500"
+              href=""
+            >
               Xizmatlar
             </a>
-            <a className="text-sm md:text-base font-semibold text-gray-500" href="">
+            <a
+              className="text-sm md:text-base font-semibold text-gray-500"
+              href=""
+            >
               Kurslar
             </a>
-            <a className="text-sm md:text-base font-semibold text-gray-500" href="#contact">
+            <a
+              className="text-sm md:text-base font-semibold text-gray-500"
+              href="#contact"
+            >
               Aloqa
             </a>
           </nav>
 
           <div className="hidden flex-1 items-center justify-end gap-4 sm:flex">
-            <Link
-              href="/dashboard"
-            >
-              <a className='w-fit rounded-lg py-2 px-8 font-medium shadow-md text-sm duration-300
-          active:bg-opacity-80 cursor-pointer ease-in-out active:scale-95 bg-purple-500 
-          dark:bg-[#1a5cff] md:text-sm text-white hover:shadow-md'>Kirish</a>
+            <Link href="/dashboard">
+              <a
+                className="w-fit rounded-lg py-2 px-8 font-medium shadow-md text-sm duration-300
+          active:bg-opacity-80 cursor-pointer ease-in-out active:scale-95 bg-blue-500 
+          dark:bg-[#1a5cff] md:text-sm text-white hover:shadow-md"
+              >
+                Kirish
+              </a>
             </Link>
           </div>
 

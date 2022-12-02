@@ -164,7 +164,7 @@ const About = () => {
             <a
               href="#_"
               className="w-fit flex items-center rounded-lg py-3 px-8 font-medium shadow-md text-sm md:text-base duration-300
-              active:bg-opacity-80 cursor-pointer ease-in-out active:scale-95 bg-purple-500 
+              active:bg-opacity-80 cursor-pointer ease-in-out active:scale-95 bg-blue-500 
               dark:bg-[#1a5cff] text-white hover:shadow-md"
             >
               Hoziroq boshlang

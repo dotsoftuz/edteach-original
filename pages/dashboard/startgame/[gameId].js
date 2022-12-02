@@ -203,7 +203,7 @@ function GameID() {
                             <div
                               className={`${
                                 time === 0 ? 'hidden' : ''
-                              } absolute top-1/2 left-1/2 md:left-10 z-50 transform -translate-y-1/2 -translate-x-1/2 md:-translate-x-0 w-20 h-20 md:w-32 md:h-32 rounded-full flex items-center justify-center bg-purple-500 text-white`}
+                              } absolute top-1/2 left-1/2 md:left-10 z-50 transform -translate-y-1/2 -translate-x-1/2 md:-translate-x-0 w-20 h-20 md:w-32 md:h-32 rounded-full flex items-center justify-center bg-blue-500 text-white`}
                             >
                               <p className="visible text-4xl font-semibold md:text-5xl md:font-bold text-white">
                                 {time}
@@ -312,8 +312,8 @@ function GameID() {
                   )}
                 </>
               ) : (
-                <div className="bg-purple-400 h-screen" key={game.id}>
-                  <div className="bg-purple-500 w-screen py-3">
+                <div className="bg-blue-400 h-screen" key={game.id}>
+                  <div className="bg-blue-500 w-screen py-3">
                     <div className="flex items-center space-x-5 bg-white w-fit p-5 rounded-lg mx-auto">
                       <div className="text-xl font-semibold">
                         O&apos;yinga qo&apos;shilish uchun: <br />
@@ -321,7 +321,7 @@ function GameID() {
                           href="https://edteach-game.uz "
                           target="_blank"
                           rel="noreferrer"
-                          className="font-bold cursor-pointer hover:text-purple-500"
+                          className="font-bold cursor-pointer hover:text-blue-500"
                         >
                           www.edteach-game.uz
                         </a>{' '}
@@ -348,7 +348,7 @@ function GameID() {
                               }, 5000);
                             }}
                             className={`${
-                              copyPin ? 'bg-purple-500' : 'bg-gray-500'
+                              copyPin ? 'bg-blue-500' : 'bg-gray-500'
                             }  hidden absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 right-0 text-lg text-white font-semibold bg-opacity-40 w-full h-full group-hover:inline-flex items-center justify-center rounded-lg`}
                           >
                             {copyPin ? 'Nusxalandi!' : 'Nusxalash!'}
@@ -364,12 +364,12 @@ function GameID() {
                       </h1>
                       <div className="absolute top-2 right-5 flex items-center space-x-2 md:space-x-3">
                         <button
-                          className="p-3 bg-purple-500 hover:bg-purple-600 duration-200 text-white font-bold rounded-xl mt-4"
+                          className="p-3 bg-blue-500 hover:bg-blue-600 duration-200 text-white font-bold rounded-xl mt-4"
                           onClick={() => sendData(game.id)}
                         >
                           O&apos;yinni boshlash
                         </button>
-                        <div className="flex items-center space-x-2 bg-purple-500 hover:bg-purple-600 duration-200 mt-4 rounded-lg py-2 px-3">
+                        <div className="flex items-center space-x-2 bg-blue-500 hover:bg-blue-600 duration-200 mt-4 rounded-lg py-2 px-3">
                           <FaUser className="text-white text-2xl" />
                           <span className="text-xl text-white font-bold">
                             {players.length}
@@ -385,7 +385,7 @@ function GameID() {
                             return (
                               <li
                                 onClick={() => deletePlayer(item.id)}
-                                className="flex items-center justify-between w-fit hover:line-through cursor-pointer bg-purple-500 hover:bg-rose-500 duration-200 text-white px-4 py-3 md:px-6 md:py-4 my-2 rounded-lg space-x-2 text-lg md:text-xl font-semibold"
+                                className="flex items-center justify-between w-fit hover:line-through cursor-pointer bg-blue-500 hover:bg-rose-500 duration-200 text-white px-4 py-3 md:px-6 md:py-4 my-2 rounded-lg space-x-2 text-lg md:text-xl font-semibold"
                                 key={item.id}
                               >
                                 <p>{index + 1}</p>

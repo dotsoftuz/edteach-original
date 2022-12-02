@@ -3,14 +3,14 @@ import { useRouter } from 'next/router';
 import { MdOutlineSpaceDashboard, MdMenu } from 'react-icons/md';
 import { IoExitOutline } from 'react-icons/io5';
 import { FiUser, FiLink } from 'react-icons/fi';
-import { GrTest } from 'react-icons/gr';
+import { BiTestTube } from 'react-icons/bi';
 import { useState } from 'react';
 import { BsPlusCircleFill } from 'react-icons/bs';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import { useUserContext } from '../../context/userContext';
 
 const Sidebar = ({ children }) => {
-  const [sidebarShowDesktop, setSidebarShowDesktop] = useState(true);
+  const [sidebarShowDesktop, setSidebarShowDesktop] = useState(false);
   const [sidebarShowMobile, setSidebarShowMobile] = useState(true);
   const router = useRouter();
   const { logoutUser, userName } = useUserContext();
@@ -29,7 +29,7 @@ const Sidebar = ({ children }) => {
       path: '/dashboard',
       icon: <MdOutlineSpaceDashboard />,
     },
-    { title: 'Testlarim', path: '/dashboard/question', icon: <GrTest /> },
+    { title: 'Testlarim', path: '/dashboard/question', icon: <BiTestTube /> },
     { title: 'Foydali', path: '/dashboard/useful', icon: <FiLink /> },
     { title: 'Profil', path: '/dashboard/profile', icon: <FiUser /> },
     {
@@ -61,17 +61,13 @@ const Sidebar = ({ children }) => {
         <div
           className={`${
             sidebarShowDesktop ? 'w-[15rem] sm:w-[17rem] md:w-[20rem]' : 'w-24'
-          } h-screen bg-gray-200 shadow-xl duration-200 space-y-6 p-2 md:p-5`}
+          } h-screen shadow-2xl duration-200 space-y-6 p-2 md:p-5`}
         >
           <div className="relative flex items-center">
             <Link href="/dashboard/profile">
               <div className="flex items-center justify-center rounded-2xl border-2 border-gray-300 bg-transparent w-fit p-0.5 cursor-pointer">
                 <div className="group relative">
-                  <img
-                    className="rounded-full w-12 h-12 object-contain"
-                    src="https://e7.pngegg.com/pngimages/748/695/png-clipart-circle-purple-font-purple-circle-violet-circle-frame-thumbnail.png"
-                    alt=""
-                  />
+                  <div className="rounded-full w-12 h-12 bg-blue-500" />
                   <h2 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-2xl text-white">
                     {userName.charAt(0)}
                   </h2>
@@ -95,7 +91,7 @@ const Sidebar = ({ children }) => {
                     ? '-right-10 rounded-r-lg'
                     : '-right-5 rounded-l-lg'
                 }
-                  absolute px-0.5 py-3 bg-gray-300 hidden md:block text-[#161925] cursor-pointer`}
+                  absolute px-0.5 py-3 bg-blue-200 hidden md:block text-blue-500 hover:bg-blue-100 cursor-pointer`}
             >
               {sidebarShowDesktop ? <IoIosArrowBack /> : <IoIosArrowForward />}
             </div>
@@ -111,14 +107,26 @@ const Sidebar = ({ children }) => {
                   <Link href={item.path}>
                     <div
                       className={`${
-                        router.pathname == item.path ? 'bg-gray-300' : ''
-                      } flex items-center px-3 py-2 my-1 rounded-lg cursor-pointer hover:bg-gray-300 group`}
+                        router.pathname == item.path
+                          ? 'bg-[#3b82f6]'
+                          : 'bg-transparent'
+                      } flex items-center px-3 py-2 md:py-3 my-1 hover:text-white rounded-lg cursor-pointer hover:bg-[#3b82f6] group`}
                       onClick={item.logout ? handleClick : ''}
                     >
-                      <span className="text-2xl">{item.icon}</span>
+                      <span
+                        className={`${
+                          router.pathname == item.path ? 'text-white' : ''
+                        } text-2xl`}
+                      >
+                        {item.icon}
+                      </span>
                       <h1
-                        className={` ${
-                          sidebarShowDesktop ? listTextDefaultClass : 'hidden'
+                        className={`${
+                          router.pathname == item.path ? 'text-white' : ''
+                        } ${
+                          sidebarShowDesktop
+                            ? ' font-semibold ml-4 cursor-pointer'
+                            : 'hidden'
                         }`}
                       >
                         {item.title}
@@ -135,8 +143,8 @@ const Sidebar = ({ children }) => {
             </small>
           </div>
           <Link href="/dashboard/create-test">
-            <div className="flex flex-col items-center justify-center capitalize cursor-pointer border hover:border-purple-500 hover:dark:border-white py-4 rounded-lg bg-[#f2f3f7]">
-              <BsPlusCircleFill className="text-purple-500 text-3xl bg-white rounded-full shadow-xl" />
+            <div className="flex flex-col items-center justify-center capitalize cursor-pointer border hover:border-blue-500 hover:dark:border-white py-4 rounded-lg bg-[#f2f3f7]">
+              <BsPlusCircleFill className="text-blue-500 text-3xl bg-white rounded-full shadow-xl" />
               <small
                 className={
                   sidebarShowDesktop
