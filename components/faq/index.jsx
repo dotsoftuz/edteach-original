@@ -4,14 +4,13 @@ import { FiMenu } from 'react-icons/fi';
 import none from '../../public/images/about-img1.jpg';
 
 const Faqbox = props => {
-    let { text, description, index } = props;
-
-    const [isToggled, setIsToggled] = useState(0);
-    const handleClick = () => setIsToggled(index);
+    let { text, description } = props
+    const [isToggled, setIsToggled] = useState(false);
+    const handleClick = () => setIsToggled(!isToggled);
 
     return (
         <li className="relative mb-5">
-            <button type="button" onClick={() => handleClick(index)} className="w-full rounded-lg bg-blue-50 px-8 py-6 text-left">
+            <button type="button" onClick={handleClick} className="w-full rounded-lg bg-blue-50 px-8 py-6 text-left">
                 <div className="flex items-center justify-between">
                     <h4 className="font-medium text-slate-600">{text}</h4>
                     <div className="w-8 text-lg text-blue-500">
@@ -19,7 +18,8 @@ const Faqbox = props => {
                     </div>
                 </div>
             </button>
-            <div className={`${isToggled === index ? "!max-h-[100px]" : "!h-[0px]"} relative max-h-0 overflow-hidden rounded-b-lg bg-blue-50/30 transition-all duration-500 `}>
+
+            <div className={`${isToggled ? "max-h-96" : "h-0"} relative max-h-0 overflow-hidden rounded-b-lg bg-blue-50/30 transition-all duration-500 `}>
                 <div className="p-6">
                     <p className="text-slate-500">{description}</p>
                 </div>
@@ -45,27 +45,23 @@ const Faq = () => {
                         </div>
                     </div>
                     <div className="md:w-6/12">
-                        <div>
+                        <div className="" x-data="{selected:1}">
                             <ul>
                                 <Faqbox
                                     text="Lorem ipsum dolor sit, amet consectetur?"
                                     description="ipsum! Assumenda, dolorem nihil. Commodi, qui? Officiis provident, cumque perspiciatis magni commodi rem nihil,"
-                                    index={1}
                                 />
                                 <Faqbox
                                     text="Lorem ipsum dolor sit, amet consectetur?"
                                     description="ipsum! Assumenda, dolorem nihil. Commodi, qui? Officiis provident, cumque perspiciatis magni commodi rem nihil,"
-                                    index={2}
                                 />
                                 <Faqbox
                                     text="Lorem ipsum dolor sit, amet consectetur?"
                                     description="ipsum! Assumenda, dolorem nihil. Commodi, qui? Officiis provident, cumque perspiciatis magni commodi rem nihil,"
-                                    index={3}
                                 />
                                 <Faqbox
                                     text="Lorem ipsum dolor sit, amet consectetur?"
                                     description="ipsum! Assumenda, dolorem nihil. Commodi, qui? Officiis provident, cumque perspiciatis magni commodi rem nihil,"
-                                    index={4}
                                 />
                             </ul>
                         </div>
