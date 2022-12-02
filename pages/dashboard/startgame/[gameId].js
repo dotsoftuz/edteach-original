@@ -27,7 +27,6 @@ function GameID() {
   const [players, setPlayers] = useState([]);
   const [counter, setCounter] = useState(false);
 
-  const [testCount, setTestCount] = useState(30);
   const [testCounter, setTestCounter] = useState(false);
   const [disabled, setDisabled] = useState(false);
   const [count, setCount] = useState(10);
@@ -55,7 +54,6 @@ function GameID() {
 
     await updateDoc(collectionRef, payload).then(() => {
       setCounter(true);
-      setTestCount(+questions.map((item) => item.questionTime));
     });
   };
 
@@ -142,8 +140,6 @@ function GameID() {
       setPodium(true);
     }
   };
-
-  
 
   return (
     <div className="flex items-center justify-center h-screen">
@@ -356,8 +352,13 @@ function GameID() {
                 </div>
 
                 <button
-                  className="px-3 py-3 bg-emerald-400 text-white font-bold rounded-xl mt-4"
+                  className={
+                    players.length === 0
+                      ? 'px-3 py-3 bg-emerald-400 text-white font-bold rounded-xl mt-4 cursor-not-allowed'
+                      : 'px-3 py-3 bg-emerald-400 text-white font-bold rounded-xl mt-4 '
+                  }
                   onClick={() => sendData(game.id)}
+                  disabled={players.length === 0}
                 >
                   O`yinni boshlash
                 </button>
