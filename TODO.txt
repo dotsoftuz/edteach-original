@@ -4,8 +4,8 @@ htmlFor copy and paste: Check - ✔️, Not done - ❌;
 
 Aziz: 
  - [Sign Up = ✔️] va Google 
- - Testga qoshilish
- - Testni yechish
+ - Testga qoshilish✔️
+ - Testni yechish✔️
  - Testni javobini chiqarish
 
 Muhammad:

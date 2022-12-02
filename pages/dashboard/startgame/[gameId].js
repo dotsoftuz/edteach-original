@@ -1,5 +1,8 @@
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
+import Image from 'next/image';
+import Head from 'next/head';
+import Link from 'next/link';
 import {
   collection,
   doc,
@@ -9,21 +12,20 @@ import {
   updateDoc,
   where,
 } from 'firebase/firestore';
+
 import { BsCheckLg } from 'react-icons/bs';
 import { CgClose } from 'react-icons/cg';
 import { FaUser } from 'react-icons/fa';
 import { MdOutlineKeyboardArrowLeft } from 'react-icons/md';
-
-import triangle from '../../../public/images/triangle.svg';
-import square from '../../../public/images/square.svg';
-import circle from '../../../public/images/circle.svg';
-import diamond from '../../../public/images/diamond.svg';
-
+import triangle from 'public/images/triangle.svg';
+import square from 'public/images/square.svg';
+import circle from 'public/images/circle.svg';
+import diamond from 'public/images/diamond.svg';
+import { CgClose } from 'react-icons/cg';
+import { BsCheckLg } from 'react-icons/bs';
+import { FaUser } from 'react-icons/fa';
 import { useUserContext } from 'context/userContext';
 import { db } from '../../../firebase';
-import Image from 'next/image';
-import Head from 'next/head';
-import Link from 'next/link';
 
 function GameID() {
   const router = useRouter();
@@ -31,18 +33,15 @@ function GameID() {
   const [questions, setQuestions] = useState([]);
   const [players, setPlayers] = useState([]);
   const [counter, setCounter] = useState(false);
-
-  const [testCount, setTestCount] = useState(30);
+  const [questionTime, setQuestionTime] = useState(false);
+  const [questionCount, setQuestionCount] = useState(3);
   const [testCounter, setTestCounter] = useState(false);
   const [disabled, setDisabled] = useState(false);
   const [count, setCount] = useState(10);
-
   const [time, setTime] = useState();
   const [showButton, setShowButton] = useState(false);
   const [singleData, setSingleData] = useState({});
   const [podium, setPodium] = useState(false);
-  // const [nexQuestion, setNexQuestion] = useState(false);
-
   const [copyPin, setCopyPin] = useState(false);
 
   const deletePlayer = (id) => {
@@ -62,9 +61,9 @@ function GameID() {
 
     await updateDoc(collectionRef, payload).then(() => {
       setCounter(true);
-      setTestCount(+questions.map((item) => item.questionTime));
     });
   };
+  // start timer
 
   useEffect(() => {
     if (counter !== false) {
@@ -73,14 +72,32 @@ function GameID() {
           setCount(count - 1);
         }
         if (count === 0) {
-          setDisabled(true);
-          setTestCounter(true);
+          setQuestionTime(true);
         }
       }, 1000);
 
       return () => clearInterval(interval);
     }
   }, [count, counter, questions]);
+
+  // Animation 3s
+  useEffect(() => {
+    if (questionTime !== false) {
+      const interval2 = setInterval(() => {
+        if (questionCount) {
+          setQuestionCount(questionCount - 1);
+        }
+        if (questionCount === 0) {
+          setDisabled(true);
+          setTestCounter(true);
+        }
+      }, 1000);
+
+      return () => clearInterval(interval2);
+    }
+  }, [questionTime, questionCount]);
+
+  //question timer
 
   useEffect(() => {
     if (testCounter !== false) {
@@ -137,12 +154,16 @@ function GameID() {
   };
 
   const nextQuestion = async (id, length, index) => {
+    setTestCounter(true);
+    setQuestionCount(3);
+    setDisabled(false);
     if (index + 1 < length) {
       setTime(singleData.questionTime);
       const collectionRef = doc(db, `question`, id);
       const docSnap = await getDoc(collectionRef);
       const payload = {
         questionIndex: docSnap.data().questionIndex + 1,
+        next: true,
       };
 
       await updateDoc(collectionRef, payload);
@@ -169,7 +190,7 @@ function GameID() {
                     </p>
                   </div>
                   {!disabled ? (
-                    ''
+                    <>{questionCount}</>
                   ) : (
                     <>
                       {podium ? (
@@ -374,6 +395,7 @@ function GameID() {
                         <button
                           className="text-sm md:text-base p-2 md:p-3 bg-blue-500 hover:bg-blue-600 duration-200 text-white font-bold rounded-xl"
                           onClick={() => sendData(game.id)}
+                          disabled={players.length === 0}
                         >
                           O&apos;yinni boshlash
                         </button>
