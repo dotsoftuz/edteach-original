@@ -24,10 +24,10 @@ export default function Home() {
         <Feature />
         <About />
         <Service/>
+        <Price />
         <Faq/>
         <Blog/>
         <Contact />
-        <Price />
         <Footer />
       </main>
     </div>
