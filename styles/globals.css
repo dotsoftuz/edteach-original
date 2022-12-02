@@ -45,21 +45,7 @@ html {
     @apply rounded-3xl   object-cover object-center;
   }
   
-<<<<<<< HEAD
-  .nav{
-    @apply gap-8 text-sm bg-white font-medium flex duration-500 lg:translate-x-0    lg:w-auto z-20
-  }
-  .nav-mobile{
-    @apply !translate-x-[0]
-  }
-  .window-rgb{
-    @apply  w-full h-full fixed left-0 top-0 invisible opacity-0 bg-black/[0.5] duration-500
-    
-  }
-  .rgb-active{
-    @apply z-10   visible opacity-[1]
-    
-  }
+ 
   .portBox span{
     @apply !h-full
   }
@@ -68,15 +54,4 @@ html {
 
   }
 
-  @media(max-width: 1024px){
-    .nav{
-      @apply flex flex-col fixed top-0 left-0 !w-[19rem] translate-x-[-100%] h-full  gap-0
-    }
-    .nav a{
-      @apply mx-4 py-3 pl-2 border-b-[1px]
-    }
-    
-  }
-=======
->>>>>>> 6b49ae8855e774cae4ff6e224a21feefbf78b8a8
 }

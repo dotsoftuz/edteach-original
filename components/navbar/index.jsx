@@ -9,7 +9,7 @@ const Header = () => {
   const handleClick = () => setIsToggled(!isToggled);
 
   return (
-    <header className="absolute lg:sticky left-0 top-0 z-50 bg-white/90 w-full backdrop-blur">
+    <header className="sticky left-0 top-0 z-50 bg-white/90 w-full backdrop-blur">
       <div className="mx-auto h-[90px] max-w-7xl px-8 md:px-6">
         <div className="relative flex h-full items-center justify-between border-b border-slate-500/10">
           {/* <!-- logo --> */}
@@ -59,8 +59,9 @@ const Header = () => {
           </div>
           {/* <!-- menu btn --> */}
           <div className="flex">
-            <a href="#" className="mr-10 hidden rounded-md bg-blue-500 px-8 py-2.5 font-semibold text-white shadow-md shadow-blue-500/20 duration-200 hover:bg-blue-600 sm:block lg:mr-0">Register</a>
-
+            <Link href="/dashboard">
+            <a  className="mr-10 hidden rounded-md bg-blue-500 px-8 py-2.5 font-semibold text-white shadow-md shadow-blue-500/20 duration-200 hover:bg-blue-600 sm:block lg:mr-0">Kirish</a>
+            </Link>
             <button onClick={handleClick} id="navbarToggler" className='block lg:hidden' >
               <FiMenu name="menu-outline" className="text-3xl  text-blue-500"></FiMenu>
             </button>
