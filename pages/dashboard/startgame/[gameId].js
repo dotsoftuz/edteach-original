@@ -158,7 +158,7 @@ function GameID() {
       const docSnap = await getDoc(collectionRef);
       const payload = {
         questionIndex: docSnap.data().questionIndex + 1,
-        
+        next: true
       };
 
       await updateDoc(collectionRef, payload);

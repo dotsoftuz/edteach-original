@@ -4,11 +4,8 @@ import { useRouter } from 'next/router';
 import toast, { Toaster } from 'react-hot-toast';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import Image from 'next/image';
-
 import { useUserContext } from 'context/userContext';
 import { db } from '../../firebase';
-import { Breadcrumb } from 'components';
-
 import triangle from 'public/images/triangle.svg';
 import square from 'public/images/square.svg';
 import circle from 'public/images/circle.svg';
@@ -199,6 +196,7 @@ const CreateTest = () => {
     questionVisibility,
     uid,
     playerId: [],
+    next: false
   };
 
   const createQuest = async (e) => {
