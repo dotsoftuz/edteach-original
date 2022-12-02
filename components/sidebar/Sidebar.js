@@ -10,7 +10,7 @@ import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import { useUserContext } from '../../context/userContext';
 
 const Sidebar = ({ children }) => {
-  const [sidebarShowDesktop, setSidebarShowDesktop] = useState(true);
+  const [sidebarShowDesktop, setSidebarShowDesktop] = useState(false);
   const [sidebarShowMobile, setSidebarShowMobile] = useState(true);
   const router = useRouter();
   const { logoutUser, userName } = useUserContext();
