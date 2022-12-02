@@ -172,7 +172,7 @@ const PriceCard = (props) => {
           <p className="text-[16px]"> {text5}</p>
         </div>
         <a href={link}>
-          <button className="sm:text-[18px] sm:font-[500] mt-10 rounded-md text-[white] duration-400 text-center bg-purple-500 hover:bg-purple-400 py-[10px] px-[70px] sm:py-[10px] sm:px-[90px] sm:absolute sm:bottom-5 sm:left-[15%] lg:left-5  xl:left-[19%] ">
+          <button className="sm:text-[18px] sm:font-[500] mt-10 rounded-md text-[white] duration-400 text-center bg-blue-500 hover:bg-blue-400 py-[10px] px-[70px] sm:py-[10px] sm:px-[90px] sm:absolute sm:bottom-5 sm:left-[15%] lg:left-5  xl:left-[19%] ">
             Tanlash
           </button>
         </a>
@@ -183,7 +183,7 @@ const PriceCard = (props) => {
 
 const Price = () => {
   return (
-    <div className="container mx-auto py-10" id='price'>
+    <div className="container mx-auto py-10" id="price">
       <h2 className="text-center text-xl md:text-2xl lg:text-3xl font-semibold uppercase  text-[#333333]">
         Obuna va Narxlar
       </h2>

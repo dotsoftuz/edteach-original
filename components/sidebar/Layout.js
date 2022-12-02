@@ -147,7 +147,7 @@ const Layout = () => {
                       </Link>
                       <div className="flex flex-col justify-between">
                         <div>
-                          <span className="bg-purple-500 text-white text-xs font-semibold px-1 rounded-full">
+                          <span className="bg-blue-500 text-white text-xs font-semibold px-1 rounded-full">
                             Test
                           </span>
                           <h2 className="text-lg md:text-xl font-semibold truncate">
@@ -162,15 +162,16 @@ const Layout = () => {
                             <h2 className="text-sm md:text-base font-semibold">
                               Umumiy testlar soni:
                             </h2>
-                            <span className="bg-purple-500 text-white text-xs font-semibold px-1 rounded-full">
+                            <span className="bg-blue-500 text-white text-xs font-semibold px-1 rounded-full">
                               {val.questionList.length} ta
                             </span>
                           </div>
                           <h2 className="text-xs font-semibold">
                             Yaratuvchi: {val.createrName}
                           </h2>
-                          <h2 className="text-xs font-semibold">
-                            Test yaratilgan vaqt: {getUsertime(new Date(val.prefixTime))}
+                          <h2 className="text-xs font-semibold mb-2">
+                            Test yaratilgan vaqt:{' '}
+                            {getUsertime(new Date(val.prefixTime))}
                           </h2>
                         </div>
                       </div>
@@ -180,7 +181,7 @@ const Layout = () => {
                             <div
                               className={`${
                                 testCard ? 'bottom-2' : 'top-2'
-                              } absolute  right-2 flex items-center space-x-1 hover:text-purple-500 cursor-pointer`}
+                              } absolute  right-2 flex items-center space-x-1 hover:text-blue-500 cursor-pointer`}
                             >
                               <p className="text-lg font-semibold">Boshlash</p>
                               <svg

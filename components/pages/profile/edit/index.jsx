@@ -21,14 +21,14 @@ const EditProfile = ({ edit, closeEdit }) => {
             onClick={closeEdit()}
             className="absolute -top-1 -right-1 hover:top-0 hover:right-0 p-1.5 rounded-lg bg-white shadow-lg cursor-pointer duration-200"
           >
-            <GrFormClose className="text-purple-500" />
+            <GrFormClose className="text-blue-500" />
           </div>
 
           <div className="flex items-center">
             <label className="group relative">
               <img
                 className="rounded-full w-16 h-16 md:w-20 md:h-20 object-contain"
-                src="https://e7.pngegg.com/pngimages/748/695/png-clipart-circle-purple-font-purple-circle-violet-circle-frame-thumbnail.png"
+                src="https://e7.pngegg.com/pngimages/748/695/png-clipart-circle-blue-font-blue-circle-violet-circle-frame-thumbnail.png"
                 alt=""
               />
               <h2 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-4xl text-white">
@@ -76,10 +76,10 @@ const EditProfile = ({ edit, closeEdit }) => {
             onClick={closeEdit()}
             className="absolute bottom-4 right-4 space-x-2"
           >
-            <button className="rounded-lg py-2 px-4 shadow-md text-sm md:text-base font-semibold active:bg-opacity-80 ease-in-out bg-purple-200 text-purple-500 active:scale-95 duration-200">
+            <button className="rounded-lg py-2 px-4 shadow-md text-sm md:text-base font-semibold active:bg-opacity-80 ease-in-out bg-blue-200 text-blue-500 active:scale-95 duration-200">
               Bekor qilmoq
             </button>
-            <button className="rounded-lg py-2 px-4 shadow-md text-sm md:text-base font-semibold active:bg-opacity-80 ease-in-out bg-purple-500 text-white active:scale-95 duration-200">
+            <button className="rounded-lg py-2 px-4 shadow-md text-sm md:text-base font-semibold active:bg-opacity-80 ease-in-out bg-blue-500 text-white active:scale-95 duration-200">
               Saqlamoq
             </button>
           </div>
