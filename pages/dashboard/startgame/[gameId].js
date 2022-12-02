@@ -9,9 +9,10 @@ import {
   updateDoc,
   where,
 } from 'firebase/firestore';
-import { BsTrash, BsCheckLg } from 'react-icons/bs';
+import { BsCheckLg } from 'react-icons/bs';
 import { CgClose } from 'react-icons/cg';
 import { FaUser } from 'react-icons/fa';
+import { MdOutlineKeyboardArrowLeft } from 'react-icons/md';
 
 import triangle from '../../../public/images/triangle.svg';
 import square from '../../../public/images/square.svg';
@@ -22,6 +23,7 @@ import { useUserContext } from 'context/userContext';
 import { db } from '../../../firebase';
 import Image from 'next/image';
 import Head from 'next/head';
+import Link from 'next/link';
 
 function GameID() {
   const router = useRouter();
@@ -314,11 +316,11 @@ function GameID() {
               ) : (
                 <div className="bg-blue-400 h-screen" key={game.id}>
                   <div className="bg-blue-500 w-screen py-3">
-                    <div className="flex items-center space-x-5 bg-white w-fit p-5 rounded-lg mx-auto">
-                      <div className="text-xl font-semibold">
+                    <div className="flex items-center space-x-5 bg-white w-fit p-3 md:p-5 rounded-lg mx-auto">
+                      <div className="text-base sm:text-lg md:text-xl font-semibold">
                         O&apos;yinga qo&apos;shilish uchun: <br />
                         <a
-                          href="https://edteach-game.uz "
+                          href="https://edteach-original-play-game.vercel.app/"
                           target="_blank"
                           rel="noreferrer"
                           className="font-bold cursor-pointer hover:text-blue-500"
@@ -328,7 +330,7 @@ function GameID() {
                         ga o&apos;ting!
                       </div>
                       <div>
-                        <p className="px-2 text-lg font-semibold">
+                        <p className="px-2 text-base md:text-lg font-semibold">
                           O&apos;yinga PIN
                         </p>
                         <div
@@ -337,7 +339,7 @@ function GameID() {
                           }
                           className="relative p-2 rounded-lg duration-200 cursor-pointer select-none group"
                         >
-                          <h2 className="text-5xl font-bold text-gray-700">
+                          <h2 className="text-3xl md:text-5xl font-bold text-gray-700">
                             {game.pin}
                           </h2>
                           <span
@@ -358,34 +360,40 @@ function GameID() {
                     </div>
                   </div>
                   <div className="relative">
-                    <div className="">
-                      <h1 className="text-center text-5xl font-bold text-white py-5">
+                    <div className="flex items-center justify-between mx-2 md:mx-5">
+                      <Link href="/dashboard">
+                        <a className="flex items-center text-sm md:text-base p-2 md:p-3 bg-blue-500 hover:bg-blue-600 duration-200 text-white font-bold rounded-xl">
+                          <MdOutlineKeyboardArrowLeft />
+                          Chiqish
+                        </a>
+                      </Link>
+                      <h1 className="text-2xl md:text-5xl font-bold text-white py-5 invisible">
                         EdTeach!
                       </h1>
-                      <div className="absolute top-2 right-5 flex items-center space-x-2 md:space-x-3">
+                      <div className="flex items-center space-x-2 md:space-x-3">
                         <button
-                          className="p-3 bg-blue-500 hover:bg-blue-600 duration-200 text-white font-bold rounded-xl mt-4"
+                          className="text-sm md:text-base p-2 md:p-3 bg-blue-500 hover:bg-blue-600 duration-200 text-white font-bold rounded-xl"
                           onClick={() => sendData(game.id)}
                         >
                           O&apos;yinni boshlash
                         </button>
-                        <div className="flex items-center space-x-2 bg-blue-500 hover:bg-blue-600 duration-200 mt-4 rounded-lg py-2 px-3">
-                          <FaUser className="text-white text-2xl" />
-                          <span className="text-xl text-white font-bold">
+                        <div className="flex items-center space-x-1 md:space-x-2 bg-blue-500 hover:bg-blue-600 duration-200 md:mt-4 rounded-lg py-1 md:py-2 px-3 md:mb-4">
+                          <FaUser className="text-white text-lg md:text-2xl" />
+                          <span className="text-base md:text-xl text-white font-bold">
                             {players.length}
                           </span>
                         </div>
                       </div>
                     </div>
                     <div className="p-0 md:p-5 h-full flex justify-center">
-                      <ol className="flex items-center space-x-2">
+                      <ol className="flex items-center space-x-2 flex-wrap mx-2">
                         {players
                           .filter((item) => item.isPlay)
                           .map((item, index) => {
                             return (
                               <li
                                 onClick={() => deletePlayer(item.id)}
-                                className="flex items-center justify-between w-fit hover:line-through cursor-pointer bg-blue-500 hover:bg-rose-500 duration-200 text-white px-4 py-3 md:px-6 md:py-4 my-2 rounded-lg space-x-2 text-lg md:text-xl font-semibold"
+                                className="flex items-center justify-between w-fit hover:line-through cursor-pointer bg-blue-500 hover:bg-rose-500 duration-200 text-white px-4 py-3 md:px-6 md:py-4 my-2 rounded-lg space-x-2 text-lg md:text-xl font-semibold whitespace-nowrap truncate"
                                 key={item.id}
                               >
                                 <p>{index + 1}</p>
