@@ -20,6 +20,7 @@ html {
   justify-content: center;
 }
 
+
 @layer components {
   .about-img span{
     @apply !h-full;
@@ -44,6 +45,7 @@ html {
     @apply rounded-3xl   object-cover object-center;
   }
   
+<<<<<<< HEAD
   .nav{
     @apply gap-8 text-sm bg-white font-medium flex duration-500 lg:translate-x-0    lg:w-auto z-20
   }
@@ -75,4 +77,6 @@ html {
     }
     
   }
+=======
+>>>>>>> 6b49ae8855e774cae4ff6e224a21feefbf78b8a8
 }
