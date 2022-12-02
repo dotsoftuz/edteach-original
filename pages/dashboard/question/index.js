@@ -32,18 +32,15 @@ const Tests = () => {
       questionIndex: 0,
     };
 
-    await updateDoc(collectionRef, payload).then(() => {
-      quest.data().playerId.map((i) => {
-        const deletePlayer = async () => {
-          const PlayerColl = doc(db, `question/${id}/players`, i.id);
-          await deleteDoc(PlayerColl);
-        };
-        deletePlayer();
-      });
+    await updateDoc(collectionRef, payload);
+    quest.data().playerId.map((i) => {
+      const deletePlayer = async () => {
+        const PlayerColl = doc(db, `question/${id}/players`, i.id);
+        await deleteDoc(PlayerColl);
+      };
+      deletePlayer();
     });
   };
-
-
 
   return (
     <div>
@@ -146,7 +143,6 @@ const Tests = () => {
                 }
               })
               .map((val, key) => {
-                console.log(val.date);
                 return (
                   <div
                     key={key}

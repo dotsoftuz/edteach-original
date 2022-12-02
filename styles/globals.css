@@ -20,46 +20,25 @@ html {
   justify-content: center;
 }
 
-.loader {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  display: inline-block;
-  position: relative;
-  border: 10px solid;
-  box-sizing: border-box;
-  animation: animloader 1s linear infinite alternate;
-}
-@keyframes animloader {
-  0% {
-    border-color: rgb(194, 65, 65) rgba(255, 255, 255, 0) rgba(255, 255, 255, 0)
-      rgba(255, 255, 255, 0);
-  }
-  33% {
-    border-color: rgb(194, 65, 65) rgb(122, 60, 60) rgba(255, 255, 255, 0) rgba(255, 255, 255, 0);
-  }
-  66% {
-    border-color: rgb(194, 65, 65) rgb(163, 72, 72) rgb(105, 56, 56) rgba(255, 255, 255, 0);
-  }
-  100% {
-    border-color: rgb(182, 72, 72) rgb(194, 65, 65) rgb(204, 56, 56) rgb(216, 39, 39);
-  }
-}
 
 @layer components {
-  .about-img,
+  .about-img span{
+    @apply !h-full;
+    
+  }
   .image-fulled span {
     @apply !h-full;
   }
   .about-img span img {
-    @apply rounded-3xl  object-cover object-center !inset-0;
+    @apply rounded-3xl min-h-full  object-cover object-center !inset-0;
   }
 
   .create-blok {
-    @apply flex items-center p-3 sm:p-[10px]  pl-5 sm:min-h-[7rem] gap-5 rounded-lg shadow-[0__1px_3px_#80858b];
+    @apply flex items-center p-[10px] w-full md:w-[30rem] lg:w-[35rem] xl:w-[40rem] pl-5 h-[5rem] md:h-[7rem] gap-5 rounded-lg shadow-[0__1px_3px_#80858b];
   }
 
   .image-fulled span img {
     @apply rounded-3xl   object-cover object-center;
   }
+  
 }
