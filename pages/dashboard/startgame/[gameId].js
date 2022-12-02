@@ -17,13 +17,11 @@ import { BsCheckLg } from 'react-icons/bs';
 import { CgClose } from 'react-icons/cg';
 import { FaUser } from 'react-icons/fa';
 import { MdOutlineKeyboardArrowLeft } from 'react-icons/md';
+
 import triangle from 'public/images/triangle.svg';
 import square from 'public/images/square.svg';
 import circle from 'public/images/circle.svg';
 import diamond from 'public/images/diamond.svg';
-import { CgClose } from 'react-icons/cg';
-import { BsCheckLg } from 'react-icons/bs';
-import { FaUser } from 'react-icons/fa';
 import { useUserContext } from 'context/userContext';
 import { db } from '../../../firebase';
 
