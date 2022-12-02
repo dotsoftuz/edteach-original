@@ -34,7 +34,7 @@ const Breadcrumb = (props) => {
           className={
             active
               ? 'text- cursor-pointer font-semibold'
-              : 'text-purple-500 cursor-text font-semibold'
+              : 'text-blue-500 cursor-text font-semibold'
           }
         >
           {page}
@@ -46,7 +46,7 @@ const Breadcrumb = (props) => {
           <h3
             className={
               active
-                ? 'text-purple-500 font-semibold'
+                ? 'text-blue-500 font-semibold'
                 : 'text-black font-semibold'
             }
           >
