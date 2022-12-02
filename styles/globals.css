@@ -58,6 +58,13 @@ html {
     @apply z-10   visible opacity-[1]
     
   }
+  .portBox span{
+    @apply !h-full
+  }
+  .portBox span img{ 
+    @apply h-full object-cover
+
+  }
 
   @media(max-width: 1024px){
     .nav{

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import Head from 'next/head';
 
-import { Header, About, Navbar, Price, Contact, Footer } from 'components';
+import { Navbar, Header, About, Feature, Service, Faq , Portfolio, Blog, Price, Contact, Footer } from 'components';
 
 export default function Home() {
   const [mounted, setMounted] = useState(false);
@@ -21,9 +21,14 @@ export default function Home() {
       <main>
         <Navbar />
         <Header />
+        <Feature />
         <About />
-        <Price />
+        <Service/>
+        <Faq/>
+        <Portfolio/>
+        <Blog/>
         <Contact />
+        <Price />
         <Footer />
       </main>
     </div>
