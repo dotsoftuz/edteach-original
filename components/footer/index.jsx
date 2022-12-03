@@ -25,7 +25,7 @@ const Footer = () => {
         </div>
         <div className="space-y-2 text-sm">
           <p className="text-base font-bold tracking-wide text-gray-900">
-            Contacts
+          Kontaktlar
           </p>
           <div className="flex">
             <p className="mr-1 text-gray-800">Phone:</p>
@@ -65,7 +65,7 @@ const Footer = () => {
         </div>
         <div>
           <span className="text-base font-bold tracking-wide text-gray-900">
-            Social
+            Ijtimoiy Tarmoqlarimiz
           </span>
           <div className="flex items-center mt-1 space-x-3">
             <Link href="/">

@@ -1,7 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import none from '../../public/images/about-img1.jpg';
 import featureImg from "public/images/features.svg"
 import create from "public/images/create.png"
 import share from "public/images/share.png"
