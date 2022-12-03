@@ -94,7 +94,7 @@ function GameID() {
   //question timer
 
   useEffect(() => {
-    if (testCounter !== false) {
+    if (testCounter) {
       const interval1 = setInterval(() => {
         if (time) {
           setTime(time - 1);
@@ -147,18 +147,20 @@ function GameID() {
     e.returnValue = '';
   };
 
+  console.log(time);
+  console.log(testCounter);
 
   const nextQuestion = async (id, length, index) => {
-    setTestCounter(true);
     setQuestionCount(3);
-    setDisabled(false)
+    setDisabled(false);
     if (index + 1 < length) {
-      setTime(singleData.questionTime);
+      setTime(singleData.questionTime + 3);
+
       const collectionRef = doc(db, `question`, id);
       const docSnap = await getDoc(collectionRef);
       const payload = {
         questionIndex: docSnap.data().questionIndex + 1,
-        next: true
+        next: true,
       };
 
       await updateDoc(collectionRef, payload);
@@ -185,9 +187,7 @@ function GameID() {
                     </p>
                   </div>
                   {!disabled ? (
-                    <>
-                      {questionCount}
-                    </>
+                    <>{questionCount}</>
                   ) : (
                     <>
                       {podium ? (
