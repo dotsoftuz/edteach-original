@@ -14,7 +14,6 @@ const About = () => {
           <div className="md:w-6/12">
             {/* <!-- heading text --> */}
             <div className="mb-5 sm:mb-10">
-              <span className="font-medium text-blue-500">About Us</span>
               <h1 className="text-2xl font-bold text-slate-700 sm:text-3xl">
                 Creative Marketing agency
               </h1>

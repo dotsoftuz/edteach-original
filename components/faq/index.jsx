@@ -18,8 +18,7 @@ const Faqbox = props => {
                     </div>
                 </div>
             </button>
-
-            <div className={`${isToggled  ? "max-h-[120px]" : "max-h-[0px]"}  relative max-h-0 overflow-hidden rounded-b-lg bg-blue-50/30 transition-all duration-500 `}>
+            <div className={`${isToggled ? "max-h-[120px]" : "max-h-[0px]"}  relative max-h-0 overflow-hidden rounded-b-lg bg-blue-50/30 transition-all duration-500 `}>
                 <div className="p-6">
                     <p className="text-slate-500">{description}</p>
                 </div>
@@ -34,7 +33,6 @@ const Faq = () => {
             <div className="mx-auto  container">
                 {/* <!-- heading text --> */}
                 <div className="mb-5 sm:mb-10">
-                    <span className="font-medium text-blue-500">Tez-Tez  So'raldigan savollar</span>
                     <h1 className="text-2xl font-bold text-slate-700 sm:text-3xl">Tez-Tez So'raladigan Savollar</h1>
                 </div>
                 {/* <!-- wrapper --> */}

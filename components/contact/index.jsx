@@ -42,7 +42,6 @@ const Contact = () => {
           {/* <!-- left info--> */}
           <div className="w-full px-4 md:w-1/2 xl:w-6/12">
             <div className="mb-12 max-w-[570px] lg:mb-0">
-              <span className="font-medium text-blue-500">Aloqaga chiqish</span>
               <h1 className="mb-3 text-2xl font-bold text-slate-700 sm:text-3xl">
                 BIZ BILAN BOG'LANING
               </h1>

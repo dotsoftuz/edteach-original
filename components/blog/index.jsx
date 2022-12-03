@@ -11,7 +11,6 @@ const Blog = () => {
       <div className="mx-auto container">
         {/* <!-- heading text --> */}
         <div className="mb-5 sm:mb-10">
-         <span className="font-medium text-blue-500">Quyidagilarni Taklif Etamiz</span>
           <h1 className="text-2xl font-bold text-slate-700 sm:text-3xl">
             Quyidagilarni Taklif Etamiz
           </h1>
