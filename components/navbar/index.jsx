@@ -36,6 +36,13 @@ const Header = () => {
                 <li>
                   <Link href="#services">
                     <a className="text-lg font-medium text-slate-700 duration-200 hover:text-blue-600 lg:text-base">
+                    Haqida
+                    </a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#services">
+                    <a className="text-lg font-medium text-slate-700 duration-200 hover:text-blue-600 lg:text-base">
                     Xizmatlar
                     </a>
                   </Link>
