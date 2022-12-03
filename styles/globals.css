@@ -20,11 +20,9 @@ html {
   justify-content: center;
 }
 
-
 @layer components {
-  .about-img span{
+  .about-img span {
     @apply !h-full;
-    
   }
   .image-fulled span {
     @apply !h-full;
@@ -36,7 +34,7 @@ html {
   .create-blok {
     @apply flex items-center p-[10px] w-full md:w-[30rem] lg:w-[35rem] xl:w-[40rem] pl-5 h-[5rem] md:h-[7rem] gap-5 rounded-lg shadow-[0__1px_3px_#80858b];
   }
-  
+
   .create-blokTwo {
     @apply flex items-center p-[10px] w-full  pl-5 h-[5rem] md:h-[7rem] gap-5 rounded-lg shadow-[0__1px_3px_#80858b];
   }
@@ -44,14 +42,40 @@ html {
   .image-fulled span img {
     @apply rounded-3xl   object-cover object-center;
   }
-  
- 
-  .portBox span{
-    @apply !h-full
-  }
-  .portBox span img{ 
-    @apply h-full object-cover
 
+  .portBox span {
+    @apply !h-full;
   }
+  .portBox span img {
+    @apply h-full object-cover;
+  }
+}
 
+.shim-red {
+  position: relative;
+  overflow: hidden;
+  background-color: rgba(36, 90, 239, 0.7);
+}
+.shim-red::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transform: translateX(-100%);
+  background-image: linear-gradient(
+    90deg,
+    rgba(233, 233, 233, 1) 0,
+    rgba(233, 233, 233, 0.9) 50%,
+    rgba(233, 233, 233, 0.8) 100%
+  );
+  animation: shimmer 3s ease-out infinite;
+  content: '';
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(0%);
+    opacity: 0;
+  }
 }

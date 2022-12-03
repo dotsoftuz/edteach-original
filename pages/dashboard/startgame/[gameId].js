@@ -178,22 +178,63 @@ function GameID() {
       </Head>
       <div className="h-screen">
         {questions.map((game, index) => {
+          console.log(game);
           return (
-            <>
+            <div key={index}>
               {game.status === 'showingQuestion' ? (
                 <>
                   <div className="absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2">
-                    <p className={count === 0 ? 'hidden' : 'visible text-5xl'}>
+                    <p
+                      className={
+                        count === 0 ? 'hidden' : 'visible text-5xl lg:text-7xl'
+                      }
+                    >
                       {count}
                     </p>
                   </div>
+                  {!count && (
+                    <div
+                      className={
+                        questionCount === 0
+                          ? 'hidden'
+                          : 'flex h-screen flex-col items-center justify-center'
+                      }
+                    >
+                      <div className="flex items-center">
+                        <div className="mr-5 flex h-16 w-16 items-center justify-center rounded-full bg-blue-500 text-white  md:h-20 md:w-20">
+                          <p className="visible text-3xl font-semibold text-white md:text-4xl md:font-bold">
+                            {questionCount}
+                          </p>
+                        </div>
+                        <div
+                          className={
+                            questionCount === 0
+                              ? 'hidden'
+                              : 'visible flex items-center space-x-1 text-5xl font-semibold lg:text-7xl'
+                          }
+                        >
+                          {game.questionList[game.questionIndex].question}
+                          <div className="ml-5 flex h-16 w-16 items-center justify-center rounded-full bg-blue-500 text-white  md:h-20 md:w-20">
+                            <p className="visible text-3xl font-semibold text-white md:text-4xl md:font-bold">
+                              {questionCount}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="mx-auto mt-5 w-full rounded bg-gray-200 md:mt-10 md:w-1/2 ">
+                        <div className="shim-red h-4 w-full rounded"></div>
+                      </div>
+                    </div>
+                  )}
                   {!disabled ? (
-                    <>{questionCount}</>
+                    <>{null}</>
                   ) : (
                     <>
                       {podium ? (
-                        <div>
-                          <h2>Songgi natija</h2>
+                        <div className="flex items-center justify-center my-5">
+                          <h2 className="text-xl md:text-4xl font-semibold md:font-bold">
+                            Songgi natija!
+                          </h2>
                         </div>
                       ) : (
                         <div>
@@ -426,7 +467,7 @@ function GameID() {
                   </div>
                 </div>
               )}
-            </>
+            </div>
           );
         })}
       </div>
