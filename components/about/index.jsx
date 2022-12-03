@@ -1,8 +1,10 @@
 import React from 'react';
 // import Link from 'next/link';
 import Image from 'next/image';
-import { FiMenu } from 'react-icons/fi';
-import none from '../../public/images/about-img1.jpg';
+import { IoBriefcaseSharp } from 'react-icons/io5';
+import {MdOutlineMarkEmailUnread} from 'react-icons/md'
+import {AiOutlineCodeSandbox} from "react-icons/ai"
+import about from 'public/images/about.svg';
 
 const About = () => {
   return (
@@ -12,7 +14,6 @@ const About = () => {
           <div className="md:w-6/12">
             {/* <!-- heading text --> */}
             <div className="mb-5 sm:mb-10">
-              <span className="font-medium text-blue-500">About Us</span>
               <h1 className="text-2xl font-bold text-slate-700 sm:text-3xl">
                 Creative Marketing agency
               </h1>
@@ -25,7 +26,7 @@ const About = () => {
             <ul>
               <li className="mb-6 flex items-center">
                 <div className="flex h-[35px] w-[35px] min-w-[35px] items-center justify-center rounded-full bg-blue-500 text-white">
-                  <FiMenu />
+                  <IoBriefcaseSharp />
                 </div>
                 <p className="ml-4 max-w-md font-medium text-slate-600">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -33,7 +34,7 @@ const About = () => {
               </li>
               <li className="mb-6 flex items-center">
                 <div className="flex h-[35px] w-[35px] min-w-[35px] items-center justify-center rounded-full bg-blue-500 text-white">
-                  <FiMenu />
+                  <AiOutlineCodeSandbox />
                 </div>
                 <p className="ml-4 max-w-md font-medium text-slate-600">
                   Omnis unde nam quia harum voluptatum itaque iste nostrum amet
@@ -42,7 +43,7 @@ const About = () => {
               </li>
               <li className="mb-6 flex items-center">
                 <div className="flex h-[35px] w-[35px] min-w-[35px] items-center justify-center rounded-full bg-blue-500 text-white">
-                  <FiMenu />
+                  <MdOutlineMarkEmailUnread />
                 </div>
                 <p className="ml-4 max-w-md font-medium text-slate-600">
                   Id quos et quidem perspiciatis similique! Rerum, natus
@@ -54,11 +55,10 @@ const About = () => {
               Get Started
             </button>
           </div>
-
           {/* <!-- about img --> */}
           <div className="mt-8 flex justify-center md:mt-0 md:w-5/12">
-            <div className="max-h-[500px] md:max-h-max">
-              <Image src={none} alt="about img" />
+            <div className="max-h-[500px] about-Img md:max-h-max">
+              <Image src={about} alt="about img" />
             </div>
           </div>
         </div>

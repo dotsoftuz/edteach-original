@@ -97,7 +97,7 @@ function GameID() {
   //question timer
 
   useEffect(() => {
-    if (testCounter !== false) {
+    if (testCounter) {
       const interval1 = setInterval(() => {
         if (time) {
           setTime(time - 1);
@@ -151,11 +151,11 @@ function GameID() {
   };
 
   const nextQuestion = async (id, length, index) => {
-    setTestCounter(true);
     setQuestionCount(3);
     setDisabled(false);
     if (index + 1 < length) {
-      setTime(singleData.questionTime);
+      setTime(singleData.questionTime + 3);
+
       const collectionRef = doc(db, `question`, id);
       const docSnap = await getDoc(collectionRef);
       const payload = {
