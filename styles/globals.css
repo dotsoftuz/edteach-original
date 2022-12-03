@@ -53,5 +53,14 @@ html {
     @apply h-full object-cover
 
   }
+  .feature span{
+    @apply !h-full
+
+  }
+
+  .about-Img span{
+    @apply !h-full
+
+  }
 
 }

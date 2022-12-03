@@ -1,8 +1,6 @@
 import React, { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 import toast, { Toaster } from 'react-hot-toast';
-import Image from 'next/image';
-import none from '../../public/images/about-img1.jpg';
 import {IoLocationOutline, IoCallOutline} from "react-icons/io5"
 import {CiMail} from "react-icons/ci"
 
@@ -159,9 +157,6 @@ const Contact = () => {
     // </div>
 
     <section className="relative overflow-hidden py-16">
-      <div className="absolute bottom-[-400px] -z-10 w-full opacity-[0.2]">
-        <Image src={none} alt="effect" />
-      </div>
       <div className="mx-auto container">
         <div className="-mx-4 flex flex-wrap lg:justify-between">
           {/* <!-- left info--> */}

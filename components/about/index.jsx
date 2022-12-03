@@ -2,7 +2,7 @@ import React from 'react';
 // import Link from 'next/link';
 import Image from 'next/image';
 import { FiMenu } from 'react-icons/fi';
-import none from '../../public/images/about-img1.jpg';
+import about from 'public/images/about.svg';
 
 const About = () => {
   return (
@@ -57,8 +57,8 @@ const About = () => {
 
           {/* <!-- about img --> */}
           <div className="mt-8 flex justify-center md:mt-0 md:w-5/12">
-            <div className="max-h-[500px] md:max-h-max">
-              <Image src={none} alt="about img" />
+            <div className="max-h-[500px] about-Img md:max-h-max">
+              <Image src={about} alt="about img" />
             </div>
           </div>
         </div>

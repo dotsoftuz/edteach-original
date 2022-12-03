@@ -1,7 +1,7 @@
 import React from 'react';
 
 const PriceCard = (props) => {
-  let { degree, price, description1, description2, text1, text2, text3, text4, link } = props;
+  let { degree, price, blueBox, description1, description2, text1, text2, text3, text4, link } = props;
   return (
     // <div className="sm:min-h-[530px] xl:min-h-[500px] sm:relative rounded-lg shadow-lg p-5">
     //   <div className="flex flex-col items-center">
@@ -177,49 +177,54 @@ const PriceCard = (props) => {
     //     </a>
     //   </div>
     // </div>
-    <div className="relative flex flex-col p-8 bg-white rounded-lg border-[1px] shadow-[5px_5px_5px_rgb(147_197_253_/_0.1)]">
+    <div className={`${blueBox === "blue" ? "bg-blue-600" : ""} relative flex flex-col p-8 bg-white rounded-lg border-[1px] shadow-[5px_5px_5px_rgb(147_197_253_/_0.1)]`}>
       <div className="flex-1">
-        <h3 className="text-xl font-semibold text-neutral-600">{degree}</h3>
+        <h3 className={`${blueBox === "blue" ? "!text-white" : ""} text-xl font-semibold text-neutral-600`}>{degree}</h3>
         <p className="flex items-baseline mt-4 text-neutral-600">
-          <span className="text-5xl font-extrabold tracking-tight">${price}</span>
-          <span className="ml-1 text-xl font-semibold">/month</span>
+          <span className={`${blueBox === "blue" ? "!text-white" : ""} text-5xl font-extrabold tracking-tight`}>${price}</span>
+          <span className={`${blueBox === "blue" ? "!text-white" : ""} ml-1 text-xl font-semibold`}>/month</span>
         </p>
-        <p className="mt-6 text-gray-500">{description1}</p>
+        <p className={`${blueBox === "blue" ? "!text-white" : ""} mt-6 text-gray-500`}>{description1}</p>
         {/* <!-- Feature list --> */}
         <ul role="list" className="pt-6 mt-6 space-y-6 border-t">
-          <span className="text-lg font-semibold text-neutral-600">{description2}</span>
+          <span className={`${blueBox === "blue" ? "!text-white" : ""} text-lg font-semibold text-neutral-600`}>{description2}</span>
+
           <li className={text1 ? "flex" : "hidden"}>
-            <div className="inline-flex items-center min-w-[1.5rem] w-[1.5rem] h-6 bg-blue-600 rounded-xl">
-              <svg className="flex-shrink-0 w-4 h-4 mx-auto text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <div className={`${blueBox === "blue" ? "!bg-white" : ""} inline-flex items-center min-w-[1.5rem] w-[1.5rem] h-6 bg-blue-600 rounded-xl`}>
+              <svg className={`${blueBox === "blue" ? "!text-blue-600" : ""} flex-shrink-0 w-4 h-4 mx-auto text-white`} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
               </svg>
             </div>
-            <span className="ml-3 text-neutral-600">{text1}</span>
+            <span className={`${blueBox === "blue" ? "!text-white" : ""} ml-3 text-neutral-600`}>{text1}</span>
           </li>
+
           <li className={text2 ? "flex" : "hidden"}>
-            <div className="inline-flex items-center min-w-[1.5rem] w-[1.5rem] h-6 bg-blue-600 rounded-xl">
-              <svg className="flex-shrink-0 w-4 h-4 mx-auto text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <div className={`${blueBox === "blue" ? "!bg-white" : ""} inline-flex items-center min-w-[1.5rem] w-[1.5rem] h-6 bg-blue-600 rounded-xl`}>
+              <svg className={`${blueBox === "blue" ? "!text-blue-600" : ""} flex-shrink-0 w-4 h-4 mx-auto text-white`} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
               </svg>
             </div>
-            <span className="ml-3 text-neutral-600">{text2}</span>
+            <span className={`${blueBox === "blue" ? "!text-white" : ""} ml-3 text-neutral-600`}>{text2}</span>
           </li>
+
           <li className={text3 ? "flex" : "hidden"}>
-            <div className="inline-flex items-center min-w-[1.5rem] w-[1.5rem] h-6 bg-blue-600 rounded-xl">
-              <svg className="flex-shrink-0 w-4 h-4 mx-auto text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <div className={`${blueBox === "blue" ? "!bg-white" : ""} inline-flex items-center min-w-[1.5rem] w-[1.5rem] h-6 bg-blue-600 rounded-xl`}>
+              <svg className={`${blueBox === "blue" ? "!text-blue-600" : ""} flex-shrink-0 w-4 h-4 mx-auto text-white`} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
               </svg>
             </div>
-            <span className="ml-3 text-neutral-600">{text3}</span>
+            <span className={`${blueBox === "blue" ? "!text-white" : ""} ml-3 text-neutral-600`}>{text3}</span>
           </li>
+
           <li className={text4 ? "flex" : "hidden"}>
-            <div className="inline-flex items-center min-w-[1.5rem] w-[1.5rem] h-6 bg-blue-600 rounded-xl">
-              <svg className="flex-shrink-0 w-4 h-4 mx-auto text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <div className={`${blueBox === "blue" ? "!bg-white" : ""} inline-flex items-center min-w-[1.5rem] w-[1.5rem] h-6 bg-blue-600 rounded-xl`}>
+              <svg className={`${blueBox === "blue" ? "!text-blue-600" : ""} flex-shrink-0 w-4 h-4 mx-auto text-white`} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
               </svg>
             </div>
-            <span className="ml-3 text-neutral-600">{text4}</span>
+            <span className={`${blueBox === "blue" ? "!text-white" : ""} ml-3 text-neutral-600`}>{text4}</span>
           </li>
+
         </ul>
       </div>
       <div className="mt-6 rounded-lg outline-none">
@@ -231,10 +236,15 @@ const PriceCard = (props) => {
 
 const Price = () => {
   return (
-    <section>
-      <div className="relative items-center w-full mx-auto md:px-12 lg:px-16 max-w-7xl">
+    <section className='pt-16'>
+      <div className="relative items-center container mx-auto ">
+        {/* <!-- heading text --> */}
+        <div className="mb-5 sm:mb-10">
+          <h1 className="text-2xl font-bold text-slate-700 sm:text-3xl">Obuna va Narxlar</h1>
+          <p className='mx-auto max-w-2 mt-2 text-slate-500'>Biz sizga maqbul keladigan eng qulay narxdagi xizmatlarni taklif qilamiz</p>
+        </div>
         <div>
-          <div className="relative p-10 space-y-12 overflow-hidden lg:space-y-0 lg:grid lg:grid-cols-3 lg:gap-x-8 rounded-xl">
+          <div className="relative space-y-12 overflow-hidden lg:space-y-0 lg:grid lg:grid-cols-3 lg:gap-x-8 rounded-xl">
             <PriceCard
               degree="Oddiy"
               price="1"
@@ -247,6 +257,7 @@ const Price = () => {
               link="#"
             />
             <PriceCard
+              blueBox="blue"
               degree="O'rta"
               price="8"
               description1="Yakka taribdagi obuna uchun"

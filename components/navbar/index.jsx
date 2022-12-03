@@ -1,7 +1,10 @@
 import { React, useEffect, useState } from 'react';
 import { FiMenu } from 'react-icons/fi';
-
+import Image from 'next/image';
 import Link from 'next/link';
+
+import logo from 'public/images/logo.svg';
+
 
 const Header = () => {
   const [isToggled, setIsToggled] = useState(false);
@@ -13,7 +16,7 @@ const Header = () => {
         <div className="relative flex h-full items-center justify-between border-b border-slate-500/10">
           {/* <!-- logo --> */}
           <div className="w-[15rem] max-w-full text-2xl font-semibold">
-            <Link href="#">edTeach</Link>
+            <Link href="#"><Image src={logo} /></Link>
           </div>
 
           {/* <!-- menu --> */}
