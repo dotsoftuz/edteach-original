@@ -11,7 +11,6 @@ const Profile = () => {
   const { userName, userEmail, questions } = useUserContext();
   const name = userName.toString();
   const [editName, setEditName] = useState(name);
-  console.log(typeof userName);
 
   const [edit, setEdit] = useState(false);
 

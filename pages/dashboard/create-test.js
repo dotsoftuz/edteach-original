@@ -52,8 +52,6 @@ const CreateTest = () => {
     },
   ]);
 
-  console.log(input);
-
   const { uid } = useUserContext();
   const questColl = collection(db, `question`);
 
