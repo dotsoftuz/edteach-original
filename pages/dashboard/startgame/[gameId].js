@@ -39,6 +39,7 @@ function GameID() {
   const [time, setTime] = useState();
   const [showButton, setShowButton] = useState(false);
   const [singleData, setSingleData] = useState({});
+  const [podium, setPodium] = useState(false);
   const [copyPin, setCopyPin] = useState(false);
 
   const deletePlayer = (id) => {
@@ -97,7 +98,7 @@ function GameID() {
   //question timer
 
   useEffect(() => {
-    if (testCounter) {
+    if (testCounter !== false) {
       const interval1 = setInterval(() => {
         if (time) {
           setTime(time - 1);
@@ -151,11 +152,11 @@ function GameID() {
   };
 
   const nextQuestion = async (id, length, index) => {
+    setTestCounter(true);
     setQuestionCount(3);
     setDisabled(false);
     if (index + 1 < length) {
-      setTime(singleData.questionTime + 3);
-
+      setTime(singleData.questionTime);
       const collectionRef = doc(db, `question`, id);
       const docSnap = await getDoc(collectionRef);
       const payload = {
@@ -166,11 +167,7 @@ function GameID() {
       await updateDoc(collectionRef, payload);
       setShowButton(false);
     } else {
-      const collectionRef = doc(db, `question`, id);
-      const payload = {
-        status: 'result',
-      };
-      await updateDoc(collectionRef, payload);
+      setPodium(true);
     }
   };
 
@@ -234,10 +231,8 @@ function GameID() {
                   ) : (
                     <>
                       {podium ? (
-                        <div className="flex items-center justify-center my-5">
-                          <h2 className="text-xl md:text-4xl font-semibold md:font-bold">
-                            Songgi natija!
-                          </h2>
+                        <div className="flex items-center justify-center h-screen">
+                          <h2>Songgi natija</h2>
                         </div>
                       ) : (
                         <div>
@@ -286,103 +281,96 @@ function GameID() {
                             </div>
                           </div>
 
-                      <div className="flex flex-col items-center space-y-4 justify-between md:justify-around h-screen">
-                        <div className="px-8 py-4 mt-16 rounded-lg shadow-lg w-fit mx-auto">
-                          <h1 className="text-2xl font-semibold md:text-4xl md:font-bold">
-                            {game.questionList[game.questionIndex].question}
-                          </h1>
-                        </div>
-                        <div className="grid gap-2 grid-rows-2 grid-cols-2 w-screen md:w-fit p-5">
-                          {game.questionList[game.questionIndex].answerList.map(
-                            (item) => (
-                              <div
-                                key={item.id}
-                                className={
-                                  time === 0
-                                    ? item.bgColor === 'red'
-                                      ? item.isCorrect
-                                        ? ' bg-[#e21b3c] create-blok'
-                                        : ` bg-[#e21b3c] create-blok bg-opacity-60`
-                                      : item.bgColor === 'blue'
-                                      ? item.isCorrect
-                                        ? `bg-[#1368ce] create-blok`
-                                        : `bg-[#1368ce] create-blok bg-opacity-60`
-                                      : item.bgColor === 'yellow'
-                                      ? item.isCorrect
-                                        ? `bg-[#d89e00] create-blok`
-                                        : `bg-[#d89e00] create-blok bg-opacity-60`
-                                      : item.bgColor === 'gren'
-                                      ? item.isCorrect
-                                        ? `bg-[#26890c] create-blok`
-                                        : `bg-[#26890c] create-blok bg-opacity-60`
-                                      : ''
-                                    : item.bgColor === 'red'
-                                    ? ' bg-[#e21b3c] create-blok'
-                                    : item.bgColor === 'blue'
-                                    ? `bg-[#1368ce] create-blok`
-                                    : item.bgColor === 'yellow'
-                                    ? `bg-[#d89e00] create-blok`
-                                    : item.bgColor === 'gren'
-                                    ? `bg-[#26890c] create-blok`
-                                    : ''
-                                }
-                              >
+                          <div className="flex flex-col items-center space-y-4 justify-between md:justify-around h-screen">
+                            <div className="px-8 py-4 mt-16 rounded-lg shadow-lg w-fit mx-auto">
+                              <h1 className="text-2xl font-semibold md:text-4xl md:font-bold">
+                                {game.questionList[game.questionIndex].question}
+                              </h1>
+                            </div>
+                            <div className="grid gap-2 grid-rows-2 grid-cols-2 w-screen md:w-fit p-5">
+                              {game.questionList[
+                                game.questionIndex
+                              ].answerList.map((item) => (
                                 <div
-                                  className={`${
-                                    item.svgIcon === 'diamond'
-                                      ? 'rotate-45'
-                                      : ''
-                                  } w-[15px] md:!w-[30px] leading-[100%]`}
-                                >
-                                  <Image
-                                    src={
-                                      item.svgIcon === 'triangle'
-                                        ? `${triangle.src}`
-                                        : item.svgIcon === 'square'
-                                        ? `${square.src}`
-                                        : item.svgIcon === 'circle'
-                                        ? `${circle.src}`
-                                        : item.svgIcon === 'diamond'
-                                        ? `${diamond.src}`
+                                  key={item.id}
+                                  className={
+                                    time === 0
+                                      ? item.bgColor === 'red'
+                                        ? item.isCorrect
+                                          ? ' bg-[#e21b3c] create-blok'
+                                          : ` bg-[#e21b3c] create-blok bg-opacity-60`
+                                        : item.bgColor === 'blue'
+                                        ? item.isCorrect
+                                          ? `bg-[#1368ce] create-blok`
+                                          : `bg-[#1368ce] create-blok bg-opacity-60`
+                                        : item.bgColor === 'yellow'
+                                        ? item.isCorrect
+                                          ? `bg-[#d89e00] create-blok`
+                                          : `bg-[#d89e00] create-blok bg-opacity-60`
+                                        : item.bgColor === 'gren'
+                                        ? item.isCorrect
+                                          ? `bg-[#26890c] create-blok`
+                                          : `bg-[#26890c] create-blok bg-opacity-60`
                                         : ''
-                                    }
-                                    width="30px"
-                                    height="30px"
-                                  />
-                                </div>
-                                <div className="flex flex-grow">
-                                  <p className="text-white text-xl md:text-3xl font-semibold">
-                                    {item.body}
-                                  </p>
-                                </div>
-                                {/* check dev */}
-
-                                {time === 0 && (
-                                  <div className="!min-w-[45px] h-[45px] rounded-full flex justify-center items-center   ">
-                                    {item.isCorrect ? (
-                                      <BsCheckLg className="text-green-500 text-3xl" />
-                                    ) : (
-                                      <CgClose className="text-red-500 text-3xl" />
-                                    )}
+                                      : item.bgColor === 'red'
+                                      ? ' bg-[#e21b3c] create-blok'
+                                      : item.bgColor === 'blue'
+                                      ? `bg-[#1368ce] create-blok`
+                                      : item.bgColor === 'yellow'
+                                      ? `bg-[#d89e00] create-blok`
+                                      : item.bgColor === 'gren'
+                                      ? `bg-[#26890c] create-blok`
+                                      : ''
+                                  }
+                                >
+                                  <div
+                                    className={`${
+                                      item.svgIcon === 'diamond'
+                                        ? 'rotate-45'
+                                        : ''
+                                    } w-[15px] md:!w-[30px] leading-[100%]`}
+                                  >
+                                    <Image
+                                      src={
+                                        item.svgIcon === 'triangle'
+                                          ? `${triangle.src}`
+                                          : item.svgIcon === 'square'
+                                          ? `${square.src}`
+                                          : item.svgIcon === 'circle'
+                                          ? `${circle.src}`
+                                          : item.svgIcon === 'diamond'
+                                          ? `${diamond.src}`
+                                          : ''
+                                      }
+                                      width="30px"
+                                      height="30px"
+                                    />
                                   </div>
-                                )}
-                              </div>
-                            )
-                          )}
+                                  <div className="flex flex-grow">
+                                    <p className="text-white text-xl md:text-3xl font-semibold">
+                                      {item.body}
+                                    </p>
+                                  </div>
+                                  {/* check dev */}
+
+                                  {time === 0 && (
+                                    <div className="!min-w-[45px] h-[45px] rounded-full flex justify-center items-center   ">
+                                      {item.isCorrect ? (
+                                        <BsCheckLg className="text-green-500 text-3xl" />
+                                      ) : (
+                                        <CgClose className="text-red-500 text-3xl" />
+                                      )}
+                                    </div>
+                                  )}
+                                </div>
+                              ))}
+                            </div>
+                          </div>
                         </div>
-                      </div>
-                    </div>
+                      )}
+                    </>
                   )}
                 </>
-              ) : game.status === 'result' ? (
-                players.map((player) => {
-                  return (
-                    <>
-                      <h2>{player.playerName}</h2>
-                      <p>{player.point}</p>
-                    </>
-                  );
-                })
               ) : (
                 <div className="bg-blue-400 h-screen" key={game.id}>
                   <div className="bg-blue-500 w-screen py-3">
