@@ -45,4 +45,13 @@ html {
     @apply rounded-3xl   object-cover object-center;
   }
   
+ 
+  .portBox span{
+    @apply !h-full
+  }
+  .portBox span img{ 
+    @apply h-full object-cover
+
+  }
+
 }

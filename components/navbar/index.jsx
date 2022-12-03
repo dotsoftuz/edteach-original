@@ -1,104 +1,97 @@
 import { React, useEffect, useState } from 'react';
-import Link from 'next/link';
-import { FaTimes } from 'react-icons/fa';
+import { FiMenu } from 'react-icons/fi';
 
+import Link from 'next/link';
 
 const Header = () => {
-
   const [isToggled, setIsToggled] = useState(false);
   const handleClick = () => setIsToggled(!isToggled);
 
   return (
-    <header aria-label="Site Header" className="border-b">
-      <div className="mx-auto max-w-screen-xl p-4">
-        <div className="flex items-center justify-between gap-4 lg:gap-10">
-          <div className="flex lg:w-0 lg:flex-1">
-            <Link href="/">
-              <span className="text-sm md:text-xl font-semibold">edTeach</span>
-            </Link>
-          </div>
-          <div onClick={handleClick} className={isToggled ? "window-rgb rgb-active" : "window-rgb"}></div>
-          <nav
-            aria-label="Site Nav"
-            className={isToggled ? "nav nav-mobile" : "nav"}
-          >
-            <a className="text-sm md:text-base font-semibold text-gray-500" href="#">
-              Asosiy
-            </a>
-            <a
-              className="text-sm md:text-base font-semibold text-gray-500 duration-700"
-              href="#price"
-            >
-              Obuna
-            </a>
-            <a
-              className="text-sm md:text-base font-semibold text-gray-500"
-              href=""
-            >
-              Xizmatlar
-            </a>
-            <a
-              className="text-sm md:text-base font-semibold text-gray-500"
-              href=""
-            >
-              Kurslar
-            </a>
-            <a
-              className="text-sm md:text-base font-semibold text-gray-500"
-              href="#contact"
-            >
-              Aloqa
-            </a>
-
-            
-          <div className="md:hidden flex-1 items-start mt-5  flex">
-            <Link
-              href="/dashboard"
-            >
-              <a className='w-fit rounded-lg py-2 !px-12  font-medium shadow-md text-sm duration-300
-                active:bg-opacity-80 cursor-pointer ease-in-out active:scale-95 bg-purple-500 
-                 dark:bg-[#1a5cff] md:text-sm text-white hover:shadow-md'>Kirish</a>
-            </Link>
-          </div>
-          </nav>
-
-          <div className="hidden flex-1 items-center justify-end gap-4 sm:flex">
-            <Link
-              href="/dashboard"
-            >
-              <a className='w-fit rounded-lg py-2 px-8 font-medium shadow-md text-sm duration-300
-          active:bg-opacity-80 cursor-pointer ease-in-out active:scale-95 bg-purple-500 
-          dark:bg-[#1a5cff] md:text-sm text-white hover:shadow-md'>Kirish</a>
-            </Link>
+    <nav className="sticky left-0 top-0 z-50 bg-white/90 w-full backdrop-blur">
+      <div className="mx-auto h-[70px] container">
+        <div className="relative flex h-full items-center justify-between border-b border-slate-500/10">
+          {/* <!-- logo --> */}
+          <div className="w-[15rem] max-w-full text-2xl font-semibold">
+            <Link href="#">edTeach</Link>
           </div>
 
-          <div className="lg:hidden">
+          {/* <!-- menu --> */}
+          <div className="flex w-full items-center justify-between">
+            <nav
+              x-transition
+              className={`${
+                isToggled ? 'block ' : 'hidden'
+              }  absolute right-0 top-[90px] w-full max-w-[350px] rounded-lg border border-blue-200 bg-white py-5 px-6 shadow-lg shadow-blue-400/5 transition-all lg:static lg:block lg:max-w-full lg:border-none lg:shadow-none lg:bg-transparent lg:px-0 lg:py-0`}
+              id="navbarCollapse"
+            >
+              <ul className="flex flex-col justify-center gap-8 lg:flex-row">
+                <li>
+                  <Link href="#">
+                    <a className="text-lg font-medium text-slate-700 duration-200 hover:text-blue-600 lg:text-base">
+                      Asosiy
+                    </a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#">
+                    <a className="text-lg font-medium text-slate-700 duration-200 hover:text-blue-600 lg:text-base">
+                      Obuna
+                    </a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#">
+                    <a className="text-lg font-medium text-slate-700 duration-200 hover:text-blue-600 lg:text-base">
+                      Xizmatlar
+                    </a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#">
+                    <a className="text-lg font-medium text-slate-700 duration-200 hover:text-blue-600 lg:text-base">
+                      Kurslar
+                    </a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#">
+                    <a className="text-lg font-medium text-slate-700 duration-200 hover:text-blue-600 lg:text-base">
+                      Blog
+                    </a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#">
+                    <a className="text-lg font-medium text-slate-700 duration-200 hover:text-blue-600 lg:text-base">
+                      Aloqa
+                    </a>
+                  </Link>
+                </li>
+              </ul>
+            </nav>
+          </div>
+          {/* <!-- menu btn --> */}
+          <div className="flex">
+            <Link href="/dashboard">
+              <a className="mr-10 hidden rounded-md bg-blue-500 px-8 py-2.5 font-semibold text-white shadow-md shadow-blue-500/20 duration-200 hover:bg-blue-600 sm:block lg:mr-0">
+                Kirish
+              </a>
+            </Link>
             <button
-              className="text-sm md:text-base font-semibold z-100 rounded-lg bg-gray-100 p-2 text-gray-600"
-              type="button"
               onClick={handleClick}
+              id="navbarToggler"
+              className="block lg:hidden"
             >
-              <span className="sr-only">Open menu</span>
-              <svg
-                aria-hidden="true"
-                className="h-5 w-5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M4 6h16M4 12h16M4 18h16"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                />
-              </svg>
+              <FiMenu
+                name="menu-outline"
+                className="text-3xl  text-blue-500"
+              ></FiMenu>
             </button>
           </div>
         </div>
       </div>
-    </header>
+    </nav>
   );
 };
 
