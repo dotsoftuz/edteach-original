@@ -17,7 +17,7 @@ const Layout = () => {
     setCurrentPage(page);
   };
 
-  const { questionsPublic, uid } = useUserContext();
+  const { questionsPublic, uid, getUsertime } = useUserContext();
 
   const paginatePosts = paginate(questionsPublic, currentPage, pageSize);
 
@@ -93,7 +93,7 @@ const Layout = () => {
                   stroke="currentColor"
                   className={`${
                     testCard ? '' : 'bg-gray-200'
-                  } w-10 h-10 p-2 rounded-lg cursor-pointer`}
+                  } hidden md:block w-10 h-10 p-2 rounded-lg cursor-pointer`}
                 >
                   <path
                     strokeLinecap="round"
@@ -147,13 +147,13 @@ const Layout = () => {
                       </Link>
                       <div className="flex flex-col justify-between">
                         <div>
-                          <span className="bg-purple-500 text-white text-xs font-semibold px-1 rounded-full">
+                          <span className="bg-blue-500 text-white text-xs font-semibold px-1 rounded-full">
                             Test
                           </span>
-                          <h2 className="text-lg md:text-xl font-semibold">
+                          <h2 className="text-lg md:text-xl font-semibold truncate">
                             {val.title}
                           </h2>
-                          <h2 className="text-sm md:text-lg font-semibold">
+                          <h2 className="text-sm md:text-lg font-semibold truncate">
                             {val.description}
                           </h2>
                         </div>
@@ -162,31 +162,35 @@ const Layout = () => {
                             <h2 className="text-sm md:text-base font-semibold">
                               Umumiy testlar soni:
                             </h2>
-                            <span className="bg-purple-500 text-white text-xs font-semibold px-1 rounded-full">
+                            <span className="bg-blue-500 text-white text-xs font-semibold px-1 rounded-full">
                               {val.questionList.length} ta
                             </span>
                           </div>
                           <h2 className="text-xs font-semibold">
                             Yaratuvchi: {val.createrName}
                           </h2>
+                          <h2 className="text-xs font-semibold mb-2">
+                            Test yaratilgan vaqt:{' '}
+                            {getUsertime(new Date(val.prefixTime))}
+                          </h2>
                         </div>
                       </div>
                       {val.uid === uid ? (
                         <div onClick={() => sendData(val.id)}>
-                          <Link href={`startgame/${val.id}`}>
+                          <Link href={`/dashboard/startgame/${val.id}`}>
                             <div
                               className={`${
                                 testCard ? 'bottom-2' : 'top-2'
-                              } absolute  right-2 flex items-center space-x-1 hover:text-purple-500 cursor-pointer`}
+                              } absolute  right-2 flex items-center space-x-1 hover:text-blue-500 cursor-pointer`}
                             >
-                              <p className="text-lg font-semibold">Start</p>
+                              <p className="text-lg font-semibold">Boshlash</p>
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 fill="none"
                                 viewBox="0 0 24 24"
                                 strokeWidth={1.5}
                                 stroke="currentColor"
-                                className="w-5 h-5"
+                                className="w-5 h-5 mt-1"
                               >
                                 <path
                                   strokeLinecap="round"

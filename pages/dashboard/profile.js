@@ -9,6 +9,9 @@ import { useUserContext } from 'context/userContext';
 
 const Profile = () => {
   const { userName, userEmail, questions } = useUserContext();
+  const name = userName.toString();
+  const [editName, setEditName] = useState(name);
+  console.log(typeof userName);
 
   const [edit, setEdit] = useState(false);
 
@@ -36,26 +39,22 @@ const Profile = () => {
             active
           />
           <div>
-            <div className="relative flex flex-col md:flex-row bg-gray-200 rounded-lg p-4 md:p-6 my-5">
+            <div className="relative flex flex-col md:flex-row shadow-xl border rounded-lg p-4 md:p-6 my-5">
               <div className="flex items-center">
                 <div className="group relative">
-                  <img
-                    className="rounded-full w-16 h-16 md:w-20 md:h-20 object-contain"
-                    src="https://e7.pngegg.com/pngimages/748/695/png-clipart-circle-purple-font-purple-circle-violet-circle-frame-thumbnail.png"
-                    alt=""
-                  />
-                  <h2 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-4xl text-white">
+                  <div className="rounded-full w-16 h-16 md:w-20 md:h-20 bg-gray-200" />
+                  <h2 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-4xl text-blue-500">
                     {userName.charAt(0)}
                   </h2>
                 </div>
                 <div className="ml-5">
                   <div className="flex items-center space-x-2">
                     <h2 className=" text-lg font-semibold">{userName}</h2>
-                    <span className="bg-purple-500 text-white text-xs font-semibold px-1 rounded-full">
+                    <span className="bg-blue-500 text-white text-xs font-semibold px-1 rounded-full">
                       O&apos;qituvchi
                     </span>
                   </div>
-                  <p className="text-purple-500 font-medium">{userEmail}</p>
+                  <p className="text-blue-500 font-medium">{userEmail}</p>
                 </div>
               </div>
               <div className="md:ml-auto mt-4 md:mt-0 space-y-3 flex flex-col md:flex-col-reverse">
@@ -76,92 +75,87 @@ const Profile = () => {
                 <a
                   onClick={openEdit}
                   className="rounded-lg py-2 px-4 font-medium text-sm duration-300
-                   active:bg-opacity-80 cursor-pointer ease-in-out active:scale-95 bg-transparent border border-purple-500 md:text-sm text-purple-500 hover:shadow-md text-center"
+                   active:bg-opacity-80 cursor-pointer ease-in-out active:scale-95 bg-transparent border border-blue-500 md:text-sm text-blue-500 hover:shadow-md text-center"
                 >
                   Tahrirlamoq
                 </a>
               </div>
             </div>
-            <>
-              <div
-                className={
-                  edit
-                    ? 'fixed top-0 left-0 right-0 bottom-0 z-[60] flex items-center justify-center bg-black bg-opacity-40'
-                    : 'hidden'
-                }
-              >
-                <div className="relative w-[90%] h-[50vh] md:w-[30rem] lg:w-[35rem] xl:w-[40rem] p-6 bg-white shadow-lg rounded-xl">
-                  <div
-                    onClick={closeEdit}
-                    className="absolute -top-1 -right-1 hover:top-0 hover:right-0 p-1.5 rounded-lg bg-white shadow-lg cursor-pointer duration-200"
-                  >
-                    <GrFormClose className="text-purple-500" />
-                  </div>
+            <div
+              className={
+                edit
+                  ? 'fixed top-0 left-0 right-0 bottom-0 z-[60] flex items-center justify-center bg-black bg-opacity-40'
+                  : 'hidden'
+              }
+            >
+              <div className="relative w-[90%] h-[50vh] md:w-[30rem] lg:w-[35rem] xl:w-[40rem] p-6 bg-white shadow-lg rounded-xl">
+                <div
+                  onClick={closeEdit}
+                  className="absolute -top-1 -right-1 hover:top-0 hover:right-0 p-1.5 rounded-lg bg-white shadow-lg cursor-pointer duration-200"
+                >
+                  <GrFormClose className="text-blue-500" />
+                </div>
 
-                  <div className="flex items-center">
-                    <label className="group relative">
-                      <img
-                        className="rounded-full w-16 h-16 md:w-20 md:h-20 object-contain"
-                        src="https://e7.pngegg.com/pngimages/748/695/png-clipart-circle-purple-font-purple-circle-violet-circle-frame-thumbnail.png"
-                        alt=""
-                      />
-                      <h2 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-4xl text-white">
-                        {userName.charAt(0)}
-                      </h2>
-                      <input type="file" className="hidden" name="file1" />
-                      <div className="absolute top-0 rounded-full w-16 h-16 md:w-20 md:h-20 bg-black bg-opacity-40 hidden group-hover:block">
-                        <CiEdit className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-3xl text-white cursor-pointer" />
-                      </div>
-                    </label>
-                    <div className="ml-5">
-                      <h2 className=" text-lg font-semibold">
-                        Profilni Tahrirlamoq
-                      </h2>
+                <div className="flex items-center">
+                  <label className="group relative">
+                    <img
+                      className="rounded-full w-16 h-16 md:w-20 md:h-20 object-contain"
+                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJ9Zx66Es_kue4bb5dPG9G7gXqNK-YWLxGg3vSkDVzUamGj577zuIG4ufQL-gaXUbq-oM&usqp=CAU"
+                    />
+                    <input type="file" className="hidden" name="file1" />
+                    <div className="absolute top-0 rounded-full w-16 h-16 md:w-20 md:h-20 bg-black bg-opacity-40 hidden group-hover:block">
+                      <CiEdit className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-3xl text-white cursor-pointer" />
                     </div>
-                  </div>
-                  <div className="my-5 space-y-2 md:space-y-3">
-                    <div className="relative group">
-                      <div className="flex items-center rounded-lg text-black bg-gray-100 focus-within:px-1 duration-200 focus-within:bg-gray-200 ring-transparent focus-within:ring-1 focus-within:ring-gray-300">
-                        <input
-                          id="username"
-                          className="outline-none flex flex-grow p-3 md:p-4 bg-transparent placeholder-black rounded-l-xl px-4 text-sm duration-300"
-                          type="text"
-                          placeholder="Full name"
-                        />
-                        <div className="absolute top-0 right-0 duration-300 rounded-xl bg-transparent p-3 md:p-4 group-focus-within:-top-2 group-focus-within:-right-2 group-focus-within:bg-gray-300 group-focus-within:bg-opacity-60">
-                          <BiUser className="text-black" />
-                        </div>
-                      </div>
-                    </div>
-                    <div className="relative group">
-                      <div className="flex items-center rounded-lg text-black bg-gray-100 focus-within:px-1 duration-200 focus-within:bg-gray-200 ring-transparent focus-within:ring-1 focus-within:ring-gray-300">
-                        <input
-                          id="password"
-                          className="outline-none flex flex-grow p-3 md:p-4 bg-transparent placeholder-black rounded-l-xl px-4 text-sm duration-300"
-                          type="text"
-                          placeholder="Password"
-                        />
-                        <div className="absolute top-0 right-0 duration-300 rounded-xl bg-transparent p-3 md:p-4 group-focus-within:-top-2 group-focus-within:-right-2 group-focus-within:bg-gray-300 group-focus-within:bg-opacity-60">
-                          <BiLockAlt className="text-black" />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div
-                    onClick={closeEdit}
-                    className="absolute bottom-4 right-4 space-x-2"
-                  >
-                    <button className="rounded-lg py-2 px-4 shadow-md text-sm md:text-base font-semibold active:bg-opacity-80 ease-in-out bg-purple-200 text-purple-500 active:scale-95 duration-200">
-                      Bekor qilmoq
-                    </button>
-                    <button className="rounded-lg py-2 px-4 shadow-md text-sm md:text-base font-semibold active:bg-opacity-80 ease-in-out bg-purple-500 text-white active:scale-95 duration-200">
-                      Saqlamoq
-                    </button>
+                  </label>
+                  <div className="ml-5">
+                    <h2 className=" text-lg font-semibold">
+                      Profilni Tahrirlamoq
+                    </h2>
                   </div>
                 </div>
+                <div className="my-5 space-y-2 md:space-y-3">
+                  <div className="relative group">
+                    <div className="flex items-center rounded-lg text-black bg-gray-100 focus-within:px-1 duration-200 focus-within:bg-gray-200 ring-transparent focus-within:ring-1 focus-within:ring-gray-300">
+                      <input
+                        id="username"
+                        className="outline-none flex flex-grow p-3 md:p-4 bg-transparent placeholder-black rounded-l-xl px-4 text-sm duration-300"
+                        type="text"
+                        value={editName}
+                        placeholder="Full name"
+                      />
+                      <div className="absolute top-0 right-0 duration-300 rounded-xl bg-transparent p-3 md:p-4 group-focus-within:-top-2 group-focus-within:-right-2 group-focus-within:bg-gray-300 group-focus-within:bg-opacity-60">
+                        <BiUser className="text-black" />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="relative group">
+                    <div className="flex items-center rounded-lg text-black bg-gray-100 focus-within:px-1 duration-200 focus-within:bg-gray-200 ring-transparent focus-within:ring-1 focus-within:ring-gray-300">
+                      <input
+                        id="password"
+                        className="outline-none flex flex-grow p-3 md:p-4 bg-transparent placeholder-black rounded-l-xl px-4 text-sm duration-300"
+                        type="text"
+                        placeholder="Password"
+                      />
+                      <div className="absolute top-0 right-0 duration-300 rounded-xl bg-transparent p-3 md:p-4 group-focus-within:-top-2 group-focus-within:-right-2 group-focus-within:bg-gray-300 group-focus-within:bg-opacity-60">
+                        <BiLockAlt className="text-black" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div
+                  onClick={closeEdit}
+                  className="absolute bottom-4 right-4 space-x-2"
+                >
+                  <button className="rounded-lg py-2 px-4 shadow-md text-sm md:text-base font-semibold active:bg-opacity-80 ease-in-out bg-blue-200 text-blue-500 active:scale-95 duration-200">
+                    Bekor qilmoq
+                  </button>
+                  <button className="rounded-lg py-2 px-4 shadow-md text-sm md:text-base font-semibold active:bg-opacity-80 ease-in-out bg-blue-500 text-white active:scale-95 duration-200">
+                    Saqlamoq
+                  </button>
+                </div>
               </div>
-            </>
+            </div>
           </div>
         </div>
       </Sidebar>

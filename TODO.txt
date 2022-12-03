@@ -4,8 +4,8 @@ htmlFor copy and paste: Check - ✔️, Not done - ❌;
 
 Aziz: 
  - [Sign Up = ✔️] va Google 
- - Testga qoshilish
- - Testni yechish
+ - Testga qoshilish✔️
+ - Testni yechish✔️
  - Testni javobini chiqarish
 
 Muhammad:
@@ -23,3 +23,6 @@ Komil:
  - Linklarni to'girlab chiq Bosh sahifa pagedagi navbardagi ortiqcha linklani olib tasha
  - Test yaratish qismi
  - Home page yana 1-2 ta narsa qoshish
+
+ - Testga qoshilgandan keyin osha oyinga kirganda eski oyichilarni chiqarib yubormepti
+ - testga odam qoshilmasa ham boshlavarepti

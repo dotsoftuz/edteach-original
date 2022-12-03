@@ -11,7 +11,11 @@ export { default as SignUp } from './signup/index';
 
 // Sections
 export { default as Header } from './header/index';
+export { default as Feature } from './feature/index';
 export { default as About } from './about/index';
+export { default as Service } from './service/index';
+export { default as Faq } from './faq/index';
+export { default as Blog } from './blog/index';
 export { default as Price } from './price/index';
 export { default as Contact } from './contact/index';
 export { default as Sidebar } from './sidebar/Sidebar';

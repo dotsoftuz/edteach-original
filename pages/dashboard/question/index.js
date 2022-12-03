@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { deleteDoc, doc, getDoc, updateDoc, setIdP } from 'firebase/firestore';
+import React, { useState } from 'react';
+import { deleteDoc, doc, getDoc, updateDoc } from 'firebase/firestore';
 import Head from 'next/head';
 import Link from 'next/link';
 import { db } from '../../../firebase';
@@ -14,7 +14,7 @@ const Tests = () => {
   const pageSize = 8;
   const [currentPage, setCurrentPage] = useState(1);
 
-  const { questions } = useUserContext();
+  const { questions, getUsertime } = useUserContext();
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
@@ -22,26 +22,23 @@ const Tests = () => {
 
   const paginatePosts = paginate(questions, currentPage, pageSize);
 
-  console.log(questions);
-
   const sendData = async (id) => {
-    setIdP(id);
     const collectionRef = doc(db, `question`, id);
     const quest = await getDoc(collectionRef);
     const payload = {
       status: 'started',
       pin: String(Math.floor(Math.random() * 900000) + 1000),
       id: id,
+      questionIndex: 0,
     };
 
-    await updateDoc(collectionRef, payload).then(() => {
-      quest.data().playerId.map((i) => {
-        const deletePlayer = async () => {
-          const PlayerColl = doc(db, `question/${id}/players`, i.id);
-          await deleteDoc(PlayerColl);
-        };
-        deletePlayer();
-      });
+    await updateDoc(collectionRef, payload);
+    quest.data().playerId.map((i) => {
+      const deletePlayer = async () => {
+        const PlayerColl = doc(db, `question/${id}/players`, i.id);
+        await deleteDoc(PlayerColl);
+      };
+      deletePlayer();
     });
   };
 
@@ -115,7 +112,7 @@ const Tests = () => {
                   stroke="currentColor"
                   className={`${
                     testCard ? '' : 'bg-gray-200'
-                  } w-10 h-10 p-2 rounded-lg cursor-pointer`}
+                  } hidden md:block w-10 h-10 p-2 rounded-lg cursor-pointer`}
                 >
                   <path
                     strokeLinecap="round"
@@ -165,14 +162,14 @@ const Tests = () => {
                       />
                     </Link>
                     <div className="flex flex-col justify-between">
-                      <div>
-                        <span className="bg-purple-500 text-white text-xs font-semibold px-1 rounded-full">
+                      <div className="w-full overflow-hidden">
+                        <span className="bg-blue-500 text-white text-xs font-semibold px-1 rounded-full">
                           Quiz
                         </span>
-                        <h2 className="text-lg md:text-xl font-semibold">
+                        <h2 className="text-lg md:text-xl font-semibold truncate">
                           {val.title}
                         </h2>
-                        <h2 className="text-sm md:text-lg font-semibold">
+                        <h2 className="text-sm md:text-lg font-semibold truncate">
                           {val.description}
                         </h2>
                       </div>
@@ -181,31 +178,38 @@ const Tests = () => {
                           <h2 className="text-sm md:text-base font-semibold">
                             Umumiy testlar soni:
                           </h2>
-                          <span className="bg-purple-500 text-white text-xs font-semibold px-1 rounded-full">
+                          <span className="bg-blue-500 text-white text-xs font-semibold px-1 rounded-full">
                             {val.questionList.length} ta
                           </span>
                         </div>
-                        <h2 className="text-xs font-semibold">
-                          Yaratuvchi: {val.createrName}
-                        </h2>
+                      </div>
+                      <div>
+                        <div className="flex items-center space-x-2 mb-2">
+                          <h2 className="text-sm md:text-base font-semibold">
+                            Test yaratilgan vaqt:
+                          </h2>
+                          <span className="bg-blue-500 text-white text-xs font-semibold px-1 rounded-full">
+                            {getUsertime(new Date(val.prefixTime))}
+                          </span>
+                        </div>
                       </div>
                     </div>
 
                     <div onClick={() => sendData(val.id)}>
-                      <Link href={`startgame/${val.id}`}>
+                      <Link href={`/dashboard/startgame/${val.id}`}>
                         <div
                           className={`${
                             testCard ? 'bottom-2' : 'top-2'
-                          } absolute  right-2 flex items-center space-x-1 hover:text-purple-500 cursor-pointer`}
+                          } absolute  right-2 flex items-center space-x-1 hover:text-blue-500 cursor-pointer`}
                         >
-                          <p className="text-lg font-semibold">Start</p>
+                          <p className="text-lg font-semibold">Boshlash</p>
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
                             viewBox="0 0 24 24"
                             strokeWidth={1.5}
                             stroke="currentColor"
-                            className="w-5 h-5"
+                            className="w-5 h-5 mt-1"
                           >
                             <path
                               strokeLinecap="round"
@@ -219,13 +223,20 @@ const Tests = () => {
                   </div>
                 );
               })}
+            <Pagination
+              items={questions.length}
+              pageSize={pageSize}
+              currentPage={currentPage}
+              onPageChange={handlePageChange}
+            />
           </div>
-          <Pagination
-            items={questions.length}
-            pageSize={pageSize}
-            currentPage={currentPage}
-            onPageChange={handlePageChange}
-          />
+          {!paginatePosts.length > 1 && (
+            <div className="flex items-center justify-center h-[70vh]">
+              <h1 className="text-2xl text-red-600 font-semibold">
+                Teslar mavjud emas.
+              </h1>
+            </div>
+          )}
         </div>
       </Sidebar>
     </div>

@@ -135,6 +135,18 @@ export const UserContextProvider = ({ children }) => {
       .finally(() => setLoading(false));
   };
 
+  function addLeadingzero(d) {
+    return d < 10 ? '0' + d : d;
+  }
+
+  function getUsertime(t) {
+    let Y = t.getUTCFullYear();
+    let M = addLeadingzero(t.getMonth() + 1);
+    let D = addLeadingzero(t.getDate());
+    return ` ${D}/${M}/${Y}`;
+  }
+
+
   const contextValue = {
     user,
     loading,
@@ -153,6 +165,7 @@ export const UserContextProvider = ({ children }) => {
     userEmail,
     questions,
     questionsPublic,
+    getUsertime
   };
   return (
     <UserContext.Provider value={contextValue}>{children}</UserContext.Provider>
