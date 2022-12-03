@@ -1,7 +1,10 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import none from '../../public/images/about-img1.jpg';
+import featureImg from "public/images/features.svg"
+import create from "public/images/create.png"
+import share from "public/images/share.png"
+import play from "public/images/play.png"
 
 const Feature = () => {
   return (
@@ -9,7 +12,6 @@ const Feature = () => {
       <div className="mx-auto container">
         {/* <!-- heading text --> */}
         <div className="mb-5 sm:mb-10">
-          <span className="font-medium text-blue-500">Our Features</span>
           <h1 className="text-2xl font-bold text-slate-700 sm:text-3xl">
             Provide Our Features
           </h1>
@@ -17,8 +19,8 @@ const Feature = () => {
         {/* <!-- features Image --> */}
         <div className="md:flex md:justify-between md:gap-6 xl:gap-10">
           <div className="mb-5 max-h-[600px] overflow-hidden rounded-lg md:mb-0 md:w-5/12">
-            <div className="h-full scale-125 sm:w-full sm:object-cover">
-              <Image src={none} alt="features Image" />
+            <div className="h-full feature scale-125 sm:w-full sm:object-cover">
+              <Image src={featureImg} alt="features Image" />
             </div>
           </div>
           <div className="md:w-7/12">
@@ -41,8 +43,8 @@ const Feature = () => {
 
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               <div className="flex flex-col items-center justify-center rounded-xl bg-white px-4 py-8 shadow-lg">
-                <div className="mb-3 w-16">
-                  <Image src={none} alt="" />
+                <div className="mb-3 w-24">
+                  <Image src={create} alt="" />
                 </div>
                 <h3 className="text-lg font-bold text-slate-600">Yarating</h3>
                 <Link href="#">
@@ -50,8 +52,8 @@ const Feature = () => {
                 </Link>
               </div>
               <div className="flex flex-col items-center justify-center rounded-xl bg-white px-4 py-8 shadow-lg">
-                <div className="mb-3 w-16">
-                  <Image src={none} alt="" />
+                <div className="mb-3 w-24">
+                  <Image src={share} alt="" />
                 </div>
                 <h3 className="text-lg font-bold text-slate-600">Ulashing</h3>
                 <Link href="#">
@@ -59,8 +61,8 @@ const Feature = () => {
                 </Link>
               </div>
               <div className="flex flex-col items-center justify-center rounded-xl bg-white px-4 py-8 shadow-lg">
-                <div className="mb-3 w-16">
-                  <Image src={none} alt="" />
+                <div className="mb-3 w-24">
+                  <Image src={play} alt="" />
                 </div>
                 <h3 className="text-lg font-bold text-slate-600">
                   O&apos;ynang

@@ -1,5 +1,4 @@
-import React from 'react';
-import HeaderImg from 'public/images/header.svg';
+import header from '/public/images/header.svg';
 import Image from 'next/image';
 
 const Header = () => {
@@ -29,7 +28,7 @@ const Header = () => {
             <div className="lg:ml-auto lg:text-right">
               <div className="relative z-10 inline-block pt-11 lg:pt-0">
                 <div className="max-w-full lg:ml-auto lg:translate-y-[-70px]">
-                  <Image src={HeaderImg} />
+                  <Image src={header} />
                 </div>
               </div>
             </div>

@@ -3,7 +3,7 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <div className="container mx-auto px-5 pt-16 lg:pt-24 sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
+    <div className="container mx-auto px-5 pt-16 lg:pt-24  lg:max-w-screen-xl md:px-24">
       <div className="grid gap-10 row-gap-6 mb-8 sm:grid-cols-2 lg:grid-cols-4">
         <div className="sm:col-span-2">
           <Link href="/" ariaLabel="Go Bosh sahifa" title="Company">
@@ -25,7 +25,7 @@ const Footer = () => {
         </div>
         <div className="space-y-2 text-sm">
           <p className="text-base font-bold tracking-wide text-gray-900">
-            Contacts
+          Kontaktlar
           </p>
           <div className="flex">
             <p className="mr-1 text-gray-800">Phone:</p>
@@ -65,7 +65,7 @@ const Footer = () => {
         </div>
         <div>
           <span className="text-base font-bold tracking-wide text-gray-900">
-            Social
+            Ijtimoiy Tarmoqlarimiz
           </span>
           <div className="flex items-center mt-1 space-x-3">
             <Link href="/">
