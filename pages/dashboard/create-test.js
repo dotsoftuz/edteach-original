@@ -203,10 +203,10 @@ const CreateTest = () => {
       if (!data.title) {
         toast.error("Testga sarlovha qo'ying");
       } else if (!data.description) {
-        toast.error('Testga sharh yozing');
+        toast.error('Testga tavsif kiriting');
       } else {
         await addDoc(questColl, data);
-        toast.success("Test muvoffaqiyatli qo'shildi");
+        toast.success("Muvoffaqiyatli");
         setTimeout(() => {
           router.push('/dashboard/question');
         }, 2000);
@@ -246,7 +246,7 @@ const CreateTest = () => {
                   className="absolute top-0 left-0 w-full h-full flex items-center pl-[10px] duration-200 text-sm group-focus-within:text-xs group-focus-within:h-1/2 group-focus-within:-translate-y-full group-focus-within:pl-0"
                   htmlFor="label"
                 >
-                  Sarlovha
+                  Sarlavha
                 </label>
                 <input
                   id="label"
@@ -344,10 +344,10 @@ const CreateTest = () => {
         <form className="w-full min-h-full">
           <div className="form min-h-full flex flex-col justify-between">
             <input
-              className="w-full rounded-lg h-[50px] text-[20px] p-4 outline-none bg-gray-200 shadow-[0_1px_3px_#80838b] text-center placeholder:text-gray-700"
+              className="w-full rounded-lg h-[50px] text-[20px] p-4 outline-none bg-white shadow-[0_1px_3px_#80838b] text-center placeholder:text-gray-700"
               type="text"
               name="question"
-              placeholder="Savolingizni yozing"
+              placeholder="Savolingizni kiriting"
               value={!input[testId] ? '' : input[testId].question}
               onChange={(e) => getValue(testId, e)}
             />

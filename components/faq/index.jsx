@@ -47,22 +47,22 @@ const Faq = () => {
                             <ul>
                                 <Faqbox
                                     heightBox="1"
-                                    text="Lorem ipsum dolor sit, amet consectetur?"
+                                    text="Qanday ro`yxatdan o`tish kerak?"
                                     description="ipsum! Assumenda, dolorem nihil. Commodi, qui? Officiis provident, cumque perspiciatis magni commodi rem nihil,"
                                 />
                                 <Faqbox
                                     heightBox="2"
-                                    text="Lorem ipsum dolor sit, amet consectetur?"
+                                    text="Bundan faqat ta'limda foydalaniladimi?"
                                     description="ipsum! Assumenda, dolorem nihil. Commodi, qui? Officiis provident, cumque perspiciatis magni commodi rem nihil,"
                                 />
                                 <Faqbox
                                     heightBox="3"
-                                    text="Lorem ipsum dolor sit, amet consectetur?"
+                                    text="Qanday funksiyalarga ega?"
                                     description="ipsum! Assumenda, dolorem nihil. Commodi, qui? Officiis provident, cumque perspiciatis magni commodi rem nihil,"
                                 />
                                 <Faqbox
                                     heightBox="4"
-                                    text="Lorem ipsum dolor sit, amet consectetur?"
+                                    text="Real-time funksiya nima?"
                                     description="ipsum! Assumenda, dolorem nihil. Commodi, qui? Officiis provident, cumque perspiciatis magni commodi rem nihil,"
                                 />
                             </ul>

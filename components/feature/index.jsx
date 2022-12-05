@@ -1,10 +1,10 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import featureImg from "public/images/features.svg"
-import create from "public/images/create.png"
-import share from "public/images/share.png"
-import play from "public/images/play.png"
+import featureImg from 'public/images/features.svg';
+import create from 'public/images/create.png';
+import share from 'public/images/share.png';
+import play from 'public/images/play.png';
 
 const Feature = () => {
   return (
@@ -13,7 +13,7 @@ const Feature = () => {
         {/* <!-- heading text --> */}
         <div className="mb-5 sm:mb-10">
           <h1 className="text-2xl font-bold text-slate-700 sm:text-3xl">
-            Provide Our Features
+            Biz bilan darslarni qiziqarli olib borishingiz mumkin
           </h1>
         </div>
         {/* <!-- features Image --> */}
@@ -26,18 +26,12 @@ const Feature = () => {
           <div className="md:w-7/12">
             <div className="mb-16 flex flex-col">
               <p className="mb-3 text-slate-500">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint
-                explicabo perferendis voluptatibus sunt enim officiis.
+              Biz sizga shunchaki web-sayt emas, balki yuqori standartdagi web-platformani taklif etamiz. Bu bilan istalgan vaqt va joyda foydalanishingiz mumkin. O'ziga xos dizayn, yuqori funksionallik, interaktiv, foydali kontentga boy web-platforma siz uchun manzur keladi.
               </p>
 
-              <p className="mb-10 text-slate-500">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint
-                laudantium, cum, quaerat nulla possimus magni odio ullam ratione
-                vitae id fuga aliquam sed molestiae? Voluptas.
-              </p>
-
+         
               <button className="w-full rounded-md bg-blue-500 px-8 py-2.5 font-semibold text-white shadow-md shadow-blue-500/20 hover:bg-blue-600 duration-200 md:w-max">
-                Get Started
+                Boshlash
               </button>
             </div>
 
@@ -48,7 +42,7 @@ const Feature = () => {
                 </div>
                 <h3 className="text-lg font-bold text-slate-600">Yarating</h3>
                 <Link href="#">
-                  <a className="text-sm text-blue-500">Learn more</a>
+                  <a className="text-sm text-blue-500">Ko`proq</a>
                 </Link>
               </div>
               <div className="flex flex-col items-center justify-center rounded-xl bg-white px-4 py-8 shadow-lg">
@@ -57,7 +51,7 @@ const Feature = () => {
                 </div>
                 <h3 className="text-lg font-bold text-slate-600">Ulashing</h3>
                 <Link href="#">
-                  <a className="text-sm text-blue-500">Learn more</a>
+                  <a className="text-sm text-blue-500">Ko`proq</a>
                 </Link>
               </div>
               <div className="flex flex-col items-center justify-center rounded-xl bg-white px-4 py-8 shadow-lg">
@@ -68,7 +62,7 @@ const Feature = () => {
                   O&apos;ynang
                 </h3>
                 <Link href="#">
-                  <a className="text-sm text-blue-500">Learn more</a>
+                  <a className="text-sm text-blue-500">Ko`proq</a>
                 </Link>
               </div>
             </div>

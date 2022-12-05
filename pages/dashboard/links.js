@@ -20,7 +20,7 @@ function Links(props) {
                 <Link href="https://www.springernature.com/gp" target="_blank">
                   <p className="text-lg md:text-xl flex items-center hover:underline font-bold text-black truncate ">
                     <font>
-                      <font>Springer tabiati</font>
+                      <font>Springer nature</font>
                     </font>
                     <svg
                       aria-hidden="true"
@@ -98,7 +98,7 @@ function Links(props) {
                 <Link href="https://global.oup.com/?cc=uz" target="_blank">
                   <p className="text-lg md:text-xl flex items-center hover:underline font-bold text-black  ">
                     <font>
-                      <font>Kembrij universiteti matbuoti va baholash</font>
+                      <font>Cambridge University Press & Assessment</font>
                     </font>
                     <svg
                       aria-hidden="true"
@@ -124,7 +124,7 @@ function Links(props) {
                 <Link href="https://global.oup.com/?cc=uz" target="_blank">
                   <p className="text-lg md:text-xl flex items-center hover:underline font-bold text-black truncate ">
                     <font>
-                      <font>Oksford universiteti matbuoti</font>
+                      <font>Oxford University Press</font>
                     </font>
                     <svg
                       aria-hidden="true"
@@ -176,7 +176,7 @@ function Links(props) {
                 <Link href="https://www.tandfonline.com/  " target="_blank">
                   <p className="text-lg md:text-xl flex items-center hover:underline font-bold text-black truncate ">
                     <font>
-                      <font>Teylor va Frensis Onlayn</font>
+                      <font>Taylor & Francis Online</font>
                     </font>
                     <svg
                       aria-hidden="true"
@@ -202,7 +202,7 @@ function Links(props) {
                 <Link href="https://www.ariessys.com/ " target="_blank">
                   <p className="text-lg md:text-xl flex items-center hover:underline font-bold text-black truncate ">
                     <font>
-                      <font>Aries tizimlari</font>
+                      <font>Aries systems</font>
                     </font>
                     <svg
                       aria-hidden="true"
@@ -228,7 +228,7 @@ function Links(props) {
                 <Link href="https://www.emerald.com/insight/ " target="_blank">
                   <p className="text-lg md:text-xl flex items-center hover:underline font-bold text-black truncate ">
                     <font>
-                      <font>Emerald nashriyoti</font>
+                      <font>Emerald Publishing</font>
                     </font>
                     <svg
                       aria-hidden="true"
@@ -280,7 +280,7 @@ function Links(props) {
                 <Link href="https://www.springerpub.com/ " target="_blank">
                   <p className="text-lg md:text-xl flex items-center hover:underline font-bold text-black truncate ">
                     <font>
-                      <font>Springer nashriyoti</font>
+                      <font>Springer Publishing</font>
                     </font>
                     <svg
                       aria-hidden="true"
@@ -335,7 +335,7 @@ function Links(props) {
                 <Link href="https://www.nature.com/" target="_blank">
                   <p className="text-lg md:text-xl flex items-center hover:underline font-bold text-black truncate ">
                     <font>
-                      <font>Tabiat</font>
+                      <font>Nature</font>
                     </font>
                     <svg
                       aria-hidden="true"
@@ -361,7 +361,7 @@ function Links(props) {
                 <Link href="https://www.cambridge.org/  " target="_blank">
                   <p className="text-lg md:text-xl flex items-center hover:underline font-bold text-black truncate ">
                     <font>
-                      <font>Kembrij</font>
+                      <font>Cambridge</font>
                     </font>
                     <svg
                       aria-hidden="true"
@@ -468,7 +468,7 @@ function Links(props) {
                 >
                   <p className="text-lg md:text-xl flex items-center hover:underline font-bold text-black truncate ">
                     <font>
-                      <font>DART-Europe elektron tezislar portali</font>
+                      <font>DART-Europe E-theses Portal</font>
                     </font>
                     <svg
                       aria-hidden="true"
@@ -526,7 +526,7 @@ function Links(props) {
                 >
                   <p className="text-lg md:text-xl flex items-center hover:underline font-bold text-black ">
                     <font>
-                      <font>EthOS (Britaniya kutubxonasidan)</font>
+                      <font>EThOS (from the British Library)</font>
                     </font>
                     <svg
                       aria-hidden="true"
@@ -552,7 +552,7 @@ function Links(props) {
                 <Link href=" https://iisc.ac.in/ " target="_blank">
                   <p className="text-lg md:text-xl flex items-center hover:underline font-bold text-black ">
                     <font>
-                      <font>Hindiston fan instituti</font>
+                      <font>Indian Institute of Science</font>
                     </font>
                     <svg
                       aria-hidden="true"
@@ -581,9 +581,7 @@ function Links(props) {
                 >
                   <p className="text-lg md:text-xl flex items-center hover:underline font-bold text-black ">
                     <font>
-                      <font>
-                        Hind tezislari va dissertatsiyalari (Shodhganga)
-                      </font>
+                      <font>Indian Theses and Dissertations (Shodhganga)</font>
                     </font>
                     <svg
                       aria-hidden="true"
@@ -609,7 +607,7 @@ function Links(props) {
                 <Link href="http://www.netd.ac.za/   " target="_blank">
                   <p className="text-lg md:text-xl flex items-center hover:underline font-bold text-black ">
                     <font>
-                      <font>Milliy ETD portali (Janubiy Afrika)</font>
+                      <font>National ETD Portal (South Africa)</font>
                     </font>
                     <svg
                       aria-hidden="true"
@@ -636,8 +634,8 @@ function Links(props) {
                   <p className="text-lg md:text-xl flex items-center hover:underline font-bold text-black ">
                     <font>
                       <font>
-                        Tezislar va dissertatsiyalarning tarmoqli raqamli
-                        kutubxonasi
+                        Networked Digital Library of Theses and Dissertations
+                        OhioLINK ETD Center
                       </font>
                     </font>
                     <svg
@@ -664,7 +662,7 @@ function Links(props) {
                 <Link href="https://etd.ohiolink.edu/  " target="_blank">
                   <p className="text-lg md:text-xl flex items-center hover:underline font-bold text-black ">
                     <font>
-                      <font>OhioLINK ETD markazi</font>
+                      <font>OhioLINK ETD Center</font>
                     </font>
                     <svg
                       aria-hidden="true"
@@ -690,7 +688,7 @@ function Links(props) {
                 <Link href="https://oatd.org/   " target="_blank">
                   <p className="text-lg md:text-xl flex items-center hover:underline font-bold text-black ">
                     <font>
-                      <font>Ochiq kirish tezislari va dissertatsiyalari</font>
+                      <font>Open Access Theses and Dissertations</font>
                     </font>
                     <svg
                       aria-hidden="true"
@@ -719,7 +717,7 @@ function Links(props) {
                 >
                   <p className="text-lg md:text-xl flex items-center hover:underline font-bold text-black ">
                     <font>
-                      <font>Tezislar Kanada</font>
+                      <font>Theses Canada</font>
                     </font>
                     <svg
                       aria-hidden="true"
@@ -774,9 +772,7 @@ function Links(props) {
                 >
                   <p className="text-lg md:text-xl flex items-center hover:underline font-bold text-black ">
                     <font>
-                      <font>
-                        Dissertatsiyalar (Tadqiqot kutubxonalari markazi)
-                      </font>
+                      <font>Dissertations (Center for Research Libraries)</font>
                     </font>
                     <svg
                       aria-hidden="true"
@@ -805,7 +801,7 @@ function Links(props) {
                 >
                   <p className="text-lg md:text-xl flex items-center hover:underline font-bold text-black ">
                     <font>
-                      <font>Melvil</font>
+                      <font>Melvyl</font>
                     </font>
                     <svg
                       aria-hidden="true"
@@ -834,7 +830,7 @@ function Links(props) {
                 >
                   <p className="text-lg md:text-xl flex items-center hover:underline font-bold text-black ">
                     <font>
-                      <font>Stenford universiteti kutubxonalari</font>
+                      <font>Stanford University Libraries</font>
                     </font>
                     <svg
                       aria-hidden="true"
@@ -863,7 +859,7 @@ function Links(props) {
                 >
                   <p className="text-lg md:text-xl flex items-center hover:underline font-bold text-black ">
                     <font>
-                      <font>Kornel universiteti kutubxonasi</font>
+                      <font>Cornell University Library</font>
                     </font>
                     <svg
                       aria-hidden="true"
@@ -921,7 +917,7 @@ function Links(props) {
                 >
                   <p className="text-lg md:text-xl flex items-center hover:underline font-bold text-black ">
                     <font>
-                      <font>Prinston universiteti kutubxonasi</font>
+                      <font>Princeton University Library</font>
                     </font>
                     <svg
                       aria-hidden="true"
@@ -947,7 +943,7 @@ function Links(props) {
                 <Link href="https://ora.ox.ac.uk/" target="_blank">
                   <p className="text-lg md:text-xl flex items-center hover:underline font-bold text-black ">
                     <font>
-                      <font>Oksford universiteti tadqiqot arxivi</font>
+                      <font>Oxford University Research Archive</font>
                     </font>
                     <svg
                       aria-hidden="true"
@@ -973,7 +969,7 @@ function Links(props) {
                 <Link href="http://etheses.lse.ac.uk/" target="_blank">
                   <p className="text-lg md:text-xl flex items-center hover:underline font-bold text-black ">
                     <font>
-                      <font>LSE tezislari onlayn</font>
+                      <font>LSE Theses Online</font>
                     </font>
                     <svg
                       aria-hidden="true"
@@ -999,9 +995,7 @@ function Links(props) {
                 <Link href="https://www.lib.cam.ac.uk/newton" target="_blank">
                   <p className="text-lg md:text-xl flex items-center hover:underline font-bold text-black ">
                     <font>
-                      <font>
-                        Kembrij universiteti kutubxonasi tezislar katalogi
-                      </font>
+                      <font>Cambridge University Library Theses Catalogue</font>
                     </font>
                     <svg
                       aria-hidden="true"

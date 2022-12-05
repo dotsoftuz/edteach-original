@@ -156,7 +156,7 @@ function GameID() {
     setQuestionCount(3);
     setDisabled(false);
     if (index + 1 < length) {
-      setTime(singleData.questionTime);
+      setTime(singleData.questionTime + 3);
       const collectionRef = doc(db, `question`, id);
       const docSnap = await getDoc(collectionRef);
       const payload = {
@@ -167,7 +167,11 @@ function GameID() {
       await updateDoc(collectionRef, payload);
       setShowButton(false);
     } else {
-      setPodium(true);
+      const collectionRef = doc(db, 'question', id);
+      const payload = {
+        status: 'result',
+      };
+      await updateDoc(collectionRef, payload);
     }
   };
 
@@ -178,7 +182,6 @@ function GameID() {
       </Head>
       <div className="h-screen">
         {questions.map((game, index) => {
-          console.log(game);
           return (
             <div key={index}>
               {game.status === 'showingQuestion' ? (
@@ -371,6 +374,18 @@ function GameID() {
                     </>
                   )}
                 </>
+              ) : game.status === 'result' ? (
+                players.map((player) => {
+                  return (
+                    <>
+                      <h2>{player.playerName}</h2>
+                      <p>{player.point}</p>
+                      <p>Savollar: {game.questionList.length}</p>
+                      <p>To'g'ri javoblar: {player.intPoint}</p>
+                      <p>Xato : {game.questionList.length - player.intPoint}</p>
+                    </>
+                  );
+                })
               ) : (
                 <div className="bg-blue-400 h-screen" key={game.id}>
                   <div className="bg-blue-500 w-screen py-3">
