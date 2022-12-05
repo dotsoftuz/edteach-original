@@ -8,6 +8,7 @@ import {
   doc,
   getDoc,
   onSnapshot,
+  orderBy,
   query,
   updateDoc,
   where,
@@ -131,8 +132,9 @@ function GameID() {
       }
 
       const playerColl = collection(db, `question/${gameId}/players`);
+      const playerQuery = query(playerColl, orderBy('point', 'desc'));
 
-      onSnapshot(playerColl, (snapshot) =>
+      onSnapshot(playerQuery, (snapshot) =>
         setPlayers(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
       );
     };
@@ -375,23 +377,47 @@ function GameID() {
                   )}
                 </>
               ) : game.status === 'result' ? (
-                <div className="flex justify-center h-[100vh] items-center">
-                  {players.map((player) => {
-                    return (
-                      <div>
-                        d as
-                        {/* <div className='bg-emerald-400 '>
-                          <h2>{player.playerName}</h2>
-                          <p>{player.point}</p>
-                          <p>Savollar: {game.questionList.length}</p>
-                          <p>To'g'ri javoblar: {player.intPoint}</p>
-                          <p>
-                            Xato : {game.questionList.length - player.intPoint}
-                          </p>
-                        </div> */}
-                      </div>
-                    );
-                  })}
+                <div className="flex justify-center flex-col h-[100vh] w-full items-center">
+                  {/* <div className="flex justify-around w-[40%] items-end">
+                    <div className="w-48 h-72 bg-yellow-500 rounded-lg">
+                      <p className="text-center text-white font-semibold p-4 text-2xl">
+                      </p>
+                    </div>
+                    <div className="w-48 h-96 bg-blue-500 rounded-lg">
+                      <p className="text-center text-white font-semibold p-4 text-2xl">
+                      </p>
+                    </div>
+                    <div className="w-48 h-60 bg-rose-500 rounded-lg">
+                      <p className="text-center text-white font-semibold p-4 text-2xl">
+                      </p>
+                    </div>
+                  </div> */}
+                  <div className="mt-14 w-full flex justify-center">
+                    <table className='border w-[50%]'>
+                      <tr className='border-[1px] hover:bg-gray-100 active:bg-sky-200 cursor-pointer'>
+                        <th>№</th>
+                        <th>Ismi</th>
+                        <th>Ball</th>
+                        <th>To`g`ri javoblar</th>
+                        <th>Noto`g`ri javoblar</th>
+                        <th>Savollar soni</th>
+                      </tr>
+                      {players.map((player, index) => {
+                        return (
+                          <tr className='border-[1px] hover:bg-gray-100 active:bg-sky-200 cursor-pointer'>
+                            <td>{index + 1}</td>
+                            <td>{player.playerName}</td>
+                            <td>{player.point}</td>
+                            <td>{player.intPoint}</td>
+                            <td>
+                              {game.questionList.length - player.intPoint}
+                            </td>
+                            <td>{game.questionList.length}</td>
+                          </tr>
+                        );
+                      })}
+                    </table>
+                  </div>
                 </div>
               ) : (
                 <div className="bg-blue-400 h-screen" key={game.id}>
