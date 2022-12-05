@@ -45,11 +45,7 @@ const Contact = () => {
               <h1 className="mb-3 text-2xl font-bold text-slate-700 sm:text-3xl">
                 BIZ BILAN BOG&apos;LANING
               </h1>
-              <p className="text-slate-500 mb-8">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facere
-                inventore illo porro molestiae maxime magni natus illum commodi!
-                Modi, quisquam?
-              </p>
+          
               {/* <!-- address --> */}
               <div className="mb-8 flex w-full max-w-[420px] items-center rounded-lg bg-white p-4 shadow-md shadow-blue-500/10">
                 <div className="mr-6 flex h-[60px] w-full max-w-[60px] items-center justify-center overflow-hidden rounded bg-blue-500 bg-opacity-5 text-blue-500 sm:h-[70px] sm:max-w-[70px]">

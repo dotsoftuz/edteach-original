@@ -157,7 +157,7 @@ const Tests = () => {
                         className={`${
                           testCard ? 'h-56 w-full' : 'h-32 md:h-56 w-36 md:w-72'
                         } rounded-lg object-cover cursor-pointer`}
-                        src="/images/about-img1.jpg"
+                        src="/images/testbg.png"
                         alt="test image"
                       />
                     </Link>
