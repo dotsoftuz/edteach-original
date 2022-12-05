@@ -1,4 +1,4 @@
-import { React, useEffect, useState } from 'react';
+import { useState } from 'react';
 import { FiMenu } from 'react-icons/fi';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -19,7 +19,6 @@ const Header = () => {
           {/* <!-- menu --> */}
           <div className="flex w-full items-center justify-between">
             <nav
-              x-transition
               className={`${
                 isToggled ? 'block ' : 'hidden'
               }  absolute right-0 top-[90px] w-full max-w-[350px] rounded-lg border border-blue-200 bg-white py-5 px-6 shadow-lg shadow-blue-400/5 transition-all lg:static lg:block lg:max-w-full lg:border-none lg:shadow-none lg:bg-transparent lg:px-0 lg:py-0`}

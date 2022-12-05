@@ -1,4 +1,4 @@
-import { React, useEffect, useState } from 'react';
+import { useState } from 'react';
 import Image from 'next/image';
 import { BiChevronDownCircle } from 'react-icons/bi';
 import faq from 'public/images/faq.svg';
@@ -33,7 +33,7 @@ const Faq = () => {
             <div className="mx-auto  container">
                 {/* <!-- heading text --> */}
                 <div className="mb-5 sm:mb-10">
-                    <h1 className="text-2xl font-bold text-slate-700 sm:text-3xl">Tez-Tez So'raladigan Savollar</h1>
+                    <h1 className="text-2xl font-bold text-slate-700 sm:text-3xl">Tez-Tez So&apos;raladigan Savollar</h1>
                 </div>
                 {/* <!-- wrapper --> */}
                 <div className="md:flex md:justify-between md:gap-6">

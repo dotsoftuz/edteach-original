@@ -65,7 +65,7 @@ const Feature = () => {
                   <Image src={play} alt="" />
                 </div>
                 <h3 className="text-lg font-bold text-slate-600">
-                  O'ynang
+                  O&apos;ynang
                 </h3>
                 <Link href="#">
                   <a className="text-sm text-blue-500">Learn more</a>
