@@ -26,9 +26,9 @@ const Blog = () => {
             </div>
             <div className="rounded-b-xl px-5 pb-5 pt-3 shadow-md shadow-blue-500/10">
               <div className="">
-                <h2 className="text-lg font-semibold pt-1">O`zaro hamkorlik</h2>
+                <h2 className="text-lg font-semibold pt-1">O&apos;zaro hamkorlik</h2>
                 <p className="block pt-3 font-medium  text-slate-800 ">
-                An'anaviy hamda masofaviy ta'lim shakllarida interaktiv ta'lim metodini taklif etamiz
+                An&apos;anaviy hamda masofaviy ta&apos;lim shakllarida interaktiv ta&apos;lim metodini taklif etamiz
                 </p>
               </div>
             </div>

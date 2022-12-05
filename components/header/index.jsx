@@ -10,7 +10,7 @@ const Header = () => {
           <div className="w-full lg:w-5/12">
             <h1 className="text-slate-800 mb-3 text-4xl font-bold leading-snug sm:text-[42px] lg:text-[40px] xl:text-[42px]">
               <span className='text-blue-600'>Ed Teach </span><br />
-              <span className=" inline-block">Raqamli ta'lim </span>
+              <span className=" inline-block">Raqamli ta&apos;lim </span>
               <span className="inline-block"> kelajak poydevori.</span>
             </h1>
             <p className="text-slate-500 mb-8 max-w-[480px] text-base">

@@ -26,7 +26,7 @@ const Feature = () => {
           <div className="md:w-7/12">
             <div className="mb-16 flex flex-col">
               <p className="mb-3 text-slate-500">
-              Biz sizga shunchaki web-sayt emas, balki yuqori standartdagi web-platformani taklif etamiz. Bu bilan istalgan vaqt va joyda foydalanishingiz mumkin. O'ziga xos dizayn, yuqori funksionallik, interaktiv, foydali kontentga boy web-platforma siz uchun manzur keladi.
+              Biz sizga shunchaki web-sayt emas, balki yuqori standartdagi web-platformani taklif etamiz. Bu bilan istalgan vaqt va joyda foydalanishingiz mumkin. O&apos;ziga xos dizayn, yuqori funksionallik, interaktiv, foydali kontentga boy web-platforma siz uchun manzur keladi.
               </p>
 
          
