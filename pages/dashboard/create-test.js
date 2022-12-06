@@ -11,6 +11,9 @@ import square from 'public/images/square.svg';
 import circle from 'public/images/circle.svg';
 import diamond from 'public/images/diamond.svg';
 import { BsTrash, BsPlusLg } from 'react-icons/bs';
+import {RiQuestionnaireLine} from "react-icons/ri"
+import {WiTime12} from "react-icons/wi"
+
 
 const CreateTest = () => {
   const { userName } = useUserContext();
@@ -242,17 +245,12 @@ const CreateTest = () => {
           <div className="flex items-center  gap-2 sm:gap-20 justify-between">
             <div className="flex items-center space-x-4">
               <div className="relative group">
-                <label
-                  className="absolute top-0 left-0 w-full h-full flex items-center pl-[10px] duration-200 text-sm group-focus-within:text-xs group-focus-within:h-1/2 group-focus-within:-translate-y-full group-focus-within:pl-0"
-                  htmlFor="label"
-                >
-                  Sarlavha
-                </label>
                 <input
                   id="label"
-                  className="rounded-md w-[100%] sm:w-[15rem] md:w-[20rem] bg-gray-200 outline-none py-2 px-4 text-sm"
+                  className="rounded-md w-[100%] sm:w-[15rem] md:w-[20rem]   border-[1px] border-gray-500 outline-none py-2 px-4 text-sm placeholder:text-gray-600 placeholder:font-semibold"
                   type="text"
                   onChange={handleChange}
+                  placeholder="Sarlavha"
                   value={quizData.title}
                   name="title"
                 />
@@ -287,7 +285,7 @@ const CreateTest = () => {
               <>
                 <div
                   className={`${
-                    testId === key ? 'bg-gray-200' : ''
+                    testId === key ? 'bg-[#eaf4fc]' : ''
                   } relative min-w-[7rem] lg:w-full lg:h-auto h-full lg:mb-2  pt-2 pb-2 text-sm font-semibold text-gray-800`}
                   onClick={() => setTestId(key)}
                 >
@@ -340,9 +338,9 @@ const CreateTest = () => {
         </div>
       </div>
       {/* createTest center blok */}
-      <div className="form-box p-5 w-full min-h-full lg:pr-10 overflow-hidden bg-slate-100">
+      <div className="form-box p-5 w-full min-h-full lg:pr-10 overflow-hidden bg-[#F2F2F1]">
         <form className="w-full min-h-full">
-          <div className="form min-h-full flex flex-col justify-between">
+          <div className="form min-h-full flex flex-col justify-between pt-5">
             <input
               className="w-full rounded-lg h-[50px] text-[20px] p-4 outline-none bg-white shadow-[0_1px_3px_#80838b] text-center placeholder:text-gray-700"
               type="text"
@@ -444,7 +442,10 @@ const CreateTest = () => {
         </div>
         <div className="flex flex-col  h-full w-full shadow-lg items-center p-3 pt-7">
           <div className="flex flex-col items-start w-full">
-            <label className="text-[16px] pb-2 text-gray-700">
+            <label className="text-[16px] pb-2 text-gray-700 flex items-center gap-2">
+              <div className='text-xl'>
+              <RiQuestionnaireLine/>
+              </div>
               Savol ko`rinishi:{' '}
             </label>
             <select
@@ -462,7 +463,10 @@ const CreateTest = () => {
             </select>
           </div>
           <div className="flex flex-col items-start w-full">
-            <label className="text-[16px] pb-2 text-gray-700">
+            <label className="text-[16px] pb-2 text-gray-700 flex items-center gap-2">
+              <div className='text-xl'>
+                <WiTime12/>
+              </div>
               Vaqt chegarasi
             </label>
             <select

@@ -40,8 +40,7 @@ const Sidebar = ({ children }) => {
     },
   ];
 
-  const listTextDefaultClass =
-    'text-gray-700 font-semibold ml-4 cursor-pointer';
+ 
 
   const handleClick = () => {
     logoutUser();
@@ -55,7 +54,7 @@ const Sidebar = ({ children }) => {
           ${
             sidebarShowMobile
               ? 'transform -translate-x-[100%] md:translate-x-0'
-              : 'transform translate-x-0'
+              : 'transform translate-x-0 bg-white'
           } fixed top-0 left-0 z-50 transition duration-300`}
       >
         <div

@@ -26,6 +26,8 @@ import Confetti from 'react-confetti';
 import triangle from 'public/images/triangle.svg';
 import square from 'public/images/square.svg';
 import circle from 'public/images/circle.svg';
+import correct from 'public/images/check.png';
+import close from 'public/images/close.png';
 import diamond from 'public/images/diamond.svg';
 import { useUserContext } from 'context/userContext';
 import { db } from '../../../firebase';
@@ -365,11 +367,11 @@ function GameID() {
                                   {/* check dev */}
 
                                   {time === 0 && (
-                                    <div className="!min-w-[45px] h-[45px] rounded-full flex justify-center items-center   ">
+                                    <div className="!min-w-[45px] h-[45px]  flex justify-center items-center   ">
                                       {item.isCorrect ? (
-                                        <BsCheckLg className="text-green-500 text-3xl" />
+                                        <Image src={correct}  />
                                       ) : (
-                                        <CgClose className="text-red-500 text-3xl" />
+                                       <Image src={close}/>
                                       )}
                                     </div>
                                   )}
@@ -383,8 +385,9 @@ function GameID() {
                   )}
                 </>
               ) : game.status === 'result' ? (
+
                 <div className="flex flex-col justify-center h-screen">
-                  <div className='hidden lg:block'>
+                  <div className="hidden lg:block">
                     <Confetti
                       width={width}
                       height={height}
@@ -392,33 +395,33 @@ function GameID() {
                     />
                   </div>
                   <div className="flex items-end justify-center space-x-2">
-                    <div className="relative flex items-center justify-center hover:bg-opacity-80 h-24 w-20 rounded-t-xl rounded-b-lg bg-[#F9C200] md:h-36 md:w-40 lg:h-40 lg:w-48">
-                      <div className="absolute top-0 left-0 flex h-10 w-full items-center justify-center rounded-t-xl bg-[#F99500]">
-                        <h3 className="text-white font-semibold md:text-lg">
-                          Messi
+                    <div className="relative flex items-center justify-center hover:bg-opacity-90 h-24 w-24 rounded-t-xl rounded-b-lg bg-[#F9C200] md:h-36 md:w-40 lg:h-40 lg:w-48">
+                      <div className="absolute top-0 left-0 flex h-8 p-2 md:h-10 w-full items-center justify-center rounded-t-xl bg-[#F99500]">
+                        <h3 className="text-white font-semibold text-sm md:text-lg truncate">
+                          {players.slice(2, 3).map((item) => item.playerName)}
                         </h3>
                       </div>
                       <h3 className="text-3xl md:text-5xl font-bold text-white">
                         3
                       </h3>
                     </div>
-                    <div className="relative flex items-center justify-center hover:bg-opacity-80 h-36 w-20 rounded-lg bg-[#006ED4] md:h-56 md:w-40 lg:h-72 lg:w-48">
-                      <div className="absolute -top-7 md:-top-12 left-1/2 transform -translate-x-1/2 text-2xl md:text-5xl text-[#006ED4]">
+                    <div className="relative flex items-center justify-center hover:bg-opacity-90 h-36 w-24 rounded-lg bg-[#006ED4] md:h-56 md:w-40 lg:h-72 lg:w-48">
+                      <div className="absolute -top-8 md:-top-12 left-1/2 transform -translate-x-1/2 text-3xl md:text-5xl text-[#006ED4]">
                         <AiOutlineCrown />
                       </div>
-                      <div className="absolute top-0 left-0 flex h-10 w-full items-center justify-center rounded-t-xl bg-[#0060B8]">
-                        <h3 className="text-white font-semibold md:text-lg">
-                          Ronaldo
+                      <div className="absolute top-0 left-0 flex h-8 p-2 md:h-10 w-full items-center justify-center rounded-t-xl bg-[#0060B8]">
+                        <h3 className="text-white font-semibold text-sm md:text-lg truncate">
+                          {players.slice(0, 1).map((item) => item.playerName)}
                         </h3>
                       </div>
                       <h3 className="text-3xl md:text-5xl font-bold text-white">
                         1
                       </h3>
                     </div>
-                    <div className="relative flex items-center justify-center hover:bg-opacity-80 h-28 w-20 rounded-lg bg-[#EC5858] md:h-44 md:w-40 lg:h-56 lg:w-48">
-                      <div className="absolute top-0 left-0 flex h-10 w-full items-center justify-center rounded-t-xl bg-[#D93C3C]">
-                        <h3 className="text-white font-semibold md:text-lg">
-                          Mbabpe
+                    <div className="relative flex items-center justify-center hover:bg-opacity-90 h-28 w-24 rounded-lg bg-[#EC5858] md:h-44 md:w-40 lg:h-56 lg:w-48">
+                      <div className="absolute top-0 left-0 flex h-8 p-2 md:h-10 w-full items-center justify-center rounded-t-xl bg-[#D93C3C]">
+                        <h3 className="text-white font-semibold text-sm md:text-lg truncate">
+                          {players.slice(1, 2).map((item) => item.playerName)}
                         </h3>
                       </div>
                       <h3 className="text-3xl md:text-5xl font-bold text-white">
@@ -439,7 +442,10 @@ function GameID() {
                         </tr>
                         {players.map((player, index) => {
                           return (
-                            <tr key={index} className="border-[1px] hover:bg-gray-100 active:bg-sky-200 cursor-pointer">
+                            <tr
+                              key={index}
+                              className="border-[1px] hover:bg-gray-100 active:bg-sky-200 cursor-pointer"
+                            >
                               <td>{index + 1}</td>
                               <td>{player.playerName}</td>
                               <td>{player.point}</td>
@@ -454,6 +460,8 @@ function GameID() {
                       </table>
                     </div>
                   </div>
+
++
                 </div>
               ) : (
                 <div className="bg-blue-400 h-screen" key={game.id}>

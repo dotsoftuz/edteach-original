@@ -43,7 +43,7 @@ const Contact = () => {
           <div className="w-full px-4 md:w-1/2 xl:w-6/12">
             <div className="mb-12 max-w-[570px] lg:mb-0">
               <h1 className="mb-3 text-2xl font-bold text-slate-700 sm:text-3xl">
-                BIZ BILAN BOG&apos;LANING
+                Biz bilan bog&apos;laning
               </h1>
           
               {/* <!-- address --> */}
@@ -58,7 +58,7 @@ const Contact = () => {
                     Bizning Manzilimiz
                   </h4>
                   <p className="text-base text-slate-400">
-                    4236 Woodland Terrace. Sacramento. California
+                    130100 Jizzax viloyati, Jizzax shahri, Sharof Rashidov ko`chasi 4-uy.
                   </p>
                 </div>
               </div>
@@ -74,7 +74,7 @@ const Contact = () => {
                     Telofon Raqamimiz
                   </h4>
                   <p className="text-base text-slate-400">
-                    (+62)01 234 567 8912
+                    (+998) 99-555-26-85
                   </p>
                 </div>
               </div>
@@ -89,7 +89,7 @@ const Contact = () => {
                   <h4 className="mb-1 text-xl font-bold text-slate-700">
                     Elektron Pochtamiz
                   </h4>
-                  <p className="text-base text-slate-400">company@gmail.com</p>
+                  <p className="text-base text-slate-400">argos.16.01@gmail.com</p>
                 </div>
               </div>
             </div>

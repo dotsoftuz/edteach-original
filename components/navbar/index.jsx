@@ -14,7 +14,9 @@ const Header = () => {
         <div className="relative flex h-full items-center justify-between border-b border-slate-500/10">
           {/* <!-- logo --> */}
           <div className="w-[15rem] max-w-full text-2xl font-semibold">
-            <Link href="#"><Image src={logo} /></Link>
+            <Link href="#">
+              <Image src={logo} />
+            </Link>
           </div>
           {/* <!-- menu --> */}
           <div className="flex w-full items-center justify-between">
@@ -33,37 +35,24 @@ const Header = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link href="#services">
+                  <Link href="#about">
                     <a className="text-lg font-medium text-slate-700 duration-200 hover:text-blue-600 lg:text-base">
-                    Haqida
+                      Haqida
                     </a>
                   </Link>
                 </li>
                 <li>
                   <Link href="#services">
                     <a className="text-lg font-medium text-slate-700 duration-200 hover:text-blue-600 lg:text-base">
-                    Xizmatlar
+                      Xizmatlar
                     </a>
                   </Link>
                 </li>
-                <li>
-                  <Link href="#blog">
-                    <a className="text-lg font-medium text-slate-700 duration-200 hover:text-blue-600 lg:text-base">
-                      Blog
-                    </a>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#">
-                    <a className="text-lg font-medium text-slate-700 duration-200 hover:text-blue-600 lg:text-base">
-                       Kurslar
-                    </a>
-                  </Link>
-                </li>
+         
                 <li>
                   <Link href="#price">
                     <a className="text-lg font-medium text-slate-700 duration-200 hover:text-blue-600 lg:text-base">
-                    Obuna
+                      Obuna
                     </a>
                   </Link>
                 </li>
