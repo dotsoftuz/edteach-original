@@ -7,7 +7,7 @@ import play from 'public/images/play.png';
 
 const Feature = () => {
   return (
-    <section className="pb-16">
+    <section id='about' className="pb-16">
       <div className="mx-auto container">
         {/* <!-- heading text --> */}
         <div className="mb-5 sm:mb-10">
