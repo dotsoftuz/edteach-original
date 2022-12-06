@@ -4,11 +4,11 @@ import Link from 'next/link';
 
 const Header = () => {
   return (
-    <section className="relative bg-white pt-16 lg:pt-[100px]">
+    <section className="relative bg-white py-16 lg:pt-5">
       <div className="mx-auto container">
-        <div className="flex flex-wrap">
-          <div className="w-full lg:w-5/12">
-            <h1 className="text-slate-800 mb-3 text-4xl font-bold leading-snug sm:text-[42px] lg:text-[40px] xl:text-[42px]">
+        <div className="flex flex-wrap items-center">
+          <div className="w-full lg:w-6/12 xl:w-5/12">
+            <h1 className="text-slate-800 mb-10  text-4xl font-bold leading-snug sm:text-[42px] lg:text-[40px] xl:text-[42px]">
               <span className=" inline-block">Raqamli ta&apos;lim </span>
               <span className="inline-block"> kelajak poydevori</span>
             </h1>
@@ -23,11 +23,11 @@ const Header = () => {
               </button>
             </Link>
           </div>
-          <div className="hidden px-4 lg:block lg:w-1/12"></div>
+          <div className="hidden px-4 xl:block lg:w-1/12"></div>
           <div className="w-full px-4 lg:w-6/12">
             <div className="lg:ml-auto lg:text-right">
               <div className="relative z-10 inline-block pt-11 lg:pt-0">
-                <div className="max-w-full lg:ml-auto lg:translate-y-[-70px]">
+                <div className="max-w-full lg:ml-auto ">
                   <Image src={header} />
                   <div>
                     <div className="absolute top-5 left-10 md:top-10 md:left-20 bg-blue-200 rotate-12 w-8 h-8 md:w-10 md:h-10 rounded-lg shadow-blue-400 shadow-sm flex items-center justify-center text-xl text-blue-600 font-semibold animate-wiggle1">
