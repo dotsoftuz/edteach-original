@@ -55,7 +55,7 @@ const Contact = () => {
                 </div>
                 <div className="w-full">
                   <h4 className="mb-1 text-xl font-bold text-slate-700">
-                    Bizning Manzilimiz
+                    Bizning manzil
                   </h4>
                   <p className="text-base text-slate-400">
                     130100 Jizzax viloyati, Jizzax shahri, Sharof Rashidov ko`chasi 4-uy.
@@ -71,7 +71,7 @@ const Contact = () => {
                 </div>
                 <div className="w-full">
                   <h4 className="mb-1 text-xl font-bold text-slate-700">
-                    Telofon Raqamimiz
+                    Telefon raqam
                   </h4>
                   <p className="text-base text-slate-400">
                     (+998) 99-555-26-85
@@ -87,7 +87,7 @@ const Contact = () => {
                 </div>
                 <div className="w-full">
                   <h4 className="mb-1 text-xl font-bold text-slate-700">
-                    Elektron Pochtamiz
+                    Elektron pochta
                   </h4>
                   <p className="text-base text-slate-400">argos.16.01@gmail.com</p>
                 </div>

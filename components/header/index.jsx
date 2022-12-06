@@ -4,20 +4,14 @@ import Link from 'next/link';
 
 const Header = () => {
   return (
-    <section className="relative bg-white py-16 lg:pt-[100px]">
+    <section className="relative bg-white pt-16 lg:pt-[100px]">
       <div className="mx-auto container">
         <div className="flex flex-wrap">
           <div className="w-full lg:w-5/12">
             <h1 className="text-slate-800 mb-3 text-4xl font-bold leading-snug sm:text-[42px] lg:text-[40px] xl:text-[42px]">
-              <span className="text-blue-600">Ed Teach </span>
-              <br />
               <span className=" inline-block">Raqamli ta&apos;lim </span>
-              <span className="inline-block"> kelajak poydevori.</span>
+              <span className="inline-block"> kelajak poydevori</span>
             </h1>
-            <p className="text-slate-500 mb-8 max-w-[480px] text-base">
-              Agar javobingiz ha bo&apos;lsa hoziroq bepul ro&apos;yhatdan
-              o&apos;ting va bilimingizni sinab ko&apos;ring. Barchasi bepul!
-            </p>
             <Link href="#">
               <button className="w-full rounded-md bg-blue-500 px-8 py-2.5 font-semibold text-white shadow-md shadow-blue-500/20 hover:bg-blue-600 duration-200 sm:w-auto">
                 Ko&apos;proq malumot
