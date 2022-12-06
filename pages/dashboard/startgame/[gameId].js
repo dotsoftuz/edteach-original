@@ -378,18 +378,17 @@ function GameID() {
                 <div className="flex justify-center h-[100vh] items-center">
                   {players.map((player) => {
                     return (
-                      <div>
-                        d as
-                        {/* <div className='bg-emerald-400 '>
+                      <>
+                        <div className="bg-emerald-400 ">
                           <h2>{player.playerName}</h2>
                           <p>{player.point}</p>
                           <p>Savollar: {game.questionList.length}</p>
-                          <p>To'g'ri javoblar: {player.intPoint}</p>
+                          <p>To`g`ri javoblar: {player.intPoint}</p>
                           <p>
                             Xato : {game.questionList.length - player.intPoint}
                           </p>
-                        </div> */}
-                      </div>
+                        </div>
+                      </>
                     );
                   })}
                 </div>
