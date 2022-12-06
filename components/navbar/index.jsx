@@ -46,13 +46,7 @@ const Header = () => {
                     </a>
                   </Link>
                 </li>
-                <li>
-                  <Link href="#blog">
-                    <a className="text-lg font-medium text-slate-700 duration-200 hover:text-blue-600 lg:text-base">
-                      Blog
-                    </a>
-                  </Link>
-                </li>
+         
                 <li>
                   <Link href="#">
                     <a className="text-lg font-medium text-slate-700 duration-200 hover:text-blue-600 lg:text-base">

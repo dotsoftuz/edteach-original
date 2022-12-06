@@ -155,7 +155,7 @@ const Footer = () => {
         </div>
         <div className="flex justify-between items-center py-6">
           <Link href="/">
-            <a classNameName="cursor-pointer">
+            <a className="cursor-pointer">
               <Image
                 width={110}
                 height={40}
@@ -167,7 +167,7 @@ const Footer = () => {
           <div className="w-auto p-4 text-sm md:text-base text-gray-600 font-medium">
             <a
               href="https://dotsoft.uz"
-              target="_blank"
+              rel="noreferrer"
               className="mr-1 text-blue-600 hover:underline"
             >
               Dotsoft team.

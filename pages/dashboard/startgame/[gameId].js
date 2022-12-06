@@ -26,6 +26,8 @@ import Confetti from 'react-confetti';
 import triangle from 'public/images/triangle.svg';
 import square from 'public/images/square.svg';
 import circle from 'public/images/circle.svg';
+import correct from 'public/images/check.png';
+import close from 'public/images/close.png';
 import diamond from 'public/images/diamond.svg';
 import { useUserContext } from 'context/userContext';
 import { db } from '../../../firebase';
@@ -365,11 +367,11 @@ function GameID() {
                                   {/* check dev */}
 
                                   {time === 0 && (
-                                    <div className="!min-w-[45px] h-[45px] rounded-full flex justify-center items-center   ">
+                                    <div className="!min-w-[45px] h-[45px]  flex justify-center items-center   ">
                                       {item.isCorrect ? (
-                                        <BsCheckLg className="text-green-500 text-3xl" />
+                                        <Image src={correct}  />
                                       ) : (
-                                        <CgClose className="text-red-500 text-3xl" />
+                                       <Image src={close}/>
                                       )}
                                     </div>
                                   )}
