@@ -9,9 +9,9 @@ const Service = () => {
     <section id='services' className="py-16">
       <div  className="mx-auto container">
         {/* <!-- heading text --> */}
-        <div className="mb-10">
+        <div className="mb-10 text-center">
           <h1 className="text-2xl font-bold text-slate-700 sm:text-3xl">
-            Bizning Xizmatlar
+            Bizning xizmatlar
           </h1>
           <p className="mx-auto max-w-2 mt-2 text-slate-500">
            Biz sizga maqbul keladigan  qulay  xizmatlarni taklif qilamiz
@@ -40,7 +40,7 @@ const Service = () => {
               <RiVideoChatLine />
             </div>
             <h4 className="mt-3 mb-1 text-[17px] text-center font-semibold text-slate-600 duration-200 group-hover:text-white">
-             Onlayn vedio aloqa
+             Onlayn video aloqa
             </h4>
           </div>
           <div className="group flex cursor-pointer flex-col items-center rounded-xl border border-blue-500/10 bg-white px-5 py-8 shadow-lg shadow-blue-300/10 duration-200 hover:bg-blue-500">

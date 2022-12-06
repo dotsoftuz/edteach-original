@@ -10,7 +10,7 @@ const About = () => {
   return (
     <section className="py-16">
       <div className="mx-auto container">
-        <div className="md:flex md:justify-between md:gap-6">
+        <div className="md:flex md:items-center md:justify-between md:gap-6">
           <div className="md:w-6/12">
             {/* <!-- heading text --> */}
             <div className="mb-5 sm:mb-10">
@@ -18,10 +18,6 @@ const About = () => {
                 Ta&apos;limni biz bilan yuqori bosqichga olib chiqing.
               </h1>
             </div>
-            <p className="text-slate-500 mb-6">
-              Kompaniyaning o&apos;zi juda muvaffaqiyatli kompaniya. Tanlangan tana
-              og&apos;riqlardan foydalanadimi? Maqtovning tug&apos;ilishini bu me&apos;morning oqsoqollari kuzatib boradimi?
-            </p>
             <ul>
               <li className="mb-6 flex items-center">
                 <div className="flex h-[35px] w-[35px] min-w-[35px] items-center justify-center rounded-full bg-blue-500 text-white">
@@ -44,7 +40,7 @@ const About = () => {
                   <MdOutlineMarkEmailUnread />
                 </div>
                 <p className="ml-4 max-w-md font-medium text-slate-600">
-                 Yangiliklarni e-mail orqali qabul qilish
+                  Yangiliklarni e-mail orqali qabul qilish
                 </p>
               </li>
             </ul>
@@ -53,7 +49,7 @@ const About = () => {
             </button>
           </div>
           {/* <!-- about img --> */}
-          <div className="mt-8 flex justify-center md:mt-0 md:w-5/12">
+          <div className="mt-8 flex justify-center md:mt-0 scale-75">
             <div className="max-h-[500px] about-Img md:max-h-max">
               <Image src={about} alt="about img" />
             </div>

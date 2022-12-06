@@ -209,13 +209,13 @@ const PriceCard = (props) => {
 const Price = () => {
   return (
     <section id="price" className="pt-16">
-      <div className="relative items-center container mx-auto ">
+      <div className="relative items-center container mx-auto">
         {/* <!-- heading text --> */}
         <div className="mb-5 sm:mb-10">
-          <h1 className="text-2xl font-bold text-slate-700 sm:text-3xl">
-            Obuna va Narxlar
+          <h1 className="text-2xl text-center font-bold text-slate-700 sm:text-3xl">
+            Obuna va narxlar
           </h1>
-          <p className="mx-auto max-w-2 mt-2 text-slate-500">
+          <p className="mx-auto max-w-2 text-center mt-2 text-slate-500">
             Biz sizga maqbul keladigan eng qulay narxdagi xizmatlarni taklif
             qilamiz
           </p>
