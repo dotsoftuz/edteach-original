@@ -383,6 +383,7 @@ function GameID() {
                   )}
                 </>
               ) : game.status === 'result' ? (
+
                 <div className="flex flex-col justify-center h-screen">
                   <div className="hidden lg:block">
                     <Confetti
@@ -457,6 +458,8 @@ function GameID() {
                       </table>
                     </div>
                   </div>
+
++
                 </div>
               ) : (
                 <div className="bg-blue-400 h-screen" key={game.id}>

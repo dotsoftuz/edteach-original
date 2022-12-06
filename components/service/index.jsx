@@ -9,7 +9,7 @@ const Service = () => {
     <section id='services' className="py-16">
       <div  className="mx-auto container">
         {/* <!-- heading text --> */}
-        <div className="mb-10 text-center">
+        <div className="mb-10">
           <h1 className="text-2xl font-bold text-slate-700 sm:text-3xl">
             Bizning xizmatlar
           </h1>

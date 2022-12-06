@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@emailjs/browser": "^3.9.1",
+    "@material-tailwind/react": "^1.2.4",
     "babel-eslint": "^10.1.0",
     "firebase": "^9.14.0",
     "kutty": "^0.6.0",
