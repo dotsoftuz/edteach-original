@@ -209,7 +209,7 @@ const PriceCard = (props) => {
 const Price = () => {
   return (
     <section id="price" className="pt-16">
-      <div className="relative items-center container mx-auto ">
+      <div className="relative items-center container mx-auto">
         {/* <!-- heading text --> */}
         <div className="mb-5 sm:mb-10">
           <h1 className="text-2xl text-center font-bold text-slate-700 sm:text-3xl">

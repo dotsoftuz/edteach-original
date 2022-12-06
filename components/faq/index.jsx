@@ -34,15 +34,15 @@ const Faq = () => {
         setOpen(open === value ? 0 : value);
     };
     return (
-        <section className="py-16">
+        <section className="py-10 md:py-16">
             <div className="mx-auto  container">
                 {/* <!-- heading text --> */}
                 <div className="mb-5 sm:mb-10">
                     <h1 className="text-2xl font-bold text-slate-700 sm:text-3xl">Tez-tez so`raladigan savollar</h1>
                 </div>
                 {/* <!-- wrapper --> */}
-                <div className="md:flex md:justify-between md:gap-6">
-                    <div className="mb-8 flex justify-center md:mb-0 md:w-5/12">
+                <div className="md:flex md:items-center md:justify-between md:gap-6">
+                    <div className="mb-8 flex justify-center md:mb-0 scale-75">
                         <div className="max-h-[500px] md:max-h-max">
                             <Image src={faq} alt="faq images" />
                         </div>
