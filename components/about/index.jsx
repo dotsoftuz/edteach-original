@@ -15,12 +15,12 @@ const About = () => {
             {/* <!-- heading text --> */}
             <div className="mb-5 sm:mb-10">
               <h1 className="text-2xl font-bold text-slate-700 sm:text-3xl">
-                Ta`limni biz bilan yuqori bosqichga olib chiqing
+                Ta&apos;limni biz bilan yuqori bosqichga olib chiqing.
               </h1>
             </div>
             <p className="text-slate-500 mb-6">
-              Kompaniyaning o'zi juda muvaffaqiyatli kompaniya. Tanlangan tana
-              og'riqlardan foydalanadimi? Maqtovning tug'ilishini bu me'morning oqsoqollari kuzatib boradimi?
+              Kompaniyaning o&apos;zi juda muvaffaqiyatli kompaniya. Tanlangan tana
+              og&apos;riqlardan foydalanadimi? Maqtovning tug&apos;ilishini bu me&apos;morning oqsoqollari kuzatib boradimi?
             </p>
             <ul>
               <li className="mb-6 flex items-center">
@@ -28,7 +28,7 @@ const About = () => {
                   <IoBriefcaseSharp />
                 </div>
                 <p className="ml-4 max-w-md font-medium text-slate-600">
-                  Ko`p funksionallik.
+                  Ko&apos;p funksionallik.
                 </p>
               </li>
               <li className="mb-6 flex items-center">

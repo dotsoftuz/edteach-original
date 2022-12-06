@@ -57,6 +57,18 @@ html {
   .about-Img span {
     @apply !h-full;
   }
+  table {
+    @apply w-full;
+  }
+  th {
+    @apply text-left p-2 border;
+  }
+  tr {
+    @apply border-[1px]  hover:bg-gray-100 active:bg-sky-200 cursor-pointer;
+  }
+  td {
+    @apply p-2 border;
+  }
 }
 
 .shim-red {

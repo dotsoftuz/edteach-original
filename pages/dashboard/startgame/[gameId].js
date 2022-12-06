@@ -8,6 +8,7 @@ import {
   doc,
   getDoc,
   onSnapshot,
+  orderBy,
   query,
   updateDoc,
   where,
@@ -17,6 +18,10 @@ import { BsCheckLg } from 'react-icons/bs';
 import { CgClose } from 'react-icons/cg';
 import { FaUser } from 'react-icons/fa';
 import { MdOutlineKeyboardArrowLeft } from 'react-icons/md';
+import { AiOutlineCrown } from 'react-icons/ai';
+
+import { useWindowSize } from 'react-use';
+import Confetti from 'react-confetti';
 
 import triangle from 'public/images/triangle.svg';
 import square from 'public/images/square.svg';
@@ -41,6 +46,8 @@ function GameID() {
   const [singleData, setSingleData] = useState({});
   const [podium, setPodium] = useState(false);
   const [copyPin, setCopyPin] = useState(false);
+
+  const { width, height } = useWindowSize();
 
   const deletePlayer = (id) => {
     const { gameId } = router.query;
@@ -131,8 +138,9 @@ function GameID() {
       }
 
       const playerColl = collection(db, `question/${gameId}/players`);
+      const playerQuery = query(playerColl, orderBy('point', 'desc'));
 
-      onSnapshot(playerColl, (snapshot) =>
+      onSnapshot(playerQuery, (snapshot) =>
         setPlayers(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
       );
     };
@@ -375,22 +383,80 @@ function GameID() {
                   )}
                 </>
               ) : game.status === 'result' ? (
-                <div className="flex justify-center h-[100vh] items-center">
-                  {players.map((player) => {
-                    return (
-                      <>
-                        <div className="bg-emerald-400 ">
-                          <h2>{player.playerName}</h2>
-                          <p>{player.point}</p>
-                          <p>Savollar: {game.questionList.length}</p>
-                          <p>To`g`ri javoblar: {player.intPoint}</p>
-                          <p>
-                            Xato : {game.questionList.length - player.intPoint}
-                          </p>
-                        </div>
-                      </>
-                    );
-                  })}
+
+                <div className="flex flex-col justify-center h-screen">
+                  <div className='hidden lg:block'>
+                    <Confetti
+                      width={width}
+                      height={height}
+                      tweenDuration={5000}
+                    />
+                  </div>
+                  <div className="flex items-end justify-center space-x-2">
+                    <div className="relative flex items-center justify-center hover:bg-opacity-80 h-24 w-20 rounded-t-xl rounded-b-lg bg-[#F9C200] md:h-36 md:w-40 lg:h-40 lg:w-48">
+                      <div className="absolute top-0 left-0 flex h-10 w-full items-center justify-center rounded-t-xl bg-[#F99500]">
+                        <h3 className="text-white font-semibold md:text-lg">
+                          Messi
+                        </h3>
+                      </div>
+                      <h3 className="text-3xl md:text-5xl font-bold text-white">
+                        3
+                      </h3>
+                    </div>
+                    <div className="relative flex items-center justify-center hover:bg-opacity-80 h-36 w-20 rounded-lg bg-[#006ED4] md:h-56 md:w-40 lg:h-72 lg:w-48">
+                      <div className="absolute -top-7 md:-top-12 left-1/2 transform -translate-x-1/2 text-2xl md:text-5xl text-[#006ED4]">
+                        <AiOutlineCrown />
+                      </div>
+                      <div className="absolute top-0 left-0 flex h-10 w-full items-center justify-center rounded-t-xl bg-[#0060B8]">
+                        <h3 className="text-white font-semibold md:text-lg">
+                          Ronaldo
+                        </h3>
+                      </div>
+                      <h3 className="text-3xl md:text-5xl font-bold text-white">
+                        1
+                      </h3>
+                    </div>
+                    <div className="relative flex items-center justify-center hover:bg-opacity-80 h-28 w-20 rounded-lg bg-[#EC5858] md:h-44 md:w-40 lg:h-56 lg:w-48">
+                      <div className="absolute top-0 left-0 flex h-10 w-full items-center justify-center rounded-t-xl bg-[#D93C3C]">
+                        <h3 className="text-white font-semibold md:text-lg">
+                          Mbabpe
+                        </h3>
+                      </div>
+                      <h3 className="text-3xl md:text-5xl font-bold text-white">
+                        2
+                      </h3>
+                    </div>
+                  </div>
+                  <div>
+                    <div className="mt-14 w-full flex justify-center">
+                      <table className="border w-[50%]">
+                        <tr className="border-[1px] hover:bg-gray-100 active:bg-sky-200 cursor-pointer">
+                          <th>№</th>
+                          <th>Ismi</th>
+                          <th>Ball</th>
+                          <th>To`g`ri javoblar</th>
+                          <th>Noto`g`ri javoblar</th>
+                          <th>Savollar soni</th>
+                        </tr>
+                        {players.map((player, index) => {
+                          return (
+                            <tr key={index} className="border-[1px] hover:bg-gray-100 active:bg-sky-200 cursor-pointer">
+                              <td>{index + 1}</td>
+                              <td>{player.playerName}</td>
+                              <td>{player.point}</td>
+                              <td>{player.intPoint}</td>
+                              <td>
+                                {game.questionList.length - player.intPoint}
+                              </td>
+                              <td>{game.questionList.length}</td>
+                            </tr>
+                          );
+                        })}
+                      </table>
+                    </div>
+                  </div>
+
++
                 </div>
               ) : (
                 <div className="bg-blue-400 h-screen" key={game.id}>
