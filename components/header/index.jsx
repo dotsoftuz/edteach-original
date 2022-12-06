@@ -1,5 +1,6 @@
 import header from '/public/images/header.svg';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const Header = () => {
   return (
@@ -16,12 +17,16 @@ const Header = () => {
               Agar javobingiz ha bo&apos;lsa hoziroq bepul ro&apos;yhatdan
               o&apos;ting va bilimingizni sinab ko&apos;ring. Barchasi bepul!
             </p>
-            <button className="w-full rounded-md bg-blue-500 px-8 py-2.5 font-semibold text-white shadow-md shadow-blue-500/20 hover:bg-blue-600 duration-200 sm:w-auto">
-              Ko&apos;proq malumot
-            </button>
-            <button className="mt-4 box-border w-full rounded-md border border-blue-500/20 px-8 py-2.5 font-semibold text-blue-500 shadow-md shadow-blue-500/10 duration-200  sm:ml-4 sm:mt-0 sm:w-auto ">
-              Ro&apos;yhatdan o&apos;ting
-            </button>
+            <Link href="#">
+              <button className="w-full rounded-md bg-blue-500 px-8 py-2.5 font-semibold text-white shadow-md shadow-blue-500/20 hover:bg-blue-600 duration-200 sm:w-auto">
+                Ko&apos;proq malumot
+              </button>
+            </Link>
+            <Link href="/dashboard">
+              <button className="mt-4 box-border w-full rounded-md border border-blue-500/20 px-8 py-2.5 font-semibold text-blue-500 shadow-md shadow-blue-500/10 duration-200  sm:ml-4 sm:mt-0 sm:w-auto ">
+                Ro&apos;yhatdan o&apos;ting
+              </button>
+            </Link>
           </div>
           <div className="hidden px-4 lg:block lg:w-1/12"></div>
           <div className="w-full px-4 lg:w-6/12">

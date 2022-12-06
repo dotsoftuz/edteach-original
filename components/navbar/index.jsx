@@ -33,7 +33,7 @@ const Header = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link href="#services">
+                  <Link href="#about">
                     <a className="text-lg font-medium text-slate-700 duration-200 hover:text-blue-600 lg:text-base">
                     Haqida
                     </a>
