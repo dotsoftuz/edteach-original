@@ -59,7 +59,7 @@ const Profile = () => {
               <div className="md:ml-auto mt-4 md:mt-0 space-y-3 flex flex-col md:flex-col-reverse">
                 <div className="flex items-center space-x-2 md:space-x-4 mb-2 md:mt-4">
                   <div className="leading-0 flex flex-col items-center">
-                    <h3 className="text-lg md:text-xl font-bold">23</h3>
+                    <h3 className="text-lg md:text-xl font-bold">0</h3>
                     <p className="text-sm font-semibold uppercase">Likelar</p>
                   </div>
                   <div className="leading-0 flex flex-col items-center">
@@ -80,6 +80,7 @@ const Profile = () => {
                 </a>
               </div>
             </div>
+
             <div
               className={
                 edit

@@ -11,6 +11,7 @@ const Footer = () => {
             className="text-blue-600 hover:underline"
             href="https://dotsoft.uz"
             target="_blank"
+            rel="noreferrer"
           >
             Dotsoft team.
           </a>
