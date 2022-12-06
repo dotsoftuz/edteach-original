@@ -18,10 +18,6 @@ const About = () => {
                 Ta&apos;limni biz bilan yuqori bosqichga olib chiqing.
               </h1>
             </div>
-            <p className="text-slate-500 mb-6">
-              Kompaniyaning o&apos;zi juda muvaffaqiyatli kompaniya. Tanlangan tana
-              og&apos;riqlardan foydalanadimi? Maqtovning tug&apos;ilishini bu me&apos;morning oqsoqollari kuzatib boradimi?
-            </p>
             <ul>
               <li className="mb-6 flex items-center">
                 <div className="flex h-[35px] w-[35px] min-w-[35px] items-center justify-center rounded-full bg-blue-500 text-white">
@@ -44,7 +40,7 @@ const About = () => {
                   <MdOutlineMarkEmailUnread />
                 </div>
                 <p className="ml-4 max-w-md font-medium text-slate-600">
-                 Yangiliklarni e-mail orqali qabul qilish
+                  Yangiliklarni e-mail orqali qabul qilish
                 </p>
               </li>
             </ul>
