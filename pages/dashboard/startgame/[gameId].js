@@ -385,7 +385,7 @@ function GameID() {
               ) : game.status === 'result' ? (
 
                 <div className="flex flex-col justify-center h-screen">
-                  <div className='hidden lg:block'>
+                  <div className="hidden lg:block">
                     <Confetti
                       width={width}
                       height={height}
@@ -396,7 +396,7 @@ function GameID() {
                     <div className="relative flex items-center justify-center hover:bg-opacity-80 h-24 w-20 rounded-t-xl rounded-b-lg bg-[#F9C200] md:h-36 md:w-40 lg:h-40 lg:w-48">
                       <div className="absolute top-0 left-0 flex h-10 w-full items-center justify-center rounded-t-xl bg-[#F99500]">
                         <h3 className="text-white font-semibold md:text-lg">
-                          Messi
+                          {players.slice(2, 3).map((item) => item.playerName)}
                         </h3>
                       </div>
                       <h3 className="text-3xl md:text-5xl font-bold text-white">
@@ -409,7 +409,7 @@ function GameID() {
                       </div>
                       <div className="absolute top-0 left-0 flex h-10 w-full items-center justify-center rounded-t-xl bg-[#0060B8]">
                         <h3 className="text-white font-semibold md:text-lg">
-                          Ronaldo
+                          {players.slice(0, 1).map((item) => item.playerName)}
                         </h3>
                       </div>
                       <h3 className="text-3xl md:text-5xl font-bold text-white">
@@ -419,7 +419,7 @@ function GameID() {
                     <div className="relative flex items-center justify-center hover:bg-opacity-80 h-28 w-20 rounded-lg bg-[#EC5858] md:h-44 md:w-40 lg:h-56 lg:w-48">
                       <div className="absolute top-0 left-0 flex h-10 w-full items-center justify-center rounded-t-xl bg-[#D93C3C]">
                         <h3 className="text-white font-semibold md:text-lg">
-                          Mbabpe
+                          {players.slice(1, 2).map((item) => item.playerName)}
                         </h3>
                       </div>
                       <h3 className="text-3xl md:text-5xl font-bold text-white">
@@ -440,7 +440,10 @@ function GameID() {
                         </tr>
                         {players.map((player, index) => {
                           return (
-                            <tr key={index} className="border-[1px] hover:bg-gray-100 active:bg-sky-200 cursor-pointer">
+                            <tr
+                              key={index}
+                              className="border-[1px] hover:bg-gray-100 active:bg-sky-200 cursor-pointer"
+                            >
                               <td>{index + 1}</td>
                               <td>{player.playerName}</td>
                               <td>{player.point}</td>
