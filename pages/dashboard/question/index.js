@@ -7,6 +7,8 @@ import { Sidebar, Breadcrumb, Pagination } from 'components';
 import { useUserContext } from 'context/userContext';
 import { paginate } from 'utils/paginate';
 
+import { BsTrash } from 'react-icons/bs';
+
 const Tests = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [testCard, setTestCard] = useState(true);
@@ -43,7 +45,7 @@ const Tests = () => {
   };
 
   const handleDelete = async (id) => {
-    if(window.confirm("Testni o`chirasizmi") === true) {
+    if (window.confirm('Testni rostdan o`chirmoqchimisiz?') === true) {
       try {
         const docRef = doc(db, `question`, id);
         await deleteDoc(docRef);
@@ -51,7 +53,7 @@ const Tests = () => {
         console.log(error);
       }
     }
-  }
+  };
 
   return (
     <div>
@@ -65,11 +67,11 @@ const Tests = () => {
           link="/dashboard"
           active
         />
-        <div className="p-5  md:pr-[2rem] lg:pr-[4rem]">
+        <div className="p-5 md:pr-[2rem] lg:pr-[4rem]">
           <div className="relative -mt-2 mb-5">
             <input
               type="text"
-              className="rounded-lg w-full bg-gray-200 outline-none p-3 md:p-4 focus:px-6 duration-200 placeholder-black"
+              className="rounded-lg w-full shadow-sm bg-white outline-none p-3 md:p-4 focus:px-6 duration-200 placeholder-black"
               onChange={(event) => {
                 setSearchTerm(event.target.value);
               }}
@@ -105,7 +107,7 @@ const Tests = () => {
                   strokeWidth={1.5}
                   stroke="currentColor"
                   className={`${
-                    testCard ? 'bg-gray-200' : ''
+                    testCard ? ' bg-white' : ''
                   } w-10 h-10 p-2 rounded-lg cursor-pointer`}
                 >
                   <path
@@ -122,7 +124,7 @@ const Tests = () => {
                   strokeWidth={1.5}
                   stroke="currentColor"
                   className={`${
-                    testCard ? '' : 'bg-gray-200'
+                    testCard ? '' : ' bg-white'
                   } hidden md:block w-10 h-10 p-2 rounded-lg cursor-pointer`}
                 >
                   <path
@@ -161,7 +163,7 @@ const Tests = () => {
                       testCard
                         ? 'flex flex-col space-y-2'
                         : 'flex flex-row space-x-2 md:space-x-4'
-                    } relative p-2 md:p-4 rounded-lg bg-gray-200`}
+                    } relative p-2 md:p-4 rounded-lg  bg-white shadow-xl`}
                   >
                     <Link href={`/dashboard/question/${val.id}`}>
                       <img
@@ -172,10 +174,12 @@ const Tests = () => {
                         alt="test image"
                       />
                     </Link>
-                    <div className="flex flex-col justify-between">
+                    <div className="flex flex-grow flex-col justify-between">
                       <div className="w-full overflow-hidden">
                         <span className="bg-blue-500 text-white text-xs font-semibold px-1 rounded-full">
-                          Quiz
+                          {val.questionVisibility === 'public'
+                            ? 'Ommaviy'
+                            : 'Shaxsiy'}
                         </span>
                         <h2 className="text-lg md:text-xl font-semibold truncate">
                           {val.title}
@@ -193,47 +197,54 @@ const Tests = () => {
                             {val.questionList.length} ta
                           </span>
                         </div>
-                      </div>
-                      <div>
                         <div className="flex items-center space-x-2 mb-2">
                           <h2 className="text-sm md:text-base font-semibold">
                             Test yaratilgan vaqt:
                           </h2>
-                          <span className="bg-blue-500 text-white text-xs font-semibold px-1 rounded-full">
+                          <span className="text-xs font-semibold px-1 rounded-full">
                             {getUsertime(new Date(val.prefixTime))}
                           </span>
                         </div>
                       </div>
                     </div>
 
-                    <div onClick={() => sendData(val.id)}>
-                      <Link href={`/dashboard/startgame/${val.id}`}>
-                        <div
-                          className={`${
-                            testCard ? 'bottom-2' : 'top-2'
-                          } absolute  right-2 flex items-center space-x-1 hover:text-blue-500 cursor-pointer`}
-                        >
-                          <p className="text-lg font-semibold">Boshlash</p>
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            strokeWidth={1.5}
-                            stroke="currentColor"
-                            className="w-5 h-5 mt-1"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.348a1.125 1.125 0 010 1.971l-11.54 6.347a1.125 1.125 0 01-1.667-.985V5.653z"
-                            />
-                          </svg>
-                        </div>
-                      </Link>
-                    </div>
-
-                    <div>
-                      <button onClick={() => handleDelete(val.id)}>Delete</button>
+                    <div
+                      className={`${
+                        testCard ? 'flex-row' : 'flex-col-reverse'
+                      } flex items-center justify-between`}
+                    >
+                      <div
+                        onClick={() => handleDelete(val.id)}
+                        className="flex items-center space-x-1 hover:text-rose-500 cursor-pointer"
+                      >
+                        <BsTrash className="mt-1" />
+                        <h5 className="text-lg font-semibold hidden md:block">
+                          O&apos;chirish
+                        </h5>
+                      </div>
+                      <div onClick={() => sendData(val.id)}>
+                        <Link href={`/dashboard/startgame/${val.id}`}>
+                          <div className="flex items-center space-x-1 hover:text-blue-500 cursor-pointer">
+                            <p className="text-lg font-semibold hidden md:block">
+                              Boshlash
+                            </p>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              strokeWidth={1.5}
+                              stroke="currentColor"
+                              className="w-5 h-5 mt-1"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.348a1.125 1.125 0 010 1.971l-11.54 6.347a1.125 1.125 0 01-1.667-.985V5.653z"
+                              />
+                            </svg>
+                          </div>
+                        </Link>
+                      </div>
                     </div>
                   </div>
                 );

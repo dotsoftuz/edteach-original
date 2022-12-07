@@ -10,7 +10,7 @@ import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import { useUserContext } from '../../context/userContext';
 
 const Sidebar = ({ children }) => {
-  const [sidebarShowDesktop, setSidebarShowDesktop] = useState(false);
+  const [sidebarShowDesktop, setSidebarShowDesktop] = useState(true);
   const [sidebarShowMobile, setSidebarShowMobile] = useState(true);
   const router = useRouter();
   const { logoutUser, userName } = useUserContext();
@@ -59,8 +59,8 @@ const Sidebar = ({ children }) => {
       >
         <div
           className={`${
-            sidebarShowDesktop ? 'w-[15rem] sm:w-[17rem] md:w-[20rem]' : 'w-24'
-          } h-screen shadow-2xl duration-200 space-y-6 p-2 md:p-5`}
+            sidebarShowDesktop ? 'w-[15rem] sm:w-[17rem] md:w-[20rem]' : 'w-[4.5rem] md:w-24'
+          } h-screen shadow-2xl bg-white duration-200 space-y-6 p-2 md:p-5`}
         >
           <div className="relative flex items-center">
             <Link href="/dashboard/profile">
@@ -96,9 +96,7 @@ const Sidebar = ({ children }) => {
             </div>
           </div>
           <div className="px-1">
-            <small className="text-xs font-medium text-[#161925] dark:text-gray-500 uppercase py-2 mb-2">
-              {sidebarShowDesktop ? 'Sahifalar' : 'Sahifa...'}
-            </small>
+            <hr />
 
             <div className="md:mt-4">
               {Menus.map((item) => (
@@ -136,13 +134,9 @@ const Sidebar = ({ children }) => {
               ))}
             </div>
           </div>
-          <div className="px-1">
-            <small className="text-xs font-medium text-[#161925] dark:text-gray-500 uppercase py-2 truncate">
-              {sidebarShowDesktop ? 'Test yaratish' : 'Test...'}
-            </small>
-          </div>
+          <hr />
           <Link href="/dashboard/create-test">
-            <div className="flex flex-col items-center justify-center capitalize cursor-pointer border hover:border-blue-500 hover:dark:border-white py-4 rounded-lg bg-[#f2f3f7]">
+            <div className="flex flex-col items-center justify-center capitalize cursor-pointer border-2 hover:border-blue-500 hover:dark:border-white py-4 rounded-lg bg-[#f2f3f7] duration-200">
               <BsPlusCircleFill className="text-blue-500 text-3xl bg-white rounded-full shadow-xl" />
               <small
                 className={
@@ -173,7 +167,7 @@ const Sidebar = ({ children }) => {
       <main
         className={`${
           sidebarShowDesktop ? 'md:ml-72 lg:ml-[20rem]' : 'md:ml-20 lg:ml-32'
-        }  md:-ml-4 w-full`}
+        }  md:-ml-4 w-full bg-gray-50 h-screen`}
       >
         <div>
           {children}

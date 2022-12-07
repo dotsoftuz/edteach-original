@@ -38,10 +38,10 @@ const Profile = () => {
             active
           />
           <div>
-            <div className="relative flex flex-col md:flex-row shadow-xl border rounded-lg p-4 md:p-6 my-5">
+            <div className="relative bg-white flex flex-col md:flex-row shadow-xl border rounded-lg p-4 md:p-6 my-5">
               <div className="flex items-center">
                 <div className="group relative">
-                  <div className="rounded-full w-16 h-16 md:w-20 md:h-20 bg-gray-200" />
+                  <div className="rounded-full w-16 h-16 md:w-20 md:h-20 bg-blue-100" />
                   <h2 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-4xl text-blue-500">
                     {userName.charAt(0)}
                   </h2>
@@ -111,6 +111,9 @@ const Profile = () => {
                     <h2 className=" text-lg font-semibold">
                       Profilni Tahrirlamoq
                     </h2>
+                    <span className="-mt-2 text-xs text-rose-500">
+                      (Bu xususiyat hali ishlamaydi)
+                    </span>
                   </div>
                 </div>
                 <div className="my-5 space-y-2 md:space-y-3">
