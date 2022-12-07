@@ -48,7 +48,6 @@ const About = () => {
               Boshlash
             </button>
           </div>
-          {/* <!-- about img --> */}
           <div className="mt-8 flex justify-center md:mt-0 scale-75">
             <div className="max-h-[500px] about-Img md:max-h-max">
               <Image src={about} alt="about img" />
