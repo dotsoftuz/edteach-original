@@ -4,9 +4,11 @@ import { useRouter } from 'next/router';
 import toast, { Toaster } from 'react-hot-toast';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useUserContext } from 'context/userContext';
 import { db } from '../../firebase';
 import triangle from 'public/images/triangle.svg';
+import logo from "public/images/logo.svg"
 import square from 'public/images/square.svg';
 import circle from 'public/images/circle.svg';
 import diamond from 'public/images/diamond.svg';
@@ -241,9 +243,14 @@ const CreateTest = () => {
       </div>
       {/* createTest top blok */}
       <div className="fixed lg:absolute top-0 left-0 w-full z-20 bg-white ">
-        <div className="px-2 py-3 md:px-5 w-full  shadow-[0px_0px_5px_#80838b]  ">
+        <div className="px-2 py-3 md:px-5 w-full  shadow-md">
           <div className="flex items-center  gap-2 sm:gap-20 justify-between">
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-4 gap-1">
+            <div className='w-[9rem] hidden lg:block leading-[100%] cursor-pointer'>
+            <Link href="/dashboard">
+              <Image src={logo} />
+            </Link>
+            </div>
               <div className="relative group">
                 <input
                   id="label"
@@ -259,16 +266,16 @@ const CreateTest = () => {
             <div className="flex space-x-2">
               <button
                 className="w-full rounded-lg py-2 px-2 sm:px-8 cursor-pointer active:scale-95
-                shadow-md text-sm duration-300 border bg-white hover:bg-gray-100  active:bg-opacity-80
-                ease-in-out md:text-sm text-[#1a5cff]"
+                shadow-[rgb(0_0_0_/_15%)_0px_2px_4px_0px] text-sm duration-300 border bg-white hover:bg-gray-100  active:bg-opacity-80
+                ease-in-out md:text-sm text-black font-semibold"
                 onClick={() => router.push('/dashboard/profile')}
               >
                 Chiqish
               </button>
               <button
-                className="w-full rounded-lg py-2 px-2 sm:px-8 cursor-pointer active:scale-95
-               shadow-md text-sm duration-300 border bg-[#1a5cff] hover:bg-[#0d51fd]  active:bg-opacity-80
-               ease-in-out md:text-sm text-white"
+                className="w-full rounded-lg py-2 px-2 sm:px-8 cursor-pointer active:scale-95 
+               shadow-[rgb(0_0_0_/_15%)_0px_2px_4px_0px] text-sm duration-300 border bg-[#1a5cff] hover:bg-[#0d51fd]  active:bg-opacity-80
+               ease-in-out md:text-sm text-white font-semibold"
                 onClick={createQuest}
               >
                 Jo&apos;natish
@@ -278,7 +285,7 @@ const CreateTest = () => {
         </div>
       </div>
       {/* createTest left blok */}
-      <div className="lg:sticky lg:top-0 left-0 bg-white justify-between lg:justify-start lg:items-start items-center  w-full lg:min-w-[13rem] lg:w-[13rem] lg:pt-4 lg:pb-0 py-2 flex lg:flex-col  overflow-hidden bottom-0  fixed  lg:h-full lg:z-10  z-[1000]">
+      <div className="lg:sticky lg:top-0 left-0 shadow-md bg-white justify-between lg:justify-start lg:items-start items-center  w-full lg:min-w-[13rem] lg:w-[13rem] lg:pt-4 lg:pb-0 py-2 flex lg:flex-col  overflow-hidden bottom-0  fixed  lg:h-full lg:z-10  z-[1000]">
         <div className="flex lg:flex-col items-center lg:overflow-y-auto lg:overflow-x-hidden overflow-x-auto overflow-y-hidden  w-full max-h-full ">
           {input.map((item, key) => {
             return (
@@ -327,9 +334,9 @@ const CreateTest = () => {
           })}
           <br />
         </div>
-        <div className="lg:w-full px-4 lg:mb-6">
+        <div className="lg:w-full px-6  lg:mb-6">
           <button
-            className="btn text-sm btn-info w-12 h-12 lg:h-auto flex  justify-center items-center lg:w-full bg-[#1a5cff] text-white rounded-lg py-2  px-3  cursor-pointer"
+            className="btn text-sm btn-info w-12 h-12 lg:h-auto flex shadow-[rgb(0_0_0_/_25%)_0px_-4px_inset]  justify-center items-center lg:w-full bg-[#1a5cff] text-white rounded-lg py-3  px-3  cursor-pointer"
             type="button"
             onClick={() => addFormFields()}
           >
@@ -342,7 +349,7 @@ const CreateTest = () => {
         <form className="w-full min-h-full">
           <div className="form min-h-full flex flex-col justify-between pt-5">
             <input
-              className="w-full rounded-lg h-[50px] text-[20px] p-4 outline-none bg-white shadow-[0_1px_3px_#80838b] text-center placeholder:text-gray-700"
+              className="w-full rounded-lg h-[50px] text-[20px] p-4 outline-none bg-white shadow-md text-center placeholder:text-gray-700"
               type="text"
               name="question"
               placeholder="Savolingizni kiriting"
@@ -431,8 +438,8 @@ const CreateTest = () => {
       {/* createTest right blok */}
       <div
         className={`${
-          !isToggled ? '-mr-[12.450rem]' : '!mr-0 '
-        } relative  h-full duration-300 lg:!min-w-[200px] lg:w-[200px]  bg-white`}
+          !isToggled ? 'lg:-mr-[12.450rem] xl:-mr-[16.830rem]' : '!mr-0 '
+        } relative  h-full duration-300 lg:!min-w-[200px] lg:w-[200px] xl:!min-w-[270px] xl:w-[270px] shadow-md  bg-white`}
       >
         <div
           onClick={handleClick}

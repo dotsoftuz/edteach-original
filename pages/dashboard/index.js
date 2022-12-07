@@ -1,6 +1,5 @@
 import React from 'react';
 import Head from 'next/head';
-
 import { Loader } from 'components';
 import App from 'app';
 import { Layout } from 'app/layout/index';

@@ -12,7 +12,7 @@ const Blog = () => {
         {/* <!-- heading text --> */}
         <div className="mb-5 sm:mb-10">
           <h1 className="text-2xl font-bold text-slate-700 sm:text-3xl">
-            Quyidagilarni Taklif Etamiz
+            Quyidagilarni taklif etamiz
           </h1>
         </div>
         {/* <!-- wrapper --> */}
@@ -20,7 +20,7 @@ const Blog = () => {
           {/* <!-- single-blog --> */}
           <div className="w-full duration-200 hover:scale-95">
             <div className="max-h-52 w-full overflow-hidden rounded-t-xl">
-              <div className="w-full">
+              <div className="w-full  lg:h-52">
                 <Image src={blog1} alt="blog img" />
               </div>
             </div>
@@ -36,7 +36,7 @@ const Blog = () => {
           {/* <!-- single-blog --> */}
           <div className="w-full duration-200 hover:scale-95">
             <div className="max-h-52 w-full overflow-hidden rounded-t-xl">
-              <div className="w-full">
+              <div className="w-full  lg:h-52">
                 <Image src={blog2} alt="blog img" />
               </div>
             </div>
@@ -53,7 +53,7 @@ const Blog = () => {
           {/* <!-- single-blog --> */}
           <div className="w-full duration-200 hover:scale-95">
             <div className="max-h-52 w-full overflow-hidden rounded-t-xl">
-              <div className="w-full">
+              <div className="w-full  lg:h-52">
                 <Image src={blog3} alt="blog img" />
               </div>
             </div>

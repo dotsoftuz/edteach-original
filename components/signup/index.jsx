@@ -1,5 +1,5 @@
-import React, { useRef, useState } from "react";
-import { useUserContext } from "../../context/userContext";
+import React, { useRef, useState } from 'react';
+import { useUserContext } from '../../context/userContext';
 
 const SignUp = () => {
   const emailRef = useRef();
@@ -14,35 +14,24 @@ const SignUp = () => {
     const password = psdRef.current.value;
     const name = nameRef.current.value;
     if (email && password && name) registerUser(email, password, name);
- 
   };
-
-
-
 
   const [showPassword, setShowPassword] = useState(false);
   return (
     <div className="flex items-center justify-center h-screen">
-      <div className="mx-auto max-w-lg">
+      <div className="mx-auto w-96 max-w-lg">
         <h1 className="text-center text-2xl font-bold text-indigo-600 sm:text-3xl">
-          Get started today
+          Ro`yxatdan o`tish
         </h1>
 
-        <p className="mx-auto mt-4 max-w-md text-center text-gray-500">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati
-          sunt dolores deleniti inventore quaerat mollitia?
-        </p>
-
-        <htmlForm
+        <form
           action=""
           onSubmit={onSubmit}
           className="mt-6 mb-0 space-y-4 rounded-lg p-8 shadow-2xl"
         >
-          <p className="text-lg font-medium">Sign up</p>
-
           <div>
             <label htmlFor="fullname" className="text-sm font-medium">
-              Full name
+              F.I.SH
             </label>
 
             <div className="relative mt-1">
@@ -50,26 +39,9 @@ const SignUp = () => {
                 type="text"
                 id="fullname"
                 className="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm"
-                placeholder="Full name"
+                placeholder="F.I.SH ni kiriting"
                 ref={nameRef}
               />
-
-              <span className="absolute inset-y-0 right-4 inline-flex items-center">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 text-gray-400"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"
-                  />
-                </svg>
-              </span>
             </div>
           </div>
 
@@ -83,7 +55,7 @@ const SignUp = () => {
                 type="email"
                 id="email"
                 className="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm"
-                placeholder="Enter email"
+                placeholder="Emailingizni kiriting"
                 ref={emailRef}
               />
 
@@ -108,15 +80,15 @@ const SignUp = () => {
 
           <div>
             <label htmlFor="password" className="text-sm font-medium">
-              Password
+              Parol
             </label>
 
             <div className="relative mt-1">
               <input
-                type={showPassword ? "text" : "password"}
+                type={showPassword ? 'text' : 'password'}
                 id="password"
                 className="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm"
-                placeholder="Enter password"
+                placeholder="Parolingizni kiriting"
                 ref={psdRef}
               />
 
@@ -153,17 +125,17 @@ const SignUp = () => {
             type="submit"
             className="block w-full rounded-lg  bg-green-400 px-5 py-3 text-sm font-medium text-white"
           >
-            Sign Up
+            Ro`yxatdan o`tish
           </button>
 
           <p className="text-center text-sm text-gray-500">
-            Already have a account?
+            Profilingiz bormi?
             <br />
             <span className="cursor-pointer" onClick={() => setRegistry(false)}>
-              Sign In
+              Kirish
             </span>
           </p>
-        </htmlForm>
+        </form>
       </div>
     </div>
   );
