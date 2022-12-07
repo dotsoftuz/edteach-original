@@ -13,8 +13,8 @@ const Pagination = ({ items, pageSize, currentPage, onPageChange }) => {
               key={page}
               className={
                 page === currentPage
-                  ? 'px-4 py-2 rounded-lg mr-1 border-2 text-lg font-semibold cursor-pointer bg-gray-200 hover:bg-gray-300 active:bg-gray-200 active:scale-95 duration-300'
-                  : 'px-4 py-2 rounded-lg mr-1 border-2 text-lg font-semibold cursor-pointer bg-transparent hover:bg-gray-300 active:bg-gray-200 active:scale-95 duration-300'
+                  ? 'px-3 py-1 rounded-lg mr-1 border-2 text-lg font-semibold cursor-pointer bg-white z-20 shadow-xl active:scale-95 duration-300'
+                  : 'px-3 py-1 rounded-lg mr-1 border-2 hover:border-blue-500 z-20 text-lg font-semibold cursor-pointer bg-white shadow-xl active:scale-95 duration-300'
               }
             >
               <a className="page-link">{page}</a>

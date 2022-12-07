@@ -39,7 +39,7 @@ const Layout = () => {
           <div className="relative -mt-2 mb-5">
             <input
               type="text"
-              className="rounded-lg w-full bg-gray-200 outline-none p-3 md:p-4 focus:px-6 duration-200 placeholder-black"
+              className="rounded-lg w-full shadow-sm bg-white outline-none p-3 md:p-4 focus:px-6 duration-200 placeholder-black"
               onChange={(event) => {
                 setSearchTerm(event.target.value);
               }}
@@ -75,7 +75,7 @@ const Layout = () => {
                   strokeWidth={1.5}
                   stroke="currentColor"
                   className={`${
-                    testCard ? 'bg-gray-200' : ''
+                    testCard ? 'bg-white' : ''
                   } w-10 h-10 p-2 rounded-lg cursor-pointer`}
                 >
                   <path
@@ -92,7 +92,7 @@ const Layout = () => {
                   strokeWidth={1.5}
                   stroke="currentColor"
                   className={`${
-                    testCard ? '' : 'bg-gray-200'
+                    testCard ? '' : 'bg-white'
                   } hidden md:block w-10 h-10 p-2 rounded-lg cursor-pointer`}
                 >
                   <path
@@ -132,7 +132,7 @@ const Layout = () => {
                         testCard
                           ? 'flex flex-col space-y-2'
                           : 'flex flex-row space-x-2 md:space-x-4'
-                      } relative p-2 md:p-4 rounded-lg bg-gray-200`}
+                      } relative p-2 md:p-4 rounded-lg bg-white shadow-xl`}
                     >
                       <Link href={`/dashboard/question/${val.id}`}>
                         <img
@@ -175,35 +175,7 @@ const Layout = () => {
                           </h2>
                         </div>
                       </div>
-                      {/* {val.uid === uid ? (
-                        <div onClick={() => sendData(val.id)}>
-                          <Link href={`/dashboard/startgame/${val.id}`}>
-                            <div
-                              className={`${
-                                testCard ? 'bottom-2' : 'top-2'
-                              } absolute  right-2 flex items-center space-x-1 hover:text-blue-500 cursor-pointer`}
-                            >
-                              <p className="text-lg font-semibold">Boshlash</p>
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                strokeWidth={1.5}
-                                stroke="currentColor"
-                                className="w-5 h-5 mt-1"
-                              >
-                                <path
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.348a1.125 1.125 0 010 1.971l-11.54 6.347a1.125 1.125 0 01-1.667-.985V5.653z"
-                                />
-                              </svg>
-                            </div>
-                          </Link>
-                        </div>
-                      ) : (
-                        ''
-                      )} */}
+                      
                     </div>
                   </>
                 );
