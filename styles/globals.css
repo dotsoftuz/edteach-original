@@ -5,6 +5,11 @@
 html {
   scroll-behavior: smooth;
 }
+
+body {
+  font-family: Poppins, 'sans-serif';
+}
+
 .page-section {
   position: relative;
   padding: 0;
@@ -69,8 +74,8 @@ html {
   td {
     @apply p-2 border;
   }
-  .heighBox{
-    @apply !max-h-[120px]
+  .heighBox {
+    @apply !max-h-[120px];
   }
 }
 
