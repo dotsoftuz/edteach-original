@@ -1,7 +1,7 @@
-import toast from "kutty/src/toast";
-import React, { useState, useRef } from "react";
-import { Toaster } from "react-hot-toast";
-import { useUserContext } from "../../context/userContext";
+import toast from 'kutty/src/toast';
+import React, { useState, useRef } from 'react';
+import { Toaster } from 'react-hot-toast';
+import { useUserContext } from '../../context/userContext';
 
 const SignIn = () => {
   const emailRef = useRef();
@@ -13,28 +13,23 @@ const SignIn = () => {
     const email = emailRef.current.value;
     const password = psdRef.current.value;
     if (email && password) signInUser(email, password);
-
   };
   const [showPassword, setShowPassword] = useState(false);
 
   return (
     <div className="flex items-center justify-center h-screen">
-      <div className="mx-auto max-w-lg">
+      <div className="mx-auto w-96 max-w-lg">
         <h1 className="text-center text-2xl font-bold text-indigo-600 sm:text-3xl">
-          Get started today
+          Kirish
         </h1>
-        <div><Toaster /></div>
-        <p className="mx-auto mt-4 max-w-md text-center text-gray-500">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati
-          sunt dolores deleniti inventore quaerat mollitia?
-        </p>
+        <div>
+          <Toaster />
+        </div>
 
         <form
           onSubmit={onSubmit}
           className="mt-6 mb-0 space-y-4 rounded-lg p-8 shadow-2xl"
         >
-          <p className="text-lg font-medium">Sign in to your account</p>
-
           <div>
             <label htmlFor="email" className="text-sm font-medium">
               Email
@@ -70,12 +65,12 @@ const SignIn = () => {
 
           <div>
             <label htmlFor="password" className="text-sm font-medium">
-              Password
+              Parol
             </label>
 
             <div className="relative mt-1">
               <input
-                type={showPassword ? "text" : "password"}
+                type={showPassword ? 'text' : 'password'}
                 id="password"
                 className="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm"
                 placeholder="Enter password"
@@ -114,14 +109,14 @@ const SignIn = () => {
             type="submit"
             className="block w-full rounded-lg  bg-green-400  px-5 py-3 text-sm font-medium text-white"
           >
-            Sign in
+            Kirish
           </button>
 
           <p className="text-center text-sm text-gray-500">
-            No account?
+            Hali ro`yxatdan o`tmadingizmi?
             <br />
             <span className="cursor-pointer" onClick={() => setRegistry(true)}>
-              Sign Up
+              Ro`yxatdan o`tish
             </span>
           </p>
         </form>

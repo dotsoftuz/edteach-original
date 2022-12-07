@@ -175,7 +175,7 @@ const Layout = () => {
                           </h2>
                         </div>
                       </div>
-                      {val.uid === uid ? (
+                      {/* {val.uid === uid ? (
                         <div onClick={() => sendData(val.id)}>
                           <Link href={`/dashboard/startgame/${val.id}`}>
                             <div
@@ -203,7 +203,7 @@ const Layout = () => {
                         </div>
                       ) : (
                         ''
-                      )}
+                      )} */}
                     </div>
                   </>
                 );

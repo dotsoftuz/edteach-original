@@ -46,7 +46,6 @@ function GameID() {
   const [time, setTime] = useState();
   const [showButton, setShowButton] = useState(false);
   const [singleData, setSingleData] = useState({});
-  const [podium, setPodium] = useState(false);
   const [copyPin, setCopyPin] = useState(false);
 
   const { width, height } = useWindowSize();
@@ -240,152 +239,142 @@ function GameID() {
                     </div>
                   )}
                   {!disabled ? (
-                    <>{null}</>
+                    <></>
                   ) : (
-                    <>
-                      {podium ? (
-                        <div className="flex items-center justify-center h-screen">
-                          <h2>Songgi natija</h2>
+                    <div>
+                      <div className="">
+                        <div className="absolute top-2 right-2 z-50">
+                          {showButton ? (
+                            <button
+                              className="bg-blue-600 w-[250px] md:px-10 text-white py-2 md:py-4 rounded-lg font-medium md:font-semibold text-base md:text-xl"
+                              onClick={() =>
+                                nextQuestion(
+                                  game.id,
+                                  game.questionList.length,
+                                  game.questionIndex
+                                )
+                              }
+                            >
+                              Keyingisi
+                            </button>
+                          ) : (
+                            <button
+                              className="bg-blue-600  w-[250px] md:px-10 text-white py-2 md:py-4 rounded-lg font-medium md:font-semibold text-base md:text-xl"
+                              onClick={() => setTime(0)}
+                            >
+                              O&apos;tkazib yuborish
+                            </button>
+                          )}
                         </div>
-                      ) : (
-                        <div>
-                          <div className="">
-                            <div className="absolute top-2 right-2 z-50">
-                              {showButton ? (
-                                <button
-                                  className="bg-blue-600 px-6 md:px-10 text-white py-2 md:py-4 rounded-lg font-medium md:font-semibold text-base md:text-x"
-                                  onClick={() =>
-                                    nextQuestion(
-                                      game.id,
-                                      game.questionList.length,
-                                      game.questionIndex
-                                    )
-                                  }
-                                >
-                                  Keyingisi
-                                </button>
-                              ) : (
-                                <button
-                                  className="bg-blue-600 px-6 md:px-10 text-white py-2 md:py-4 rounded-lg font-medium md:font-semibold text-base md:text-xl"
-                                  onClick={() => setTime(0)}
-                                >
-                                  O&apos;tkazib yuborish
-                                </button>
-                              )}
-                            </div>
-                            <div
-                              className={`${
-                                time === 0 ? 'hidden' : ''
-                              } absolute top-1/2 left-1/2 md:left-10 z-50 transform -translate-y-1/2 -translate-x-1/2 md:-translate-x-0 w-20 h-20 md:w-32 md:h-32 rounded-full flex items-center justify-center bg-blue-500 text-white`}
-                            >
-                              <p className="visible text-4xl font-semibold md:text-5xl md:font-bold text-white">
-                                {time}
-                              </p>
-                            </div>
-                            <div
-                              className={`${
-                                time === 0 ? '' : ''
-                              } absolute top-2 ml-3 md:ml-0 md:top-1/2 md:right-10 z-50 md:transform md:-translate-y-1/2 md:w-32 md:h-32 md:rounded-full md:flex md:items-center md:justify-center`}
-                            >
-                              <h2 className="text-3xl font-semibold md:text-5xl md:font-bold text-gray-800">
-                                {game.questionIndex + 1}/
-                                {game.questionList.length}
-                              </h2>
-                            </div>
-                          </div>
+                        <div
+                          className={`${
+                            time === 0 ? 'hidden' : ''
+                          } absolute top-1/2 left-1/2 md:left-10 z-50 transform -translate-y-1/2 -translate-x-1/2 md:-translate-x-0 w-20 h-20 md:w-32 md:h-32 rounded-full flex items-center justify-center bg-blue-500 text-white`}
+                        >
+                          <p className="visible text-4xl font-semibold md:text-5xl md:font-bold text-white">
+                            {time}
+                          </p>
+                        </div>
+                        <div
+                          className={`${
+                            time === 0 ? '' : ''
+                          } absolute top-2 ml-3 md:ml-0 md:top-1/2 md:right-10 z-50 md:transform md:-translate-y-1/2 md:w-32 md:h-32 md:rounded-full md:flex md:items-center md:justify-center`}
+                        >
+                          <h2 className="text-3xl font-semibold md:text-5xl md:font-bold text-gray-800">
+                            {game.questionIndex + 1}/{game.questionList.length}
+                          </h2>
+                        </div>
+                      </div>
 
-                          <div className="flex flex-col items-center space-y-4 justify-between md:justify-around h-screen">
-                            <div className="px-8 py-4 mt-16 rounded-lg shadow-lg w-fit mx-auto">
-                              <h1 className="text-2xl font-semibold md:text-4xl md:font-bold">
-                                {game.questionList[game.questionIndex].question}
-                              </h1>
-                            </div>
-                            <div className="grid gap-2 grid-rows-2 grid-cols-2 w-screen md:w-fit p-5">
-                              {game.questionList[
-                                game.questionIndex
-                              ].answerList.map((item) => (
-                                <div
-                                  key={item.id}
-                                  className={
-                                    time === 0
-                                      ? item.bgColor === 'red'
-                                        ? item.isCorrect
-                                          ? ' bg-[#e21b3c] create-blok'
-                                          : ` bg-[#e21b3c] create-blok bg-opacity-60`
-                                        : item.bgColor === 'blue'
-                                        ? item.isCorrect
-                                          ? `bg-[#1368ce] create-blok`
-                                          : `bg-[#1368ce] create-blok bg-opacity-60`
-                                        : item.bgColor === 'yellow'
-                                        ? item.isCorrect
-                                          ? `bg-[#d89e00] create-blok`
-                                          : `bg-[#d89e00] create-blok bg-opacity-60`
-                                        : item.bgColor === 'gren'
-                                        ? item.isCorrect
-                                          ? `bg-[#26890c] create-blok`
-                                          : `bg-[#26890c] create-blok bg-opacity-60`
-                                        : ''
-                                      : item.bgColor === 'red'
-                                      ? ' bg-[#e21b3c] create-blok'
+                      <div className="flex flex-col items-center space-y-4 justify-between md:justify-around h-screen">
+                        <div className="px-8 py-4 mt-16 rounded-lg shadow-lg w-fit mx-auto">
+                          <h1 className="text-2xl font-semibold md:text-4xl md:font-bold">
+                            {game.questionList[game.questionIndex].question}
+                          </h1>
+                        </div>
+                        <div className="grid gap-2 grid-rows-2 grid-cols-2 w-screen md:w-fit p-5">
+                          {game.questionList[game.questionIndex].answerList.map(
+                            (item) => (
+                              <div
+                                key={item.id}
+                                className={
+                                  time === 0
+                                    ? item.bgColor === 'red'
+                                      ? item.isCorrect
+                                        ? ' bg-[#e21b3c] create-blok'
+                                        : ` bg-[#e21b3c] create-blok bg-opacity-60`
                                       : item.bgColor === 'blue'
-                                      ? `bg-[#1368ce] create-blok`
+                                      ? item.isCorrect
+                                        ? `bg-[#1368ce] create-blok`
+                                        : `bg-[#1368ce] create-blok bg-opacity-60`
                                       : item.bgColor === 'yellow'
-                                      ? `bg-[#d89e00] create-blok`
+                                      ? item.isCorrect
+                                        ? `bg-[#d89e00] create-blok`
+                                        : `bg-[#d89e00] create-blok bg-opacity-60`
                                       : item.bgColor === 'gren'
-                                      ? `bg-[#26890c] create-blok`
+                                      ? item.isCorrect
+                                        ? `bg-[#26890c] create-blok`
+                                        : `bg-[#26890c] create-blok bg-opacity-60`
                                       : ''
-                                  }
+                                    : item.bgColor === 'red'
+                                    ? ' bg-[#e21b3c] create-blok'
+                                    : item.bgColor === 'blue'
+                                    ? `bg-[#1368ce] create-blok`
+                                    : item.bgColor === 'yellow'
+                                    ? `bg-[#d89e00] create-blok`
+                                    : item.bgColor === 'gren'
+                                    ? `bg-[#26890c] create-blok`
+                                    : ''
+                                }
+                              >
+                                <div
+                                  className={`${
+                                    item.svgIcon === 'diamond'
+                                      ? 'rotate-45'
+                                      : ''
+                                  } w-[15px] md:!w-[30px] leading-[100%]`}
                                 >
-                                  <div
-                                    className={`${
-                                      item.svgIcon === 'diamond'
-                                        ? 'rotate-45'
+                                  <Image
+                                    src={
+                                      item.svgIcon === 'triangle'
+                                        ? `${triangle.src}`
+                                        : item.svgIcon === 'square'
+                                        ? `${square.src}`
+                                        : item.svgIcon === 'circle'
+                                        ? `${circle.src}`
+                                        : item.svgIcon === 'diamond'
+                                        ? `${diamond.src}`
                                         : ''
-                                    } w-[15px] md:!w-[30px] leading-[100%]`}
-                                  >
-                                    <Image
-                                      src={
-                                        item.svgIcon === 'triangle'
-                                          ? `${triangle.src}`
-                                          : item.svgIcon === 'square'
-                                          ? `${square.src}`
-                                          : item.svgIcon === 'circle'
-                                          ? `${circle.src}`
-                                          : item.svgIcon === 'diamond'
-                                          ? `${diamond.src}`
-                                          : ''
-                                      }
-                                      width="30px"
-                                      height="30px"
-                                    />
-                                  </div>
-                                  <div className="flex flex-grow">
-                                    <p className="text-white text-xl md:text-3xl font-semibold">
-                                      {item.body}
-                                    </p>
-                                  </div>
-                                  {/* check dev */}
-
-                                  {time === 0 && (
-                                    <div className="!min-w-[45px] h-[45px]  flex justify-center items-center   ">
-                                      {item.isCorrect ? (
-                                        <Image src={correct}  />
-                                      ) : (
-                                       <Image src={close}/>
-                                      )}
-                                    </div>
-                                  )}
+                                    }
+                                    width="30px"
+                                    height="30px"
+                                  />
                                 </div>
-                              ))}
-                            </div>
-                          </div>
+                                <div className="flex flex-grow">
+                                  <p className="text-white text-xl md:text-3xl font-semibold">
+                                    {item.body}
+                                  </p>
+                                </div>
+                                {/* check dev */}
+
+                                {time === 0 && (
+                                  <div className="!min-w-[45px] h-[45px]  flex justify-center items-center   ">
+                                    {item.isCorrect ? (
+                                      <Image src={correct} />
+                                    ) : (
+                                      <Image src={close} />
+                                    )}
+                                  </div>
+                                )}
+                              </div>
+                            )
+                          )}
                         </div>
-                      )}
-                    </>
+                      </div>
+                    </div>
                   )}
                 </>
               ) : game.status === 'result' ? (
-
                 <div className="flex flex-col justify-center h-screen">
                   <div className="hidden lg:block">
                     <Confetti
@@ -460,8 +449,7 @@ function GameID() {
                       </table>
                     </div>
                   </div>
-
-+
+                  +
                 </div>
               ) : (
                 <div className="bg-blue-400 h-screen" key={game.id}>

@@ -24,19 +24,19 @@ const Feature = () => {
           </div>
           <div className="md:w-7/12">
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              <div className="flex flex-col items-center justify-center rounded-xl bg-white px-4 py-8 shadow-lg">
+              <div className="flex flex-col items-center justify-center rounded-xl bg-white px-4 py-8 shadow-lg duration-200 hover:scale-90">
                 <div className="mb-3 w-24">
                   <Image src={create} alt="" />
                 </div>
                 <h3 className="text-lg font-bold text-slate-600">Yarating</h3>
               </div>
-              <div className="flex flex-col items-center justify-center rounded-xl bg-white px-4 py-8 shadow-lg">
+              <div className="flex flex-col items-center justify-center rounded-xl bg-white px-4 py-8 shadow-lg duration-200 hover:scale-90">
                 <div className="mb-3 w-24">
                   <Image src={share} alt="" />
                 </div>
                 <h3 className="text-lg font-bold text-slate-600">Ulashing</h3>
               </div>
-              <div className="flex flex-col items-center justify-center rounded-xl bg-white px-4 py-8 shadow-lg">
+              <div className="flex flex-col items-center justify-center rounded-xl bg-white px-4 py-8 shadow-lg duration-200 hover:scale-90">
                 <div className="mb-3 w-24">
                   <Image src={play} alt="" />
                 </div>

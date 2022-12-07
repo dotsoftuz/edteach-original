@@ -42,6 +42,17 @@ const Tests = () => {
     });
   };
 
+  const handleDelete = async (id) => {
+    if(window.confirm("Testni o`chirasizmi") === true) {
+      try {
+        const docRef = doc(db, `question`, id);
+        await deleteDoc(docRef);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  }
+
   return (
     <div>
       <Head>
@@ -219,6 +230,10 @@ const Tests = () => {
                           </svg>
                         </div>
                       </Link>
+                    </div>
+
+                    <div>
+                      <button onClick={() => handleDelete(val.id)}>Delete</button>
                     </div>
                   </div>
                 );

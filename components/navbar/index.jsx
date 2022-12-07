@@ -14,7 +14,7 @@ const Header = () => {
         <div className="relative flex h-full items-center justify-between border-b border-slate-500/10">
           {/* <!-- logo --> */}
           <div className="w-[15rem] max-w-full text-2xl font-semibold">
-            <Link href="#">
+            <Link href="/">
               <Image src={logo} />
             </Link>
           </div>
@@ -28,21 +28,21 @@ const Header = () => {
             >
               <ul className="flex flex-col justify-center gap-8 lg:flex-row">
                 <li>
-                  <Link href="#">
+                  <Link href="/#">
                     <a className="text-lg font-medium text-slate-700 duration-200 hover:text-blue-600 lg:text-base">
                       Asosiy
                     </a>
                   </Link>
                 </li>
                 <li>
-                  <Link href="#about">
+                  <Link href="/#about">
                     <a className="text-lg font-medium text-slate-700 duration-200 hover:text-blue-600 lg:text-base">
                       Haqida
                     </a>
                   </Link>
                 </li>
                 <li>
-                  <Link href="#services">
+                  <Link href="/#services">
                     <a className="text-lg font-medium text-slate-700 duration-200 hover:text-blue-600 lg:text-base">
                       Xizmatlar
                     </a>
@@ -50,14 +50,14 @@ const Header = () => {
                 </li>
          
                 <li>
-                  <Link href="#price">
+                  <Link href="/#price">
                     <a className="text-lg font-medium text-slate-700 duration-200 hover:text-blue-600 lg:text-base">
                       Obuna
                     </a>
                   </Link>
                 </li>
                 <li>
-                  <Link href="#contact">
+                  <Link href="/#contact">
                     <a className="text-lg font-medium text-slate-700 duration-200 hover:text-blue-600 lg:text-base">
                       Aloqa
                     </a>
