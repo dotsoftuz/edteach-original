@@ -8,14 +8,13 @@ import Link from 'next/link';
 import { useUserContext } from 'context/userContext';
 import { db } from '../../firebase';
 import triangle from 'public/images/triangle.svg';
-import logo from "public/images/logo.svg"
+import logo from 'public/images/logo.svg';
 import square from 'public/images/square.svg';
 import circle from 'public/images/circle.svg';
 import diamond from 'public/images/diamond.svg';
 import { BsTrash, BsPlusLg } from 'react-icons/bs';
-import {RiQuestionnaireLine} from "react-icons/ri"
-import {WiTime12} from "react-icons/wi"
-
+import { RiQuestionnaireLine } from 'react-icons/ri';
+import { WiTime12 } from 'react-icons/wi';
 
 const CreateTest = () => {
   const { userName } = useUserContext();
@@ -60,7 +59,7 @@ const CreateTest = () => {
   const { uid } = useUserContext();
   const questColl = collection(db, `question`);
 
-  const [questionTime, setQuestionTime] = useState(30);
+  const [questionTime, setQuestionTime] = useState(15);
   const [questionVisibility, setQuestionVisibility] = useState('public');
 
   const router = useRouter();
@@ -127,6 +126,10 @@ const CreateTest = () => {
   };
 
   const time = [
+    {
+      name: '15 soniya',
+      value: 15,
+    },
     {
       name: '30 soniya',
       value: 30,
@@ -199,7 +202,7 @@ const CreateTest = () => {
     questionVisibility,
     uid,
     playerId: [],
-    next: false
+    next: false,
   };
 
   const createQuest = async (e) => {
@@ -211,7 +214,7 @@ const CreateTest = () => {
         toast.error('Testga tavsif kiriting');
       } else {
         await addDoc(questColl, data);
-        toast.success("Muvoffaqiyatli");
+        toast.success('Muvoffaqiyatli');
         setTimeout(() => {
           router.push('/dashboard/question');
         }, 2000);
@@ -243,42 +246,22 @@ const CreateTest = () => {
       </div>
       {/* createTest top blok */}
       <div className="fixed lg:absolute top-0 left-0 w-full z-20 bg-white ">
-        <div className="px-2 py-3 md:px-5 w-full  shadow-md">
+        <div className="px-2 py-3 md:px-5 w-full border-b-2">
           <div className="flex items-center  gap-2 sm:gap-20 justify-between">
             <div className="flex items-center space-x-4 gap-1">
-            <div className='w-[9rem] hidden lg:block leading-[100%] cursor-pointer'>
-            <Link href="/dashboard">
-              <Image src={logo} />
-            </Link>
-            </div>
-              <div className="relative group">
-                <input
-                  id="label"
-                  className="rounded-md w-[100%] sm:w-[15rem] md:w-[20rem]   border-[1px] border-gray-500 outline-none py-2 px-4 text-sm placeholder:text-gray-600 placeholder:font-semibold"
-                  type="text"
-                  onChange={handleChange}
-                  placeholder="Sarlavha"
-                  value={quizData.title}
-                  name="title"
-                />
+              <div className="w-[9rem] hidden lg:block leading-[100%] cursor-pointer">
+                <Link href="/dashboard">
+                  <Image src={logo} />
+                </Link>
               </div>
             </div>
             <div className="flex space-x-2">
               <button
-                className="w-full rounded-lg py-2 px-2 sm:px-8 cursor-pointer active:scale-95
-                shadow-[rgb(0_0_0_/_15%)_0px_2px_4px_0px] text-sm duration-300 border bg-white hover:bg-gray-100  active:bg-opacity-80
-                ease-in-out md:text-sm text-black font-semibold"
+                className="w-full rounded-lg p-2 sm:px-8 active:scale-95 text-sm duration-300 bg-rose-500 hover:bg-rose-600 active:bg-opacity-80
+                ease-in-out md:text-sm text-white font-semibold"
                 onClick={() => router.push('/dashboard/profile')}
               >
                 Chiqish
-              </button>
-              <button
-                className="w-full rounded-lg py-2 px-2 sm:px-8 cursor-pointer active:scale-95 
-               shadow-[rgb(0_0_0_/_15%)_0px_2px_4px_0px] text-sm duration-300 border bg-[#1a5cff] hover:bg-[#0d51fd]  active:bg-opacity-80
-               ease-in-out md:text-sm text-white font-semibold"
-                onClick={createQuest}
-              >
-                Jo&apos;natish
               </button>
             </div>
           </div>
@@ -336,11 +319,14 @@ const CreateTest = () => {
         </div>
         <div className="lg:w-full px-6  lg:mb-6">
           <button
-            className="btn text-sm btn-info w-12 h-12 lg:h-auto flex shadow-[rgb(0_0_0_/_25%)_0px_-4px_inset]  justify-center items-center lg:w-full bg-[#1a5cff] text-white rounded-lg py-3  px-3  cursor-pointer"
+            className="text-sm w-12 h-12 lg:h-auto flex shadow-[rgb(0_0_0_/_25%)_0px_-4px_inset]  justify-center items-center lg:w-full bg-[#1a5cff] text-white rounded-lg py-3  px-3  cursor-pointer"
             type="button"
             onClick={() => addFormFields()}
           >
-           <span className='lg:block hidden'> Savol qo`shish</span>  <span className='lg:hidden text-lg'><BsPlusLg/></span> 
+            <span className="lg:block hidden"> Savol qo`shish</span>{' '}
+            <span className="lg:hidden text-lg">
+              <BsPlusLg />
+            </span>
           </button>
         </div>
       </div>
@@ -364,11 +350,11 @@ const CreateTest = () => {
                       key={item.id}
                       className={
                         item.bgColor === 'red'
-                          ? ` bg-[#e21b3c]  create-blokTwo`
+                          ? ` bg-[#e21b3c] create-blokTwo`
                           : item.bgColor === 'blue'
-                          ? `bg-[#1368ce]  create-blokTwo`
+                          ? `bg-[#1368ce] create-blokTwo`
                           : item.bgColor === 'yellow'
-                          ? `bg-[#d89e00] create-blokTwo`
+                          ? `bg-[#FFA217] create-blokTwo`
                           : item.bgColor === 'gren'
                           ? `bg-[#26890c] create-blokTwo`
                           : ''
@@ -397,7 +383,7 @@ const CreateTest = () => {
                       </div>
                       <input
                         type="text"
-                        className="w-full h-[32px] outline-none rounded-lg bg-[rgb(0_0_0_/_10%)] text-white text-[20px] pl-[10px]"
+                        className="w-full outline-none rounded-lg bg-[rgb(0_0_0_/_10%)] text-white text-[20px] pl-[10px]"
                         value={item.body || ''}
                         name={'body'}
                         onChange={(e) => getValue2(testId, i, e)}
@@ -449,16 +435,13 @@ const CreateTest = () => {
         </div>
         <div className="flex flex-col  h-full w-full shadow-lg items-center p-3 pt-7">
           <div className="flex flex-col items-start w-full">
-            <label className="text-[16px] pb-2 text-gray-700 flex items-center gap-2">
-              <div className='text-xl'>
-              <RiQuestionnaireLine/>
-              </div>
+            <label className="font-normal text-base mt-1 md:text-lg text-gray-700">
               Savol ko`rinishi:{' '}
             </label>
             <select
               onChange={handleChangeVisibilty}
-              className="w-full text-[16px]  border:text-[204_204_204] py-[0.3rem] px-[0.2rem] rounded-[0.3rem] mb-4 !outline-1 outline-indigo-400 border-[1px] border-[gray] 
-            bg-[#fff]"
+              className="w-full text-base border:text-[204_204_204] p-2 rounded-[0.3rem] mb-4 !outline-1 border border-gray-400 
+              bg-[#fff]"
             >
               {visibility.map((item) => {
                 return (
@@ -470,15 +453,12 @@ const CreateTest = () => {
             </select>
           </div>
           <div className="flex flex-col items-start w-full">
-            <label className="text-[16px] pb-2 text-gray-700 flex items-center gap-2">
-              <div className='text-xl'>
-                <WiTime12/>
-              </div>
+            <label className="font-normal text-base md:text-lg text-gray-700">
               Vaqt chegarasi
             </label>
             <select
               onChange={handleChangetime}
-              className="w-full text-[16px] border:text-[204_204_204] py-[0.3rem] px-[0.2rem] rounded-[0.3rem] mb-4 !outline-1 outline-indigo-400 border-[1px] border-[gray] 
+              className="w-full text-base border:text-[204_204_204] p-2 rounded-[0.3rem] mb-4 !outline-1 border border-gray-400 
              bg-[#fff]"
             >
               {time.map((item) => {
@@ -492,10 +472,27 @@ const CreateTest = () => {
           </div>
 
           <div className="w-full">
-            <label className="font-bold text-lg text-gray-500">Tavsif</label>
+            <label className="font-normal text-base mt-1 md:text-lg text-gray-700">
+              Sarlovha
+            </label>
+            <input
+              id="label"
+              className="w-full text-base border:text-[204_204_204] p-2 rounded-[0.3rem] mb-4 !outline-1 border border-gray-400 
+              bg-[#fff]"
+              type="text"
+              onChange={handleChange}
+              placeholder="Sarlavha"
+              value={quizData.title}
+              name="title"
+            />
+
+            <label className="font-normal text-base mt-1 md:text-lg text-gray-700">
+              Tavsif
+            </label>
 
             <textarea
-              className="w-[100%] border-gray-300 border-[1px] outline-none py-2 px-2 text-sm  duration-200 placeholder-gray-800"
+              className="w-full text-base border:text-[204_204_204] p-2 rounded-[0.3rem] mb-4 !outline-1 border border-gray-400 
+              bg-[#fff]"
               placeholder="Misol: Dunyo aholisi haqida "
               name="description"
               value={quizData.description}
@@ -503,6 +500,12 @@ const CreateTest = () => {
               cols="30"
               rows="3"
             ></textarea>
+            <button
+              className="text-sm w-12 h-12 lg:h-auto flex shadow-[rgb(0_0_0_/_25%)_0px_-4px_inset]  justify-center items-center lg:w-full bg-[#1a5cff] text-white rounded-lg py-3  px-3  cursor-pointer"
+              onClick={createQuest}
+            >
+              Saqlash
+            </button>
           </div>
         </div>
       </div>

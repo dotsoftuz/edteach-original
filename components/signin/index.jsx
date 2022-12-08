@@ -19,7 +19,7 @@ const SignIn = () => {
   return (
     <div className="flex items-center justify-center h-screen">
       <div className="mx-auto w-96 max-w-lg">
-        <h1 className="text-center text-2xl font-bold text-indigo-600 sm:text-3xl">
+        <h1 className="text-center text-2xl font-bold text-blue-600 sm:text-3xl">
           Kirish
         </h1>
         <div>
@@ -39,7 +39,7 @@ const SignIn = () => {
               <input
                 type="email"
                 id="email"
-                className="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm"
+                className="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm border"
                 placeholder="Enter email"
                 ref={emailRef}
               />
@@ -72,7 +72,7 @@ const SignIn = () => {
               <input
                 type={showPassword ? 'text' : 'password'}
                 id="password"
-                className="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm"
+                className="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm border"
                 placeholder="Enter password"
                 ref={psdRef}
               />
@@ -107,18 +107,20 @@ const SignIn = () => {
 
           <button
             type="submit"
-            className="block w-full rounded-lg  bg-green-400  px-5 py-3 text-sm font-medium text-white"
+            className="block w-full rounded-lg  bg-blue-500 hover:bg-blue-600 active:scale-95 duration-200  px-5 py-3 text-sm font-medium text-white"
           >
             Kirish
           </button>
 
-          <p className="text-center text-sm text-gray-500">
-            Hali ro`yxatdan o`tmadingizmi?
-            <br />
-            <span className="cursor-pointer" onClick={() => setRegistry(true)}>
+          <div className="text-center text-sm text-gray-500">
+            <p>Hali ro`yxatdan o`tmadingizmi?</p>
+            <p
+              className="cursor-pointer hover:underline mt-1 "
+              onClick={() => setRegistry(true)}
+            >
               Ro`yxatdan o`tish
-            </span>
-          </p>
+            </p>
+          </div>
         </form>
       </div>
     </div>

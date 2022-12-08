@@ -75,7 +75,7 @@ const Tests = () => {
               onChange={(event) => {
                 setSearchTerm(event.target.value);
               }}
-              placeholder="Testlarni qidiring."
+              placeholder="Testlarni izlash."
             />
             <span className="absolute top-1/2 right-4 transform -translate-y-1/2">
               <svg
@@ -165,15 +165,13 @@ const Tests = () => {
                         : 'flex flex-row space-x-2 md:space-x-4'
                     } relative p-2 md:p-4 rounded-lg  bg-white shadow-xl`}
                   >
-                    <Link href={`/dashboard/question/${val.id}`}>
-                      <img
-                        className={`${
-                          testCard ? 'h-56 w-full' : 'h-32 md:h-56 w-36 md:w-72'
-                        } rounded-lg object-cover cursor-pointer`}
-                        src="/images/testbg.png"
-                        alt="test image"
-                      />
-                    </Link>
+                    <img
+                      className={`${
+                        testCard ? 'h-56 w-full' : 'h-32 md:h-56 w-36 md:w-72'
+                      } rounded-lg object-cover`}
+                      src="/images/testbg.png"
+                      alt="test image"
+                    />
                     <div className="flex flex-grow flex-col justify-between">
                       <div className="w-full overflow-hidden">
                         <span className="bg-blue-500 text-white text-xs font-semibold px-1 rounded-full">
@@ -190,7 +188,7 @@ const Tests = () => {
                       </div>
                       <div>
                         <div className="flex items-center space-x-2">
-                          <h2 className="text-sm md:text-base font-semibold">
+                          <h2 className="text-sm text-gray-700 md:text-base font-semibold">
                             Umumiy testlar soni:
                           </h2>
                           <span className="bg-blue-500 text-white text-xs font-semibold px-1 rounded-full">
@@ -198,10 +196,10 @@ const Tests = () => {
                           </span>
                         </div>
                         <div className="flex items-center space-x-2 mb-2">
-                          <h2 className="text-sm md:text-base font-semibold">
+                          <h2 className="text-sm text-gray-700 md:text-base font-semibold">
                             Test yaratilgan vaqt:
                           </h2>
-                          <span className="text-xs font-semibold px-1 rounded-full">
+                          <span className="text-sm text-gray-700 font-semibold px-1 rounded-full">
                             {getUsertime(new Date(val.prefixTime))}
                           </span>
                         </div>
@@ -217,7 +215,7 @@ const Tests = () => {
                         onClick={() => handleDelete(val.id)}
                         className="flex items-center space-x-1 hover:text-rose-500 cursor-pointer"
                       >
-                        <BsTrash className="mt-1" />
+                        <BsTrash className="" />
                         <h5 className="text-lg font-semibold hidden md:block">
                           O&apos;chirish
                         </h5>
@@ -234,7 +232,7 @@ const Tests = () => {
                               viewBox="0 0 24 24"
                               strokeWidth={1.5}
                               stroke="currentColor"
-                              className="w-5 h-5 mt-1"
+                              className="w-5 h-5"
                             >
                               <path
                                 strokeLinecap="round"
