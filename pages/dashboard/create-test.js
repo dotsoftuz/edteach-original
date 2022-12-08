@@ -59,7 +59,7 @@ const CreateTest = () => {
   const { uid } = useUserContext();
   const questColl = collection(db, `question`);
 
-  const [questionTime, setQuestionTime] = useState(30);
+  const [questionTime, setQuestionTime] = useState(15);
   const [questionVisibility, setQuestionVisibility] = useState('public');
 
   const router = useRouter();
@@ -126,6 +126,10 @@ const CreateTest = () => {
   };
 
   const time = [
+    {
+      name: '15 soniya',
+      value: 15,
+    },
     {
       name: '30 soniya',
       value: 30,

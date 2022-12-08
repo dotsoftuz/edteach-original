@@ -116,7 +116,7 @@ function UseFul() {
             </li>
           </ul>
 
-          <div
+          {/* <div
             className={
               activeDialog
                 ? 'fixed top-0 left-0 bottom-0 right-0 flex items-center justify-center z-50 '
@@ -180,7 +180,7 @@ function UseFul() {
                 </li>
               </ul>
             </div>
-          </div>
+          </div> */}
         </div>
       </Sidebar>
     </>
