@@ -26,18 +26,18 @@ function UseFul() {
           active
         />
         <div className="container mx-auto">
-          <ul className=" grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-10 w-full md:w-fit px-5 md:px-0 ">
+          <ul className=" grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-10 w-full md:w-fit px-5 md:px-0 mx-auto ">
             <Link href="/dashboard/links">
               <li className="snap-center cursor-pointer w-full  rounded-3xl transition-all">
                 <div className="relative flex-shrink-0 w-full">
                   <div className="absolute w-full h-full inset-0 image-fulled">
-                    <Image src={img1} alt="project images" />
+                    <Image src={img5} alt="project images" />
                   </div>
-                  <div className="absolute inset-0 h-full w-full bg-gradient-to-br from-black/30  rounded-3xl" />
-                  <div className="relative h-64 md:h-96 w-full py-8 px-5 md:p-8 lg:p-12 flex flex-col justify-between items-start">
+                  <div className="absolute inset-0 h-full w-full bg-gradient-to-b from-black/80  rounded-3xl" />
+                  <div className="relative h-64 md:h-96 w-full py-8 px-5 md:p-8 lg:p-8 flex flex-col justify-between items-start">
                     <div>
                       <h2 className="mt-0 text-2xl md:text-3xl font-semibold tracking-tight text-white">
-                        Milliy segmentdagi ilmiy bazalar
+                        Xorijiy segmentdagi ilmiy bazalar
                       </h2>
                     </div>
                   </div>
@@ -47,13 +47,17 @@ function UseFul() {
             <li className="snap-center w-full  rounded-3xl transition-all cursor-not-allowed">
               <div className="relative flex-shrink-0 w-full">
                 <div className="absolute w-full h-full inset-0 image-fulled">
-                  <Image src={img5} alt="project images" />
+                  <Image
+                    src={img1}
+                    alt="project images"
+                    className="grayscale"
+                  />
                 </div>
-                <div className="absolute inset-0 h-full w-full bg-gradient-to-br from-black/30  rounded-3xl" />
-                <div className="relative h-64 md:h-96 w-full py-8 px-5 md:p-8 lg:p-12 flex flex-col justify-between items-start">
+                <div className="absolute inset-0 h-full w-full bg-gradient-to-b from-black/80  rounded-3xl" />
+                <div className="relative h-64 md:h-96 w-full py-8 px-5 md:p-8 lg:p-8 flex flex-col justify-between items-start">
                   <div>
                     <h2 className="mt-0 text-2xl md:text-3xl font-semibold tracking-tight text-white">
-                      Xorijiy segmentdagi ilmiy bazalar
+                      Milliy segmentdagi ilmiy bazalar
                     </h2>
                     <p className="text-sm font-semibold md:text-lg  text-green-500">
                       Tez orada qo`shiladi
@@ -67,10 +71,14 @@ function UseFul() {
             <li className="snap-center w-full  rounded-3xl cursor-not-allowed">
               <div className="relative flex-shrink-0 w-full transition-all">
                 <div className="absolute w-full h-full inset-0 image-fulled">
-                  <Image src={img2} alt="project images" />
+                  <Image
+                    src={img2}
+                    alt="project images"
+                    className="grayscale"
+                  />
                 </div>
-                <div className="absolute inset-0 h-full w-full bg-gradient-to-br from-black/30  rounded-3xl" />
-                <div className="relative h-64 md:h-96 w-full py-8 px-5 md:p-8 lg:p-12 flex flex-col justify-between items-start">
+                <div className="absolute inset-0 h-full w-full bg-gradient-to-b from-black/80  rounded-3xl" />
+                <div className="relative h-64 md:h-96 w-full py-8 px-5 md:p-8 lg:p-8 flex flex-col justify-between items-start">
                   <div>
                     <h2 className="mt-0 text-2xl md:text-3xl font-semibold tracking-tight text-white">
                       Onlayn videoaloqa
@@ -85,10 +93,14 @@ function UseFul() {
             <li className="snap-center w-full  rounded-3xl cursor-not-allowed transition-all">
               <div className="relative flex-shrink-0 w-full">
                 <div className="absolute w-full h-full inset-0 image-fulled">
-                  <Image src={img3} alt="project images" />
+                  <Image
+                    src={img3}
+                    alt="project images"
+                    className="grayscale"
+                  />
                 </div>
-                <div className="absolute inset-0 h-full w-full bg-gradient-to-br from-black/30  rounded-3xl" />
-                <div className="relative h-64 md:h-96 w-full py-8 px-5 md:p-8 lg:p-12 flex flex-col justify-between items-start">
+                <div className="absolute inset-0 h-full w-full bg-gradient-to-b from-black/80  rounded-3xl" />
+                <div className="relative h-64 md:h-96 w-full py-8 px-5 md:p-8 lg:p-8 flex flex-col justify-between items-start">
                   <div>
                     <h2 className="mt-0 text-2xl md:text-3xl font-semibold tracking-tight text-white">
                       Uyga topshiriq
@@ -104,10 +116,14 @@ function UseFul() {
             <li className="snap-center w-full  rounded-3xl cursor-not-allowed transition-all">
               <div className="relative flex-shrink-0 w-full">
                 <div className="absolute w-full h-full inset-0 image-fulled">
-                  <Image src={img4} alt="project images" />
+                  <Image
+                    src={img4}
+                    alt="project images"
+                    className="grayscale"
+                  />
                 </div>
-                <div className="absolute inset-0 h-full w-full bg-gradient-to-br from-black/30  rounded-3xl" />
-                <div className="relative h-64 md:h-96 w-full py-8 px-5 md:p-8 lg:p-12 flex flex-col justify-between items-start">
+                <div className="absolute inset-0 h-full w-full bg-gradient-to-b from-black/80  rounded-3xl" />
+                <div className="relative h-64 md:h-96 w-full py-8 px-5 md:p-8 lg:p-8 flex flex-col justify-between items-start">
                   <div>
                     <h2 className="mt-0 text-2xl md:text-3xl font-semibold tracking-tight text-white">
                       Taqdimot namoyish etish

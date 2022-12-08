@@ -77,6 +77,19 @@ body {
   .heighBox {
     @apply !max-h-[120px];
   }
+
+  .link-card{
+    @apply w-[300px] h-24 flex items-center gap-2 justify-between p-4 text-gray-700 rounded-xl bg-gray-200/70 duration-100 cursor-pointer
+  }
+  .link-card:hover{
+    @apply bg-gray-700 text-white
+  }
+  .link-card:hover #link-icon{
+    @apply  translate-x-[5px] duration-500 rotate-[45deg]
+  }
+  #link-icon{
+    @apply duration-500
+  }
 }
 
 .shim-red {
