@@ -5,6 +5,11 @@
 html {
   scroll-behavior: smooth;
 }
+
+body {
+  font-family: Poppins, 'sans-serif';
+}
+
 .page-section {
   position: relative;
   padding: 0;
@@ -28,19 +33,19 @@ html {
     @apply !h-full;
   }
   .about-img span img {
-    @apply rounded-3xl min-h-full  object-cover object-center !inset-0;
+    @apply rounded-3xl min-h-full object-cover object-center !inset-0;
   }
 
   .create-blok {
-    @apply flex items-center p-[10px] w-full md:w-[30rem] lg:w-[35rem] xl:w-[40rem] pl-5 h-[5rem] md:h-[7rem] gap-5 rounded-lg shadow-[0__1px_3px_#80858b];
+    @apply flex items-center p-[10px] w-full md:w-[30rem] lg:w-[35rem] xl:w-[40rem] pl-5 h-[5rem] md:h-[7rem] gap-5 rounded-lg;
   }
 
   .create-blokTwo {
-    @apply flex items-center p-[10px] w-full  pl-5 h-[5rem] md:h-[7rem] gap-5 rounded-lg shadow-[0__1px_3px_#80858b];
+    @apply flex items-center p-[10px] w-full px-5 h-[5rem] md:h-[7rem] gap-5 rounded-2xl ;
   }
 
   .image-fulled span img {
-    @apply rounded-3xl   object-cover object-center;
+    @apply rounded-3xl object-cover object-center;
   }
 
   .portBox span {
@@ -69,8 +74,8 @@ html {
   td {
     @apply p-2 border;
   }
-  .heighBox{
-    @apply !max-h-[120px]
+  .heighBox {
+    @apply !max-h-[120px];
   }
 }
 

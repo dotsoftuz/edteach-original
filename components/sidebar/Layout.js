@@ -43,7 +43,7 @@ const Layout = () => {
               onChange={(event) => {
                 setSearchTerm(event.target.value);
               }}
-              placeholder="Testlarni qidiring."
+              placeholder="Testlarni izlash."
             />
             <span className="absolute top-1/2 right-4 transform -translate-y-1/2">
               <svg
@@ -134,17 +134,13 @@ const Layout = () => {
                           : 'flex flex-row space-x-2 md:space-x-4'
                       } relative p-2 md:p-4 rounded-lg bg-white shadow-xl`}
                     >
-                      <Link href={`/dashboard/question/${val.id}`}>
-                        <img
-                          className={`${
-                            testCard
-                              ? 'h-56 w-full'
-                              : 'h-32 md:h-56 w-36 md:w-72'
-                          } rounded-lg  object-cover cursor-pointer`}
-                          src="/images/testbg.png"
-                          alt="test image"
-                        />
-                      </Link>
+                      <img
+                        className={`${
+                          testCard ? 'h-56 w-full' : 'h-32 md:h-56 w-36 md:w-72'
+                        } rounded-lg  object-cover`}
+                        src="/images/testbg.png"
+                        alt="test image"
+                      />
                       <div className="flex flex-col justify-between">
                         <div>
                           <span className="bg-blue-500 text-white text-xs font-semibold px-1 rounded-full">
@@ -166,16 +162,15 @@ const Layout = () => {
                               {val.questionList.length} ta
                             </span>
                           </div>
-                          <h2 className="text-xs font-semibold">
+                          <h2 className="text-sm text-gray-700 font-semibold">
                             Yaratuvchi: {val.createrName}
                           </h2>
-                          <h2 className="text-xs font-semibold mb-2">
+                          <h2 className="text-sm text-gray-700 font-semibold mb-2">
                             Test yaratilgan vaqt:{' '}
                             {getUsertime(new Date(val.prefixTime))}
                           </h2>
                         </div>
                       </div>
-                      
                     </div>
                   </>
                 );
