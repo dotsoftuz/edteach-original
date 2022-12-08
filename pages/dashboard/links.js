@@ -153,24 +153,15 @@ function Links(props) {
         active
       />
 
-      <div className="md:pl-7 lg:pl-0 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 gap-y-4 ">
+      <div className="flex gap-2 flex-wrap p-[20px]">
         {db.map((item) => (
           <>
-            <div className="relative w-[93%] mx-auto h-80 rounded-lg">
-              <a href={item.name} target="_blank" rel="noopener noreferrer">
-                <img
-                  className="w-full h-full rounded-lg object-cover"
-                  src="https://nextui.org/images/card-example-2.jpeg"
-                  alt="image"
-                />
-                <div className="absolute rounded-b-lg p-2 flex items-center bottom-0 left-0 bg-white h-14 md:h-16 w-full bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-70">
-                  <p className="font-semibold hover:underline text-sm">
-                    {item.link}
-                  </p>
-                  <FiArrowUpRight className="absolute bottom-3 md:bottom-4 right-2 bg-white p-3 rounded-full text-4xl" />
-                </div>
-              </a>
-            </div>
+            <a className="link-card" href={item.name} target="_blank" rel="noreferrer">
+              {item.link}{' '}
+              <div className='bg-white shadow-lg text-black p-2 rounded-full' id="link-icon" >
+                <FiArrowUpRight className="text-xl" />
+              </div>
+            </a>
           </>
         ))}
       </div>
