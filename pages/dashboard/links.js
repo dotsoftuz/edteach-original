@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import React from 'react';
 import { Sidebar, Breadcrumb } from 'components';
+import { FiArrowUpRight } from 'react-icons/fi';
 
 function Links(props) {
   return (
@@ -12,8 +13,21 @@ function Links(props) {
         link="/dashboard"
         active
       />
-      <div className="">
-        <ul className="divide-y divide-gray-200 my-5">
+      <div className="md:pl-7 lg:pl-0 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 group">
+        <div className="relative w-[93%] mx-auto h-80 md:w-72 rounded-lg">
+          <a href="http://" target="_blank" rel="noopener noreferrer">
+            <img
+              className="w-full h-full rounded-lg object-cover"
+              src="https://nextui.org/images/card-example-2.jpeg"
+              alt=""
+            />
+            <div className="absolute rounded-b-lg p-2 flex items-center bottom-0 left-0 bg-white h-14 md:h-16 w-full bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-70">
+              <p className="font-semibold group-hover:underline">Link title</p>
+              <FiArrowUpRight className="absolute bottom-3 md:bottom-4 right-2 bg-white p-3 rounded-full text-4xl" />
+            </div>
+          </a>
+        </div>
+        {/* <ul className="divide-y divide-gray-200 my-5">
           <li className="pb-3 sm:pb-4 cursor-pointer">
             <div className="flex items-center space-x-4">
               <div className="flex-1 min-w-0">
@@ -1015,7 +1029,7 @@ function Links(props) {
               </div>
             </div>
           </li>
-        </ul>
+        </ul> */}
       </div>
     </Sidebar>
   );
