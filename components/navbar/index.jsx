@@ -48,7 +48,6 @@ const Header = () => {
                     </a>
                   </Link>
                 </li>
-         
                 <li>
                   <Link href="/#price">
                     <a className="text-lg font-medium text-slate-700 duration-200 hover:text-blue-600 lg:text-base">

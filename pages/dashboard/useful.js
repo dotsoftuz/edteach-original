@@ -149,11 +149,11 @@ function UseFul() {
                       <div className="absolute w-full h-full inset-0 image-fulled">
                         <Image src={img5} alt="project images" />
                       </div>
-                      <div className="absolute inset-0 h-full w-[50%] bg-gradient-to-br from-black/30  rounded-3xl" />
-                      <div className="relative h-64 md:h-96 w-[50%] py-8 px-5 md:p-8 lg:p-12 flex flex-col justify-between items-start">
+                      <div className='absolute inset-0 bg-[rgba(0,_0,_0,_.5)] rounded-3xl'></div>
+                      <div className="relative h-64 md:h-96  py-8 px-5 md:p-8 lg:p-12 flex flex-col justify-between items-start">
                         <div>
                           <h2 className="mt-0 text-2xl md:text-3xl font-semibold tracking-tight text-white">
-                            Xorijiy ilmiy texnik-bazalar
+                            Xorijiy ilmiy <br className='hidden md:block'/> texnik-bazalar
                           </h2>
                         </div>
                       </div>
@@ -165,11 +165,11 @@ function UseFul() {
                     <div className="absolute w-full h-full inset-0 image-fulled">
                       <Image src={img6} alt="project images" />
                     </div>
-                    <div className="absolute inset-0 h-full w-[50%] bg-gradient-to-br from-black/30  rounded-3xl" />
-                    <div className="relative h-64 md:h-96 w-[50%] py-8 px-5 md:p-8 lg:p-12 flex flex-col justify-between items-start">
+                    <div className='absolute inset-0 bg-[rgba(0,_0,_0,_.5)] rounded-3xl'></div>
+                    <div className="relative h-64 md:h-96  py-8 px-5 md:p-8 lg:p-12 flex flex-col justify-between items-start">
                       <div>
                         <h2 className="mt-0 text-2xl md:text-3xl font-semibold tracking-tight text-white">
-                          Milliy kontentdagi ilmiy faoliyatiga doir bazalar
+                          Milliy kontentdagi ilmiy <br className='hidden xl:block'/> faoliyatiga doir bazalar
                         </h2>
                         <p className="text-sm font-semibold md:text-lg  text-green-500">
                           Tez orada qo`shiladi
