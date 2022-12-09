@@ -13,7 +13,7 @@ const Header = () => {
       <div className="mx-auto h-[70px] container">
         <div className="relative flex h-full items-center justify-between border-b border-slate-500/10">
           {/* <!-- logo --> */}
-          <div className="w-[15rem] max-w-full text-2xl font-semibold">
+          <div className="w-[15rem] max-w-full text-2xl font-semibold cursor-pointer">
             <Link href="/">
               <Image src={logo} />
             </Link>
@@ -59,6 +59,13 @@ const Header = () => {
                   <Link href="/#contact">
                     <a className="text-lg font-medium text-slate-700 duration-200 hover:text-blue-600 lg:text-base">
                       Aloqa
+                    </a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/#doc">
+                    <a className="text-lg font-medium text-slate-700 duration-200 hover:text-blue-600 lg:text-base">
+                      Hujjat
                     </a>
                   </Link>
                 </li>

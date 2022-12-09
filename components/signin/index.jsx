@@ -1,7 +1,9 @@
-import toast from 'kutty/src/toast';
+import { toast, Toast } from 'react-hot-toast';
+
 import React, { useState, useRef } from 'react';
 import { Toaster } from 'react-hot-toast';
 import { useUserContext } from '../../context/userContext';
+
 
 const SignIn = () => {
   const emailRef = useRef();
@@ -12,18 +14,24 @@ const SignIn = () => {
     e.preventDefault();
     const email = emailRef.current.value;
     const password = psdRef.current.value;
-    if (email && password) signInUser(email, password);
+    if (email && password) { signInUser(email, password) } else {
+      toast.error('Email yoki parol xato')
+    }
   };
   const [showPassword, setShowPassword] = useState(false);
 
   return (
-    <div className="flex items-center justify-center h-screen">
+    <div className="flex items-center justify-center h-[80vh]">
+
       <div className="mx-auto w-96 max-w-lg">
         <h1 className="text-center text-2xl font-bold text-blue-600 sm:text-3xl">
           Kirish
         </h1>
         <div>
-          <Toaster />
+          <Toaster
+            position="top-center"
+            reverseOrder={false}
+          />
         </div>
 
         <form
@@ -113,12 +121,12 @@ const SignIn = () => {
           </button>
 
           <div className="text-center text-sm text-gray-500">
-            <p>Hali ro`yxatdan o`tmadingizmi?</p>
+            <p>Hali ro&apos;yxatdan o&apos;tmadingizmi?</p>
             <p
               className="cursor-pointer hover:underline mt-1 "
               onClick={() => setRegistry(true)}
             >
-              Ro`yxatdan o`tish
+              Ro&apos;yxatdan o&apos;tish
             </p>
           </div>
         </form>
