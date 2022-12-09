@@ -20,18 +20,18 @@ const SignUp = () => {
   return (
     <div className="flex items-center justify-center h-screen">
       <div className="mx-auto w-96 max-w-lg">
-        <h1 className="text-center text-2xl font-bold text-indigo-600 sm:text-3xl">
-          Ro`yxatdan o`tish
+        <h1 className="text-center text-2xl font-bold text-blue-600 sm:text-3xl">
+          Ro&apos;yxatdan o&apos;tish
         </h1>
 
         <form
-          action=""
+
           onSubmit={onSubmit}
           className="mt-6 mb-0 space-y-4 rounded-lg p-8 shadow-2xl"
         >
           <div>
             <label htmlFor="fullname" className="text-sm font-medium">
-              F.I.SH
+              Ismingiz
             </label>
 
             <div className="relative mt-1">
@@ -39,7 +39,7 @@ const SignUp = () => {
                 type="text"
                 id="fullname"
                 className="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm"
-                placeholder="F.I.SH ni kiriting"
+                placeholder="Ismingizni kiriting"
                 ref={nameRef}
               />
             </div>
@@ -94,7 +94,7 @@ const SignUp = () => {
 
               <span
                 onClick={() => setShowPassword(!showPassword)}
-                className="absolute inset-y-0 right-4 inline-flex items-center"
+                className="absolute inset-y-0 right-4 inline-flex items-center cursor-pointer"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -123,15 +123,15 @@ const SignUp = () => {
           <button
             onClick={onSubmit}
             type="submit"
-            className="block w-full rounded-lg  bg-green-400 px-5 py-3 text-sm font-medium text-white"
+            className="block w-full rounded-lg  bg-blue-500 hover:bg-blue-600 active:scale-95 duration-200  px-5 py-3 text-sm font-medium text-white"
           >
-            Ro`yxatdan o`tish
+            Ro&apos;yxatdan o&apos;tish
           </button>
 
           <p className="text-center text-sm text-gray-500">
-            Profilingiz bormi?
+            Hisobingiz bormi?
             <br />
-            <span className="cursor-pointer" onClick={() => setRegistry(false)}>
+            <span className="cursor-pointer hover:underline mt-1" onClick={() => setRegistry(false)}>
               Kirish
             </span>
           </p>

@@ -19,6 +19,7 @@ export { default as Blog } from './blog/index';
 export { default as Price } from './price/index';
 export { default as Contact } from './contact/index';
 export { default as Sidebar } from './sidebar/Sidebar';
+export { default as Doc } from './doc/index';
 
 // UI kits
 export { default as Breadcrumb } from './ui-kits/breadcrumbs/index';
