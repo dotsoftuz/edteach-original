@@ -17,9 +17,8 @@ const Footer = () => {
           </a>
         </p>
         <div className="flex items-center space-x-3 md:space-x-6">
-          <a href="#">
-            <span className="sr-only">Telegram</span>
-            <Image src={Telegram} alt="" width={27} height={27} />
+          <a className='mt-1' href="#">
+            <Image src={Telegram} alt="" width={20} height={20} />
           </a>
           <a href="#">
             <span className="sr-only">Instagram</span>
