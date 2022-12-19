@@ -460,12 +460,12 @@ function GameID() {
                       <div className="text-base sm:text-lg md:text-xl font-semibold">
                         O&apos;yinga qo&apos;shilish uchun: <br />
                         <a
-                          href="https://edteach-original-play-game.vercel.app/"
+                          href="https://play.edteach.uz/"
                           target="_blank"
                           rel="noreferrer"
                           className="font-bold cursor-pointer hover:text-blue-500"
                         >
-                          www.edteach-game.uz
+                          www.play.edteach.uz
                         </a>{' '}
                         ga o&apos;ting!
                       </div>
