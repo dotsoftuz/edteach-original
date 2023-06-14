@@ -222,7 +222,7 @@ function GameID() {
                           className={
                             questionCount === 0
                               ? 'hidden'
-                              : 'visible flex items-center space-x-1 text-5xl font-semibold lg:text-7xl'
+                              : 'visible flex items-center space-x-1 text-xl font-semibold lg:text-7xl'
                           }
                         >
                           {game.questionList[game.questionIndex].question}
@@ -267,16 +267,18 @@ function GameID() {
                           )}
                         </div>
                         <div
-                          className={`${time === 0 ? 'hidden' : ''
-                            } absolute top-1/2 left-1/2 md:left-10 z-50 transform -translate-y-1/2 -translate-x-1/2 md:-translate-x-0 w-20 h-20 md:w-32 md:h-32 rounded-full flex items-center justify-center bg-blue-500 text-white`}
+                          className={`${
+                            time === 0 ? 'hidden' : ''
+                          } absolute md:top-1/2 top-1/4 left-1/2 md:left-10 z-50 transform -translate-y-1/2 -translate-x-1/2 md:-translate-x-0 w-20 h-20 md:w-32 md:h-32 rounded-full flex items-center justify-center bg-blue-500 text-white`}
                         >
                           <p className="visible text-4xl font-semibold md:text-5xl md:font-bold text-white">
                             {time}
                           </p>
                         </div>
                         <div
-                          className={`${time === 0 ? '' : ''
-                            } absolute top-2 ml-3 md:ml-0 md:top-1/2 md:right-10 z-50 md:transform md:-translate-y-1/2 md:w-32 md:h-32 md:rounded-full md:flex md:items-center md:justify-center`}
+                          className={`${
+                            time === 0 ? '' : ''
+                          } absolute top-2 ml-3 md:ml-0 md:top-1/2 md:right-10 z-50 md:transform md:-translate-y-1/2 md:w-32 md:h-32 md:rounded-full md:flex md:items-center md:justify-center`}
                         >
                           <h2 className="text-3xl font-semibold md:text-5xl md:font-bold text-gray-800">
                             {game.questionIndex + 1}/{game.questionList.length}
@@ -302,53 +304,54 @@ function GameID() {
                                         ? ' bg-[#e21b3c] create-blok'
                                         : ` bg-[#e21b3c] create-blok bg-opacity-60`
                                       : item.bgColor === 'blue'
-                                        ? item.isCorrect
-                                          ? `bg-[#1368ce] create-blok`
-                                          : `bg-[#1368ce] create-blok bg-opacity-60`
-                                        : item.bgColor === 'yellow'
-                                          ? item.isCorrect
-                                            ? `bg-[#d89e00] create-blok`
-                                            : `bg-[#d89e00] create-blok bg-opacity-60`
-                                          : item.bgColor === 'gren'
-                                            ? item.isCorrect
-                                              ? `bg-[#26890c] create-blok`
-                                              : `bg-[#26890c] create-blok bg-opacity-60`
-                                            : ''
-                                    : item.bgColor === 'red'
-                                      ? ' bg-[#e21b3c] create-blok'
-                                      : item.bgColor === 'blue'
+                                      ? item.isCorrect
                                         ? `bg-[#1368ce] create-blok`
-                                        : item.bgColor === 'yellow'
-                                          ? `bg-[#d89e00] create-blok`
-                                          : item.bgColor === 'gren'
-                                            ? `bg-[#26890c] create-blok`
-                                            : ''
+                                        : `bg-[#1368ce] create-blok bg-opacity-60`
+                                      : item.bgColor === 'yellow'
+                                      ? item.isCorrect
+                                        ? `bg-[#d89e00] create-blok`
+                                        : `bg-[#d89e00] create-blok bg-opacity-60`
+                                      : item.bgColor === 'gren'
+                                      ? item.isCorrect
+                                        ? `bg-[#26890c] create-blok`
+                                        : `bg-[#26890c] create-blok bg-opacity-60`
+                                      : ''
+                                    : item.bgColor === 'red'
+                                    ? ' bg-[#e21b3c] create-blok'
+                                    : item.bgColor === 'blue'
+                                    ? `bg-[#1368ce] create-blok`
+                                    : item.bgColor === 'yellow'
+                                    ? `bg-[#d89e00] create-blok`
+                                    : item.bgColor === 'gren'
+                                    ? `bg-[#26890c] create-blok`
+                                    : ''
                                 }
                               >
                                 <div
-                                  className={`${item.svgIcon === 'diamond'
+                                  className={`${
+                                    item.svgIcon === 'diamond'
                                       ? 'rotate-45'
                                       : ''
-                                    } w-[15px] md:!w-[30px] leading-[100%]`}
+                                  } w-[15px] md:!w-[30px] leading-[100%]`}
                                 >
                                   <Image
                                     src={
                                       item.svgIcon === 'triangle'
                                         ? `${triangle.src}`
                                         : item.svgIcon === 'square'
-                                          ? `${square.src}`
-                                          : item.svgIcon === 'circle'
-                                            ? `${circle.src}`
-                                            : item.svgIcon === 'diamond'
-                                              ? `${diamond.src}`
-                                              : ''
+                                        ? `${square.src}`
+                                        : item.svgIcon === 'circle'
+                                        ? `${circle.src}`
+                                        : item.svgIcon === 'diamond'
+                                        ? `${diamond.src}`
+                                        : ''
                                     }
                                     width="30px"
                                     height="30px"
                                   />
                                 </div>
                                 <div className="flex flex-grow">
-                                  <p className="text-white text-xl md:text-3xl font-semibold">
+                                  <p className="text-white text-xs md:text-3xl font-semibold">
                                     {item.body}
                                   </p>
                                 </div>
@@ -374,7 +377,7 @@ function GameID() {
               ) : game.status === 'result' ? (
                 <div className="flex flex-col justify-center h-screen">
                   <Link href="/dashboard">
-                    <a className='absolute top-5 left-10 font-semibold z-10  bg-[#3b82f6] py-2 px-4 text-white rounded-lg'>
+                    <a className="absolute top-5 left-10 font-semibold z-10  bg-[#3b82f6] py-2 px-4 text-white rounded-lg">
                       Chiqish
                     </a>
                   </Link>
@@ -489,8 +492,9 @@ function GameID() {
                                 setCopyPin(false);
                               }, 5000);
                             }}
-                            className={`${copyPin ? 'bg-blue-500' : 'bg-gray-500'
-                              }  hidden absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 right-0 text-lg text-white font-semibold bg-opacity-40 w-full h-full group-hover:inline-flex items-center justify-center rounded-lg`}
+                            className={`${
+                              copyPin ? 'bg-blue-500' : 'bg-gray-500'
+                            }  hidden absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 right-0 text-lg text-white font-semibold bg-opacity-40 w-full h-full group-hover:inline-flex items-center justify-center rounded-lg`}
                           >
                             {copyPin ? 'Nusxalandi!' : 'Nusxalash!'}
                           </span>

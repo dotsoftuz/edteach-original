@@ -37,7 +37,7 @@ body {
   }
 
   .create-blok {
-    @apply flex items-center p-[10px] w-full md:w-[30rem] lg:w-[35rem] xl:w-[40rem] pl-5 h-[5rem] md:h-[7rem] gap-5 rounded-lg;
+    @apply flex items-center p-[10px] w-full md:w-[30rem] lg:w-[35rem] xl:w-[40rem] pl-5 h-[10rem] md:h-[7rem] gap-5 rounded-lg;
   }
 
   .create-blokTwo {
