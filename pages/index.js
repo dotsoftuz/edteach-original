@@ -27,7 +27,6 @@ export default function Home() {
         <Blog/>
         <Price />
         <Faq/>
-        <Doc />
         <Contact />
         <Footer />
       </main>
